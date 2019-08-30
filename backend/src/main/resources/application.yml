@@ -11,3 +11,9 @@ spring:
     url: jdbc:postgresql://localhost:5432/DoTo_dev
     username: DoTo
     password: DoTo
+config:
+  security:
+    jwt:
+      secret: "DoTo-SecretKey"
+      expiration-time: 6_000_000
+      refresh-after: 600_000
