@@ -5,6 +5,7 @@ import org.mjaworski.backend.dto.user.UserDto;
 import org.mjaworski.backend.dto.user.UserLoginResponseDto;
 import org.mjaworski.backend.dto.user.UserRegisterDetailsDto;
 import org.mjaworski.backend.dto.user.UserUpdateDataDto;
+import org.mjaworski.backend.exception.bad_request.InvalidEmailException;
 import org.mjaworski.backend.exception.bad_request.InvalidPasswordException;
 import org.mjaworski.backend.exception.bad_request.InvalidUsernameException;
 import org.mjaworski.backend.exception.conflict.EmailNotUniqueException;
@@ -16,6 +17,7 @@ import org.mjaworski.backend.persistance.entity.Role;
 import org.mjaworski.backend.persistance.entity.User;
 import org.mjaworski.backend.persistance.repository.UserRepository;
 import org.mjaworski.backend.security.TokenAuthentication;
+import org.mjaworski.backend.service.EmailService;
 import org.mjaworski.backend.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,18 +40,19 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
     private static Logger logger = LoggerFactory.getLogger(UserService.class);
 
-
     private UserRepository userRepository;
     private RoleServiceImpl roleService;
     private TokenAuthentication tokenAuthentication;
     private PasswordEncoder passwordEncoder;
+    private EmailService emailService;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, RoleServiceImpl roleService, TokenAuthentication tokenAuthentication, PasswordEncoder passwordEncoder) {
+    public UserServiceImpl(UserRepository userRepository, RoleServiceImpl roleService, TokenAuthentication tokenAuthentication, PasswordEncoder passwordEncoder, EmailService emailService) {
         this.userRepository = userRepository;
         this.roleService = roleService;
         this.tokenAuthentication = tokenAuthentication;
         this.passwordEncoder = passwordEncoder;
+        this.emailService = emailService;
     }
 
     @Override
@@ -63,7 +66,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserLoginResponseDto addUser(UserRegisterDetailsDto userRegisterData, String... roles) throws RoleNotFoundException, UsernameNotUniqueException, InvalidUsernameException, InvalidPasswordException, EmailNotUniqueException {
+    public UserLoginResponseDto addUser(UserRegisterDetailsDto userRegisterData, String... roles) throws RoleNotFoundException, UsernameNotUniqueException, InvalidUsernameException, InvalidPasswordException, EmailNotUniqueException, InvalidEmailException {
         validate(userRegisterData);
 
         List<Role> rolesFromDb = roleService.getRoles(roles);
@@ -73,11 +76,11 @@ public class UserServiceImpl implements UserService {
         user.setRoles(new HashSet<>(rolesFromDb));
 
         userRepository.save(user);
-
+        emailService.sendRegisterEmail(user.getEmail(), user.getUsername());
         return UserConverter.getUserLoginDetails(user);
     }
     @Override
-    public UserLoginResponseDto updateUser(String username, UserUpdateDataDto userUpdateData, String authorizationToken) throws UserNotFoundException, ForbiddenException, UsernameNotUniqueException, InvalidUsernameException, EmailNotUniqueException {
+    public UserLoginResponseDto updateUser(String username, UserUpdateDataDto userUpdateData, String authorizationToken) throws UserNotFoundException, ForbiddenException, UsernameNotUniqueException, InvalidUsernameException, EmailNotUniqueException, InvalidEmailException {
         canPerformOperation(username, authorizationToken);
         User currentUser = userRepository.getByUsername(username)
                 .orElseThrow(UserNotFoundException::new);
@@ -117,7 +120,7 @@ public class UserServiceImpl implements UserService {
                 userRepository.getTotalCount());
     }
 
-    private void validate(UserRegisterDetailsDto userRegisterData) throws InvalidPasswordException, UsernameNotUniqueException, InvalidUsernameException, EmailNotUniqueException {
+    private void validate(UserRegisterDetailsDto userRegisterData) throws InvalidPasswordException, UsernameNotUniqueException, InvalidUsernameException, EmailNotUniqueException, InvalidEmailException {
         validateUsername(userRegisterData.getUsername());
         validatePassword(userRegisterData.getPassword());
         validateEmail(userRegisterData.getEmail());
@@ -129,9 +132,9 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    private void validate(UserUpdateDataDto userUpdateData, User currentUser) throws UsernameNotUniqueException, InvalidUsernameException, EmailNotUniqueException {
+    private void validate(UserUpdateDataDto userUpdateData, User currentUser) throws UsernameNotUniqueException, InvalidUsernameException, EmailNotUniqueException, InvalidEmailException {
         validateUsername(userUpdateData.getUsername(), currentUser.getUsername());
-        validateEmail(userUpdateData.getEmail(), currentUser.getEmail());
+        validateEmail(currentUser.getId(), userUpdateData.getEmail());
     }
 
     private void validateUsernameLength(String username) throws InvalidUsernameException {
@@ -153,14 +156,12 @@ public class UserServiceImpl implements UserService {
             throw new UsernameNotUniqueException();
         }
     }
-    private void validateEmail(String email) throws EmailNotUniqueException {
-        if (userRepository.getByEmail(email).isPresent()) {
-            throw new EmailNotUniqueException();
-        }
+    private void validateEmail(String email) throws EmailNotUniqueException, InvalidEmailException {
+        emailService.validateEmail(email);
+        emailService.checkIfEmailIsUnique(-1, email);
     }
-    private void validateEmail(String email, String currentEmail) throws EmailNotUniqueException {
-        if (!email.equals(currentEmail) && userRepository.getByEmail(email).isPresent()) {
-            throw new EmailNotUniqueException();
-        }
+    private void validateEmail(int userId, String email) throws EmailNotUniqueException, InvalidEmailException {
+        emailService.validateEmail(email);
+        emailService.checkIfEmailIsUnique(userId, email);
     }
 }

@@ -13,7 +13,7 @@ public interface UserJpaRepository extends JpaRepository<User, Integer> {
 
     @Query("SELECT u FROM User u")
     List<User> getUsersFromTo(Pageable pageable);
-    
+
     @Query("SELECT COUNT(u) FROM User u")
     int getTotalCount();
 
