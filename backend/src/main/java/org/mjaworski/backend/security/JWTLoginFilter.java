@@ -1,7 +1,7 @@
 package org.mjaworski.backend.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.mjaworski.backend.dto.user.UserLoginCredentials;
+import org.mjaworski.backend.dto.user.UserLoginCredentialsDto;
 import org.mjaworski.backend.exception.ExceptionHandler;
 import org.mjaworski.backend.utils.HttpUtils;
 import org.mjaworski.backend.utils.localization.LocalizedMessage;
@@ -35,8 +35,8 @@ public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
             HttpServletRequest req, HttpServletResponse res)
             throws AuthenticationException, IOException, ServletException {
 
-        UserLoginCredentials user = new ObjectMapper()
-                .readValue(req.getInputStream(), UserLoginCredentials.class);
+        UserLoginCredentialsDto user = new ObjectMapper()
+                .readValue(req.getInputStream(), UserLoginCredentialsDto.class);
 
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
                 user.getUsername(),

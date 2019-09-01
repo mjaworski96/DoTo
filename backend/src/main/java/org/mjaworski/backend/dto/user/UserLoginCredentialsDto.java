@@ -6,7 +6,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
-public class UserLoginCredentials {
+public class UserLoginCredentialsDto {
     private String username;
     private String password;
 }

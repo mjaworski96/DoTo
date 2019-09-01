@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
-public class UserLoginDetailsDto {
+public class UserDto {
     private String username;
     private String email;
     private List<RoleDto> roles;

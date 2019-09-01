@@ -7,7 +7,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.mjaworski.backend.converter.UserConverter;
 import org.mjaworski.backend.dto.role.RoleDto;
-import org.mjaworski.backend.dto.user.UserLoginDetailsDto;
+import org.mjaworski.backend.dto.user.UserLoginResponseDto;
 import org.mjaworski.backend.exception.unauthorized.UserNotFoundException;
 import org.mjaworski.backend.persistance.entity.Role;
 import org.mjaworski.backend.persistance.entity.User;
@@ -56,6 +56,13 @@ public class TokenAuthentication {
         return tokenAuthenticationUtils.getUsername(token).equals(username);
     }
 
+    public String getAuthoritiesSeparatedByComaFromRoles(List<RoleDto> roles) {
+        return tokenAuthenticationUtils.getAuthoritiesSeparatedByComa(roles
+                .stream()
+                .map(item -> item.getName())
+                .collect(Collectors.toList()));
+    }
+
     public String getUsernameFromToken(String token) {
         if (token == null) {
             return null;
@@ -69,6 +76,14 @@ public class TokenAuthentication {
         );
     }
 
+    public String buildToken(String name, String roles) {
+        return TOKEN_PREFIX + " " + Jwts.builder()
+                .setSubject(name)
+                .claim("roles", roles)
+                .setExpiration(new Date(System.currentTimeMillis() + expirationTime))
+                .signWith(SignatureAlgorithm.HS512, secret)
+                .compact();
+    }
     Authentication getAuthentication(HttpServletRequest request,
                                             HttpServletResponse response) throws UserNotFoundException {
         String token = request.getHeader(HEADER_STRING);
@@ -89,15 +104,6 @@ public class TokenAuthentication {
             }
         }
         return null;
-    }
-
-    public String buildToken(String name, String roles) {
-        return TOKEN_PREFIX + " " + Jwts.builder()
-                .setSubject(name)
-                .claim("roles", roles)
-                .setExpiration(new Date(System.currentTimeMillis() + expirationTime))
-                .signWith(SignatureAlgorithm.HS512, secret)
-                .compact();
     }
 
     void addAuthentication(HttpServletResponse res,
@@ -135,7 +141,7 @@ public class TokenAuthentication {
                                       User user,
                                       String token) throws IOException {
 
-        UserLoginDetailsDto userDetails = UserConverter.getUserLoginDetails(user);
+        UserLoginResponseDto userDetails = UserConverter.getUserLoginDetails(user);
 
         String accountAsString = new ObjectMapper()
                 .writeValueAsString(userDetails);
