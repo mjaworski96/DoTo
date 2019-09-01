@@ -44,4 +44,9 @@ public class UserRepositoryImpl implements UserRepository {
     public int getTotalCount() {
         return userJpaRepository.getTotalCount();
     }
+
+    @Override
+    public Optional<User> getByEmail(String email) {
+        return userJpaRepository.findByEmailIgnoreCase(email);
+    }
 }

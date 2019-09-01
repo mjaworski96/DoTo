@@ -7,6 +7,7 @@ import org.mjaworski.backend.dto.user.UserRegisterDetailsDto;
 import org.mjaworski.backend.dto.user.UserUpdateDataDto;
 import org.mjaworski.backend.exception.bad_request.InvalidPasswordException;
 import org.mjaworski.backend.exception.bad_request.InvalidUsernameException;
+import org.mjaworski.backend.exception.conflict.EmailNotUniqueException;
 import org.mjaworski.backend.exception.conflict.UsernameNotUniqueException;
 import org.mjaworski.backend.exception.forbidden.ForbiddenException;
 import org.mjaworski.backend.exception.not_found.RoleNotFoundException;
@@ -62,7 +63,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserLoginResponseDto addUser(UserRegisterDetailsDto userRegisterData, String... roles) throws RoleNotFoundException, UsernameNotUniqueException, InvalidUsernameException, InvalidPasswordException {
+    public UserLoginResponseDto addUser(UserRegisterDetailsDto userRegisterData, String... roles) throws RoleNotFoundException, UsernameNotUniqueException, InvalidUsernameException, InvalidPasswordException, EmailNotUniqueException {
         validate(userRegisterData);
 
         List<Role> rolesFromDb = roleService.getRoles(roles);
@@ -76,7 +77,7 @@ public class UserServiceImpl implements UserService {
         return UserConverter.getUserLoginDetails(user);
     }
     @Override
-    public UserLoginResponseDto updateUser(String username, UserUpdateDataDto userUpdateData, String authorizationToken) throws UserNotFoundException, ForbiddenException, UsernameNotUniqueException, InvalidUsernameException {
+    public UserLoginResponseDto updateUser(String username, UserUpdateDataDto userUpdateData, String authorizationToken) throws UserNotFoundException, ForbiddenException, UsernameNotUniqueException, InvalidUsernameException, EmailNotUniqueException {
         canPerformOperation(username, authorizationToken);
         User currentUser = userRepository.getByUsername(username)
                 .orElseThrow(UserNotFoundException::new);
@@ -116,9 +117,10 @@ public class UserServiceImpl implements UserService {
                 userRepository.getTotalCount());
     }
 
-    private void validate(UserRegisterDetailsDto userRegisterData) throws InvalidPasswordException, UsernameNotUniqueException, InvalidUsernameException {
+    private void validate(UserRegisterDetailsDto userRegisterData) throws InvalidPasswordException, UsernameNotUniqueException, InvalidUsernameException, EmailNotUniqueException {
         validateUsername(userRegisterData.getUsername());
         validatePassword(userRegisterData.getPassword());
+        validateEmail(userRegisterData.getEmail());
     }
 
     private void validatePassword(String password) throws InvalidPasswordException {
@@ -127,8 +129,9 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    private void validate(UserUpdateDataDto userUpdateData, User currentUser) throws UsernameNotUniqueException, InvalidUsernameException {
+    private void validate(UserUpdateDataDto userUpdateData, User currentUser) throws UsernameNotUniqueException, InvalidUsernameException, EmailNotUniqueException {
         validateUsername(userUpdateData.getUsername(), currentUser.getUsername());
+        validateEmail(userUpdateData.getEmail(), currentUser.getEmail());
     }
 
     private void validateUsernameLength(String username) throws InvalidUsernameException {
@@ -148,6 +151,16 @@ public class UserServiceImpl implements UserService {
 
         if (!username.equals(currentUsername) && userRepository.getByUsername(username).isPresent()) {
             throw new UsernameNotUniqueException();
+        }
+    }
+    private void validateEmail(String email) throws EmailNotUniqueException {
+        if (userRepository.getByEmail(email).isPresent()) {
+            throw new EmailNotUniqueException();
+        }
+    }
+    private void validateEmail(String email, String currentEmail) throws EmailNotUniqueException {
+        if (!email.equals(currentEmail) && userRepository.getByEmail(email).isPresent()) {
+            throw new EmailNotUniqueException();
         }
     }
 }
