@@ -25,7 +25,9 @@ public class SecurityAdapter extends WebSecurityConfigurerAdapter {
             "/actuator/**",
     };
     private static final String[] AUTH_WHITELIST_POST = {
-            "/api/login/**",
+            "/api/login",
+            "/api/users",
+            "/api/password/reset"
     };
     @Override
     protected void configure(HttpSecurity http) throws Exception {
