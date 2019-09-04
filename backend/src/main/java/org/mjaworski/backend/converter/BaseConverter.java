@@ -4,7 +4,7 @@ import org.dozer.DozerBeanMapper;
 
 import java.util.Arrays;
 
-public abstract class ConverterBase {
+public abstract class BaseConverter {
     protected static DozerBeanMapper mapper;
 
     private static void configureMapper(String... mappingFileUrls) {

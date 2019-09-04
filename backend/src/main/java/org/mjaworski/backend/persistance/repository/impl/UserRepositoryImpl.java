@@ -36,13 +36,13 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public List<User> getUsersFromTo(Pageable pageable) {
-        return userJpaRepository.getUsersFromTo(pageable);
+    public List<User> get(Pageable pageable) {
+        return userJpaRepository.get(pageable);
     }
 
     @Override
-    public int getTotalCount() {
-        return userJpaRepository.getTotalCount();
+    public int getCount() {
+        return userJpaRepository.getCount();
     }
 
     @Override

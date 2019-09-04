@@ -9,7 +9,7 @@ import org.mjaworski.backend.persistance.entity.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class UserConverter extends ConverterBase {
+public abstract class UserConverter extends BaseConverter {
     public static UserLoginResponseDto getUserLoginDetails(User user) {
         UserLoginResponseDto loginDetails = mapper.map(user, UserLoginResponseDto.class);
         loginDetails.setRoles(RoleConverter.getRolesDto(

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public abstract class RoleConverter extends ConverterBase {
+public abstract class RoleConverter extends BaseConverter {
     public static List<RoleDto> getRolesDtoList(Collection<Role> roles) {
         List<RoleDto> rolesDto = new ArrayList<>(roles.size());
 

@@ -114,10 +114,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public Page<UserDto> getUsers(int page, int pageSize) {
         Pageable pageable = PageRequest.of(page, pageSize);
-        List<User> users = userRepository.getUsersFromTo(pageable);
+        List<User> users = userRepository.get(pageable);
         return new PageImpl<>(UserConverter.getUserDtoList(users, false),
                 pageable,
-                userRepository.getTotalCount());
+                userRepository.getCount());
     }
 
     private void validate(UserRegisterDetailsDto userRegisterData) throws InvalidPasswordException, UsernameNotUniqueException, InvalidUsernameException, EmailNotUniqueException, InvalidEmailException {

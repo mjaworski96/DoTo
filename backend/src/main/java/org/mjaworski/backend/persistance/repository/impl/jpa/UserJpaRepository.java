@@ -12,10 +12,10 @@ public interface UserJpaRepository extends JpaRepository<User, Integer> {
     Optional<User> findByUsernameIgnoreCase(String username);
 
     @Query("SELECT u FROM User u")
-    List<User> getUsersFromTo(Pageable pageable);
+    List<User> get(Pageable pageable);
 
     @Query("SELECT COUNT(u) FROM User u")
-    int getTotalCount();
+    int getCount();
 
     Optional<User> findByEmailIgnoreCase(String email);
 }

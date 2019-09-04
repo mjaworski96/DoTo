@@ -14,8 +14,8 @@ import java.util.Set;
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 @Entity
-@Table(name = "statuses")
-public class Status {
+@Table(name = "states")
+public class State {
     public static final int MIN_NAME_LENGTH = 1;
     public static final int MAX_NAME_LENGTH = 50;
 
@@ -27,7 +27,7 @@ public class Status {
     @Size(min = MIN_NAME_LENGTH, max = MAX_NAME_LENGTH)
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "status")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "state")
     private Set<Task> tasks;
 
 }

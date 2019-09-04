@@ -9,8 +9,8 @@ import lombok.*;
 
 @Builder
 @Data
-@ToString(exclude = {"comments", "project", "status"})
-@EqualsAndHashCode(exclude = {"comments", "project", "status"})
+@ToString(exclude = {"comments", "project", "state"})
+@EqualsAndHashCode(exclude = {"comments", "project", "state"})
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 @Entity
@@ -43,6 +43,6 @@ public class Task {
     private Project project;
 
     @ManyToOne
-    private Status status;
+    private State state;
 
 }

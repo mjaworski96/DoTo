@@ -19,9 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 @RestController
 @RequestMapping("/api/users")
 @Api(value = "User management",
-        basePath = "/api/users",
-        produces = "application/json",
-        description = "Register, get, modify, delete user account")
+        produces = "application/json")
 public class UserRestController {
     private UserService userService;
     private RoleService roleService;

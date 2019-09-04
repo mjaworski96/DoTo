@@ -11,11 +11,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/users/{username}/password")
 @Api(value = "User password management",
-        basePath = "/api/users/{username}/password",
-        produces = "application/json",
-        description = "Change user password")
+        produces = "application/json")
 public class UsersPasswordRestController {
-
     private PasswordService passwordService;
 
     @Autowired

@@ -10,7 +10,7 @@ public interface UserRepository {
     Optional<User> getByUsername(String username);
     void save(User user);
     void delete(User user);
-    List<User> getUsersFromTo(Pageable pageable);
-    int getTotalCount();
+    List<User> get(Pageable pageable);
+    int getCount();
     Optional<User> getByEmail(String email);
 }

@@ -16,9 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/password")
 @Api(value = "Password management",
-        basePath = "/api/password",
-        produces = "application/json",
-        description = "Reset password")
+        produces = "application/json")
 public class PasswordRestController {
 
     private PasswordService passwordService;

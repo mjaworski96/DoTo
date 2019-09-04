@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/users/{username}/roles")
 @Api(value = "User roles management",
-        basePath = "/api/users/{username}/roles",
-        produces = "application/json",
-        description = "Change user roles")
+        produces = "application/json")
 public class UsersRolesRestController {
     private RoleService roleService;
 

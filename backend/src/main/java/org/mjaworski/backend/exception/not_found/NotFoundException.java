@@ -5,6 +5,6 @@ import org.mjaworski.backend.exception.LocalizedException;
 public abstract class NotFoundException extends LocalizedException {
     @Override
     public int getMessageCode() {
-        return 0;
+        return 404;
     }
 }

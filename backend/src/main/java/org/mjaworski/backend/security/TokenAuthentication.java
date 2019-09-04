@@ -53,7 +53,7 @@ public class TokenAuthentication {
         if (token == null) {
             return false;
         }
-        return tokenAuthenticationUtils.getUsername(token).equals(username);
+        return tokenAuthenticationUtils.getUsername(token).equalsIgnoreCase(username);
     }
 
     public String getAuthoritiesSeparatedByComaFromRoles(List<RoleDto> roles) {
