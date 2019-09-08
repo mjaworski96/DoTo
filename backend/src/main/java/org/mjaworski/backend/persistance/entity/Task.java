@@ -28,7 +28,6 @@ public class Task {
     @Size(min = MIN_SHORT_DESCRIPTION_LENGTH, max = MAX_SHORT_DESCRIPTION_LENGTH)
     private String shortDescription;
 
-    @NotNull
     @Size(max = MAX_FULL_DESCRIPTION_LENGTH)
     private String fullDescription;
 

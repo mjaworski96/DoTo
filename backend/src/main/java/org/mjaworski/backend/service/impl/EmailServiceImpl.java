@@ -1,7 +1,7 @@
 package org.mjaworski.backend.service.impl;
 
-import org.mjaworski.backend.exception.bad_request.InvalidEmailException;
-import org.mjaworski.backend.exception.conflict.EmailNotUniqueException;
+import org.mjaworski.backend.exception.bad_request.invalid.user.InvalidEmailException;
+import org.mjaworski.backend.exception.conflict.not_unique.EmailNotUniqueException;
 import org.mjaworski.backend.persistance.entity.User;
 import org.mjaworski.backend.persistance.repository.UserRepository;
 import org.mjaworski.backend.service.EmailService;

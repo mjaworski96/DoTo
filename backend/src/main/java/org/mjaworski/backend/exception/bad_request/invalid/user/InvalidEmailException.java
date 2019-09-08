@@ -1,6 +1,7 @@
-package org.mjaworski.backend.exception.bad_request;
+package org.mjaworski.backend.exception.bad_request.invalid.user;
 
-public class InvalidEmailException extends BadRequestException {
+
+public class InvalidEmailException extends InvalidUserException {
     public InvalidEmailException() {
     }
 
@@ -10,6 +11,6 @@ public class InvalidEmailException extends BadRequestException {
 
     @Override
     protected String getMessageKey() {
-        return "invalid-email";
+        return "invalid-user-email";
     }
 }

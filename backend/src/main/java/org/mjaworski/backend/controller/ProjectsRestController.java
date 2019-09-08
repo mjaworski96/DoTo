@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/projects")
-@Api(value = "User projects management",
+@Api(value = "Projects management",
         produces = "application/json")
 public class ProjectsRestController {
     private ProjectService projectService;
@@ -68,7 +68,7 @@ public class ProjectsRestController {
             @ApiResponse(code = 204, message = "Project deleted."),
             @ApiResponse(code = 401, message = "You are unauthorized"),
             @ApiResponse(code = 403, message = "You have no permissions to do it. You can delete only own projects"),
-            @ApiResponse(code = 404, message = "Text not found."),
+            @ApiResponse(code = 404, message = "Task not found."),
             @ApiResponse(code = 500, message = "Unknown error.")
     })
     @DeleteMapping("/{id}")
@@ -79,5 +79,4 @@ public class ProjectsRestController {
         projectService.delete(id, authorization);
         return ResponseEntity.noContent().build();
     }
-
 }

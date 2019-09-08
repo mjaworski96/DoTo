@@ -1,7 +1,7 @@
 package org.mjaworski.backend.service;
 
-import org.mjaworski.backend.exception.bad_request.InvalidEmailException;
-import org.mjaworski.backend.exception.conflict.EmailNotUniqueException;
+import org.mjaworski.backend.exception.bad_request.invalid.user.InvalidEmailException;
+import org.mjaworski.backend.exception.conflict.not_unique.EmailNotUniqueException;
 
 public interface EmailService {
     void checkIfEmailIsUnique(int userId, String email) throws EmailNotUniqueException;

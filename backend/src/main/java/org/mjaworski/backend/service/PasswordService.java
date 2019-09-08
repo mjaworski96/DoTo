@@ -2,7 +2,7 @@ package org.mjaworski.backend.service;
 
 import org.mjaworski.backend.dto.user.PasswordChangeDto;
 import org.mjaworski.backend.dto.user.ResetPasswordDto;
-import org.mjaworski.backend.exception.bad_request.InvalidPasswordException;
+import org.mjaworski.backend.exception.bad_request.invalid.user.InvalidPasswordException;
 import org.mjaworski.backend.exception.forbidden.WrongOldPasswordException;
 import org.mjaworski.backend.exception.not_found.UserNotFoundException;
 

@@ -52,17 +52,7 @@ public class RoleServiceImpl implements RoleService {
         }
         return rolesFromDb;
     }
-    private boolean hasRole(User user, String role) throws RoleNotFoundException {
-        return user.getRoles().contains(getRoles(role).get(0));
-    }
-    private void addRole(User user, String role) throws RoleNotFoundException {
-        user.getRoles().add(
-                getRoles(role).get(0)
-        );
-    }
-    private void removeRole(User user, String role) throws RoleNotFoundException {
-        user.getRoles().remove(getRoles(role).get(0));
-    }
+
     @Override
     public RolesDto updateRoles(String username, RolesChangesDto roles) throws UserNotFoundException, RoleNotFoundException {
         User user = userRepository.getByUsername(username)
@@ -81,5 +71,17 @@ public class RoleServiceImpl implements RoleService {
         }
         userRepository.save(user);
         return RoleConverter.getRolesDto(user.getRoles());
+    }
+
+    private boolean hasRole(User user, String role) throws RoleNotFoundException {
+        return user.getRoles().contains(getRoles(role).get(0));
+    }
+    private void addRole(User user, String role) throws RoleNotFoundException {
+        user.getRoles().add(
+                getRoles(role).get(0)
+        );
+    }
+    private void removeRole(User user, String role) throws RoleNotFoundException {
+        user.getRoles().remove(getRoles(role).get(0));
     }
 }

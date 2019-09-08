@@ -28,7 +28,7 @@ public class UserProjectsRestController {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success."),
             @ApiResponse(code = 401, message = "You are unauthorized"),
-            @ApiResponse(code = 403, message = "You have no permissions to do it. You can see only own projects"),
+            @ApiResponse(code = 403, message = "You have no permissions to do it. You can see only own projects."),
             @ApiResponse(code = 500, message = "Unknown error.")
     })
     @ApiImplicitParams({
@@ -37,7 +37,7 @@ public class UserProjectsRestController {
             @ApiImplicitParam(name = "size", dataType = "integer", paramType = "query",
                     value = "Number of records per page."),
     })
-    @GetMapping("")
+    @GetMapping()
     @PreAuthorize("hasRole('USER')")
     public ResponseEntity get(@PathVariable("username") String username,
                               @ApiParam(hidden = true) @RequestHeader(value = "Authorization", required = false) String authorization,
@@ -52,7 +52,7 @@ public class UserProjectsRestController {
     @ApiOperation(value = "Create project for user with given username.",
             response = ProjectDtoWithId.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Project used."),
+            @ApiResponse(code = 200, message = "Not used."),
             @ApiResponse(code = 201, message = "Project created."),
             @ApiResponse(code = 400, message = "Project not valid."),
             @ApiResponse(code = 401, message = "You are unauthorized"),
@@ -62,7 +62,7 @@ public class UserProjectsRestController {
     })
     @PostMapping()
     @PreAuthorize("hasRole('USER')")
-    public ResponseEntity createText(
+    public ResponseEntity createProject(
             @PathVariable("username") String username,
             @ApiParam(hidden = true) @RequestHeader(value = "Authorization", required = false) String authorization,
             @RequestBody ProjectDto projectDto) throws Exception {

@@ -5,11 +5,13 @@ import org.mjaworski.backend.dto.user.UserDto;
 import org.mjaworski.backend.dto.user.UserLoginResponseDto;
 import org.mjaworski.backend.dto.user.UserRegisterDetailsDto;
 import org.mjaworski.backend.dto.user.UserUpdateDataDto;
-import org.mjaworski.backend.exception.bad_request.InvalidEmailException;
-import org.mjaworski.backend.exception.bad_request.InvalidPasswordException;
-import org.mjaworski.backend.exception.bad_request.InvalidUsernameException;
-import org.mjaworski.backend.exception.conflict.EmailNotUniqueException;
-import org.mjaworski.backend.exception.conflict.UsernameNotUniqueException;
+import org.mjaworski.backend.exception.bad_request.invalid.user.InvalidEmailException;
+import org.mjaworski.backend.exception.bad_request.invalid.user.InvalidPasswordException;
+import org.mjaworski.backend.exception.bad_request.invalid.user.InvalidUserException;
+import org.mjaworski.backend.exception.bad_request.invalid.user.InvalidUsernameException;
+import org.mjaworski.backend.exception.conflict.not_unique.DataNotUniqueException;
+import org.mjaworski.backend.exception.conflict.not_unique.EmailNotUniqueException;
+import org.mjaworski.backend.exception.conflict.not_unique.UsernameNotUniqueException;
 import org.mjaworski.backend.exception.forbidden.ForbiddenException;
 import org.mjaworski.backend.exception.not_found.RoleNotFoundException;
 import org.mjaworski.backend.exception.not_found.UserNotFoundException;
@@ -66,7 +68,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserLoginResponseDto addUser(UserRegisterDetailsDto userRegisterData, String... roles) throws RoleNotFoundException, UsernameNotUniqueException, InvalidUsernameException, InvalidPasswordException, EmailNotUniqueException, InvalidEmailException {
+    public UserLoginResponseDto addUser(UserRegisterDetailsDto userRegisterData, String... roles) throws RoleNotFoundException, InvalidUserException, DataNotUniqueException {
         validate(userRegisterData);
 
         List<Role> rolesFromDb = roleService.getRoles(roles);
@@ -80,7 +82,7 @@ public class UserServiceImpl implements UserService {
         return UserConverter.getUserLoginDetails(user);
     }
     @Override
-    public UserLoginResponseDto updateUser(String username, UserUpdateDataDto userUpdateData, String authorizationToken) throws UserNotFoundException, ForbiddenException, UsernameNotUniqueException, InvalidUsernameException, EmailNotUniqueException, InvalidEmailException {
+    public UserLoginResponseDto updateUser(String username, UserUpdateDataDto userUpdateData, String authorizationToken) throws UserNotFoundException, ForbiddenException, InvalidUserException, DataNotUniqueException {
         canPerformOperation(username, authorizationToken);
         User currentUser = userRepository.getByUsername(username)
                 .orElseThrow(UserNotFoundException::new);

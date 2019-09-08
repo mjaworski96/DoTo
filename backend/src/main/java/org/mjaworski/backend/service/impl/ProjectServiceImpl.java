@@ -3,8 +3,8 @@ package org.mjaworski.backend.service.impl;
 import org.mjaworski.backend.converter.ProjectConverter;
 import org.mjaworski.backend.dto.project.ProjectDto;
 import org.mjaworski.backend.dto.project.ProjectDtoWithId;
-import org.mjaworski.backend.exception.bad_request.InvalidProjectDescriptionException;
-import org.mjaworski.backend.exception.bad_request.InvalidProjectNameException;
+import org.mjaworski.backend.exception.bad_request.invalid.project.InvalidProjectDescriptionException;
+import org.mjaworski.backend.exception.bad_request.invalid.project.InvalidProjectNameException;
 import org.mjaworski.backend.exception.forbidden.ForbiddenException;
 import org.mjaworski.backend.exception.not_found.ProjectNotFoundException;
 import org.mjaworski.backend.exception.not_found.UserNotFoundException;
@@ -44,8 +44,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public ProjectDtoWithId getOne(int id, String token) throws ProjectNotFoundException, ForbiddenException {
-        Project project = projectRepository.get(id)
-                .orElseThrow(ProjectNotFoundException::new);
+        Project project = getProject(id);
         checkUser(project, token);
         return ProjectConverter.getProjectDtoWithId(project);
     }
@@ -53,8 +52,7 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public Page<ProjectDtoWithId> getForUser(String username, Pageable pageable, String token) throws ForbiddenException, UserNotFoundException {
         checkUser(username, token);
-        userRepository.getByUsername(username)
-                .orElseThrow(UserNotFoundException::new);
+        getUser(username);
         List<Project> projects = projectRepository.get(username, pageable);
         List<ProjectDtoWithId> projectsDto = ProjectConverter.getProjectDtoWithIdList(projects);
         int count = projectRepository.getCount(username);
@@ -65,8 +63,7 @@ public class ProjectServiceImpl implements ProjectService {
     public ProjectDtoWithId add(String username, ProjectDto projectDto, String token) throws UserNotFoundException, ForbiddenException, InvalidProjectNameException, InvalidProjectDescriptionException {
         checkUser(username, token);
         validate(projectDto);
-        User user = userRepository.getByUsername(username)
-                .orElseThrow(UserNotFoundException::new);
+        User user = getUser(username);
         Project project = ProjectConverter.getProject(projectDto);
         project.setOwner(user);
         projectRepository.save(project);
@@ -76,14 +73,12 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public ProjectDtoWithId modify(int projectId, ProjectDto projectDto, String token) throws UserNotFoundException, ForbiddenException, ProjectNotFoundException, InvalidProjectNameException, InvalidProjectDescriptionException {
         validate(projectDto);
-        Project project = projectRepository.get(projectId)
-                .orElseThrow(ProjectNotFoundException::new);
+        Project project = getProject(projectId);
         checkUser(project.getOwner().getUsername(), token);
         ProjectConverter.rewrite(project, projectDto);
         projectRepository.save(project);
         return ProjectConverter.getProjectDtoWithId(project);
     }
-
     @Override
     public void delete(int projectId, String token) throws ForbiddenException {
         try {
@@ -96,21 +91,42 @@ public class ProjectServiceImpl implements ProjectService {
             logger.warn("Project ({}) already deleted", projectId);
         }
     }
+
+    private User getUser(String username) throws UserNotFoundException {
+        return userRepository.getByUsername(username)
+                .orElseThrow(UserNotFoundException::new);
+    }
+
+    private Project getProject(int projectId) throws ProjectNotFoundException {
+        return projectRepository.get(projectId)
+                .orElseThrow(ProjectNotFoundException::new);
+    }
+
     private void checkUser(String username, String token) throws ForbiddenException {
         if(!tokenAuthentication.checkUser(username, token))
             throw new ForbiddenException();
     }
+
     private void checkUser(Project project, String token) throws ForbiddenException {
         checkUser(project.getOwner().getUsername(), token);
     }
+
     private void validate(ProjectDto projectDto) throws InvalidProjectNameException, InvalidProjectDescriptionException {
+        validateName(projectDto);
+        validateDescription(projectDto);
+    }
+
+    private void validateDescription(ProjectDto projectDto) throws InvalidProjectDescriptionException {
+        if (!ValidationUtils.isValid(projectDto.getDescription(),
+                Project.MAX_DESCRIPTION_LENGTH))
+            throw new InvalidProjectDescriptionException();
+    }
+
+    private void validateName(ProjectDto projectDto) throws InvalidProjectNameException {
         if(!ValidationUtils.isValid(projectDto.getName(),
                 Project.MIN_NAME_LENGTH,
                 Project.MAX_NAME_LENGTH))
             throw new InvalidProjectNameException();
-        if (!ValidationUtils.isValid(projectDto.getDescription(),
-                Project.MAX_DESCRIPTION_LENGTH))
-            throw new InvalidProjectDescriptionException();
     }
 
 }
