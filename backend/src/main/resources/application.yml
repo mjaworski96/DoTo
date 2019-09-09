@@ -2,8 +2,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: DoToAppEmail@gmail.com
-    password: DoTo!@#ToDo
+    username: email@domain
+    password: password
     protocol: smtp
     properties:
       mail:
