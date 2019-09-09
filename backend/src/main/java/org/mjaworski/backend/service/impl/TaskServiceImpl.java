@@ -5,8 +5,8 @@ import org.mjaworski.backend.dto.task.StateDto;
 import org.mjaworski.backend.dto.task.TaskDto;
 import org.mjaworski.backend.dto.task.TaskDtoWithId;
 import org.mjaworski.backend.dto.task.TaskDtoWithIdList;
-import org.mjaworski.backend.exception.bad_request.invalid.task.InvalidFullDescriptionException;
-import org.mjaworski.backend.exception.bad_request.invalid.task.InvalidShortDescriptionException;
+import org.mjaworski.backend.exception.bad_request.invalid.task.InvalidTaskFullDescriptionException;
+import org.mjaworski.backend.exception.bad_request.invalid.task.InvalidProjectShortDescriptionException;
 import org.mjaworski.backend.exception.bad_request.invalid.task.InvalidTaskException;
 import org.mjaworski.backend.exception.forbidden.ForbiddenException;
 import org.mjaworski.backend.exception.not_found.ProjectNotFoundException;
@@ -77,7 +77,7 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public TaskDtoWithId modify(int taskId, TaskDto taskDto, String token) throws TaskNotFoundException, ForbiddenException, ProjectNotFoundException, InvalidTaskException {
+    public TaskDtoWithId modify(int taskId, TaskDto taskDto, String token) throws TaskNotFoundException, ForbiddenException, InvalidTaskException {
         validate(taskDto);
         Task task = getTask(taskId);
         checkOwner(task, token);
@@ -134,21 +134,21 @@ public class TaskServiceImpl implements TaskService {
         checkOwner(task.getProject(), token);
     }
 
-    private void validate(TaskDto taskDto) throws InvalidShortDescriptionException, InvalidFullDescriptionException {
+    private void validate(TaskDto taskDto) throws InvalidProjectShortDescriptionException, InvalidTaskFullDescriptionException {
         validateShortDescription(taskDto);
         validateFullDescription(taskDto);
     }
 
-    private void validateFullDescription(TaskDto taskDto) throws InvalidFullDescriptionException {
+    private void validateFullDescription(TaskDto taskDto) throws InvalidTaskFullDescriptionException {
         if (!ValidationUtils.isValid(taskDto.getFullDescription(),
                 Task.MAX_FULL_DESCRIPTION_LENGTH))
-            throw new InvalidFullDescriptionException();
+            throw new InvalidTaskFullDescriptionException();
     }
 
-    private void validateShortDescription(TaskDto taskDto) throws InvalidShortDescriptionException {
+    private void validateShortDescription(TaskDto taskDto) throws InvalidProjectShortDescriptionException {
         if(!ValidationUtils.isValid(taskDto.getShortDescription(),
                 Task.MIN_SHORT_DESCRIPTION_LENGTH,
                 Task.MAX_SHORT_DESCRIPTION_LENGTH))
-            throw new InvalidShortDescriptionException();
+            throw new InvalidProjectShortDescriptionException();
     }
 }

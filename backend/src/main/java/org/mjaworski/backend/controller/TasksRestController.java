@@ -44,7 +44,7 @@ public class TasksRestController {
             @ApiResponse(code = 204, message = "Task updated."),
             @ApiResponse(code = 400, message = "Task data not valid."),
             @ApiResponse(code = 401, message = "You are unauthorized"),
-            @ApiResponse(code = 403, message = "You have no permissions to do it. You can edit only own tasks"),
+            @ApiResponse(code = 403, message = "You have no permissions to do it. You can edit only own tasks."),
             @ApiResponse(code = 404, message = "Task not found."),
             @ApiResponse(code = 500, message = "Unknown error.")
     })
@@ -65,7 +65,7 @@ public class TasksRestController {
             @ApiResponse(code = 200, message = "Not used."),
             @ApiResponse(code = 204, message = "Task state updated."),
             @ApiResponse(code = 401, message = "You are unauthorized"),
-            @ApiResponse(code = 403, message = "You have no permissions to do it. You can edit only own tasks state"),
+            @ApiResponse(code = 403, message = "You have no permissions to do it. You can edit only own task's state."),
             @ApiResponse(code = 404, message = "Task not found."),
             @ApiResponse(code = 500, message = "Unknown error.")
     })
@@ -87,7 +87,6 @@ public class TasksRestController {
             @ApiResponse(code = 204, message = "Task deleted."),
             @ApiResponse(code = 401, message = "You are unauthorized"),
             @ApiResponse(code = 403, message = "You have no permissions to do it. You can delete only own tasks."),
-            @ApiResponse(code = 404, message = "Task not found."),
             @ApiResponse(code = 500, message = "Unknown error.")
     })
     @DeleteMapping("/{id}")

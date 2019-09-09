@@ -14,7 +14,7 @@ public interface TaskService {
     TaskDtoWithId getOne(int id, String token) throws TaskNotFoundException, ForbiddenException;
     TaskDtoWithIdList getAll(int projectId, String token) throws ForbiddenException, ProjectNotFoundException;
     TaskDtoWithId add(int projectId, TaskDto taskDto, String token) throws ProjectNotFoundException, ForbiddenException, InvalidTaskException;
-    TaskDtoWithId modify(int taskId, TaskDto taskDto, String token) throws TaskNotFoundException, ForbiddenException, ProjectNotFoundException, InvalidTaskException;
+    TaskDtoWithId modify(int taskId, TaskDto taskDto, String token) throws TaskNotFoundException, ForbiddenException, InvalidTaskException;
     StateDto updateState(int taskId, StateDto stateDto, String token) throws TaskNotFoundException, StateNotFoundException, ForbiddenException;
     void delete(int taskId, String token) throws ForbiddenException;
 }
