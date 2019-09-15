@@ -3,6 +3,7 @@ import {LoginComponent} from './login/login.component';
 import {NgModule} from '@angular/core';
 import {NotLoggedUserGuard} from '../../guards/not-logged-user-quard';
 import {RegisterComponent} from './register/register.component';
+import {ResetPasswordComponent} from "./login/reset-password/reset-password.component";
 
 const AUTHENTICATION_ROUTES: Route[] = [
   {
@@ -16,7 +17,12 @@ const AUTHENTICATION_ROUTES: Route[] = [
     component: RegisterComponent as any,
     canActivate: [NotLoggedUserGuard],
     runGuardsAndResolvers: 'always'
-  }
+  },
+  {
+    path: 'reset-password',
+    component: ResetPasswordComponent as any,
+    canActivate: [NotLoggedUserGuard],
+  },
 ];
 
 @NgModule({

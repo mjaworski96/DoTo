@@ -4,11 +4,12 @@ import { LoginComponent } from './login/login.component';
 import {AuthenticationRoutingModule} from './authentication-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { ResetPasswordComponent } from './login/reset-password/reset-password.component';
 
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [LoginComponent, RegisterComponent, ResetPasswordComponent],
   imports: [
     CommonModule,
     AuthenticationRoutingModule,

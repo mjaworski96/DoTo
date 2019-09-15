@@ -15,3 +15,6 @@ export interface RegisterUserDetails {
   password: string;
   email: string;
 }
+export interface ResetPassword {
+  email: string;
+}
