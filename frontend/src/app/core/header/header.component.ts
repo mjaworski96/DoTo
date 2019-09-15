@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {SessionStorageService} from "../../shared/services/session-storage.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sessionStorage: SessionStorageService,
+              private router: Router) { }
 
   ngOnInit() {
   }
-
+  isUserLoggedIn(): boolean {
+    return this.sessionStorage.isUserLoggedIn();
+  }
+  logout(): void {
+    this.sessionStorage.logout();
+    this.navigate(['/']);
+  }
+  navigate(commands: any[]): void {
+    this.router.navigated = false;
+    this.router.navigate(commands);
+  }
 }

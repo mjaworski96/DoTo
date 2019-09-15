@@ -27,4 +27,8 @@ export class SessionStorageService {
   updateSession(token: string): void {
     localStorage.setItem('token', token);
   }
+  logout(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userData');
+  }
 }
