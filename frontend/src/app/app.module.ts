@@ -5,11 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {CoreModule} from './core/core.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {AuthenticationModule} from './users/authentication/authentication.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ProjectsModule} from './projects/projects.module';
 import {Interceptor} from './interceptor';
+import {UsersModule} from './users/users.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import {Interceptor} from './interceptor';
     BrowserAnimationsModule,
     AppRoutingModule,
     CoreModule,
-    AuthenticationModule,
+    UsersModule,
     ProjectsModule,
     HttpClientModule,
     ReactiveFormsModule

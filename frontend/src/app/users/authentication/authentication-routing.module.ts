@@ -3,7 +3,7 @@ import {LoginComponent} from './login/login.component';
 import {NgModule} from '@angular/core';
 import {NotLoggedUserGuard} from '../../guards/not-logged-user-quard';
 import {RegisterComponent} from './register/register.component';
-import {ResetPasswordComponent} from "./login/reset-password/reset-password.component";
+import {ResetPasswordComponent} from './login/reset-password/reset-password.component';
 
 const AUTHENTICATION_ROUTES: Route[] = [
   {

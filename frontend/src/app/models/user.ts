@@ -18,3 +18,14 @@ export interface RegisterUserDetails {
 export interface ResetPassword {
   email: string;
 }
+export interface User {
+  username: string;
+  email: string;
+  roles: UserRole[];
+  description: string;
+}
+export interface UserUpdateData {
+  username: string;
+  email: string;
+  description: string;
+}
