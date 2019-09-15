@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
     });
   }
   login(): void {
+    this.loginButtonPressed = true;
     this.authenticationService.login(this.loginForm.value);
   }
 

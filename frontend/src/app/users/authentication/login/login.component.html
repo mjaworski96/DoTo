@@ -2,7 +2,7 @@
   <form [formGroup]="loginForm" >
     <div class="form-group">
       <input class="form-control" formControlName="username" placeholder="Username"
-             i18n-placeholder="Username placeholder| Text in username placeholder@@username">
+             i18n-placeholder="Username placeholder|Text in username placeholder@@username">
       <span class="badge badge-danger float-left"
         i18n="Username validation|Shown when username is empty@@username-required-validation"
                  *ngIf="loginForm.get('username').touched && loginForm.get('username').hasError('required')">
