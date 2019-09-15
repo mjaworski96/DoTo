@@ -4,44 +4,48 @@
       <div class="form-group">
         <input class="form-control" formControlName="username" placeholder="Username"
                i18n-placeholder="Username placeholder|Text in username placeholder@@username">
-        <span class="badge badge-danger float-left"
-              i18n="Username validation|Shown when username is empty@@username-required-validation"
-              *ngIf="loginForm.get('username').touched && loginForm.get('username').hasError('required')">
-        Username is required.
-      </span>
-        <span class="badge badge-danger float-left"
-              i18n="Username validation|Shown when username is too short@@username-too-short-validation"
-              *ngIf="loginForm.get('username').touched && loginForm.get('username').hasError('minlength')">
-        Username must contain at least {{minUsernameLength}} characters.
-      </span>
-        <span class="badge badge-danger float-left"
-              i18n="Username validation|Shown when username is too long@@username-too-long-validation"
-              *ngIf="loginForm.get('username').touched && loginForm.get('username').hasError('maxlength')">
-        Username must contain a maximum of {{maxUsernameLength}} characters.
-      </span>
+        <span *ngIf="loginForm.get('username').touched">
+          <span class="badge badge-danger float-left"
+                i18n="Username validation|Shown when username is empty@@username-required-validation"
+                *ngIf="loginForm.get('username').hasError('required')">
+            Username is required.
+          </span>
+          <span class="badge badge-danger float-left"
+                i18n="Username validation|Shown when username is too short@@username-too-short-validation"
+                *ngIf="loginForm.get('username').hasError('minlength')">
+            Username must contain at least {{minUsernameLength}} characters.
+          </span>
+          <span class="badge badge-danger float-left"
+                i18n="Username validation|Shown when username is too long@@username-too-long-validation"
+                *ngIf="loginForm.get('username').hasError('maxlength')">
+            Username must contain a maximum of {{maxUsernameLength}} characters.
+          </span>
+        </span>
       </div>
       <div class="form-group">
         <input class="form-control" formControlName="password" type="password" placeholder="Password"
                i18n-placeholder="Password placeholder|Text in password placeholder@@password">
 
-        <span class="badge badge-danger float-left"
-              i18n="Password validation|Shown when password is empty@@password-required-validation"
-              *ngIf="loginForm.get('password').touched && loginForm.touched && loginForm.get('password').hasError('required')">
-          Password is required.
-        </span>
-        <span class="badge badge-danger float-left"
-              i18n="Password validation|Shown when password is too short@@password-too-short-validation"
-              *ngIf="loginForm.get('password').touched && loginForm.touched && loginForm.get('password').hasError('minlength')">
-          Password must contains at least {{minPasswordLength}} characters.
-        </span>
-        <span class="badge badge-danger float-left"
-              i18n="Password validation|Shown when password is too long@@password-too-long-validation"
-              *ngIf="loginForm.get('password').touched && loginForm.touched && loginForm.get('password').hasError('maxlength')">
-          Password must contain a maximum of {{maxPasswordLength}} characters.
+        <span *ngIf="loginForm.get('password').touched">
+          <span class="badge badge-danger float-left"
+                i18n="Password validation|Shown when password is empty@@password-required-validation"
+                *ngIf="loginForm.get('password').hasError('required')">
+            Password is required.
+          </span>
+          <span class="badge badge-danger float-left"
+                i18n="Password validation|Shown when password is too short@@password-too-short-validation"
+                *ngIf="loginForm.get('password').hasError('minlength')">
+            Password must contains at least {{minPasswordLength}} characters.
+          </span>
+          <span class="badge badge-danger float-left"
+                i18n="Password validation|Shown when password is too long@@password-too-long-validation"
+                *ngIf="loginForm.get('password').hasError('maxlength')">
+            Password must contain a maximum of {{maxPasswordLength}} characters.
+          </span>
         </span>
       </div>
       <div class="form-check">
-        <button class="btn btn-primary float-right btn-login" [disabled]="loginForm.invalid || loginButtonPressed" type="submit" (click)="login()"
+        <button class="btn btn-primary float-right btn-login" [disabled]="loginForm.invalid" type="submit" (click)="login()"
                 i18n="Log in button| Text in log in button@@login">Log in</button>
       </div>
       <div class="clearfix"></div>

@@ -29,3 +29,7 @@ export interface UserUpdateData {
   email: string;
   description: string;
 }
+export interface PasswordChange {
+  oldPassword: string;
+  newPassword: string;
+}

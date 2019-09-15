@@ -8,8 +8,6 @@ import {PasswordService} from '../../services/password.service';
   styleUrls: ['./reset-password.component.css']
 })
 export class ResetPasswordComponent implements OnInit {
-
-  resetPasswordButtonPressed = false;
   sent = false;
   passwordResetForm: FormGroup;
 
@@ -26,7 +24,6 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   resetPassword(): void {
-    this.resetPasswordButtonPressed = true;
     this.passwordService.resetPassword(
       this.passwordResetForm.value
     ).toPromise().then(() => {

@@ -8,12 +8,9 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent implements OnInit {
-  user: User;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    this.user = this.route.snapshot.data.user;
-  }
+  ngOnInit(): void { }
 
 }

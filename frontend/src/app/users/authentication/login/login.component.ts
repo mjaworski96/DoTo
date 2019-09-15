@@ -15,8 +15,6 @@ export class LoginComponent implements OnInit {
   minPasswordLength = 3;
   maxPasswordLength = 20;
 
-  loginButtonPressed = false;
-
   constructor(private formBuilder: FormBuilder,
               private authenticationService: AuthenticationService) { }
 
@@ -38,7 +36,6 @@ export class LoginComponent implements OnInit {
     });
   }
   login(): void {
-    this.loginButtonPressed = true;
     this.authenticationService.login(this.loginForm.value);
   }
 

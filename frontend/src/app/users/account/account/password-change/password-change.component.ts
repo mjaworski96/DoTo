@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ChangePasswordService} from '../../services/change-password.service';
+import {SessionStorageService} from '../../../../shared/services/session-storage.service';
+import {ChangePasswordConfirmPassword} from "./utils/change-password-confirm-password";
 
 @Component({
   selector: 'app-password-change',
@@ -7,9 +11,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PasswordChangeComponent implements OnInit {
 
-  constructor() { }
+  passwordChangeForm: FormGroup;
+  confirmPassword = new ChangePasswordConfirmPassword();
+  minPasswordLength = 3;
+  maxPasswordLength = 20;
 
-  ngOnInit() {
+  constructor(private formBuilder: FormBuilder,
+              private passwordChangeService: ChangePasswordService,
+              private sessionStorageService: SessionStorageService) { }
+
+  ngOnInit(): void {
+    this.buildForm();
+  }
+  buildForm(): void {
+    this.passwordChangeForm = this.formBuilder.group({
+      oldPassword: ['', [
+        Validators.required,
+        Validators.minLength(this.minPasswordLength),
+        Validators.maxLength(this.maxPasswordLength)
+      ]],
+      newPassword: ['', [
+        Validators.required,
+        Validators.minLength(this.minPasswordLength),
+        Validators.maxLength(this.maxPasswordLength)
+      ]],
+      confirmNewPassword: ['', [Validators.required]],
+    }, {
+      validator: this.confirmPassword.matchPassword
+    } );
+  }
+  changePassword(): void {
+    this.passwordChangeService.changePassword(
+      this.sessionStorageService.getUser().username,
+      this.passwordChangeForm.value
+    ).toPromise().then();
   }
 
 }

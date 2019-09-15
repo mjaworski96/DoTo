@@ -2,7 +2,7 @@ import {Route, RouterModule} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {LoggedUserGuard} from '../../guards/logged-user-guard';
 import {AccountComponent} from './account/account.component';
-import {UserResolveService} from './account/services/user-resolve.service';
+import {UserResolveService} from './services/user-resolve.service';
 
 const ACCOUNT_ROUTES: Route[] = [
   {

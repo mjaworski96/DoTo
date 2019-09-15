@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {RegistrationConfirmPassword} from "./utils/registration-confirm-password";
-import {AuthenticationService} from "../services/authentication.service";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {RegistrationConfirmPassword} from './utils/registration-confirm-password';
+import {AuthenticationService} from '../services/authentication.service';
 
 @Component({
   selector: 'app-register',
@@ -9,10 +9,8 @@ import {AuthenticationService} from "../services/authentication.service";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
   registerForm: FormGroup;
   confirmPassword = new RegistrationConfirmPassword();
-  registrationButtonPressed = false;
 
   minUsernameLength = 3;
   maxUsernameLength = 20;
@@ -44,7 +42,6 @@ export class RegisterComponent implements OnInit {
     } );
   }
   register(): void {
-    this.registrationButtonPressed = true;
     this.authenticationService.register(this.registerForm.value);
   }
 
