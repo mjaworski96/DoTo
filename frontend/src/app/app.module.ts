@@ -10,7 +10,9 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ProjectsModule} from './projects/projects.module';
 import {Interceptor} from './interceptor';
 import {UsersModule} from './users/users.module';
-import {ToastrModule} from "ngx-toastr";
+import {ToastrModule} from 'ngx-toastr';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {DialogsModule} from './dialogs/dialogs.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import {ToastrModule} from "ngx-toastr";
     ProjectsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgbModule,
+    DialogsModule
   ],
   providers: [
     {

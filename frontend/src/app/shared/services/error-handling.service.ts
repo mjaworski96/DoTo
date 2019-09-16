@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpErrorResponse} from "@angular/common/http";
-import {Router} from "@angular/router";
-import {SessionStorageService} from "./session-storage.service";
-import {ToastrService} from "ngx-toastr";
+import {HttpErrorResponse} from '@angular/common/http';
+import {Router} from '@angular/router';
+import {SessionStorageService} from './session-storage.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'

@@ -6,6 +6,7 @@ import {AccountEditComponent} from './account/account-edit/account-edit.componen
 import {PasswordChangeComponent} from './account/password-change/password-change.component';
 import {DeleteAccountComponent} from './account/delete-account/delete-account.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {DeleteAccountDialogComponent} from "../../dialogs/delete-account-dialog/delete-account-dialog.component";
 
 
 
@@ -20,6 +21,9 @@ import {ReactiveFormsModule} from '@angular/forms';
     CommonModule,
     AccountRoutingModule,
     ReactiveFormsModule
+  ],
+  entryComponents: [
+    DeleteAccountDialogComponent
   ]
 })
 export class AccountModule { }
