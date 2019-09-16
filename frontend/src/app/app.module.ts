@@ -13,18 +13,22 @@ import {UsersModule} from './users/users.module';
 import {ToastrModule} from 'ngx-toastr';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {DialogsModule} from './dialogs/dialogs.module';
+import { MainPageComponent } from './main-page/main-page.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainPageComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     CoreModule,
     UsersModule,
     ProjectsModule,
+    AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
