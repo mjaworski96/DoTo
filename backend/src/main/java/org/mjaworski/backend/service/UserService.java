@@ -16,6 +16,6 @@ public interface UserService {
     UserLoginResponseDto addUser(UserRegisterDetailsDto userRegisterData, String... roles) throws RoleNotFoundException, InvalidUserException, DataNotUniqueException;
     UserLoginResponseDto updateUser(String username, UserUpdateDataDto userRegisterDetails, String authorizationToken) throws ForbiddenException, UserNotFoundException, InvalidUserException, DataNotUniqueException;
     void deleteUser(String username, String authorizationToken) throws ForbiddenException;
-    UserDto getUser(String username, String authorizationToken) throws UserNotFoundException;
+    UserDto getUser(String username, String authorizationToken) throws UserNotFoundException, ForbiddenException;
     Page<UserDto> getUsers(int page, int pageSize);
 }

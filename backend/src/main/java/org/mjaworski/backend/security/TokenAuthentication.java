@@ -69,7 +69,13 @@ public class TokenAuthentication {
         }
         return tokenAuthenticationUtils.getUsername(token);
     }
+    public boolean isAdmin(String token) {
+        Claims claims = tokenAuthenticationUtils.getClaims(token);
+        List<GrantedAuthority> grantedAuthorities = getAuthorities(claims);
+        return grantedAuthorities.stream()
+                .anyMatch(item -> item.getAuthority().equals("ROLE_ADMIN"));
 
+    }
     private List<GrantedAuthority> getAuthorities(Claims claims) {
         return AuthorityUtils.commaSeparatedStringToAuthorityList(
                 (String) claims.get("roles")

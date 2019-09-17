@@ -27,12 +27,8 @@ public abstract class UserConverter extends BaseConverter {
         mapper.map(src, desc);
     }
 
-    public static UserDto getUserDto(User user, boolean includeEmail) {
+    public static UserDto getUserDto(User user) {
         UserDto userData = mapper.map(user, UserDto.class);
-
-        if (!includeEmail) {
-            userData.setEmail(null);
-        }
 
         userData.setRoles(RoleConverter.getRolesDto(
                 user.getRoles()).getRoles()
@@ -40,11 +36,11 @@ public abstract class UserConverter extends BaseConverter {
         return userData;
     }
 
-    public static List<UserDto> getUserDtoList(List<User> users, boolean includeEmail) {
+    public static List<UserDto> getUserDtoList(List<User> users) {
         List<UserDto> userDtoList = new ArrayList<>(users.size());
 
         users.forEach(item ->
-                userDtoList.add(getUserDto(item, includeEmail)));
+                userDtoList.add(getUserDto(item)));
 
         return userDtoList;
     }

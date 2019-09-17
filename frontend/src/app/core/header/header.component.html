@@ -16,6 +16,8 @@
           (click)="navigate(['projects'])">My projects</li>
       <li *ngIf="isUserLoggedIn()" class="nav-item nav-link" (click)="navigate(['account'])"
           i18n="My Account|My account redirect@my-account-redirect">My account</li>
+      <li *ngIf="isAdmin()" class="nav-item nav-link" (click)="navigate(['users'])"
+          i18n="Users|Users list@users-list-redirect">Users</li>
     </ul>
   </div>
   <div class="collapse navbar-collapse dual-collapse2">

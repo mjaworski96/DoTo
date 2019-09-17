@@ -31,4 +31,18 @@ export class SessionStorageService {
     localStorage.removeItem('token');
     localStorage.removeItem('userData');
   }
+  hasRole(role: string): boolean {
+    if (!this.isUserLoggedIn()) {
+      return false;
+    }
+    for (let i = 0; i < this.getUser().roles.length; i++) {
+      if (this.getUser().roles[i].name === role) {
+        return true;
+      }
+    }
+    return false;
+  }
+  isAdmin(): boolean {
+    return this.hasRole('ADMIN');
+  }
 }

@@ -22,14 +22,22 @@ export interface User {
   username: string;
   email: string;
   roles: UserRole[];
-  description: string;
 }
 export interface UserUpdateData {
   username: string;
   email: string;
-  description: string;
 }
 export interface PasswordChange {
   oldPassword: string;
   newPassword: string;
+}
+export interface Roles {
+  roles: UserRole[];
+}
+export interface RoleChange {
+  operation: 'add' | 'remove';
+  roleName: string;
+}
+export interface RolesChanges {
+  roles: RoleChange[];
 }

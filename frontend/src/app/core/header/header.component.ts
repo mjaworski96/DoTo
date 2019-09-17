@@ -25,4 +25,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigated = false;
     this.router.navigate(commands);
   }
+  isAdmin(): boolean {
+    return this.sessionStorage.isAdmin();
+  }
 }

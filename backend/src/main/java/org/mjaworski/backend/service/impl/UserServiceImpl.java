@@ -107,19 +107,26 @@ public class UserServiceImpl implements UserService {
         }
     }
     @Override
-    public UserDto getUser(String username, String authorizationToken) throws UserNotFoundException {
+    public UserDto getUser(String username, String authorizationToken) throws UserNotFoundException, ForbiddenException {
         User user = userRepository.getByUsername(username).orElseThrow(UserNotFoundException::new);
-        boolean includeEmail = tokenAuthentication.checkUser(username, authorizationToken);
-        return UserConverter.getUserDto(user, includeEmail);
+        isOwnerOrAdmin(username, authorizationToken);
+        return UserConverter.getUserDto(user);
     }
 
     @Override
     public Page<UserDto> getUsers(int page, int pageSize) {
         Pageable pageable = PageRequest.of(page, pageSize);
         List<User> users = userRepository.get(pageable);
-        return new PageImpl<>(UserConverter.getUserDtoList(users, false),
+        return new PageImpl<>(UserConverter.getUserDtoList(users),
                 pageable,
                 userRepository.getCount());
+    }
+
+    private void isOwnerOrAdmin(String username, String authorizationToken) throws ForbiddenException {
+        if (!tokenAuthentication.checkUser(username, authorizationToken) &&
+            !tokenAuthentication.isAdmin(authorizationToken)) {
+            throw new ForbiddenException();
+        }
     }
 
     private void validate(UserRegisterDetailsDto userRegisterData) throws InvalidPasswordException, UsernameNotUniqueException, InvalidUsernameException, EmailNotUniqueException, InvalidEmailException {
