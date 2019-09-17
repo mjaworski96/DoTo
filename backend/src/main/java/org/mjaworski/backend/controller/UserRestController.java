@@ -96,7 +96,7 @@ public class UserRestController {
     @GetMapping()
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity getUsers(@ApiParam() @RequestParam(value = "page", required = false, defaultValue = "0") int page,
-                                   @ApiParam() @RequestParam(value = "size", required = false, defaultValue = "10000") int pageSize) throws Exception {
+                                   @ApiParam() @RequestParam(value = "size", required = false, defaultValue = "10") int pageSize) throws Exception {
         return ResponseEntity.ok(userService.getUsers(page, pageSize));
     }
     @ApiOperation(value = "Get user data",

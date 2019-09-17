@@ -1,6 +1,5 @@
 package org.mjaworski.backend.security;
 
-import org.mjaworski.backend.security.ApplicationAuthenticationEntryPoint;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
