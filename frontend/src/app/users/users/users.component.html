@@ -1,15 +1,14 @@
 <div class="users-container">
   <div class="pagination-container">
     <ngb-pagination class="d-flex justify-content-center"
-                    [collectionSize]="page.totalElements"
+                    [collectionSize]="usersPage.totalElements"
                     [pageSize]="pageSize"
-                    [page]="page.number + 1"
+                    [page]="usersPage.number + 1"
                     [maxSize]="5"
                     [rotate]="true"
                     [ellipses]="false"
                     [boundaryLinks]="true"
                     (pageChange)="updatePage($event)">
-
     </ngb-pagination>
   </div>
   <div class="table-container">
@@ -23,18 +22,18 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let user of page.content">
-        <td>{{user.username}}</td>
-        <td>{{user.email}}</td>
-        <td>
+        <tr *ngFor="let user of usersPage.content">
+          <td>{{user.username}}</td>
+          <td>{{user.email}}</td>
+          <td>
+              <input class="custom-checkbox big-checkbox" type="checkbox"
+                     [checked]="hasRole(user, 'USER')" (change)="changeRole(user, 'USER')">
+          </td>
+          <td>
             <input class="custom-checkbox big-checkbox" type="checkbox"
-                   [checked]="hasRole(user, 'USER')" (change)="changeRole(user, 'USER')">
-        </td>
-        <td>
-          <input class="custom-checkbox big-checkbox" type="checkbox"
-                 [checked]="hasRole(user, 'ADMIN')" (change)="changeRole(user, 'ADMIN')">
-        </td>
-      </tr>
+                   [checked]="hasRole(user, 'ADMIN')" (change)="changeRole(user, 'ADMIN')">
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>

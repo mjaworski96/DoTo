@@ -1,0 +1,29 @@
+.projects-container {
+  width: 80%;
+  margin: 0 auto;
+}
+.pagination-container {
+  margin-bottom: 10px;
+}
+.project-wrapper {
+  margin-bottom: 25px;
+}
+.project {
+  border: 1px solid var(--project-border);
+  padding: 10px;
+  border-radius: 5px;
+  height: 200px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.project-name {
+  font-weight: bold;
+  text-align: center;
+  color: var(--project-name-on-list);
+}
+hr {
+  background-color: var(--project-name-on-list);
+}
+.project-description {
+
+}

@@ -11,7 +11,7 @@ import {GlobalVariables} from '../../utils/global-variables';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  page: Page<User>;
+  usersPage: Page<User>;
 
   pageSize = GlobalVariables.usersPageSize;
 
@@ -19,7 +19,7 @@ export class UsersComponent implements OnInit {
               private usersService: UsersService) { }
 
   ngOnInit() {
-    this.page = this.route.snapshot.data.users;
+    this.usersPage = this.route.snapshot.data.users;
   }
   hasRole(user: User, role: string): boolean {
     for (let i = 0; i < user.roles.length; i++) {
@@ -54,6 +54,6 @@ export class UsersComponent implements OnInit {
     this.usersService.get(
       pageNumber - 1, this.pageSize
     ).toPromise()
-      .then(page => this.page = page);
+      .then(page => this.usersPage = page);
   }
 }

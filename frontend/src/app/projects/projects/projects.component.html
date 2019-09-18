@@ -1,3 +1,24 @@
-<pre>
-  {{projects | json}}
-</pre>
+<div class="projects-container">
+  <div class="pagination-container">
+    <ngb-pagination class="d-flex justify-content-center"
+                    [collectionSize]="projectsPage.totalElements"
+                    [pageSize]="pageSize"
+                    [page]="projectsPage.number + 1"
+                    [maxSize]="5"
+                    [rotate]="true"
+                    [ellipses]="false"
+                    [boundaryLinks]="true"
+                    (pageChange)="updatePage($event)">
+    </ngb-pagination>
+  </div>
+  <div class="row">
+    <div *ngFor="let project of projectsPage.content"
+          class="project-wrapper col-md-4">
+      <div class="project">
+        <div class="project-name">{{project.name}}</div>
+        <hr>
+        <div class="project-description">{{project.description}}</div>
+      </div>
+    </div>
+  </div>
+</div>

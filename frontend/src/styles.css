@@ -1,3 +1,4 @@
 :root {
-  --form-background-color: rgba(0, 123, 255);
+  --project-name-on-list: rgb(0, 123, 255);
+  --project-border: rgb(187, 187, 187);
 }
