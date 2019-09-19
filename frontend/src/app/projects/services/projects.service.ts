@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {ProjectWithId} from '../../models/project';
+import {Project, ProjectWithId} from '../../models/project';
 import {Page} from '../../models/page';
 import {GlobalVariables} from '../../utils/global-variables';
 
@@ -20,5 +20,9 @@ export class ProjectsService {
     return this.http.get<ProjectWithId>(
       `${GlobalVariables.projectsApi}/${id}`
     );
+  }
+  create(username: string, project: Project): Observable<ProjectWithId> {
+    return this.http.post<ProjectWithId>(
+      `${GlobalVariables.usersApi}/${username}/${GlobalVariables.projectApiPostfix}`, project);
   }
 }

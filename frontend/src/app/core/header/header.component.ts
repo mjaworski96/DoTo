@@ -22,7 +22,6 @@ export class HeaderComponent implements OnInit {
     this.navigate(['/']);
   }
   navigate(commands: any[]): void {
-    this.router.navigated = false;
     this.router.navigate(commands);
   }
   isAdmin(): boolean {

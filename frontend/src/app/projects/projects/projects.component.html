@@ -1,4 +1,7 @@
 <div class="projects-container">
+  <div class="add-project">
+    <app-add-project></app-add-project>
+  </div>
   <div class="pagination-container">
     <ngb-pagination class="d-flex justify-content-center"
                     [collectionSize]="projectsPage.totalElements"
@@ -18,7 +21,7 @@
            (click)="goToProject(project.id)">
         <div class="project-name">{{project.name}}</div>
         <hr>
-        <div class="project-description">{{project.description}}</div>
+        <div>{{project.description}}</div>
       </div>
     </div>
   </div>

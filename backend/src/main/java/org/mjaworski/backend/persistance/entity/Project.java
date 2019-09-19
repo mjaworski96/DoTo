@@ -17,7 +17,7 @@ import java.util.Set;
 public class Project {
     public static final int MIN_NAME_LENGTH = 1;
     public static final int MAX_NAME_LENGTH = 50;
-    public static final int MAX_DESCRIPTION_LENGTH = 50;
+    public static final int MAX_DESCRIPTION_LENGTH = 300;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,4 +1,8 @@
 export class GlobalVariables {
+  static minProjectNameLength = 1;
+  static maxProjectNameLength = 50;
+  static maxProjectDescriptionLength = 300;
+
   static usersPageSize = 10;
   static projectsPageSize = 15;
 
