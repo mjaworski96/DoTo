@@ -14,7 +14,8 @@
   <div class="row">
     <div *ngFor="let project of projectsPage.content"
           class="project-wrapper col-md-4">
-      <div class="project">
+      <div class="project"
+           (click)="goToProject(project.id)">
         <div class="project-name">{{project.name}}</div>
         <hr>
         <div class="project-description">{{project.description}}</div>

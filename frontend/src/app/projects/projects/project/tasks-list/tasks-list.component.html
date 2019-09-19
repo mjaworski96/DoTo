@@ -1,0 +1,17 @@
+<div>
+  <div *ngFor="let task of tasks;">
+    <div class="task-wrapper">
+      <div class="row">
+        <div class="col-md-3">
+          <button class="btn btn-primary state-change-btn"><</button>
+        </div>
+        <div class="col-md-6">
+          {{task.shortDescription}}
+        </div>
+        <div class="col-md-3" >
+          <button class="btn btn-primary state-change-btn">></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

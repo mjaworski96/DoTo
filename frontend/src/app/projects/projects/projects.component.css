@@ -19,10 +19,7 @@
 .project-name {
   font-weight: bold;
   text-align: center;
-  color: var(--project-name-on-list);
-}
-hr {
-  background-color: var(--project-name-on-list);
+  color: var(--main-color);
 }
 .project-description {
 

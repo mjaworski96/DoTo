@@ -1,0 +1,37 @@
+<div>
+  <div class="project-container">
+    <div class="project-name">
+      {{project.name}}
+    </div>
+    <hr>
+    <div>
+      {{project.description}}
+    </div>
+  </div>
+  <div>
+    <div class="row">
+      <div class="col-md-3">
+        <app-tasks-list [tasks]="filter('todo')"></app-tasks-list>
+      </div>
+      <div class="col-md-3">
+        <app-tasks-list [tasks]="filter('inprogress')"></app-tasks-list>
+      </div>
+      <div class="col-md-3">
+        <app-tasks-list [tasks]="filter('done')"></app-tasks-list>
+      </div>
+      <div class="col-md-3">
+        <app-tasks-list [tasks]="filter('archived')"></app-tasks-list>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<pre>
+  {{project | json}}
+</pre>
+<pre>
+  {{tasks | json}}
+</pre>

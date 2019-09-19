@@ -3,3 +3,6 @@ export interface ProjectWithId {
   name: string;
   description: string;
 }
+export interface ProjectId {
+  id: number;
+}

@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
-import {ProjectWithId} from '../../models/project';
+import {TasksService} from './tasks.service';
+import {Tasks} from '../../models/tasks';
 import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@angular/router';
 import {Observable} from 'rxjs';
-import {ProjectsService} from './projects.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProjectResolveService implements Resolve<ProjectWithId> {
+export class TasksResolveService implements Resolve<Tasks> {
 
-  constructor(private projectsService: ProjectsService,
+  constructor(private tasksService: TasksService,
               private router: Router) { }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ProjectWithId> | Promise<ProjectWithId> | ProjectWithId {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Tasks> | Promise<Tasks> | Tasks {
     let strId: string;
     strId = route.params.projectId;
 
@@ -21,12 +21,13 @@ export class ProjectResolveService implements Resolve<ProjectWithId> {
     if (isNaN(id)) {
       this.router.navigate(['not-found']);
     } else {
-      return this.projectsService
-        .getOne(id)
+      return this.tasksService
+        .getForProject(id)
         .toPromise()
         .then(result => {
           return result;
         });
     }
   }
+
 }
