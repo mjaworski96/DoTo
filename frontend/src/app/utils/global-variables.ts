@@ -4,7 +4,9 @@ export class GlobalVariables {
 
   static usersApi = '/api/users';
   static projectsApi = '/api/projects';
+  static tasksApi = '/api/tasks';
 
   static projectApiPostfix = 'projects';
   static tasksApiPostfix = 'tasks';
+  static stateApiPostfix = 'state';
 }

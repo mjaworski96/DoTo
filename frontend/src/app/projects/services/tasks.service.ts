@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Tasks} from '../../models/tasks';
+import {State, Tasks, TaskWithId} from '../../models/tasks';
 import {GlobalVariables} from '../../utils/global-variables';
 
 @Injectable({
@@ -13,5 +13,8 @@ export class TasksService {
 
   getForProject(projectId: number): Observable<Tasks> {
     return this.http.get<Tasks>(`${GlobalVariables.projectsApi}/${projectId}/${GlobalVariables.tasksApiPostfix}`);
+  }
+  updateState(task: TaskWithId, state: State): Observable<State> {
+    return this.http.put<State>(`${GlobalVariables.tasksApi}/${task.id}/${GlobalVariables.stateApiPostfix}`, state);
   }
 }

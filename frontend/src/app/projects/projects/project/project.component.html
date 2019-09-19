@@ -11,27 +11,17 @@
   <div>
     <div class="row">
       <div class="col-md-3">
-        <app-tasks-list [tasks]="filter('todo')"></app-tasks-list>
+        <app-tasks-list [tasks]="filter('todo')" [nextState]="'inprogress'"></app-tasks-list>
       </div>
       <div class="col-md-3">
-        <app-tasks-list [tasks]="filter('inprogress')"></app-tasks-list>
+        <app-tasks-list [tasks]="filter('inprogress')" [prevState]="'todo'" [nextState]="'done'"></app-tasks-list>
       </div>
       <div class="col-md-3">
-        <app-tasks-list [tasks]="filter('done')"></app-tasks-list>
+        <app-tasks-list [tasks]="filter('done')" [prevState]="'inprogress'" [nextState]="'archived'"></app-tasks-list>
       </div>
       <div class="col-md-3">
-        <app-tasks-list [tasks]="filter('archived')"></app-tasks-list>
+        <app-tasks-list [tasks]="filter('archived')" [prevState]="'done'"></app-tasks-list>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-<pre>
-  {{project | json}}
-</pre>
-<pre>
-  {{tasks | json}}
-</pre>
