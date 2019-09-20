@@ -6,6 +6,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ErrorHandlingService} from "../../../../shared/services/error-handling.service";
 import {SessionStorageService} from "../../../../shared/services/session-storage.service";
 import {HttpResponse} from "@angular/common/http";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-account-edit',
@@ -22,10 +23,10 @@ export class AccountEditComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private userService: UserService,
-              private router: Router,
               private route: ActivatedRoute,
               private errorHandlingService: ErrorHandlingService,
-              private sessionStorageService: SessionStorageService) { }
+              private sessionStorageService: SessionStorageService,
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.user = this.route.snapshot.data.user;
@@ -50,8 +51,7 @@ export class AccountEditComponent implements OnInit {
         result.body,
         result.headers.get('Authorization')
       );
-      this.router.navigated = false;
-      this.router.navigate(['account']);
+      this.toastr.info('Account updated');
     });
   }
 

@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ChangePasswordService} from '../../services/change-password.service';
 import {SessionStorageService} from '../../../../shared/services/session-storage.service';
 import {ChangePasswordConfirmPassword} from "./utils/change-password-confirm-password";
+import {Xi18nCommand} from "@angular/cli/commands/xi18n-impl";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-password-change',
@@ -18,7 +20,8 @@ export class PasswordChangeComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private passwordChangeService: ChangePasswordService,
-              private sessionStorageService: SessionStorageService) { }
+              private sessionStorageService: SessionStorageService,
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.buildForm();
@@ -44,7 +47,11 @@ export class PasswordChangeComponent implements OnInit {
     this.passwordChangeService.changePassword(
       this.sessionStorageService.getUser().username,
       this.passwordChangeForm.value
-    ).toPromise().then();
+    ).toPromise().then((result) => {
+      if (result !== undefined) {
+        this.toastr.info('Password changed');
+      }
+    });
   }
 
 }
