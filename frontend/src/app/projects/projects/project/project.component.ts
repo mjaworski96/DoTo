@@ -11,6 +11,7 @@ import {ActivatedRoute} from '@angular/router';
 export class ProjectComponent implements OnInit {
   project: ProjectWithId;
   tasks: Tasks;
+
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -19,5 +20,8 @@ export class ProjectComponent implements OnInit {
   }
   filter(stateName: string): TaskWithId[] {
     return this.tasks.tasks.filter(item => item.state.name === stateName);
+  }
+  addTask(task: TaskWithId) {
+    this.tasks.tasks.push(task);
   }
 }

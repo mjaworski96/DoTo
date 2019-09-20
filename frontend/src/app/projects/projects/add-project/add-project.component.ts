@@ -44,7 +44,6 @@ export class AddProjectComponent implements OnInit {
       this.addProjectForm.value
     ).toPromise()
       .then(result => {
-        //this.router.navigated = false;
         this.router.navigate(['projects']);
       });
   }

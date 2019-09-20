@@ -37,6 +37,6 @@ public class Project {
             cascade = CascadeType.REMOVE,
             mappedBy = "project",
             orphanRemoval = true)
-    @OrderBy("id DESC")
+    @OrderBy("id")
     private Set<Task> tasks;
 }

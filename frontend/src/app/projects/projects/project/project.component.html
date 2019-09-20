@@ -8,6 +8,10 @@
       {{project.description}}
     </div>
   </div>
+  <hr>
+  <div class="add-task">
+    <app-add-task [projectId]="project.id" (newTask)="addTask($event)"></app-add-task>
+  </div>
   <div>
     <div class="row">
       <div class="col-md-3">

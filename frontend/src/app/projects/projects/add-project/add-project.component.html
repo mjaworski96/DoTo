@@ -5,7 +5,7 @@
              i18n-placeholder="Name placeholder|Text in name placeholder@@name">
       <span *ngIf="addProjectForm.get('name').touched">
           <span class="badge badge-danger float-left"
-                i18n="Username validation|Shown when username is empty@@username-required-validation"
+                i18n="Name validation|Shown when name is empty@@name-required-validation"
                 *ngIf="addProjectForm.get('name').hasError('required')">
             Name is required.
           </span>
@@ -23,7 +23,7 @@
     </div>
     <div class="form-group">
       <input class="form-control" formControlName="description" placeholder="Description"
-             i18n-placeholder="Description placeholder|Text in description placeholder@@name">
+             i18n-placeholder="Description placeholder|Text in description placeholder@@description">
       <span *ngIf="addProjectForm.get('description').touched">
           <span class="badge badge-danger float-left"
                 i18n="Description validation|Shown when description is too long@@description-too-long-validation"

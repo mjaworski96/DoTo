@@ -7,6 +7,7 @@ import { ProjectComponent } from './projects/project/project.component';
 import { TasksListComponent } from './projects/project/tasks-list/tasks-list.component';
 import { AddProjectComponent } from './projects/add-project/add-project.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { AddTaskComponent } from './projects/project/add-task/add-task.component';
 
 
 
@@ -15,7 +16,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     ProjectsComponent,
     ProjectComponent,
     TasksListComponent,
-    AddProjectComponent
+    AddProjectComponent,
+    AddTaskComponent
   ],
   imports: [
     CommonModule,

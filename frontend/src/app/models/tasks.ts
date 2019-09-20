@@ -1,4 +1,4 @@
-import {ProjectId} from "./project";
+import {ProjectId} from './project';
 
 export interface TaskWithId {
   id: number;
@@ -12,4 +12,8 @@ export interface State {
 }
 export interface Tasks {
   tasks: TaskWithId[];
+}
+export interface Task {
+  shortDescription: string;
+  fullDescription: string;
 }

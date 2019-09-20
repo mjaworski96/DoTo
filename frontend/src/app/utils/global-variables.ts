@@ -3,6 +3,10 @@ export class GlobalVariables {
   static maxProjectNameLength = 50;
   static maxProjectDescriptionLength = 300;
 
+  static minTaskShortDescriptionLength = 1;
+  static maxTaskShortDescriptionLength = 100;
+  static maxTaskFullDescriptionLength = 1000;
+
   static usersPageSize = 10;
   static projectsPageSize = 15;
 
