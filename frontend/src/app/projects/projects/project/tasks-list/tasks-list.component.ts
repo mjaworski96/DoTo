@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TaskWithId} from '../../../../models/tasks';
 import {TasksService} from '../../../services/tasks.service';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {TaskComponent} from './task/task.component';
 
 @Component({
   selector: 'app-tasks-list',
@@ -17,7 +19,8 @@ export class TasksListComponent implements OnInit {
   @Input()
   nextState: string;
 
-  constructor(private tasksService: TasksService) { }
+  constructor(private tasksService: TasksService,
+              private modalService: NgbModal) { }
 
   ngOnInit() {
   }
@@ -29,5 +32,11 @@ export class TasksListComponent implements OnInit {
       .then(newState => {
         task.state = newState;
       });
+  }
+  openTask(task: TaskWithId) {
+    const modalRef = this.modalService.open(TaskComponent, {
+      size: 'xl'
+    });
+    modalRef.componentInstance.task = task;
   }
 }

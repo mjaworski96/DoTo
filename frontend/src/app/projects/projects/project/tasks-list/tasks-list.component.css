@@ -10,3 +10,6 @@
 .tasks-list-container {
   margin-top: 20px;
 }
+.task-short-description {
+  cursor: pointer;
+}

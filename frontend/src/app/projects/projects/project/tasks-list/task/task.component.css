@@ -1,0 +1,9 @@
+.task-container {
+  padding: 20px 30px;
+}
+.task-description-container {
+  margin-bottom: 30px;
+}
+.task-short-description {
+  font-weight: bold;
+}

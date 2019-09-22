@@ -7,7 +7,7 @@
                   class="btn btn-primary state-change-btn"
                   (click)="updateState(task, prevState)"><</button>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 task-short-description" (click)="openTask(task)">
           {{task.shortDescription}}
         </div>
         <div class="col-md-3" >
