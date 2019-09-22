@@ -8,7 +8,7 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class DeleteAccountDialogComponent implements OnInit {
 
-  constructor(public activeModal: NgbActiveModal) { }
+  constructor(private activeModal: NgbActiveModal) { }
 
   ngOnInit() {
   }

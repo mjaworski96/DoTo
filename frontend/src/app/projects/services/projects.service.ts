@@ -25,4 +25,9 @@ export class ProjectsService {
     return this.http.post<ProjectWithId>(
       `${GlobalVariables.usersApi}/${username}/${GlobalVariables.projectApiPostfix}`, project);
   }
+  delete(id: number): Observable<any> {
+    return this.http.delete<any>(
+      `${GlobalVariables.projectsApi}/${id}`
+    );
+  }
 }

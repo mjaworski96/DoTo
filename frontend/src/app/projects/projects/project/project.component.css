@@ -11,3 +11,8 @@
   text-align: center;
   font-weight: bold;
 }
+.delete-project-container {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  color: blue;
+}

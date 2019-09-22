@@ -8,6 +8,7 @@ import { TasksListComponent } from './projects/project/tasks-list/tasks-list.com
 import { AddProjectComponent } from './projects/add-project/add-project.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { AddTaskComponent } from './projects/project/add-task/add-task.component';
+import {DeleteProjectDialogComponent} from "../dialogs/delete-project-dialog/delete-project-dialog.component";
 
 
 
@@ -24,6 +25,9 @@ import { AddTaskComponent } from './projects/project/add-task/add-task.component
     ProjectsRoutingModule,
     NgbModule,
     ReactiveFormsModule
+  ],
+  entryComponents: [
+    DeleteProjectDialogComponent
   ]
 })
 export class ProjectsModule { }
