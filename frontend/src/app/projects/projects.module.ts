@@ -10,6 +10,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { AddTaskComponent } from './projects/project/add-task/add-task.component';
 import {DeleteProjectDialogComponent} from "../dialogs/delete-project-dialog/delete-project-dialog.component";
 import { TaskComponent } from './projects/project/tasks-list/task/task.component';
+import { CommentsListComponent } from './projects/project/tasks-list/task/comments-list/comments-list.component';
 
 
 
@@ -20,7 +21,8 @@ import { TaskComponent } from './projects/project/tasks-list/task/task.component
     TasksListComponent,
     AddProjectComponent,
     AddTaskComponent,
-    TaskComponent
+    TaskComponent,
+    CommentsListComponent
   ],
   imports: [
     CommonModule,

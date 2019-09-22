@@ -1,6 +1,7 @@
 :root {
   --main-color: rgb(0, 123, 255);
   --project-border: rgb(187, 187, 187);
+  --inactive-text: rgb(200, 200, 200);
 }
 hr {
   background-color: var(--main-color);

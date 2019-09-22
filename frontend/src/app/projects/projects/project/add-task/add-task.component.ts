@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {GlobalVariables} from '../../../../utils/global-variables';
 import {TasksService} from '../../../services/tasks.service';
-import {TaskWithId} from "../../../../models/tasks";
+import {TaskWithId} from '../../../../models/task';
 
 @Component({
   selector: 'app-add-task',

@@ -2,8 +2,8 @@ package org.mjaworski.backend.controller;
 
 import io.swagger.annotations.*;
 import org.mjaworski.backend.dto.comment.CommentDto;
-import org.mjaworski.backend.dto.task.TaskDtoWithId;
-import org.mjaworski.backend.dto.task.TaskDtoWithIdList;
+import org.mjaworski.backend.dto.comment.CommentDtoWithId;
+import org.mjaworski.backend.dto.comment.CommentDtoWithIdList;
 import org.mjaworski.backend.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +22,7 @@ public class TasksCommentRestController {
         this.commentService = commentService;
     }
     @ApiOperation(value = "Get comments for task.",
-            response = TaskDtoWithIdList.class)
+            response = CommentDtoWithIdList.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success."),
             @ApiResponse(code = 401, message = "You are unauthorized"),
@@ -38,7 +38,7 @@ public class TasksCommentRestController {
     }
 
     @ApiOperation(value = "Create comment for task with given id.",
-            response = TaskDtoWithId.class)
+            response = CommentDtoWithId.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Not used."),
             @ApiResponse(code = 201, message = "Comment created."),

@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {ProjectWithId} from '../../../models/project';
-import {Tasks, TaskWithId} from '../../../models/tasks';
+import {Tasks, TaskWithId} from '../../../models/task';
 import {ActivatedRoute, Router} from '@angular/router';
-import {DeleteAccountDialogComponent} from "../../../dialogs/delete-account-dialog/delete-account-dialog.component";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {DeleteProjectDialogComponent} from "../../../dialogs/delete-project-dialog/delete-project-dialog.component";
-import {ProjectsService} from "../../services/projects.service";
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {DeleteProjectDialogComponent} from '../../../dialogs/delete-project-dialog/delete-project-dialog.component';
+import {ProjectsService} from '../../services/projects.service';
 
 @Component({
   selector: 'app-project',

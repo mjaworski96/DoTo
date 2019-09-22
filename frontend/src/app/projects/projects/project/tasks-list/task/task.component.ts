@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {TaskWithId} from '../../../../../models/tasks';
+import {TaskWithId} from '../../../../../models/task';
 
 @Component({
   selector: 'app-task',

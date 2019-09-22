@@ -1,11 +1,11 @@
-import {ProjectId} from './project';
+import {Id} from './shared';
 
 export interface TaskWithId {
   id: number;
   shortDescription: string;
   fullDescription: string;
   state: State;
-  project: ProjectId;
+  project: Id;
 }
 export interface State {
   name: string;

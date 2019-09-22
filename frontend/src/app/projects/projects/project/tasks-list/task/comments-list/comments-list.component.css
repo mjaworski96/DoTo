@@ -1,0 +1,11 @@
+.comment {
+  margin-top: 20px;
+}
+.no-comments {
+  color: var(--inactive-text);
+}
+.comments-list-container {
+  margin-bottom: 30px;
+  margin-top: 50px;
+  padding-left: 50px;
+}

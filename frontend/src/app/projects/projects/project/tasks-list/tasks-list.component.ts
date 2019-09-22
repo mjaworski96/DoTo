@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TaskWithId} from '../../../../models/tasks';
+import {TaskWithId} from '../../../../models/task';
 import {TasksService} from '../../../services/tasks.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {TaskComponent} from './task/task.component';

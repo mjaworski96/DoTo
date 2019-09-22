@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {State, Tasks, TaskWithId, Task} from '../../models/tasks';
+import {State, Task, TaskWithId, Tasks} from '../../models/task';
 import {GlobalVariables} from '../../utils/global-variables';
 
 @Injectable({
