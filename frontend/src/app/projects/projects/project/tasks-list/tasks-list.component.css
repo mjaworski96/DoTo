@@ -7,4 +7,6 @@
 .state-change-btn {
   height: 100%;
 }
-
+.tasks-list-container {
+  margin-top: 20px;
+}

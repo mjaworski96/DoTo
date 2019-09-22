@@ -15,15 +15,35 @@
   <div>
     <div class="row">
       <div class="col-md-3">
+        <hr>
+        <div class="state-name" i18n="To do|To do status@@todo">
+          To do
+        </div>
+        <hr>
         <app-tasks-list [tasks]="filter('todo')" [nextState]="'inprogress'"></app-tasks-list>
       </div>
       <div class="col-md-3">
+        <hr>
+        <div class="state-name" i18n="In progress|In progress status@@inprogress">
+          In progress
+        </div>
+        <hr>
         <app-tasks-list [tasks]="filter('inprogress')" [prevState]="'todo'" [nextState]="'done'"></app-tasks-list>
       </div>
       <div class="col-md-3">
+        <hr>
+        <div class="state-name" i18n="Done|Done status@@done">
+          Done
+        </div>
+        <hr>
         <app-tasks-list [tasks]="filter('done')" [prevState]="'inprogress'" [nextState]="'archived'"></app-tasks-list>
       </div>
       <div class="col-md-3">
+        <hr>
+        <div class="state-name" i18n="Archived|Archived status@@archived">
+          Archived
+        </div>
+        <hr>
         <app-tasks-list [tasks]="filter('archived')" [prevState]="'done'"></app-tasks-list>
       </div>
     </div>
