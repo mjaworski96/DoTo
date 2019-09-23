@@ -21,4 +21,7 @@ export class TasksService {
     return this.http.post<TaskWithId>(
       `${GlobalVariables.projectsApi}/${projectId}/${GlobalVariables.tasksApiPostfix}`, task);
   }
+  delete(taskId: number): Observable<any> {
+    return this.http.delete<any>(`${GlobalVariables.tasksApi}/${taskId}`);
+  }
 }

@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {ProjectWithId} from '../../../models/project';
 import {Tasks, TaskWithId} from '../../../models/task';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router, RouterEvent} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {DeleteProjectDialogComponent} from '../../../dialogs/delete-project-dialog/delete-project-dialog.component';
 import {ProjectsService} from '../../services/projects.service';
+import {filter, takeUntil} from "rxjs/operators";
+import {Subject} from "rxjs";
 
 @Component({
   selector: 'app-project',
@@ -14,6 +16,7 @@ import {ProjectsService} from '../../services/projects.service';
 export class ProjectComponent implements OnInit {
   project: ProjectWithId;
   tasks: Tasks;
+  destroyed = new Subject<any>();
 
   constructor(private route: ActivatedRoute,
               private modalService: NgbModal,
@@ -23,6 +26,16 @@ export class ProjectComponent implements OnInit {
   ngOnInit() {
     this.project = this.route.snapshot.data.project;
     this.tasks = this.route.snapshot.data.tasks;
+    this.reloadPageIfRouted();
+  }
+  reloadPageIfRouted() {
+    this.router.events.pipe(
+      filter((event: RouterEvent) => event instanceof NavigationEnd),
+      takeUntil(this.destroyed))
+      .subscribe(res => {
+        this.project = this.route.snapshot.data.project;
+        this.tasks = this.route.snapshot.data.tasks;
+      });
   }
   filter(stateName: string): TaskWithId[] {
     return this.tasks.tasks.filter(item => item.state.name === stateName);

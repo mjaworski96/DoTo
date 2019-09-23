@@ -1,8 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {TaskWithId} from '../../../../models/task';
 import {TasksService} from '../../../services/tasks.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {TaskComponent} from './task/task.component';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-tasks-list',
@@ -19,8 +20,12 @@ export class TasksListComponent implements OnInit {
   @Input()
   nextState: string;
 
+  @Input()
+  projectId: number;
+
   constructor(private tasksService: TasksService,
-              private modalService: NgbModal) { }
+              private modalService: NgbModal,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -38,5 +43,12 @@ export class TasksListComponent implements OnInit {
       size: 'xl'
     });
     modalRef.componentInstance.task = task;
+    modalRef.result.then(deleted => {
+      if (deleted === true) {
+        console.log('must delete')
+        this.router.navigated = false;
+        this.router.navigate(['/', 'projects', this.projectId]);
+      }
+    });
   }
 }

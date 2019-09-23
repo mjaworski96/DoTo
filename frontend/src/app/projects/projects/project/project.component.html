@@ -20,7 +20,7 @@
           To do
         </div>
         <hr>
-        <app-tasks-list [tasks]="filter('todo')" [nextState]="'inprogress'"></app-tasks-list>
+        <app-tasks-list [tasks]="filter('todo')" [projectId]="project.id" [nextState]="'inprogress'"></app-tasks-list>
       </div>
       <div class="col-md-3">
         <hr>
@@ -28,7 +28,7 @@
           In progress
         </div>
         <hr>
-        <app-tasks-list [tasks]="filter('inprogress')" [prevState]="'todo'" [nextState]="'done'"></app-tasks-list>
+        <app-tasks-list [tasks]="filter('inprogress')" [projectId]="project.id" [prevState]="'todo'" [nextState]="'done'"></app-tasks-list>
       </div>
       <div class="col-md-3">
         <hr>
@@ -36,7 +36,7 @@
           Done
         </div>
         <hr>
-        <app-tasks-list [tasks]="filter('done')" [prevState]="'inprogress'" [nextState]="'archived'"></app-tasks-list>
+        <app-tasks-list [tasks]="filter('done')" [projectId]="project.id" [prevState]="'inprogress'" [nextState]="'archived'"></app-tasks-list>
       </div>
       <div class="col-md-3">
         <hr>
@@ -44,7 +44,7 @@
           Archived
         </div>
         <hr>
-        <app-tasks-list [tasks]="filter('archived')" [prevState]="'done'"></app-tasks-list>
+        <app-tasks-list [tasks]="filter('archived')" [projectId]="project.id" [prevState]="'done'"></app-tasks-list>
       </div>
     </div>
   </div>

@@ -8,6 +8,11 @@
       {{task.fullDescription}}
     </div>
   </div>
+  <div class="form-check delete-project-container">
+    <button class="btn btn-danger float-right" (click)="delete()" type="button"
+            i18n="Delete task|Delete task button@@delete-task">Delete task</button>
+    <div class="clearfix"></div>
+  </div>
   <div>
     <hr>
     <app-comments-list [taskId]="task.id"></app-comments-list>

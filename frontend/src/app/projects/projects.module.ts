@@ -11,6 +11,7 @@ import { AddTaskComponent } from './projects/project/add-task/add-task.component
 import {DeleteProjectDialogComponent} from "../dialogs/delete-project-dialog/delete-project-dialog.component";
 import { TaskComponent } from './projects/project/tasks-list/task/task.component';
 import { CommentsListComponent } from './projects/project/tasks-list/task/comments-list/comments-list.component';
+import {DeleteTaskDialogComponent} from '../dialogs/delete-task-dialog/delete-task-dialog.component';
 
 
 
@@ -32,7 +33,8 @@ import { CommentsListComponent } from './projects/project/tasks-list/task/commen
   ],
   entryComponents: [
     DeleteProjectDialogComponent,
-    TaskComponent
+    TaskComponent,
+    DeleteTaskDialogComponent
   ]
 })
 export class ProjectsModule { }
