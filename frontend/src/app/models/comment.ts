@@ -8,3 +8,6 @@ export class CommentWithId {
 export class Comments {
   comments: CommentWithId[];
 }
+export class Comment {
+  content: string;
+}

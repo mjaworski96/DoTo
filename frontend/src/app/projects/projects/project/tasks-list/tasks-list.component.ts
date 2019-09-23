@@ -43,12 +43,5 @@ export class TasksListComponent implements OnInit {
       size: 'xl'
     });
     modalRef.componentInstance.task = task;
-    modalRef.result.then(deleted => {
-      if (deleted === true) {
-        console.log('must delete')
-        this.router.navigated = false;
-        this.router.navigate(['/', 'projects', this.projectId]);
-      }
-    });
   }
 }

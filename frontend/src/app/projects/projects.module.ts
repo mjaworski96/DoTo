@@ -12,6 +12,7 @@ import {DeleteProjectDialogComponent} from "../dialogs/delete-project-dialog/del
 import { TaskComponent } from './projects/project/tasks-list/task/task.component';
 import { CommentsListComponent } from './projects/project/tasks-list/task/comments-list/comments-list.component';
 import {DeleteTaskDialogComponent} from '../dialogs/delete-task-dialog/delete-task-dialog.component';
+import { AddCommentComponent } from './projects/project/tasks-list/task/comments-list/add-comment/add-comment.component';
 
 
 
@@ -23,7 +24,8 @@ import {DeleteTaskDialogComponent} from '../dialogs/delete-task-dialog/delete-ta
     AddProjectComponent,
     AddTaskComponent,
     TaskComponent,
-    CommentsListComponent
+    CommentsListComponent,
+    AddCommentComponent
   ],
   imports: [
     CommonModule,

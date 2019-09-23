@@ -7,12 +7,16 @@ export class GlobalVariables {
   static maxTaskShortDescriptionLength = 100;
   static maxTaskFullDescriptionLength = 1000;
 
+  static minCommentContentLength = 1;
+  static maxContentLength = 50;
+
   static usersPageSize = 10;
   static projectsPageSize = 15;
 
   static usersApi = '/api/users';
   static projectsApi = '/api/projects';
   static tasksApi = '/api/tasks';
+  static commentsApi = '/api/comments';
 
   static projectApiPostfix = 'projects';
   static tasksApiPostfix = 'tasks';

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {GlobalVariables} from '../../utils/global-variables';
-import {Comments} from '../../models/comment';
+import {Comment, Comments, CommentWithId} from '../../models/comment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,5 +13,8 @@ export class CommentsService {
 
   getForTask(taskId: number): Observable<Comments> {
     return this.http.get<Comments>(`${GlobalVariables.tasksApi}/${taskId}/${GlobalVariables.commentsApiPostfix}`);
+  }
+  create(taskId: number, comment: Comment): Observable<CommentWithId> {
+    return this.http.post<CommentWithId>(`${GlobalVariables.tasksApi}/${taskId}/${GlobalVariables.commentsApiPostfix}`, comment);
   }
 }

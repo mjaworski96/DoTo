@@ -2,7 +2,11 @@
   <div *ngIf="comments && comments.comments.length !== 0; else noComments">
     <div *ngFor="let comment of comments.comments" class="comment">
       {{comment.content}}
+      <hr>
     </div>
+  </div>
+  <div class="add-comment">
+    <app-add-comment [taskId]="taskId" (newComment)="addComment($event)"></app-add-comment>
   </div>
   <ng-template #noComments >
     <div i18n="No comments|No comments@@no-comments" class="no-comments">

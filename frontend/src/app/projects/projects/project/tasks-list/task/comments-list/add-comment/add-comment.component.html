@@ -1,0 +1,31 @@
+<div>
+  <form [formGroup]="addCommentForm">
+    <div class="form-group">
+      <input class="form-control" formControlName="content" placeholder="Comment"
+             i18n-placeholder="Comment placeholder|Text in comment placeholder@@comment">
+      <span *ngIf="addCommentForm.get('content').touched">
+          <span class="badge badge-danger float-left"
+                i18n="Comment validation|Shown when comment is empty@@comment-required-validation"
+                *ngIf="addCommentForm.get('content').hasError('required')">
+            Comment is required.
+          </span>
+          <span class="badge badge-danger float-left"
+                i18n="Comment validation|Shown when comment is too short@@comment-too-short-validation"
+                *ngIf="addCommentForm.get('content').hasError('minlength')">
+           Comment must contain at least {{minContentLength}} characters.
+          </span>
+          <span class="badge badge-danger float-left"
+                i18n="Comment validation|Shown when comment is too long@@comment-too-long-validation"
+                *ngIf="addCommentForm.get('content').hasError('maxlength')">
+            Comment must contain a maximum of {{maxContentLength}} characters.
+          </span>
+        </span>
+    </div>
+    <div class="form-check">
+      <button class="btn btn-primary float-right btn-login" [disabled]="addCommentForm.invalid" type="submit"
+              (click)="add()"
+              i18n="Add comment button| Text in add comment button@@add-comment">Add comment</button>
+      <div class="clearfix"></div>
+    </div>
+  </form>
+</div>

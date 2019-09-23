@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CommentsService} from '../../../../../services/comments.service';
-import {Comments} from "../../../../../../models/comment";
+import {Comments, CommentWithId} from "../../../../../../models/comment";
+import {TaskWithId} from "../../../../../../models/task";
 
 @Component({
   selector: 'app-comments-list',
@@ -23,5 +24,7 @@ export class CommentsListComponent implements OnInit {
         this.comments = result;
       });
   }
-
+  addComment(comment: CommentWithId) {
+    this.comments.comments.push(comment);
+  }
 }

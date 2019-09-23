@@ -4,6 +4,7 @@ import {TaskWithId} from '../../../../../models/task';
 import {DeleteProjectDialogComponent} from "../../../../../dialogs/delete-project-dialog/delete-project-dialog.component";
 import {CommentsService} from "../../../../services/comments.service";
 import {TasksService} from "../../../../services/tasks.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-task',
@@ -16,7 +17,8 @@ export class TaskComponent implements OnInit {
 
   constructor(private activeModal: NgbActiveModal,
               private modalService: NgbModal,
-              private tasksService: TasksService) { }
+              private tasksService: TasksService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -28,7 +30,8 @@ export class TaskComponent implements OnInit {
         this.tasksService.delete(
           this.task.id
         ).toPromise().then(result => {
-          this.activeModal.close(true);
+          this.router.navigate(['/', 'projects', this.task.project.id]);
+          this.activeModal.close();
         });
       }
     });
