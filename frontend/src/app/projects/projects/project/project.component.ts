@@ -5,8 +5,9 @@ import {ActivatedRoute, NavigationEnd, Router, RouterEvent} from '@angular/route
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {DeleteProjectDialogComponent} from '../../../dialogs/delete-project-dialog/delete-project-dialog.component';
 import {ProjectsService} from '../../services/projects.service';
-import {filter, takeUntil} from "rxjs/operators";
-import {Subject} from "rxjs";
+import {filter, takeUntil} from 'rxjs/operators';
+import {Subject} from 'rxjs';
+import {ModifyProjectDialogComponent} from '../../../dialogs/modify-project-dialog/modify-project-dialog.component';
 
 @Component({
   selector: 'app-project',
@@ -53,7 +54,9 @@ export class ProjectComponent implements OnInit {
           this.router.navigate(['projects']);
         });
       }
-    });
+    }).catch(error => {
+      // prevent error in console
+    });;
   }
   modify() {
     const modalRef = this.modalService.open(ModifyProjectDialogComponent, {
@@ -64,7 +67,7 @@ export class ProjectComponent implements OnInit {
       if (modifiedProject !== undefined) {
         this.project = modifiedProject;
       }
-    }).catch(err => {
+    }).catch(error => {
       // prevent error in console
     });
   }

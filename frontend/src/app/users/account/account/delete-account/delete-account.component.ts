@@ -32,6 +32,8 @@ export class DeleteAccountComponent implements OnInit {
           this.router.navigate(['/']);
         });
       }
+    }).catch(error => {
+      // prevent error in console
     });
   }
 }

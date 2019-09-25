@@ -34,6 +34,8 @@ export class TaskComponent implements OnInit {
           this.activeModal.close();
         });
       }
+    }).catch(error => {
+      // prevent error in console
     });
   }
 }

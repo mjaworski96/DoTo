@@ -44,6 +44,8 @@ export class CommentsListComponent implements OnInit {
             });
         });
       }
+    }).catch(error => {
+      // prevent error in console
     });
   }
 }
