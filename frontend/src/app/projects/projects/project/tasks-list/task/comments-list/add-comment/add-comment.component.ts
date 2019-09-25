@@ -24,7 +24,7 @@ export class AddCommentComponent implements OnInit {
   addCommentForm: FormGroup;
 
   minContentLength = GlobalVariables.minCommentContentLength;
-  maxContentLength = GlobalVariables.maxProjectNameLength;
+  maxContentLength = GlobalVariables.maxCommentContentLength;
 
   constructor(private formBuilder: FormBuilder,
               private sessionStorageService: SessionStorageService,

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {DeleteAccountDialogComponent} from './delete-account-dialog/delete-account-dialog.component';
 import { DeleteProjectDialogComponent } from './delete-project-dialog/delete-project-dialog.component';
 import { DeleteTaskDialogComponent } from './delete-task-dialog/delete-task-dialog.component';
+import { DeleteCommentDialogComponent } from './delete-comment-dialog/delete-comment-dialog.component';
 
 
 
@@ -10,7 +11,8 @@ import { DeleteTaskDialogComponent } from './delete-task-dialog/delete-task-dial
   declarations: [
     DeleteAccountDialogComponent,
     DeleteProjectDialogComponent,
-    DeleteTaskDialogComponent
+    DeleteTaskDialogComponent,
+    DeleteCommentDialogComponent
   ],
   imports: [
     CommonModule

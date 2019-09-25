@@ -8,7 +8,7 @@ export class GlobalVariables {
   static maxTaskFullDescriptionLength = 1000;
 
   static minCommentContentLength = 1;
-  static maxContentLength = 50;
+  static maxCommentContentLength = 500;
 
   static usersPageSize = 10;
   static projectsPageSize = 15;
