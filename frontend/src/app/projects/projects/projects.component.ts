@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {ProjectsService} from "../services/projects.service";
-import {ProjectWithId} from "../../models/project";
-import {Page} from "../../models/page";
-import {ActivatedRoute, NavigationEnd, Router, RouterEvent} from "@angular/router";
-import {GlobalVariables} from "../../utils/global-variables";
-import {SessionStorageService} from "../../shared/services/session-storage.service";
-import {Subject} from "rxjs";
-import {filter, takeUntil} from "rxjs/operators";
+import {ProjectsService} from '../services/projects.service';
+import {ProjectWithId} from '../../models/project';
+import {Page} from '../../models/page';
+import {ActivatedRoute, NavigationEnd, Router, RouterEvent} from '@angular/router';
+import {GlobalVariables} from '../../utils/global-variables';
+import {SessionStorageService} from '../../shared/services/session-storage.service';
+import {Subject} from 'rxjs';
+import {filter, takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'app-projects',

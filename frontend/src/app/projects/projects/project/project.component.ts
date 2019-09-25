@@ -55,4 +55,17 @@ export class ProjectComponent implements OnInit {
       }
     });
   }
+  modify() {
+    const modalRef = this.modalService.open(ModifyProjectDialogComponent, {
+      size: 'xl'
+    });
+    modalRef.componentInstance.projectId = this.project.id;
+    modalRef.result.then(modifiedProject => {
+      if (modifiedProject !== undefined) {
+        this.project = modifiedProject;
+      }
+    }).catch(err => {
+      // prevent error in console
+    });
+  }
 }

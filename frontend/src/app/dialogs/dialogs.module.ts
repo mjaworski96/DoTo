@@ -4,6 +4,8 @@ import {DeleteAccountDialogComponent} from './delete-account-dialog/delete-accou
 import { DeleteProjectDialogComponent } from './delete-project-dialog/delete-project-dialog.component';
 import { DeleteTaskDialogComponent } from './delete-task-dialog/delete-task-dialog.component';
 import { DeleteCommentDialogComponent } from './delete-comment-dialog/delete-comment-dialog.component';
+import { ModifyProjectDialogComponent } from './modify-project-dialog/modify-project-dialog.component';
+import {ProjectsModule} from '../projects/projects.module';
 
 
 
@@ -12,10 +14,12 @@ import { DeleteCommentDialogComponent } from './delete-comment-dialog/delete-com
     DeleteAccountDialogComponent,
     DeleteProjectDialogComponent,
     DeleteTaskDialogComponent,
-    DeleteCommentDialogComponent
+    DeleteCommentDialogComponent,
+    ModifyProjectDialogComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ProjectsModule
   ]
 })
 export class DialogsModule { }

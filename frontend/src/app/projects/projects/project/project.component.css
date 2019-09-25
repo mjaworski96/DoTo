@@ -14,5 +14,7 @@
 .delete-project-container {
   margin-top: 100px;
   margin-bottom: 50px;
-  color: blue;
+}
+.modify-project-container {
+  margin-bottom: 20px;
 }

@@ -30,4 +30,8 @@ export class ProjectsService {
       `${GlobalVariables.projectsApi}/${id}`
     );
   }
+  update(projectId: number, project: Project): Observable<ProjectWithId> {
+    return this.http.put<ProjectWithId>(
+      `${GlobalVariables.projectsApi}/${projectId}`, project);
+  }
 }
