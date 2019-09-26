@@ -62,7 +62,7 @@ export class ProjectComponent implements OnInit {
     const modalRef = this.modalService.open(ModifyProjectDialogComponent, {
       size: 'xl'
     });
-    modalRef.componentInstance.projectId = this.project.id;
+    modalRef.componentInstance.project = this.project;
     modalRef.result.then(modifiedProject => {
       if (modifiedProject !== undefined) {
         this.project = modifiedProject;

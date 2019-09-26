@@ -14,7 +14,7 @@ export class AddTaskComponent implements OnInit {
   projectId: number;
 
   @Input()
-  taskId: number;
+  task: TaskWithId;
 
   addTaskForm: FormGroup;
 
@@ -45,17 +45,13 @@ export class AddTaskComponent implements OnInit {
     this.setDefaultValues();
   }
   setDefaultValues(): void {
-    if (this.taskId !== undefined) {
-      this.tasksService.getOne(this.taskId)
-        .toPromise()
-        .then(result => {
-          this.addTaskForm.controls.shortDescription.setValue(result.shortDescription);
-          this.addTaskForm.controls.fullDescription.setValue(result.fullDescription);
-        });
+    if (this.task !== undefined) {
+      this.addTaskForm.controls.shortDescription.setValue(this.task.shortDescription);
+      this.addTaskForm.controls.fullDescription.setValue(this.task.fullDescription);
     }
   }
   edit() {
-    if (this.taskId === undefined) {
+    if (this.task === undefined) {
       this.add();
     } else {
       this.modify();
@@ -71,7 +67,7 @@ export class AddTaskComponent implements OnInit {
   }
   modify() {
     this.tasksService.update(
-      this.taskId,
+      this.task.id,
       this.addTaskForm.value
     ).toPromise()
       .then(result => {

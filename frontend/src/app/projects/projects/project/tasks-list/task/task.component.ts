@@ -43,7 +43,7 @@ export class TaskComponent implements OnInit {
     const modalRef = this.modalService.open(ModifyTaskDialogComponent, {
       size: 'xl'
     });
-    modalRef.componentInstance.taskId = this.task.id;
+    modalRef.componentInstance.task = this.task;
     modalRef.result.then(modifiedTask => {
       if (modifiedTask !== undefined) {
         this.task.shortDescription = modifiedTask.shortDescription;

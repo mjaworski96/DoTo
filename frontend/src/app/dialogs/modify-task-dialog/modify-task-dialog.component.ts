@@ -10,7 +10,7 @@ import {TaskWithId} from '../../models/task';
 export class ModifyTaskDialogComponent implements OnInit {
 
   @Input()
-  taskId: number;
+  task: TaskWithId;
 
   constructor(private activeModal: NgbActiveModal) { }
 

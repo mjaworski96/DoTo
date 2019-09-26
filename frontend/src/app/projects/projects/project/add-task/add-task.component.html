@@ -35,10 +35,10 @@
     <div class="form-check">
       <button class="btn btn-primary float-right btn-login" [disabled]="addTaskForm.invalid" type="submit"
               (click)="edit()">
-        <span *ngIf="!taskId" i18n="Add project button|Text in add project button@@add-project">
+        <span *ngIf="!task" i18n="Add project button|Text in add project button@@add-project">
           Add task
         </span>
-        <span *ngIf="taskId" i18n="Modify task button|Text in modify task button@@modify-task">
+        <span *ngIf="task" i18n="Modify task button|Text in modify task button@@modify-task">
           Modify task
         </span>
       </button>

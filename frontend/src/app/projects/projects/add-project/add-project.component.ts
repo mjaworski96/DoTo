@@ -13,7 +13,7 @@ import {ProjectWithId} from "../../../models/project";
 })
 export class AddProjectComponent implements OnInit {
   @Input()
-  projectId: number;
+  project: ProjectWithId;
 
   @Output()
   newProject = new EventEmitter<ProjectWithId>();
@@ -46,17 +46,13 @@ export class AddProjectComponent implements OnInit {
     this.setDefaultValues();
   }
   setDefaultValues(): void {
-    if (this.projectId !== undefined) {
-      this.projectsService.getOne(this.projectId)
-        .toPromise()
-        .then(result => {
-          this.addProjectForm.controls.name.setValue(result.name);
-          this.addProjectForm.controls.description.setValue(result.description);
-        });
+    if (this.project !== undefined) {
+      this.addProjectForm.controls.name.setValue(this.project.name);
+      this.addProjectForm.controls.description.setValue(this.project.description);
     }
   }
   edit() {
-    if (this.projectId === undefined) {
+    if (this.project === undefined) {
       this.add();
     } else {
       this.modify();
@@ -69,12 +65,12 @@ export class AddProjectComponent implements OnInit {
       this.addProjectForm.value
     ).toPromise()
       .then(result => {
-        this.router.navigate(['projects', this.projectId]);
+        this.router.navigate(['projects', this.project.id]);
       });
   }
   modify() {
     this.projectsService.update(
-      this.projectId,
+      this.project.id,
       this.addProjectForm.value
     ).toPromise()
       .then(result => {

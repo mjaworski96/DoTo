@@ -14,9 +14,6 @@ export class TasksService {
   getForProject(projectId: number): Observable<Tasks> {
     return this.http.get<Tasks>(`${GlobalVariables.projectsApi}/${projectId}/${GlobalVariables.tasksApiPostfix}`);
   }
-  getOne(taskId: number): Observable<TaskWithId>  {
-    return this.http.get<TaskWithId>(`${GlobalVariables.tasksApi}/${taskId}`);
-  }
   updateState(task: TaskWithId, state: State): Observable<State> {
     return this.http.put<State>(`${GlobalVariables.tasksApi}/${task.id}/${GlobalVariables.stateApiPostfix}`, state);
   }

@@ -10,7 +10,7 @@ import {ProjectWithId} from '../../models/project';
 export class ModifyProjectDialogComponent implements OnInit {
 
   @Input()
-  projectId: number;
+  project: ProjectWithId;
 
   constructor(private activeModal: NgbActiveModal) { }
 
