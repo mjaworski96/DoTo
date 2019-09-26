@@ -18,6 +18,9 @@ export class AddCommentComponent implements OnInit {
   @Input()
   taskId: number;
 
+  @Input()
+  comment: CommentWithId;
+
   @Output()
   newComment = new EventEmitter<CommentWithId>();
 
@@ -42,6 +45,19 @@ export class AddCommentComponent implements OnInit {
         Validators.maxLength(this.maxContentLength)
       ]]
     });
+    this.setDefaultValues();
+  }
+  setDefaultValues(): void {
+    if (this.comment !== undefined) {
+      this.addCommentForm.controls.content.setValue(this.comment.content);
+    }
+  }
+  edit() {
+    if (this.comment  === undefined) {
+      this.add();
+    } else {
+      this.modify();
+    }
   }
   add() {
     this.commentsService.create(
@@ -52,5 +68,13 @@ export class AddCommentComponent implements OnInit {
         this.newComment.emit(result);
       });
   }
-
+  modify() {
+    this.commentsService.update(
+      this.comment.id,
+      this.addCommentForm.value
+    ).toPromise()
+      .then(result => {
+        this.newComment.emit(result);
+      });
+  }
 }

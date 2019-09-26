@@ -2,11 +2,13 @@
   <div *ngIf="comments && comments.comments.length !== 0; else noComments">
     <div *ngFor="let comment of comments.comments" class="comment">
       {{comment.content}}
-      <div class="form-check delete-project-container">
-        <button class="btn btn-danger float-right" (click)="delete(comment)" type="button"
+      <div class="form-check buttons-container float-right">
+        <button class="btn btn-primary" (click)="modify(comment)" type="button"
+                i18n="Modify comment|Modify comment button@@modify-comment">Modify comment</button>
+        <button class="btn btn-danger delete-comment-btn" (click)="delete(comment)" type="button"
                 i18n="Delete comment|Delete comment button@@delete-comment">Delete comment</button>
-        <div class="clearfix"></div>
       </div>
+      <div class="clearfix"></div>
       <hr>
     </div>
   </div>

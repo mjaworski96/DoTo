@@ -13,3 +13,9 @@
 .add-comment {
   margin-top: 30px;
 }
+.buttons-container {
+  margin-top: 30px;
+}
+.delete-comment-btn {
+  margin-left: 15px;
+}

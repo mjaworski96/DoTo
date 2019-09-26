@@ -14,10 +14,16 @@ export class CommentsService {
   getForTask(taskId: number): Observable<Comments> {
     return this.http.get<Comments>(`${GlobalVariables.tasksApi}/${taskId}/${GlobalVariables.commentsApiPostfix}`);
   }
+  getOne(commentId: number): Observable<CommentWithId> {
+    return this.http.get<CommentWithId>(`${GlobalVariables.commentsApi}/${commentId}`);
+  }
   create(taskId: number, comment: Comment): Observable<CommentWithId> {
     return this.http.post<CommentWithId>(`${GlobalVariables.tasksApi}/${taskId}/${GlobalVariables.commentsApiPostfix}`, comment);
   }
   delete(commentId: number): Observable<any> {
     return this.http.delete<any>(`${GlobalVariables.commentsApi}/${commentId}`);
+  }
+  update(commentId: number, comment: Comment): Observable<CommentWithId> {
+    return this.http.put<CommentWithId>(`${GlobalVariables.commentsApi}/${commentId}`, comment);
   }
 }

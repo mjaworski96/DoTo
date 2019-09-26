@@ -4,6 +4,8 @@ import {Comments, CommentWithId} from "../../../../../../models/comment";
 import {TaskWithId} from "../../../../../../models/task";
 import {DeleteProjectDialogComponent} from "../../../../../../dialogs/delete-project-dialog/delete-project-dialog.component";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {ModifyTaskDialogComponent} from "../../../../../../dialogs/modify-task-dialog/modify-task-dialog.component";
+import {ModifyCommentDialogComponent} from "../../../../../../dialogs/modify-comment-dialog/modify-comment-dialog.component";
 
 @Component({
   selector: 'app-comments-list',
@@ -43,6 +45,19 @@ export class CommentsListComponent implements OnInit {
               this.comments = comments;
             });
         });
+      }
+    }).catch(error => {
+      // prevent error in console
+    });
+  }
+  modify(comment: CommentWithId) {
+    const modalRef = this.modalService.open(ModifyCommentDialogComponent, {
+      size: 'xl'
+    });
+    modalRef.componentInstance.comment = comment;
+    modalRef.result.then(modifiedComment => {
+      if (modifiedComment !== undefined) {
+        comment.content = modifiedComment.content;
       }
     }).catch(error => {
       // prevent error in console

@@ -7,6 +7,7 @@ import { DeleteCommentDialogComponent } from './delete-comment-dialog/delete-com
 import { ModifyProjectDialogComponent } from './modify-project-dialog/modify-project-dialog.component';
 import {ProjectsModule} from '../projects/projects.module';
 import { ModifyTaskDialogComponent } from './modify-task-dialog/modify-task-dialog.component';
+import { ModifyCommentDialogComponent } from './modify-comment-dialog/modify-comment-dialog.component';
 
 
 
@@ -17,7 +18,8 @@ import { ModifyTaskDialogComponent } from './modify-task-dialog/modify-task-dial
     DeleteTaskDialogComponent,
     DeleteCommentDialogComponent,
     ModifyProjectDialogComponent,
-    ModifyTaskDialogComponent
+    ModifyTaskDialogComponent,
+    ModifyCommentDialogComponent
   ],
   imports: [
     CommonModule,
