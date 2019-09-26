@@ -6,10 +6,10 @@ import {TaskWithId} from '../../../../models/task';
 
 @Component({
   selector: 'app-add-task',
-  templateUrl: './add-task.component.html',
-  styleUrls: ['./add-task.component.css']
+  templateUrl: './edit-task.component.html',
+  styleUrls: ['./edit-task.component.css']
 })
-export class AddTaskComponent implements OnInit {
+export class EditTaskComponent implements OnInit {
   @Input()
   projectId: number;
 

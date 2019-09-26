@@ -5,14 +5,14 @@ import {ProjectsRoutingModule} from './projects-routing.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ProjectComponent } from './projects/project/project.component';
 import { TasksListComponent } from './projects/project/tasks-list/tasks-list.component';
-import { AddProjectComponent } from './projects/add-project/add-project.component';
+import { EditProjectComponent } from './projects/edit-project/edit-project.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import { AddTaskComponent } from './projects/project/add-task/add-task.component';
+import { EditTaskComponent } from './projects/project/edit-task/edit-task.component';
 import {DeleteProjectDialogComponent} from '../dialogs/delete-project-dialog/delete-project-dialog.component';
 import { TaskComponent } from './projects/project/tasks-list/task/task.component';
 import { CommentsListComponent } from './projects/project/tasks-list/task/comments-list/comments-list.component';
 import {DeleteTaskDialogComponent} from '../dialogs/delete-task-dialog/delete-task-dialog.component';
-import { AddCommentComponent } from './projects/project/tasks-list/task/comments-list/add-comment/add-comment.component';
+import { EditCommentComponent } from './projects/project/tasks-list/task/comments-list/edit-comment/edit-comment.component';
 import {ModifyProjectDialogComponent} from '../dialogs/modify-project-dialog/modify-project-dialog.component';
 import {ModifyTaskDialogComponent} from '../dialogs/modify-task-dialog/modify-task-dialog.component';
 import {ModifyCommentDialogComponent} from '../dialogs/modify-comment-dialog/modify-comment-dialog.component';
@@ -24,11 +24,11 @@ import {ModifyCommentDialogComponent} from '../dialogs/modify-comment-dialog/mod
     ProjectsComponent,
     ProjectComponent,
     TasksListComponent,
-    AddProjectComponent,
-    AddTaskComponent,
+    EditProjectComponent,
+    EditTaskComponent,
     TaskComponent,
     CommentsListComponent,
-    AddCommentComponent
+    EditCommentComponent
   ],
   imports: [
     CommonModule,
@@ -37,9 +37,9 @@ import {ModifyCommentDialogComponent} from '../dialogs/modify-comment-dialog/mod
     ReactiveFormsModule
   ],
   exports: [
-    AddProjectComponent,
-    AddTaskComponent,
-    AddCommentComponent
+    EditProjectComponent,
+    EditTaskComponent,
+    EditCommentComponent
   ],
   entryComponents: [
     DeleteProjectDialogComponent,

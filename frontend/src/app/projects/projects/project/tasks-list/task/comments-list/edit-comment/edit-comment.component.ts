@@ -10,10 +10,10 @@ import {CommentWithId} from "../../../../../../../models/comment";
 
 @Component({
   selector: 'app-add-comment',
-  templateUrl: './add-comment.component.html',
-  styleUrls: ['./add-comment.component.css']
+  templateUrl: './edit-comment.component.html',
+  styleUrls: ['./edit-comment.component.css']
 })
-export class AddCommentComponent implements OnInit {
+export class EditCommentComponent implements OnInit {
 
   @Input()
   taskId: number;

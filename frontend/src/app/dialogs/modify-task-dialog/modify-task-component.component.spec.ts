@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ModifyTaskDialogComponent } from './modify-task-dialog.component';
 
-describe('ModifyTaskComponentComponent', () => {
+describe('ModifyTaskDialogComponent', () => {
   let component: ModifyTaskDialogComponent;
   let fixture: ComponentFixture<ModifyTaskDialogComponent>;
 

@@ -8,10 +8,10 @@ import {ProjectWithId} from "../../../models/project";
 
 @Component({
   selector: 'app-add-project',
-  templateUrl: './add-project.component.html',
-  styleUrls: ['./add-project.component.css']
+  templateUrl: './edit-project.component.html',
+  styleUrls: ['./edit-project.component.css']
 })
-export class AddProjectComponent implements OnInit {
+export class EditProjectComponent implements OnInit {
   @Input()
   project: ProjectWithId;
 
