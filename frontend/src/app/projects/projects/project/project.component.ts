@@ -56,7 +56,7 @@ export class ProjectComponent implements OnInit {
       }
     }).catch(error => {
       // prevent error in console
-    });;
+    });
   }
   modify() {
     const modalRef = this.modalService.open(ModifyProjectDialogComponent, {

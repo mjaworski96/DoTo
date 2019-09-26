@@ -6,3 +6,6 @@
 hr {
   background-color: var(--main-color);
 }
+.dialog-container {
+  padding: 20px 30px;
+}

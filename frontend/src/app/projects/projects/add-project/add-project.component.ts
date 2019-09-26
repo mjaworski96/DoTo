@@ -78,7 +78,6 @@ export class AddProjectComponent implements OnInit {
       this.addProjectForm.value
     ).toPromise()
       .then(result => {
-        console.log(result)
         this.newProject.emit(result);
       });
   }

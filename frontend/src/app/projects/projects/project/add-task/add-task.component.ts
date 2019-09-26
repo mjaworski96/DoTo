@@ -13,6 +13,9 @@ export class AddTaskComponent implements OnInit {
   @Input()
   projectId: number;
 
+  @Input()
+  taskId: number;
+
   addTaskForm: FormGroup;
 
   minShortDescriptionLength = GlobalVariables.minTaskShortDescriptionLength;
@@ -39,6 +42,24 @@ export class AddTaskComponent implements OnInit {
         Validators.maxLength(this.maxFullDescriptionLength)
       ]],
     });
+    this.setDefaultValues();
+  }
+  setDefaultValues(): void {
+    if (this.taskId !== undefined) {
+      this.tasksService.getOne(this.taskId)
+        .toPromise()
+        .then(result => {
+          this.addTaskForm.controls.shortDescription.setValue(result.shortDescription);
+          this.addTaskForm.controls.fullDescription.setValue(result.fullDescription);
+        });
+    }
+  }
+  edit() {
+    if (this.taskId === undefined) {
+      this.add();
+    } else {
+      this.modify();
+    }
   }
   add() {
     this.tasksService.create(
@@ -47,6 +68,15 @@ export class AddTaskComponent implements OnInit {
     ).toPromise().then(result => {
       this.newTask.emit(result);
     });
+  }
+  modify() {
+    this.tasksService.update(
+      this.taskId,
+      this.addTaskForm.value
+    ).toPromise()
+      .then(result => {
+        this.newTask.emit(result);
+      });
   }
 
 }

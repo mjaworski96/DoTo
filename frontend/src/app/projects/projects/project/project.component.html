@@ -8,12 +8,12 @@
       {{project.description}}
     </div>
   </div>
-  <hr>
   <div class="form-check modify-project-container">
     <button class="btn btn-primary float-right" (click)="modify()" type="button"
             i18n="Modify project|Modify project button@@modify-project">Modify project</button>
     <div class="clearfix"></div>
   </div>
+  <hr>
   <div class="add-task">
     <app-add-task [projectId]="project.id" (newTask)="addTask($event)"></app-add-task>
   </div>

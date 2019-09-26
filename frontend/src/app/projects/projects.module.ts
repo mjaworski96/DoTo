@@ -14,6 +14,7 @@ import { CommentsListComponent } from './projects/project/tasks-list/task/commen
 import {DeleteTaskDialogComponent} from '../dialogs/delete-task-dialog/delete-task-dialog.component';
 import { AddCommentComponent } from './projects/project/tasks-list/task/comments-list/add-comment/add-comment.component';
 import {ModifyProjectDialogComponent} from '../dialogs/modify-project-dialog/modify-project-dialog.component';
+import {ModifyTaskDialogComponent} from "../dialogs/modify-task-dialog/modify-task-dialog.component";
 
 
 
@@ -35,13 +36,15 @@ import {ModifyProjectDialogComponent} from '../dialogs/modify-project-dialog/mod
     ReactiveFormsModule
   ],
   exports: [
-    AddProjectComponent
+    AddProjectComponent,
+    AddTaskComponent
   ],
   entryComponents: [
     DeleteProjectDialogComponent,
     TaskComponent,
     DeleteTaskDialogComponent,
-    ModifyProjectDialogComponent
+    ModifyProjectDialogComponent,
+    ModifyTaskDialogComponent
   ]
 })
 export class ProjectsModule { }

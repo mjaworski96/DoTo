@@ -1,10 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {TaskWithId} from '../../../../../models/task';
-import {DeleteProjectDialogComponent} from "../../../../../dialogs/delete-project-dialog/delete-project-dialog.component";
-import {CommentsService} from "../../../../services/comments.service";
-import {TasksService} from "../../../../services/tasks.service";
-import {Router} from "@angular/router";
+import {DeleteProjectDialogComponent} from '../../../../../dialogs/delete-project-dialog/delete-project-dialog.component';
+import {TasksService} from '../../../../services/tasks.service';
+import {Router} from '@angular/router';
+import {ModifyTaskDialogComponent} from '../../../../../dialogs/modify-task-dialog/modify-task-dialog.component';
 
 @Component({
   selector: 'app-task',
@@ -33,6 +33,21 @@ export class TaskComponent implements OnInit {
           this.router.navigate(['/', 'projects', this.task.project.id]);
           this.activeModal.close();
         });
+      }
+    }).catch(error => {
+      // prevent error in console
+    });
+  }
+
+  modify() {
+    const modalRef = this.modalService.open(ModifyTaskDialogComponent, {
+      size: 'xl'
+    });
+    modalRef.componentInstance.taskId = this.task.id;
+    modalRef.result.then(modifiedTask => {
+      if (modifiedTask !== undefined) {
+        this.task.shortDescription = modifiedTask.shortDescription;
+        this.task.fullDescription = modifiedTask.fullDescription;
       }
     }).catch(error => {
       // prevent error in console
