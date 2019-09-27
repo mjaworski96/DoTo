@@ -49,7 +49,10 @@ export class PasswordChangeComponent implements OnInit {
       this.passwordChangeForm.value
     ).toPromise().then((result) => {
       if (result !== undefined) {
-        this.toastr.info('Password changed');
+        this.toastr.info('Password changed', '', {
+          timeOut: 5000,
+          closeButton: true
+        });
       }
     });
   }

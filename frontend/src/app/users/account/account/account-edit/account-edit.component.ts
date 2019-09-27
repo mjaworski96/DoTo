@@ -51,7 +51,10 @@ export class AccountEditComponent implements OnInit {
         result.body,
         result.headers.get('Authorization')
       );
-      this.toastr.info('Account updated');
+      this.toastr.info('Account updated', '', {
+        timeOut: 5000,
+        closeButton: true
+      });
     });
   }
 
