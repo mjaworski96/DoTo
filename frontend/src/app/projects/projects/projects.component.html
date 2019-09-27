@@ -14,7 +14,7 @@
                     (pageChange)="updatePage($event)">
     </ngb-pagination>
   </div>
-  <div class="row">
+  <div *ngIf="projectsPage.content.length > 0; else noProjects;" class="row">
     <div *ngFor="let project of projectsPage.content"
           class="project-wrapper col-md-4">
       <div class="project"
@@ -25,4 +25,9 @@
       </div>
     </div>
   </div>
+  <ng-template #noProjects>
+    <div i18n="No projects|No projects@@no-projects" class="no-projects">
+      No projects.
+    </div>
+  </ng-template>
 </div>

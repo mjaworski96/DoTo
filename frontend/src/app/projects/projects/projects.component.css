@@ -24,3 +24,9 @@
 .add-project {
   margin-bottom: 10px;
 }
+.no-projects {
+  text-align: center;
+  color: var(--inactive-text);
+  font-size: 20px;
+  font-weight: bold;
+}
