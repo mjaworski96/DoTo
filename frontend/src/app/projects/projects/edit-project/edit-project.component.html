@@ -1,22 +1,22 @@
 <div>
-  <form [formGroup]="addProjectForm">
+  <form [formGroup]="editProjectForm">
     <div class="form-group">
       <input class="form-control" formControlName="name" placeholder="Name"
              i18n-placeholder="Name placeholder|Text in name placeholder@@name">
-      <span *ngIf="addProjectForm.get('name').touched">
+      <span *ngIf="editProjectForm.get('name').touched">
           <span class="badge badge-danger float-left"
                 i18n="Name validation|Shown when name is empty@@name-required-validation"
-                *ngIf="addProjectForm.get('name').hasError('required')">
+                *ngIf="editProjectForm.get('name').hasError('required')">
             Name is required.
           </span>
           <span class="badge badge-danger float-left"
                 i18n="Name validation|Shown when name is too short@@name-too-short-validation"
-                *ngIf="addProjectForm.get('name').hasError('minlength')">
+                *ngIf="editProjectForm.get('name').hasError('minlength')">
            Name must contain at least {{minNameLength}} characters.
           </span>
           <span class="badge badge-danger float-left"
                 i18n="Name validation|Shown when name is too long@@name-too-long-validation"
-                *ngIf="addProjectForm.get('name').hasError('maxlength')">
+                *ngIf="editProjectForm.get('name').hasError('maxlength')">
             Name must contain a maximum of {{maxNameLength}} characters.
           </span>
         </span>
@@ -24,16 +24,16 @@
     <div class="form-group">
       <input class="form-control" formControlName="description" placeholder="Description"
              i18n-placeholder="Description placeholder|Text in description placeholder@@description">
-      <span *ngIf="addProjectForm.get('description').touched">
+      <span *ngIf="editProjectForm.get('description').touched">
           <span class="badge badge-danger float-left"
                 i18n="Description validation|Shown when description is too long@@description-too-long-validation"
-                *ngIf="addProjectForm.get('name').hasError('maxlength')">
+                *ngIf="editProjectForm.get('name').hasError('maxlength')">
             Description must contain a maximum of {{maxDescriptionLength}} characters.
           </span>
         </span>
     </div>
     <div class="form-check">
-      <button class="btn btn-primary float-right btn-login" [disabled]="addProjectForm.invalid" type="submit"
+      <button class="btn btn-primary float-right" [disabled]="editProjectForm.invalid" type="submit"
               (click)="edit()">
         <span *ngIf="!project" i18n="Add project button|Text in add project button@@add-project">
           Add project

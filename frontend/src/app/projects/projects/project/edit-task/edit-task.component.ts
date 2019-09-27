@@ -16,7 +16,7 @@ export class EditTaskComponent implements OnInit {
   @Input()
   task: TaskWithId;
 
-  addTaskForm: FormGroup;
+  editTaskForm: FormGroup;
 
   minShortDescriptionLength = GlobalVariables.minTaskShortDescriptionLength;
   maxShortDescriptionLength = GlobalVariables.maxTaskShortDescriptionLength;
@@ -32,7 +32,7 @@ export class EditTaskComponent implements OnInit {
     this.buildForm();
   }
   buildForm(): void {
-    this.addTaskForm = this.formBuilder.group({
+    this.editTaskForm = this.formBuilder.group({
       shortDescription: ['', [
         Validators.required,
         Validators.minLength(this.minShortDescriptionLength),
@@ -42,14 +42,15 @@ export class EditTaskComponent implements OnInit {
         Validators.maxLength(this.maxFullDescriptionLength)
       ]],
     });
-    this.setDefaultValues();
+    this.setValuesForModification();
   }
-  setDefaultValues(): void {
+  setValuesForModification(): void {
     if (this.task !== undefined) {
-      this.addTaskForm.controls.shortDescription.setValue(this.task.shortDescription);
-      this.addTaskForm.controls.fullDescription.setValue(this.task.fullDescription);
+      this.editTaskForm.controls.shortDescription.setValue(this.task.shortDescription);
+      this.editTaskForm.controls.fullDescription.setValue(this.task.fullDescription);
     }
   }
+
   edit() {
     if (this.task === undefined) {
       this.add();
@@ -60,15 +61,16 @@ export class EditTaskComponent implements OnInit {
   add() {
     this.tasksService.create(
       this.projectId,
-      this.addTaskForm.value
+      this.editTaskForm.value
     ).toPromise().then(result => {
+      this.editTaskForm.reset();
       this.newTask.emit(result);
     });
   }
   modify() {
     this.tasksService.update(
       this.task.id,
-      this.addTaskForm.value
+      this.editTaskForm.value
     ).toPromise()
       .then(result => {
         this.newTask.emit(result);

@@ -1,12 +1,10 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {GlobalVariables} from "../../../../../../../utils/global-variables";
-import {SessionStorageService} from "../../../../../../../shared/services/session-storage.service";
-import {ProjectsService} from "../../../../../../services/projects.service";
-import {Router} from "@angular/router";
-import {CommentsService} from "../../../../../../services/comments.service";
-import {TaskWithId} from "../../../../../../../models/task";
-import {CommentWithId} from "../../../../../../../models/comment";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {GlobalVariables} from '../../../../../../../utils/global-variables';
+import {SessionStorageService} from '../../../../../../../shared/services/session-storage.service';
+import {Router} from '@angular/router';
+import {CommentsService} from '../../../../../../services/comments.service';
+import {CommentWithId} from '../../../../../../../models/comment';
 
 @Component({
   selector: 'app-add-comment',
@@ -24,7 +22,7 @@ export class EditCommentComponent implements OnInit {
   @Output()
   newComment = new EventEmitter<CommentWithId>();
 
-  addCommentForm: FormGroup;
+  editCommentForm: FormGroup;
 
   minContentLength = GlobalVariables.minCommentContentLength;
   maxContentLength = GlobalVariables.maxCommentContentLength;
@@ -38,7 +36,7 @@ export class EditCommentComponent implements OnInit {
     this.buildForm();
   }
   buildForm(): void {
-    this.addCommentForm = this.formBuilder.group({
+    this.editCommentForm = this.formBuilder.group({
       content: ['', [
         Validators.required,
         Validators.minLength(this.minContentLength),
@@ -49,7 +47,7 @@ export class EditCommentComponent implements OnInit {
   }
   setDefaultValues(): void {
     if (this.comment !== undefined) {
-      this.addCommentForm.controls.content.setValue(this.comment.content);
+      this.editCommentForm.controls.content.setValue(this.comment.content);
     }
   }
   edit() {
@@ -62,16 +60,17 @@ export class EditCommentComponent implements OnInit {
   add() {
     this.commentsService.create(
       this.taskId,
-      this.addCommentForm.value
+      this.editCommentForm.value
     ).toPromise()
       .then(result => {
+        this.editCommentForm.reset();
         this.newComment.emit(result);
       });
   }
   modify() {
     this.commentsService.update(
       this.comment.id,
-      this.addCommentForm.value
+      this.editCommentForm.value
     ).toPromise()
       .then(result => {
         this.newComment.emit(result);

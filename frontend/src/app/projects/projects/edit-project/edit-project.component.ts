@@ -18,7 +18,7 @@ export class EditProjectComponent implements OnInit {
   @Output()
   newProject = new EventEmitter<ProjectWithId>();
 
-  addProjectForm: FormGroup;
+  editProjectForm: FormGroup;
 
   minNameLength = GlobalVariables.minProjectNameLength;
   maxNameLength = GlobalVariables.maxProjectNameLength;
@@ -33,7 +33,7 @@ export class EditProjectComponent implements OnInit {
     this.buildForm();
   }
   buildForm(): void {
-    this.addProjectForm = this.formBuilder.group({
+    this.editProjectForm = this.formBuilder.group({
       name: ['', [
         Validators.required,
         Validators.minLength(this.minNameLength),
@@ -43,12 +43,12 @@ export class EditProjectComponent implements OnInit {
         Validators.maxLength(this.maxDescriptionLength)
       ]],
     });
-    this.setDefaultValues();
+    this.setValuesForModification();
   }
-  setDefaultValues(): void {
+  setValuesForModification(): void {
     if (this.project !== undefined) {
-      this.addProjectForm.controls.name.setValue(this.project.name);
-      this.addProjectForm.controls.description.setValue(this.project.description);
+      this.editProjectForm.controls.name.setValue(this.project.name);
+      this.editProjectForm.controls.description.setValue(this.project.description);
     }
   }
   edit() {
@@ -62,16 +62,17 @@ export class EditProjectComponent implements OnInit {
     const username = this.sessionStorageService.getUsername();
     this.projectsService.create(
       username,
-      this.addProjectForm.value
+      this.editProjectForm.value
     ).toPromise()
       .then(result => {
-        this.router.navigate(['projects', this.project.id]);
+        this.editProjectForm.reset();
+        this.router.navigate(['projects', result.id]);
       });
   }
   modify() {
     this.projectsService.update(
       this.project.id,
-      this.addProjectForm.value
+      this.editProjectForm.value
     ).toPromise()
       .then(result => {
         this.newProject.emit(result);
