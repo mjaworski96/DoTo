@@ -1,6 +1,6 @@
 <div class="comments-list-container">
   <div *ngIf="comments && comments.comments.length !== 0; else noComments">
-    <div *ngFor="let comment of comments.comments" class="comment">
+    <div *ngFor="let comment of comments.comments" class="comment break-long-word">
       {{comment.content}}
       <div class="form-check buttons-container float-right">
         <button class="btn btn-primary" (click)="modify(comment)" type="button"

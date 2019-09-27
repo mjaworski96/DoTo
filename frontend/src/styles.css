@@ -3,9 +3,16 @@
   --project-border: rgb(187, 187, 187);
   --inactive-text: rgb(180, 180, 180);
 }
+body {
+  background-image: url("assets/memphis-mini.png"); /* from http://subtlepatterns.com */
+}
 hr {
   background-color: var(--main-color);
 }
 .dialog-container {
   padding: 20px 30px;
+}
+.break-long-word {
+  white-space: pre-line;
+  word-wrap: break-word;
 }
