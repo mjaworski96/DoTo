@@ -13,4 +13,7 @@ export class DeleteCommentDialogComponent implements OnInit {
   ngOnInit() {
   }
 
+  close(result: any) {
+    this.activeModal.close(result);
+  }
 }

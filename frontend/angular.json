@@ -62,6 +62,12 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "pl": {
+              "aot": true,
+              "i18nFile": "src/locale/messages.pl.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "pl"
             }
           }
         },
@@ -73,6 +79,9 @@
           "configurations": {
             "production": {
               "browserTarget": "frontend:build:production"
+            },
+            "pl": {
+              "browserTarget": "frontend:build:pl"
             }
           }
         },

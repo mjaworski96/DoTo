@@ -13,4 +13,8 @@ export class DeleteProjectDialogComponent implements OnInit {
   ngOnInit() {
   }
 
+  close(result: any) {
+    this.activeModal.close(result);
+  }
+
 }
