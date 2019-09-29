@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ChangePasswordService} from '../../services/change-password.service';
 import {SessionStorageService} from '../../../../shared/services/session-storage.service';
-import {ChangePasswordConfirmPassword} from "./utils/change-password-confirm-password";
-import {Xi18nCommand} from "@angular/cli/commands/xi18n-impl";
-import {ToastrService} from "ngx-toastr";
+import {ChangePasswordConfirmPassword} from './utils/change-password-confirm-password';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-password-change',
@@ -12,6 +11,9 @@ import {ToastrService} from "ngx-toastr";
   styleUrls: ['./password-change.component.css']
 })
 export class PasswordChangeComponent implements OnInit {
+
+  @ViewChild('passwordChangedMsg', {static: false})
+  translatedMessage: ElementRef;
 
   passwordChangeForm: FormGroup;
   confirmPassword = new ChangePasswordConfirmPassword();
@@ -49,7 +51,7 @@ export class PasswordChangeComponent implements OnInit {
       this.passwordChangeForm.value
     ).toPromise().then((result) => {
       if (result !== undefined) {
-        this.toastr.info('Password changed', '', {
+        this.toastr.info(this.translatedMessage.nativeElement.innerHTML, '', {
           timeOut: 5000,
           closeButton: true
         });

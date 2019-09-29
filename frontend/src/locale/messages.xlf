@@ -4,8 +4,8 @@
     <body>
       <trans-unit id="app-title" datatype="html">
         <source>
-    DoTo
-  </source>
+          DoTo
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/header/header.component.html</context>
           <context context-type="linenumber">3</context>
@@ -87,8 +87,8 @@
       </trans-unit>
       <trans-unit id="name-required-validation" datatype="html">
         <source>
-            Name is required.
-          </source>
+          Name is required.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context>
           <context context-type="linenumber">9</context>
@@ -98,8 +98,8 @@
       </trans-unit>
       <trans-unit id="name-too-short-validation" datatype="html">
         <source>
-           Name must contain at least <x id="INTERPOLATION" equiv-text="{{minNameLength}}"/> characters.
-          </source>
+          Name must contain at least <x id="INTERPOLATION" equiv-text="{{minNameLength}}"/> characters.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context>
           <context context-type="linenumber">14</context>
@@ -109,8 +109,8 @@
       </trans-unit>
       <trans-unit id="name-too-long-validation" datatype="html">
         <source>
-            Name must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxNameLength}}"/> characters.
-          </source>
+          Name must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxNameLength}}"/> characters.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context>
           <context context-type="linenumber">19</context>
@@ -129,8 +129,8 @@
       </trans-unit>
       <trans-unit id="description-too-long-validation" datatype="html">
         <source>
-            Description must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxDescriptionLength}}"/> characters.
-          </source>
+          Description must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxDescriptionLength}}"/> characters.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context>
           <context context-type="linenumber">30</context>
@@ -179,8 +179,8 @@
       </trans-unit>
       <trans-unit id="short-description-required-validation" datatype="html">
         <source>
-            Short description is required.
-          </source>
+          Short description is required.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context>
           <context context-type="linenumber">9</context>
@@ -190,8 +190,8 @@
       </trans-unit>
       <trans-unit id="short-description-too-short-validation" datatype="html">
         <source>
-           Short description must contain at least <x id="INTERPOLATION" equiv-text="{{minShortDescriptionLength}}"/> characters.
-          </source>
+          Short description must contain at least <x id="INTERPOLATION" equiv-text="{{minShortDescriptionLength}}"/> characters.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context>
           <context context-type="linenumber">14</context>
@@ -201,8 +201,8 @@
       </trans-unit>
       <trans-unit id="short-description-too-long-validation" datatype="html">
         <source>
-            Short description must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxShortDescriptionLength}}"/> characters.
-          </source>
+          Short description must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxShortDescriptionLength}}"/> characters.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context>
           <context context-type="linenumber">19</context>
@@ -221,8 +221,8 @@
       </trans-unit>
       <trans-unit id="full-description-too-long-validation" datatype="html">
         <source>
-            Full description must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxFullDescriptionLength}}"/> characters.
-          </source>
+          Full description must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxFullDescriptionLength}}"/> characters.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context>
           <context context-type="linenumber">30</context>
@@ -256,8 +256,8 @@
       </trans-unit>
       <trans-unit id="comment-required-validation" datatype="html">
         <source>
-            Comment is required.
-          </source>
+          Comment is required.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/comments-list/edit-comment/edit-comment.component.html</context>
           <context context-type="linenumber">9</context>
@@ -267,8 +267,8 @@
       </trans-unit>
       <trans-unit id="comment-too-short-validation" datatype="html">
         <source>
-           Comment must contain at least <x id="INTERPOLATION" equiv-text="{{minContentLength}}"/> characters.
-          </source>
+          Comment must contain at least <x id="INTERPOLATION" equiv-text="{{minContentLength}}"/> characters.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/comments-list/edit-comment/edit-comment.component.html</context>
           <context context-type="linenumber">14</context>
@@ -278,8 +278,8 @@
       </trans-unit>
       <trans-unit id="comment-too-long-validation" datatype="html">
         <source>
-            Comment must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxContentLength}}"/> characters.
-          </source>
+          Comment must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxContentLength}}"/> characters.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/comments-list/edit-comment/edit-comment.component.html</context>
           <context context-type="linenumber">19</context>
@@ -604,8 +604,8 @@
       </trans-unit>
       <trans-unit id="username-required-validation" datatype="html">
         <source>
-            Username is required.
-          </source>
+          Username is required.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
           <context context-type="linenumber">10</context>
@@ -623,8 +623,8 @@
       </trans-unit>
       <trans-unit id="username-too-short-validation" datatype="html">
         <source>
-            Username must contain at least <x id="INTERPOLATION" equiv-text="{{minUsernameLength}}"/> characters.
-          </source>
+          Username must contain at least <x id="INTERPOLATION" equiv-text="{{minUsernameLength}}"/> characters.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
           <context context-type="linenumber">15</context>
@@ -642,8 +642,8 @@
       </trans-unit>
       <trans-unit id="username-too-long-validation" datatype="html">
         <source>
-            Username must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxUsernameLength}}"/> characters.
-          </source>
+          Username must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxUsernameLength}}"/> characters.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
           <context context-type="linenumber">20</context>
@@ -674,8 +674,8 @@
       </trans-unit>
       <trans-unit id="password-required-validation" datatype="html">
         <source>
-            Password is required.
-          </source>
+          Password is required.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
           <context context-type="linenumber">32</context>
@@ -693,8 +693,8 @@
       </trans-unit>
       <trans-unit id="password-too-short-validation" datatype="html">
         <source>
-            Password must contains at least <x id="INTERPOLATION" equiv-text="{{minPasswordLength}}"/> characters.
-          </source>
+          Password must contains at least <x id="INTERPOLATION" equiv-text="{{minPasswordLength}}"/> characters.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
           <context context-type="linenumber">37</context>
@@ -708,8 +708,8 @@
       </trans-unit>
       <trans-unit id="password-too-long-validation" datatype="html">
         <source>
-            Password must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxPasswordLength}}"/> characters.
-          </source>
+          Password must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxPasswordLength}}"/> characters.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
           <context context-type="linenumber">42</context>
@@ -732,8 +732,8 @@
       </trans-unit>
       <trans-unit id="forgotten-password" datatype="html">
         <source>
-      Forgotten password?
-    </source>
+          Forgotten password?
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
           <context context-type="linenumber">57</context>
@@ -834,8 +834,8 @@
       </trans-unit>
       <trans-unit id="reset-password-sent" datatype="html">
         <source>
-        If email is valid, new password was sent.
-      </source>
+          If email is valid, new password was sent.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/authentication/login/reset-password/reset-password.component.html</context>
           <context context-type="linenumber">31</context>
@@ -851,6 +851,15 @@
         </context-group>
         <note priority="1" from="description"> Text in update account button</note>
         <note priority="1" from="meaning">Update button</note>
+      </trans-unit>
+      <trans-unit id="account-modified-msg" datatype="html">
+        <source>Account updated</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/account-edit/account-edit.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+        <note priority="1" from="description">Account modified message</note>
+        <note priority="1" from="meaning">Account modified</note>
       </trans-unit>
       <trans-unit id="old-password" datatype="html">
         <source>Old password</source>
@@ -947,13 +956,22 @@
       </trans-unit>
       <trans-unit id="change-password" datatype="html">
         <source>
-        Change password</source>
+          Change password</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
           <context context-type="linenumber">69</context>
         </context-group>
         <note priority="1" from="description"> Text in change password button</note>
         <note priority="1" from="meaning">Change password button</note>
+      </trans-unit>
+      <trans-unit id="password-changed-msg" datatype="html">
+        <source>Password changed</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+        <note priority="1" from="description">Password changed message</note>
+        <note priority="1" from="meaning">Password changed</note>
       </trans-unit>
       <trans-unit id="delete-account-dialog-title" datatype="html">
         <source>Delete account</source>
@@ -966,8 +984,8 @@
       </trans-unit>
       <trans-unit id="delete-dialog-question" datatype="html">
         <source>
-  <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Are you sure? This operation cannot be undone<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
-</source>
+          <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Are you sure? This operation cannot be undone<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/dialogs/delete-account-dialog/delete-account-dialog.component.html</context>
           <context context-type="linenumber">9</context>
@@ -1040,8 +1058,8 @@
       </trans-unit>
       <trans-unit id="no-projects" datatype="html">
         <source>
-      No projects.
-    </source>
+          No projects.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/projects.component.html</context>
           <context context-type="linenumber">29</context>
@@ -1131,8 +1149,8 @@
       </trans-unit>
       <trans-unit id="no-comments" datatype="html">
         <source>
-      No comments.
-    </source>
+          No comments.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/comments-list/comments-list.component.html</context>
           <context context-type="linenumber">19</context>
