@@ -219,6 +219,17 @@
         <note priority="1" from="description">Shown when description is too long</note>
         <note priority="1" from="meaning">Full description validation</note>
         <target>Pełny opis może zawierać maksymalnie <x id="INTERPOLATION" equiv-text="{{maxFullDescriptionLength}}"/> znaków.</target></trans-unit>
+      <trans-unit id="add-task" datatype="html">
+        <source>
+          Add task
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+        <note priority="1" from="description">Text in add task button</note>
+        <note priority="1" from="meaning">Add task button</note>
+      <target>Dodaj zadanie</target></trans-unit>
       <trans-unit id="modify-task" datatype="html">
         <source>
           Modify task
