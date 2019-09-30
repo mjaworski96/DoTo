@@ -35,7 +35,7 @@
         <appender-ref ref="Console" />
     </root>
 
-    <logger name="server" level="warn">
+    <logger name="org.mjaworski.backend" level="warn">
         <appender-ref ref="RollingFile" />
     </logger>
 
