@@ -1,0 +1,7 @@
+li, span {
+  cursor: pointer;
+  padding: 5px 15px;
+}
+.header {
+  margin-bottom: 50px;
+}

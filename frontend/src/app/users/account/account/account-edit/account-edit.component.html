@@ -1,0 +1,50 @@
+<div class="user-details-edit-wrapper full-width-form">
+  <form [formGroup]="userForm" class="material-form">
+    <div class="form-group">
+        <input class="form-control" formControlName="username" placeholder="Username"
+               i18n-placeholder="Username placeholder| Text in username placeholder@@username">
+      <span *ngIf="userForm.get('username').touched">
+        <span class="badge badge-danger float-left"
+              i18n="Username validation|Shown when username is empty@@username-required-validation"
+              *ngIf="userForm.get('username').hasError('required')">
+          Username is required.
+        </span>
+        <span class="badge badge-danger float-left"
+              i18n="Username validation|Shown when username is too short@@username-too-short-validation"
+              *ngIf="userForm.get('username').hasError('minlength')">
+          Username must contain at least {{minUsernameLength}} characters.
+        </span>
+        <span class="badge badge-danger float-left"
+              i18n="Username validation|Shown when username is too long@@username-too-long-validation"
+              *ngIf=" userForm.get('username').hasError('maxlength')">
+          Username must contain a maximum of {{maxUsernameLength}} characters.
+        </span>
+      </span>
+    </div>
+    <div class="form-group">
+      <input class="form-control" email formControlName="email" placeholder="Email"
+             i18n-placeholder="Email placeholder| Text in email placeholder@@email">
+      <span *ngIf="userForm.get('email').touched">
+        <span class="badge badge-danger float-left"
+              i18n="Email validation|Shown when email is empty@@email-required-validation"
+              *ngIf="userForm.get('email').hasError('required')">
+          Email is required.
+        </span>
+        <span class="badge badge-danger float-left"
+              i18n="Email validation|Shown when email is invalid@@email-validation"
+              *ngIf="userForm.get('email').hasError('email')">
+          Enter valid email address.
+        </span>
+      </span>
+    </div>
+    <div class="form-check">
+      <button  class="btn btn-primary float-right"
+              [disabled]="userForm.invalid"
+              type="submit" (click)="update()"
+              i18n="Update button| Text in update account button@@update">Update account data</button>
+      <div class="clearfix"></div>
+    </div>
+  </form>
+</div>
+<span [hidden]="true" #accountModifiedMsg
+      i18n="Account modified|Account modified message@@account-modified-msg">Account updated</span>

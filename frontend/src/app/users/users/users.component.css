@@ -1,0 +1,14 @@
+.users-container {
+  width: 80%;
+  margin: 0 auto;
+}
+.pagination-container {
+  margin-bottom: 5px;
+}
+.table-container {
+  margin-bottom: 10px;
+}
+.big-checkbox {
+  width: 15px;
+  height: 15px;
+}

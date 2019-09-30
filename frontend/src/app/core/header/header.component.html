@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary header">
+  <span (click)="navigate(['/'])"
+        class="navbar-brand" >
+    <img src="../../../assets/logo.png" width="30" height="30" alt="">
+  </span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2"
+                   aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+  <div class="collapse navbar-collapse dual-collapse2">
+    <ul class="navbar-nav">
+      <li class="nav-item nav-link" i18n="Home|Home redirect@@home-redirect"
+          (click)="navigate(['/'])">Home</li>
+      <li *ngIf="isUserLoggedIn()" class="nav-item nav-link"
+          i18n="My projects|My projects redirect@@my-projects-redirect"
+          (click)="navigate(['projects'])">My projects</li>
+      <li *ngIf="isUserLoggedIn()" class="nav-item nav-link" (click)="navigate(['account'])"
+          i18n="My Account|My account redirect@my-account-redirect">My account</li>
+      <li *ngIf="isAdmin()" class="nav-item nav-link" (click)="navigate(['users'])"
+          i18n="Users|Users list@users-list-redirect">Users</li>
+    </ul>
+  </div>
+  <div class="collapse navbar-collapse dual-collapse2">
+    <ul class="navbar-nav ml-auto">
+      <li *ngIf="!isUserLoggedIn()" class="nav-item nav-link"
+          i18n="Log in|Log in redirect@@log-in-redirect"
+          (click)="navigate(['login'])">Log in</li>
+      <li *ngIf="!isUserLoggedIn()" class="nav-item nav-link"
+          i18n="Register|Register redirect@@register-redirect"
+          (click)="navigate(['register'])">Register</li>
+      <li *ngIf="isUserLoggedIn()" class="nav-item nav-link"
+          i18n="Logout button|Logout button@@logout-button"
+          (click)="logout()">Logout</li>
+    </ul>
+  </div>
+</nav>

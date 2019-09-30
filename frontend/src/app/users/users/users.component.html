@@ -1,0 +1,40 @@
+<div class="users-container">
+  <div class="pagination-container">
+    <ngb-pagination class="d-flex justify-content-center"
+                    [collectionSize]="usersPage.totalElements"
+                    [pageSize]="pageSize"
+                    [page]="usersPage.number + 1"
+                    [maxSize]="5"
+                    [rotate]="true"
+                    [ellipses]="false"
+                    [boundaryLinks]="true"
+                    (pageChange)="updatePage($event)">
+    </ngb-pagination>
+  </div>
+  <div class="table-container">
+    <table class="table table-striped table-light table-bordered">
+      <thead class="thead-dark">
+      <tr>
+        <th i18n="@@username">Username</th>
+        <th i18n="@@email">Email</th>
+        <th i18n="User role|User role name@@user-role-name">User</th>
+        <th i18n="Admin role|Admin role name@@admin-role-name">Admin</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of usersPage.content">
+          <td>{{user.username}}</td>
+          <td>{{user.email}}</td>
+          <td>
+              <input class="custom-checkbox big-checkbox" type="checkbox"
+                     [checked]="hasRole(user, 'USER')" (change)="changeRole(user, 'USER')">
+          </td>
+          <td>
+            <input class="custom-checkbox big-checkbox" type="checkbox"
+                   [checked]="hasRole(user, 'ADMIN')" (change)="changeRole(user, 'ADMIN')">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

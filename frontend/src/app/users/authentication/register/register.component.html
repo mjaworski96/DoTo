@@ -1,0 +1,86 @@
+<div class="registration-form">
+  <form [formGroup]="registerForm" >
+    <div class="form-group">
+      <input class="form-control" formControlName="username" placeholder="Username"
+             i18n-placeholder="Username placeholder| Text in username placeholder@@username">
+      <span *ngIf="registerForm.get('username').touched">
+        <span class="badge badge-danger float-left"
+              i18n="Username validation|Shown when username is empty@@username-required-validation"
+              *ngIf="registerForm.get('username').hasError('required')">
+          Username is required.
+        </span>
+        <span class="badge badge-danger float-left"
+              i18n="Username validation|Shown when username is too short@@username-too-short-validation"
+              *ngIf="registerForm.get('username').hasError('minlength')">
+          Username must contain at least {{minUsernameLength}} characters.
+        </span>
+        <span class="badge badge-danger float-left"
+              i18n="Username validation|Shown when username is too long@@username-too-long-validation"
+              *ngIf="registerForm.get('username').hasError('maxlength')">
+          Username must contain a maximum of {{maxUsernameLength}} characters.
+        </span>
+      </span>
+    </div>
+    <div class="form-group">
+      <input class="form-control" email formControlName="email" placeholder="Email"
+             i18n-placeholder="Email placeholder| Text in email placeholder@@email">
+      <span *ngIf="registerForm.get('email').touched">
+        <span class="badge badge-danger float-left"
+              i18n="Email validation|Shown when email is empty@@email-required-validation"
+              *ngIf="registerForm.get('email').hasError('required')">
+          Email is required.
+        </span>
+        <span class="badge badge-danger float-left"
+              i18n="Email validation|Shown when email is invalid@@email-validation"
+              *ngIf="registerForm.get('email').hasError('email')">
+          Enter valid email address.
+        </span>
+      </span>
+    </div>
+    <div class="form-group">
+      <input class="form-control" formControlName="password" type="password" placeholder="Password"
+             i18n-placeholder="Password placeholder| Text in password placeholder@@password">
+
+      <span *ngIf="registerForm.get('password').touched">
+        <span class="badge badge-danger float-left"
+              i18n="Password validation|Shown when password is empty@@password-required-validation"
+              *ngIf="registerForm.get('password').hasError('required')">
+          Password is required.
+        </span>
+        <span class="badge badge-danger float-left"
+              i18n="Password validation|Shown when password is too short@@password-too-short-validation"
+              *ngIf="registerForm.get('password').hasError('minlength')">
+          Password must contains at least {{minPasswordLength}} characters.
+        </span>
+        <span class="badge badge-danger float-left"
+              i18n="Password validation|Shown when password is too long@@password-too-long-validation"
+              *ngIf="registerForm.get('password').hasError('maxlength')">
+          Password must contain a maximum of {{maxPasswordLength}} characters.
+        </span>
+     </span>
+    </div>
+    <div class="form-group">
+      <input class="form-control" formControlName="confirmPassword" type="password"
+             placeholder="Confirm password"
+             i18n-placeholder="Confirm password placeholder| Text in confirm password placeholder@@confirm-password">
+    <span *ngIf="registerForm.get('confirmPassword').touched">
+      <span class="badge badge-danger float-left"
+            i18n="Confirm password validation|Shown when password is empty@@confirm-password-required-validation"
+            *ngIf="registerForm.get('confirmPassword').hasError('required')">
+          You must confirm password.
+        </span>
+        <span class="badge badge-danger float-left"
+              i18n="Confirm password validation|Shown when passwords do not match@@confirm-password-validation"
+              *ngIf="registerForm.hasError('passwordsNotMatch')">
+          Passwords are different.
+        </span>
+    </span>
+    </div>
+    <div class="form-check">
+      <button class="btn btn-primary float-right"
+              [disabled]="registerForm.invalid"
+              type="submit" (click)="register()"
+              i18n="Register button| Text in register button@@register">Register</button>
+    </div>
+  </form>
+</div>

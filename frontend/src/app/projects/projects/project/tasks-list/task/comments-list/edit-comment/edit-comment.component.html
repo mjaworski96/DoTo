@@ -1,0 +1,37 @@
+<div>
+  <form [formGroup]="editCommentForm">
+    <div class="form-group">
+      <input class="form-control" formControlName="content" placeholder="Comment"
+             i18n-placeholder="Comment placeholder|Text in comment placeholder@@comment">
+      <span *ngIf="editCommentForm.get('content').touched">
+          <span class="badge badge-danger float-left"
+                i18n="Comment validation|Shown when comment is empty@@comment-required-validation"
+                *ngIf="editCommentForm.get('content').hasError('required')">
+            Comment is required.
+          </span>
+          <span class="badge badge-danger float-left"
+                i18n="Comment validation|Shown when comment is too short@@comment-too-short-validation"
+                *ngIf="editCommentForm.get('content').hasError('minlength')">
+           Comment must contain at least {{minContentLength}} characters.
+          </span>
+          <span class="badge badge-danger float-left"
+                i18n="Comment validation|Shown when comment is too long@@comment-too-long-validation"
+                *ngIf="editCommentForm.get('content').hasError('maxlength')">
+            Comment must contain a maximum of {{maxContentLength}} characters.
+          </span>
+        </span>
+    </div>
+    <div class="form-check">
+      <button class="btn btn-primary float-right" [disabled]="editCommentForm.invalid" type="submit"
+              (click)="edit()">
+        <span *ngIf="!comment" i18n="Add comment button|Text in add comment button@@add-comment">
+          Add comment
+        </span>
+        <span *ngIf="comment" i18n="Modify comment button|Text in modify comment button@@modify-comment">
+          Modify comment
+        </span>
+      </button>
+      <div class="clearfix"></div>
+    </div>
+  </form>
+</div>

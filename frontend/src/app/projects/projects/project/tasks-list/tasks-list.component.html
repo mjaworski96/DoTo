@@ -1,0 +1,21 @@
+<div class="tasks-list-container">
+  <div *ngFor="let task of tasks;">
+    <div class="task-wrapper">
+      <div class="row">
+        <div class="col-md-3">
+          <button *ngIf="prevState"
+                  class="btn btn-primary state-change-btn"
+                  (click)="updateState(task, prevState)"><</button>
+        </div>
+        <div class="col-md-6 task-short-description break-long-word" (click)="openTask(task)">
+          {{task.shortDescription}}
+        </div>
+        <div class="col-md-3" >
+          <button *ngIf="nextState"
+                  class="btn btn-primary float-right state-change-btn"
+                  (click)="updateState(task, nextState)">></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

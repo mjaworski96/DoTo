@@ -1,0 +1,15 @@
+.task-wrapper {
+  padding: 5px;
+  border: 1px solid var(--project-border);
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+.state-change-btn {
+  height: 100%;
+}
+.tasks-list-container {
+  margin-top: 20px;
+}
+.task-short-description {
+  cursor: pointer;
+}

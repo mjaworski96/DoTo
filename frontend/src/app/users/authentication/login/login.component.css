@@ -1,0 +1,12 @@
+.login-form {
+  width: 50%;
+  margin: 0 auto;
+}
+.btn-login {
+  font-weight: bold;
+}
+.forgotten-password-btn-wrapper {
+  margin-top: 10px;
+  cursor: pointer;
+  padding: 5px;
+}

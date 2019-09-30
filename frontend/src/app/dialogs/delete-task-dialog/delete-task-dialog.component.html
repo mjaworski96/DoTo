@@ -1,0 +1,17 @@
+<div class="modal-header">
+  <h4 i18n="Delete task dialog title|Delete task dialog button text@@delete-task-dialog-title"
+      class="modal-title">Delete task</h4>
+  <button type="button" class="close" aria-label="Close" (click)="close(false)">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div i18n="Delete dialog question|Delete question@@delete-dialog-question"
+     class="modal-body">
+  <p>Are you sure? This operation cannot be undone</p>
+</div>
+<div class="modal-footer">
+  <button  i18n="Delete dialog cancel|Delete dialog cancel@@delete-dialog-cancel"
+           type="button" class="btn btn-primary" (click)="close(false)">Cancel</button>
+  <button i18n="Delete dialog confirmation|Delete dialog confirmation@@delete-dialog-confirmation"
+          type="button" class="btn btn-danger" (click)="close(true)">Delete</button>
+</div>

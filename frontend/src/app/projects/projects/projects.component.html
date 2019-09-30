@@ -1,0 +1,33 @@
+<div class="projects-container">
+  <div class="add-project">
+    <app-add-project></app-add-project>
+  </div>
+  <div class="pagination-container">
+    <ngb-pagination class="d-flex justify-content-center"
+                    [collectionSize]="projectsPage.totalElements"
+                    [pageSize]="pageSize"
+                    [page]="projectsPage.number + 1"
+                    [maxSize]="5"
+                    [rotate]="true"
+                    [ellipses]="false"
+                    [boundaryLinks]="true"
+                    (pageChange)="updatePage($event)">
+    </ngb-pagination>
+  </div>
+  <div *ngIf="projectsPage.content.length > 0; else noProjects;" class="row">
+    <div *ngFor="let project of projectsPage.content"
+          class="project-wrapper col-md-4">
+      <div class="project"
+           (click)="goToProject(project.id)">
+        <div class="project-name break-long-word">{{project.name}}</div>
+        <hr>
+        <div class="break-long-word">{{project.description}}</div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noProjects>
+    <div i18n="No projects|No projects@@no-projects" class="no-projects">
+      No projects.
+    </div>
+  </ng-template>
+</div>

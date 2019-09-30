@@ -1,0 +1,61 @@
+<div>
+  <div class="project-container">
+    <div class="project-name">
+      {{project.name}}
+    </div>
+    <hr>
+    <div>
+      {{project.description}}
+    </div>
+  </div>
+  <div class="form-check modify-project-container">
+    <button class="btn btn-primary float-right" (click)="modify()" type="button"
+            i18n="Modify project|Modify project button@@modify-project">Modify project</button>
+    <div class="clearfix"></div>
+  </div>
+  <hr>
+  <div class="add-task">
+    <app-add-task [projectId]="project.id" (newTask)="addTask($event)"></app-add-task>
+  </div>
+  <div>
+    <div class="row">
+      <div class="col-md-3">
+        <hr>
+        <div class="state-name" i18n="To do|To do status@@todo">
+          To do
+        </div>
+        <hr>
+        <app-tasks-list [tasks]="filter('todo')" [projectId]="project.id" [nextState]="'inprogress'"></app-tasks-list>
+      </div>
+      <div class="col-md-3">
+        <hr>
+        <div class="state-name" i18n="In progress|In progress status@@inprogress">
+          In progress
+        </div>
+        <hr>
+        <app-tasks-list [tasks]="filter('inprogress')" [projectId]="project.id" [prevState]="'todo'" [nextState]="'done'"></app-tasks-list>
+      </div>
+      <div class="col-md-3">
+        <hr>
+        <div class="state-name" i18n="Done|Done status@@done">
+          Done
+        </div>
+        <hr>
+        <app-tasks-list [tasks]="filter('done')" [projectId]="project.id" [prevState]="'inprogress'" [nextState]="'archived'"></app-tasks-list>
+      </div>
+      <div class="col-md-3">
+        <hr>
+        <div class="state-name" i18n="Archived|Archived status@@archived">
+          Archived
+        </div>
+        <hr>
+        <app-tasks-list [tasks]="filter('archived')" [projectId]="project.id" [prevState]="'done'"></app-tasks-list>
+      </div>
+    </div>
+  </div>
+  <div class="form-check delete-project-container">
+    <button class="btn btn-danger float-right" (click)="delete()" type="button"
+            i18n="Delete project|Delete project button@@delete-project">Delete project</button>
+    <div class="clearfix"></div>
+  </div>
+</div>

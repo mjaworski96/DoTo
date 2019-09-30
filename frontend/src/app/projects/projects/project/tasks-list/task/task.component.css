@@ -1,0 +1,12 @@
+.task-description-container {
+  margin-bottom: 30px;
+}
+.task-short-description {
+  font-weight: bold;
+}
+.buttons-container {
+  margin-top: 30px;
+}
+.delete-task-btn {
+  margin-left: 15px;
+}

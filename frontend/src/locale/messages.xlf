@@ -1,0 +1,1186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="home-redirect" datatype="html">
+        <source>Home</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/header/header.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <note priority="1" from="description">Home redirect</note>
+        <note priority="1" from="meaning">Home</note>
+      </trans-unit>
+      <trans-unit id="my-projects-redirect" datatype="html">
+        <source>My projects</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/header/header.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">My projects redirect</note>
+        <note priority="1" from="meaning">My projects</note>
+      </trans-unit>
+      <trans-unit id="36b935d15b80d0f5d6b1c88111b93943cb2f01fb" datatype="html">
+        <source>My account</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/header/header.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description">My account redirect@my-account-redirect</note>
+        <note priority="1" from="meaning">My Account</note>
+      </trans-unit>
+      <trans-unit id="141c3b897e12c516909e87d9e479ea4fc428b6d1" datatype="html">
+        <source>Users</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/header/header.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="description">Users list@users-list-redirect</note>
+        <note priority="1" from="meaning">Users</note>
+      </trans-unit>
+      <trans-unit id="log-in-redirect" datatype="html">
+        <source>Log in</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/header/header.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <note priority="1" from="description">Log in redirect</note>
+        <note priority="1" from="meaning">Log in</note>
+      </trans-unit>
+      <trans-unit id="register-redirect" datatype="html">
+        <source>Register</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/header/header.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <note priority="1" from="description">Register redirect</note>
+        <note priority="1" from="meaning">Register</note>
+      </trans-unit>
+      <trans-unit id="logout-button" datatype="html">
+        <source>Logout</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/header/header.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <note priority="1" from="description">Logout button</note>
+        <note priority="1" from="meaning">Logout button</note>
+      </trans-unit>
+      <trans-unit id="name" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">Text in name placeholder</note>
+        <note priority="1" from="meaning">Name placeholder</note>
+      </trans-unit>
+      <trans-unit id="name-required-validation" datatype="html">
+        <source>
+            Name is required.
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Shown when name is empty</note>
+        <note priority="1" from="meaning">Name validation</note>
+      </trans-unit>
+      <trans-unit id="name-too-short-validation" datatype="html">
+        <source>
+           Name must contain at least <x id="INTERPOLATION" equiv-text="{{minNameLength}}"/> characters.
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Shown when name is too short</note>
+        <note priority="1" from="meaning">Name validation</note>
+      </trans-unit>
+      <trans-unit id="name-too-long-validation" datatype="html">
+        <source>
+            Name must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxNameLength}}"/> characters.
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">Shown when name is too long</note>
+        <note priority="1" from="meaning">Name validation</note>
+      </trans-unit>
+      <trans-unit id="description" datatype="html">
+        <source>Description</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">Text in description placeholder</note>
+        <note priority="1" from="meaning">Description placeholder</note>
+      </trans-unit>
+      <trans-unit id="description-too-long-validation" datatype="html">
+        <source>
+            Description must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxDescriptionLength}}"/> characters.
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <note priority="1" from="description">Shown when description is too long</note>
+        <note priority="1" from="meaning">Description validation</note>
+      </trans-unit>
+      <trans-unit id="add-project" datatype="html">
+        <source>
+          Add project
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+        <note priority="1" from="description">Text in add project button</note>
+        <note priority="1" from="meaning">Add project button</note>
+      </trans-unit>
+      <trans-unit id="modify-project" datatype="html">
+        <source>
+          Modify project
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <note priority="1" from="description">Text in modify project button</note>
+        <note priority="1" from="meaning">Modify project button</note>
+      </trans-unit>
+      <trans-unit id="short-description" datatype="html">
+        <source>Short description</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">Text in short description placeholder</note>
+        <note priority="1" from="meaning">Short description placeholder</note>
+      </trans-unit>
+      <trans-unit id="short-description-required-validation" datatype="html">
+        <source>
+            Short description is required.
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Shown when short description is empty</note>
+        <note priority="1" from="meaning">Short description validation</note>
+      </trans-unit>
+      <trans-unit id="short-description-too-short-validation" datatype="html">
+        <source>
+           Short description must contain at least <x id="INTERPOLATION" equiv-text="{{minShortDescriptionLength}}"/> characters.
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Shown when short description is too short</note>
+        <note priority="1" from="meaning">Short description validation</note>
+      </trans-unit>
+      <trans-unit id="short-description-too-long-validation" datatype="html">
+        <source>
+            Short description must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxShortDescriptionLength}}"/> characters.
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">Shown when short description is too long</note>
+        <note priority="1" from="meaning">Short description validation</note>
+      </trans-unit>
+      <trans-unit id="full-description" datatype="html">
+        <source>Full description</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">Text in full description placeholder</note>
+        <note priority="1" from="meaning">Full description placeholder</note>
+      </trans-unit>
+      <trans-unit id="full-description-too-long-validation" datatype="html">
+        <source>
+            Full description must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxFullDescriptionLength}}"/> characters.
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <note priority="1" from="description">Shown when description is too long</note>
+        <note priority="1" from="meaning">Full description validation</note>
+      </trans-unit>
+      <trans-unit id="add-task" datatype="html">
+        <source>
+          Add task
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+        <note priority="1" from="description">Text in add task button</note>
+        <note priority="1" from="meaning">Add task button</note>
+      </trans-unit>
+      <trans-unit id="modify-task" datatype="html">
+        <source>
+          Modify task
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/task.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <note priority="1" from="description">Text in modify task button</note>
+        <note priority="1" from="meaning">Modify task button</note>
+      </trans-unit>
+      <trans-unit id="comment" datatype="html">
+        <source>Comment</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/comments-list/edit-comment/edit-comment.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">Text in comment placeholder</note>
+        <note priority="1" from="meaning">Comment placeholder</note>
+      </trans-unit>
+      <trans-unit id="comment-required-validation" datatype="html">
+        <source>
+            Comment is required.
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/comments-list/edit-comment/edit-comment.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Shown when comment is empty</note>
+        <note priority="1" from="meaning">Comment validation</note>
+      </trans-unit>
+      <trans-unit id="comment-too-short-validation" datatype="html">
+        <source>
+           Comment must contain at least <x id="INTERPOLATION" equiv-text="{{minContentLength}}"/> characters.
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/comments-list/edit-comment/edit-comment.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Shown when comment is too short</note>
+        <note priority="1" from="meaning">Comment validation</note>
+      </trans-unit>
+      <trans-unit id="comment-too-long-validation" datatype="html">
+        <source>
+            Comment must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxContentLength}}"/> characters.
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/comments-list/edit-comment/edit-comment.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">Shown when comment is too long</note>
+        <note priority="1" from="meaning">Comment validation</note>
+      </trans-unit>
+      <trans-unit id="add-comment" datatype="html">
+        <source>
+          Add comment
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/comments-list/edit-comment/edit-comment.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <note priority="1" from="description">Text in add comment button</note>
+        <note priority="1" from="meaning">Add comment button</note>
+      </trans-unit>
+      <trans-unit id="modify-comment" datatype="html">
+        <source>
+          Modify comment
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/comments-list/edit-comment/edit-comment.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/comments-list/comments-list.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">Text in modify comment button</note>
+        <note priority="1" from="meaning">Modify comment button</note>
+      </trans-unit>
+      <trans-unit id="ngb.alert.close" datatype="html">
+        <source>Close</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/alert/alert.d.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.carousel.previous" datatype="html">
+        <source>Previous</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/carousel/carousel.d.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.carousel.next" datatype="html">
+        <source>Next</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/carousel/carousel.d.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.datepicker.previous-month" datatype="html">
+        <source>Previous month</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation.d.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation.d.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.datepicker.next-month" datatype="html">
+        <source>Next month</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation.d.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation.d.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.datepicker.select-month" datatype="html">
+        <source>Select month</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation-select.d.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation-select.d.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.datepicker.select-year" datatype="html">
+        <source>Select year</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation-select.d.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation-select.d.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.first" datatype="html">
+        <source>««</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.previous" datatype="html">
+        <source>«</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.next" datatype="html">
+        <source>»</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.last" datatype="html">
+        <source>»»</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.first-aria" datatype="html">
+        <source>First</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.previous-aria" datatype="html">
+        <source>Previous</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.next-aria" datatype="html">
+        <source>Next</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.last-aria" datatype="html">
+        <source>Last</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.progressbar.value" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{getPercentValue()}}"/>%</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/progressbar/progressbar.d.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.increment-hours" datatype="html">
+        <source>Increment hours</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.HH" datatype="html">
+        <source>HH</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.hours" datatype="html">
+        <source>Hours</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.decrement-hours" datatype="html">
+        <source>Decrement hours</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.increment-minutes" datatype="html">
+        <source>Increment minutes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.MM" datatype="html">
+        <source>MM</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.minutes" datatype="html">
+        <source>Minutes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.decrement-minutes" datatype="html">
+        <source>Decrement minutes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.increment-seconds" datatype="html">
+        <source>Increment seconds</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.SS" datatype="html">
+        <source>SS</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.seconds" datatype="html">
+        <source>Seconds</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.decrement-seconds" datatype="html">
+        <source>Decrement seconds</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.PM" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ i18n.getAfternoonPeriod() }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.AM" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ i18n.getMorningPeriod() }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.toast.close-aria" datatype="html">
+        <source>Close</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/toast/toast.d.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="main-page" datatype="html">
+        <source>DoTo - Your ToDo application</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main-page/main-page.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description">Main page text</note>
+        <note priority="1" from="meaning">Main page</note>
+      </trans-unit>
+      <trans-unit id="username" datatype="html">
+        <source>Username</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/users/users.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/account-edit/account-edit.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="email" datatype="html">
+        <source>Email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/users/users.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/account-edit/account-edit.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="user-role-name" datatype="html">
+        <source>User</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/users/users.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="description">User role name</note>
+        <note priority="1" from="meaning">User role</note>
+      </trans-unit>
+      <trans-unit id="admin-role-name" datatype="html">
+        <source>Admin</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/users/users.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <note priority="1" from="description">Admin role name</note>
+        <note priority="1" from="meaning">Admin role</note>
+      </trans-unit>
+      <trans-unit id="username-required-validation" datatype="html">
+        <source>
+            Username is required.
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/account-edit/account-edit.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Shown when username is empty</note>
+        <note priority="1" from="meaning">Username validation</note>
+      </trans-unit>
+      <trans-unit id="username-too-short-validation" datatype="html">
+        <source>
+            Username must contain at least <x id="INTERPOLATION" equiv-text="{{minUsernameLength}}"/> characters.
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/account-edit/account-edit.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Shown when username is too short</note>
+        <note priority="1" from="meaning">Username validation</note>
+      </trans-unit>
+      <trans-unit id="username-too-long-validation" datatype="html">
+        <source>
+            Username must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxUsernameLength}}"/> characters.
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/account-edit/account-edit.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">Shown when username is too long</note>
+        <note priority="1" from="meaning">Username validation</note>
+      </trans-unit>
+      <trans-unit id="password" datatype="html">
+        <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <note priority="1" from="description">Text in password placeholder</note>
+        <note priority="1" from="meaning">Password placeholder</note>
+      </trans-unit>
+      <trans-unit id="password-required-validation" datatype="html">
+        <source>
+            Password is required.
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <note priority="1" from="description">Shown when password is empty</note>
+        <note priority="1" from="meaning">Password validation</note>
+      </trans-unit>
+      <trans-unit id="password-too-short-validation" datatype="html">
+        <source>
+            Password must contains at least <x id="INTERPOLATION" equiv-text="{{minPasswordLength}}"/> characters.
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+        <note priority="1" from="description">Shown when password is too short</note>
+        <note priority="1" from="meaning">Password validation</note>
+      </trans-unit>
+      <trans-unit id="password-too-long-validation" datatype="html">
+        <source>
+            Password must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxPasswordLength}}"/> characters.
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <note priority="1" from="description">Shown when password is too long</note>
+        <note priority="1" from="meaning">Password validation</note>
+      </trans-unit>
+      <trans-unit id="login" datatype="html">
+        <source>Log in</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+        <note priority="1" from="description"> Text in log in button</note>
+        <note priority="1" from="meaning">Log in button</note>
+      </trans-unit>
+      <trans-unit id="forgotten-password" datatype="html">
+        <source>
+      Forgotten password?
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <note priority="1" from="description">Forgotten password</note>
+        <note priority="1" from="meaning">Forgotten password</note>
+      </trans-unit>
+      <trans-unit id="email-required-validation" datatype="html">
+        <source>
+          Email is required.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/account-edit/account-edit.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <note priority="1" from="description">Shown when email is empty</note>
+        <note priority="1" from="meaning">Email validation</note>
+      </trans-unit>
+      <trans-unit id="email-validation" datatype="html">
+        <source>
+          Enter valid email address.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/account-edit/account-edit.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <note priority="1" from="description">Shown when email is invalid</note>
+        <note priority="1" from="meaning">Email validation</note>
+      </trans-unit>
+      <trans-unit id="confirm-password" datatype="html">
+        <source>Confirm password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+        <note priority="1" from="description"> Text in confirm password placeholder</note>
+        <note priority="1" from="meaning">Confirm password placeholder</note>
+      </trans-unit>
+      <trans-unit id="confirm-password-required-validation" datatype="html">
+        <source>
+          You must confirm password.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+        <note priority="1" from="description">Shown when password is empty</note>
+        <note priority="1" from="meaning">Confirm password validation</note>
+      </trans-unit>
+      <trans-unit id="confirm-password-validation" datatype="html">
+        <source>
+          Passwords are different.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+        <note priority="1" from="description">Shown when passwords do not match</note>
+        <note priority="1" from="meaning">Confirm password validation</note>
+      </trans-unit>
+      <trans-unit id="register" datatype="html">
+        <source>Register</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
+          <context context-type="linenumber">83</context>
+        </context-group>
+        <note priority="1" from="description"> Text in register button</note>
+        <note priority="1" from="meaning">Register button</note>
+      </trans-unit>
+      <trans-unit id="reset-password" datatype="html">
+        <source>Reset password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <note priority="1" from="description"> Text in reset password button</note>
+        <note priority="1" from="meaning">Reset password button</note>
+      </trans-unit>
+      <trans-unit id="reset-password-sent" datatype="html">
+        <source>
+        If email is valid, new password was sent.
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <note priority="1" from="description">Shown after password reset request was sent</note>
+        <note priority="1" from="meaning">Reset password sent</note>
+      </trans-unit>
+      <trans-unit id="update" datatype="html">
+        <source>Update account data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/account-edit/account-edit.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+        <note priority="1" from="description"> Text in update account button</note>
+        <note priority="1" from="meaning">Update button</note>
+      </trans-unit>
+      <trans-unit id="account-modified-msg" datatype="html">
+        <source>Account updated</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/account-edit/account-edit.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+        <note priority="1" from="description">Account modified message</note>
+        <note priority="1" from="meaning">Account modified</note>
+      </trans-unit>
+      <trans-unit id="old-password" datatype="html">
+        <source>Old password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">Text in old password placeholder</note>
+        <note priority="1" from="meaning">Old password placeholder</note>
+      </trans-unit>
+      <trans-unit id="old-password-required-validation" datatype="html">
+        <source>
+          Old password is required.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Shown when password is empty</note>
+        <note priority="1" from="meaning">Password validation</note>
+      </trans-unit>
+      <trans-unit id="old-password-too-short-validation" datatype="html">
+        <source>
+          Old password must contains at least <x id="INTERPOLATION" equiv-text="{{minPasswordLength}}"/> characters.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">Shown when password is too short</note>
+        <note priority="1" from="meaning">Password validation</note>
+      </trans-unit>
+      <trans-unit id="old-password-too-long-validation" datatype="html">
+        <source>
+          Old password must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxPasswordLength}}"/> characters.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="description">Shown when password is too long</note>
+        <note priority="1" from="meaning">Password validation</note>
+      </trans-unit>
+      <trans-unit id="new-password" datatype="html">
+        <source>New password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <note priority="1" from="description">Text in new password placeholder</note>
+        <note priority="1" from="meaning">New password placeholder</note>
+      </trans-unit>
+      <trans-unit id="new-password-too-short-validation" datatype="html">
+        <source>
+          New password must contains at least <x id="INTERPOLATION" equiv-text="{{minPasswordLength}}"/> characters.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <note priority="1" from="description">Shown when password is too short</note>
+        <note priority="1" from="meaning">Password validation</note>
+      </trans-unit>
+      <trans-unit id="new-password-too-long-validation" datatype="html">
+        <source>
+          New password must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxPasswordLength}}"/> characters.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+        <note priority="1" from="description">Shown when password is too long</note>
+        <note priority="1" from="meaning">Password validation</note>
+      </trans-unit>
+      <trans-unit id="confirm-new-password" datatype="html">
+        <source>Confirm new password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+        <note priority="1" from="description">Text in confirm new password placeholder</note>
+        <note priority="1" from="meaning">Confirm new password placeholder</note>
+      </trans-unit>
+      <trans-unit id="confirm-new-password-required-validation" datatype="html">
+        <source>
+          You must confirm new password.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <note priority="1" from="description">Shown when new password is empty</note>
+        <note priority="1" from="meaning">Confirm new password validation</note>
+      </trans-unit>
+      <trans-unit id="change-password" datatype="html">
+        <source>
+        Change password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+        <note priority="1" from="description"> Text in change password button</note>
+        <note priority="1" from="meaning">Change password button</note>
+      </trans-unit>
+      <trans-unit id="password-changed-msg" datatype="html">
+        <source>Password changed</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+        <note priority="1" from="description">Password changed message</note>
+        <note priority="1" from="meaning">Password changed</note>
+      </trans-unit>
+      <trans-unit id="delete-account-dialog-title" datatype="html">
+        <source>Delete account</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/delete-account-dialog/delete-account-dialog.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Delete account dialog button text</note>
+        <note priority="1" from="meaning">Delete account dialog title</note>
+      </trans-unit>
+      <trans-unit id="delete-dialog-question" datatype="html">
+        <source>
+  <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Are you sure? This operation cannot be undone<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/delete-account-dialog/delete-account-dialog.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/delete-project-dialog/delete-project-dialog.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/delete-task-dialog/delete-task-dialog.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/delete-comment-dialog/delete-comment-dialog.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Delete question</note>
+        <note priority="1" from="meaning">Delete dialog question</note>
+      </trans-unit>
+      <trans-unit id="delete-dialog-cancel" datatype="html">
+        <source>Cancel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/delete-account-dialog/delete-account-dialog.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/delete-project-dialog/delete-project-dialog.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/delete-task-dialog/delete-task-dialog.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/delete-comment-dialog/delete-comment-dialog.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Delete dialog cancel</note>
+        <note priority="1" from="meaning">Delete dialog cancel</note>
+      </trans-unit>
+      <trans-unit id="delete-dialog-confirmation" datatype="html">
+        <source>Delete</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/delete-account-dialog/delete-account-dialog.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/delete-project-dialog/delete-project-dialog.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/delete-task-dialog/delete-task-dialog.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/delete-comment-dialog/delete-comment-dialog.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">Delete dialog confirmation</note>
+        <note priority="1" from="meaning">Delete dialog confirmation</note>
+      </trans-unit>
+      <trans-unit id="delete-account" datatype="html">
+        <source>Delete account</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/delete-account/delete-account.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Delete account button</note>
+        <note priority="1" from="meaning">Delete account</note>
+      </trans-unit>
+      <trans-unit id="no-projects" datatype="html">
+        <source>
+      No projects.
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/projects.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <note priority="1" from="description">No projects</note>
+        <note priority="1" from="meaning">No projects</note>
+      </trans-unit>
+      <trans-unit id="delete-project-dialog-title" datatype="html">
+        <source>Delete project</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/delete-project-dialog/delete-project-dialog.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Delete project dialog button text</note>
+        <note priority="1" from="meaning">Delete project dialog title</note>
+      </trans-unit>
+      <trans-unit id="todo" datatype="html">
+        <source>
+          To do
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <note priority="1" from="description">To do status</note>
+        <note priority="1" from="meaning">To do</note>
+      </trans-unit>
+      <trans-unit id="inprogress" datatype="html">
+        <source>
+          In progress
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <note priority="1" from="description">In progress status</note>
+        <note priority="1" from="meaning">In progress</note>
+      </trans-unit>
+      <trans-unit id="done" datatype="html">
+        <source>
+          Done
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+        <note priority="1" from="description">Done status</note>
+        <note priority="1" from="meaning">Done</note>
+      </trans-unit>
+      <trans-unit id="archived" datatype="html">
+        <source>
+          Archived
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <note priority="1" from="description">Archived status</note>
+        <note priority="1" from="meaning">Archived</note>
+      </trans-unit>
+      <trans-unit id="delete-project" datatype="html">
+        <source>Delete project</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+        <note priority="1" from="description">Delete project button</note>
+        <note priority="1" from="meaning">Delete project</note>
+      </trans-unit>
+      <trans-unit id="delete-task" datatype="html">
+        <source>Delete task</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/task.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">Delete task button</note>
+        <note priority="1" from="meaning">Delete task</note>
+      </trans-unit>
+      <trans-unit id="delete-comment" datatype="html">
+        <source>Delete comment</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/comments-list/comments-list.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Delete comment button</note>
+        <note priority="1" from="meaning">Delete comment</note>
+      </trans-unit>
+      <trans-unit id="no-comments" datatype="html">
+        <source>
+      No comments.
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/comments-list/comments-list.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">No comments</note>
+        <note priority="1" from="meaning">No comments</note>
+      </trans-unit>
+      <trans-unit id="delete-task-dialog-title" datatype="html">
+        <source>Delete task</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/delete-task-dialog/delete-task-dialog.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Delete task dialog button text</note>
+        <note priority="1" from="meaning">Delete task dialog title</note>
+      </trans-unit>
+      <trans-unit id="delete-comment-dialog-title" datatype="html">
+        <source>Delete comment</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/delete-comment-dialog/delete-comment-dialog.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Delete comment dialog button text</note>
+        <note priority="1" from="meaning">Delete comment dialog title</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
