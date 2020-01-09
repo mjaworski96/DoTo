@@ -21,6 +21,9 @@ export class TasksListComponent implements OnInit {
   nextState: string;
 
   @Input()
+  currentState: string;
+
+  @Input()
   projectId: number;
 
   constructor(private tasksService: TasksService,

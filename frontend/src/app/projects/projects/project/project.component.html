@@ -19,7 +19,7 @@
   </div>
   <div>
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-4">
         <hr>
         <div class="state-name" i18n="To do|To do status@@todo">
           To do
@@ -27,7 +27,7 @@
         <hr>
         <app-tasks-list [tasks]="filter('todo')" [projectId]="project.id" [nextState]="'inprogress'"></app-tasks-list>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
         <hr>
         <div class="state-name" i18n="In progress|In progress status@@inprogress">
           In progress
@@ -35,21 +35,38 @@
         <hr>
         <app-tasks-list [tasks]="filter('inprogress')" [projectId]="project.id" [prevState]="'todo'" [nextState]="'done'"></app-tasks-list>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
         <hr>
         <div class="state-name" i18n="Done|Done status@@done">
           Done
         </div>
         <hr>
-        <app-tasks-list [tasks]="filter('done')" [projectId]="project.id" [prevState]="'inprogress'" [nextState]="'archived'"></app-tasks-list>
+        <app-tasks-list [tasks]="filter('done')" [projectId]="project.id" [prevState]="'inprogress'"></app-tasks-list>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
+        <hr>
+        <div class="state-name" i18n="Backlog|Backlog status@@backlog">
+          Backlog
+        </div>
+        <hr>
+        <app-tasks-list [tasks]="filter('backlog')" [currentState]="'backlog'" [projectId]="project.id"></app-tasks-list>
+      </div>
+
+      <div class="col-md-4">
         <hr>
         <div class="state-name" i18n="Archived|Archived status@@archived">
           Archived
         </div>
         <hr>
-        <app-tasks-list [tasks]="filter('archived')" [projectId]="project.id" [prevState]="'done'"></app-tasks-list>
+        <app-tasks-list [tasks]="filter('archived')" [currentState]="'archived'" [projectId]="project.id"></app-tasks-list>
+      </div>
+      <div class="col-md-4">
+        <hr>
+        <div class="state-name" i18n="Ignored|Ignored status@@ignored">
+          Ignored
+        </div>
+        <hr>
+        <app-tasks-list [tasks]="filter('ignored')" [currentState]="'ignored'" [projectId]="project.id"></app-tasks-list>
       </div>
     </div>
   </div>
