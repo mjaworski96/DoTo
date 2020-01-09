@@ -28,9 +28,11 @@ spring:
 config:
   security:
     jwt:
-      secret: "DoTo-SecretKey"
+      secret: DoTo-SecretKey
       expiration-time: 6_000_000
       refresh-after: 600_000
   password-reset:
     characters: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
     length: 6
+  task:
+    default_state: backlog

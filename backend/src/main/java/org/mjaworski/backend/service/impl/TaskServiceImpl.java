@@ -24,6 +24,7 @@ import org.mjaworski.backend.utils.ValidationUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
@@ -38,13 +39,19 @@ public class TaskServiceImpl implements TaskService {
     private ProjectRepository projectRepository;
     private StateRepository stateRepository;
     private TokenAuthentication tokenAuthentication;
+    private String newTaskDefaultState;
 
     @Autowired
-    public TaskServiceImpl(TaskRepository taskRepository, ProjectRepository projectRepository, StateRepository stateRepository, TokenAuthentication tokenAuthentication) {
+    public TaskServiceImpl(TaskRepository taskRepository,
+                           ProjectRepository projectRepository,
+                           StateRepository stateRepository,
+                           TokenAuthentication tokenAuthentication,
+                           Environment environment) {
         this.taskRepository = taskRepository;
         this.projectRepository = projectRepository;
         this.stateRepository = stateRepository;
         this.tokenAuthentication = tokenAuthentication;
+        this.newTaskDefaultState = environment.getProperty("config.task.default_state");
     }
 
     @Override
@@ -71,7 +78,7 @@ public class TaskServiceImpl implements TaskService {
         checkOwner(project, token);
         Task task = TaskConverter.getTask(taskDto);
         task.setProject(project);
-        task.setState(stateRepository.get("todo").get());
+        task.setState(stateRepository.get(newTaskDefaultState).get());
         taskRepository.save(task);
         return TaskConverter.getTaskDtoWithId(task);
     }
