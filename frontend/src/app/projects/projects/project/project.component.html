@@ -43,6 +43,9 @@
         <hr>
         <app-tasks-list [tasks]="filter('done')" [projectId]="project.id" [prevState]="'inprogress'"></app-tasks-list>
       </div>
+    </div>
+    <div class="state-separator"></div>
+    <div class="row">
       <div class="col-md-4">
         <hr>
         <div class="state-name" i18n="Backlog|Backlog status@@backlog">
@@ -51,7 +54,6 @@
         <hr>
         <app-tasks-list [tasks]="filter('backlog')" [currentState]="'backlog'" [projectId]="project.id"></app-tasks-list>
       </div>
-
       <div class="col-md-4">
         <hr>
         <div class="state-name" i18n="Archived|Archived status@@archived">

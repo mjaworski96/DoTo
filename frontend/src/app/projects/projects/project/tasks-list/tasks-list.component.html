@@ -4,41 +4,44 @@
       <div class="row">
         <div class="col-md-2">
           <button *ngIf="prevState"
-                  class="btn btn-primary state-change-btn"
+                  class="btn btn-primary state-change-btn-height"
                   (click)="updateState(task, prevState)"><</button>
         </div>
-        <div class="col-md-5 task-short-description break-long-word" (click)="openTask(task)">
+        <div class="col-md-8 task-short-description break-long-word" (click)="openTask(task)">
           {{task.shortDescription}}
-        </div>
-        <div class="col-md-3">
-
-          <button *ngIf="currentState == 'backlog'"
-                  class="btn btn-success state-change-btn-sm"
-                  (click)="updateState(task, 'todo')">D</button>
-          <button *ngIf="!currentState || currentState != 'backlog'"
-                  class="btn btn-primary state-change-btn-sm"
-                  (click)="updateState(task, 'backlog')">B</button>
-
-          <button *ngIf="currentState == 'archived'"
-                  class="btn btn-success state-change-btn-sm"
-                  (click)="updateState(task, 'todo')">D</button>
-          <button *ngIf="!currentState || currentState != 'archived'"
-                  class="btn btn-secondary state-change-btn-sm"
-                  (click)="updateState(task, 'archived')">A</button>
-
-          <button *ngIf="currentState == 'ignored'"
-                  class="btn btn-success state-change-btn-sm"
-                  (click)="updateState(task, 'todo')">D</button>
-          <button *ngIf="!currentState || currentState != 'ignored'"
-                  class="btn btn-warning state-change-btn-sm"
-                  (click)="updateState(task, 'ignored')">I</button>
         </div>
         <div class="col-md-2" >
           <button *ngIf="nextState"
-                  class="btn btn-primary float-right state-change-btn"
+                  class="btn btn-primary float-right state-change-btn-height"
                   (click)="updateState(task, nextState)">></button>
         </div>
       </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-4">
+          <button *ngIf="!currentState || currentState != 'backlog' else todoButton"
+                  class="btn btn-primary state-change-btn-width"
+                  i18n="Backlog button|Set project status to backlog@@backlog-button"
+                  (click)="updateState(task, 'backlog')">Backlog</button>
+        </div>
+        <div class="col-md-4">
+          <button *ngIf="!currentState || currentState != 'archived'  else todoButton"
+                  class="btn btn-secondary state-change-btn-width"
+                  i18n="Archive button|Set project status to archived@@archive-button"
+                  (click)="updateState(task, 'archived')">Archive</button>
+        </div>
+        <div class="col-md-4">
+          <button *ngIf="!currentState || currentState != 'ignored'  else todoButton"
+                  class="btn btn-warning state-change-btn-width"
+                  i18n="Ignore button|Set project status to ignored@@ignore-button"
+                  (click)="updateState(task, 'ignored')">Ignore</button>
+        </div>
+      </div>
+      <ng-template #todoButton>
+        <button class="btn btn-success state-change-btn-width"
+                i18n="To do button|Set project status to todo@@to-do-button"
+                (click)="updateState(task, 'todo')">To do</button>
+      </ng-template>
     </div>
   </div>
 </div>
