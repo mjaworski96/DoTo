@@ -71,4 +71,15 @@ export class ProjectComponent implements OnInit {
       // prevent error in console
     });
   }
+  modifyState() {
+    this.projectsService.updateState(
+      this.project.id,
+      {
+        archived: !this.project.archived
+      }
+    ).toPromise()
+      .then(newState => {
+        this.project.archived = newState.archived;
+      });
+  }
 }
