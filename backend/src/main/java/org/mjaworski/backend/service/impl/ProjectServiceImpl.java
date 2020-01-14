@@ -3,6 +3,7 @@ package org.mjaworski.backend.service.impl;
 import org.mjaworski.backend.converter.ProjectConverter;
 import org.mjaworski.backend.dto.project.ProjectDto;
 import org.mjaworski.backend.dto.project.ProjectDtoWithId;
+import org.mjaworski.backend.dto.project.ProjectStateChange;
 import org.mjaworski.backend.exception.bad_request.invalid.project.InvalidProjectDescriptionException;
 import org.mjaworski.backend.exception.bad_request.invalid.project.InvalidProjectNameException;
 import org.mjaworski.backend.exception.forbidden.ForbiddenException;
@@ -90,6 +91,17 @@ public class ProjectServiceImpl implements ProjectService {
         } catch (EmptyResultDataAccessException e) {
             logger.warn("Project ({}) already deleted", projectId);
         }
+    }
+
+    @Override
+    public ProjectStateChange modifyState(int projectId, ProjectStateChange newState, String token) throws UserNotFoundException, ForbiddenException, ProjectNotFoundException {
+        Project project = getProject(projectId);
+        checkUser(project.getOwner().getUsername(), token);
+        project.setArchived(newState.isArchived());
+        projectRepository.save(project);
+        return ProjectStateChange.builder()
+                .archived(project.isArchived())
+                .build();
     }
 
     private User getUser(String username) throws UserNotFoundException {
