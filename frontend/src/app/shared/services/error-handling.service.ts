@@ -24,8 +24,6 @@ export class ErrorHandlingService {
       this.handle404and504();
     } else if (error.error.code === 401) {
       this.handle401();
-    } else {
-      window.scrollTo(0, 0);
     }
   }
   handle401(): void {
