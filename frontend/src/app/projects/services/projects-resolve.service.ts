@@ -7,17 +7,15 @@ import {Page} from '../../models/page';
 import {Observable} from 'rxjs';
 import {GlobalVariables} from '../../utils/global-variables';
 
-@Injectable({
-  providedIn: 'root'
-})
 export class ProjectsResolveService implements Resolve<Page<ProjectWithId>> {
 
   constructor(private projectService: ProjectsService,
-              private sessionStorageService: SessionStorageService) { }
+              private sessionStorageService: SessionStorageService,
+              private archived: boolean) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Page<ProjectWithId>> | Promise<Page<ProjectWithId>> | Page<ProjectWithId> {
     const username = this.sessionStorageService.getUsername();
-    return this.projectService.get(username, 0, GlobalVariables.projectsPageSize)
+    return this.projectService.get(username, this.archived, 0, GlobalVariables.projectsPageSize)
       .toPromise()
       .then(result => {
         return result;
@@ -25,3 +23,22 @@ export class ProjectsResolveService implements Resolve<Page<ProjectWithId>> {
   }
 }
 
+@Injectable({
+  providedIn: 'root'
+})
+export class NotArchivedProjectsResolveService extends ProjectsResolveService{
+  constructor(projectService: ProjectsService,
+              sessionStorageService: SessionStorageService) {
+    super(projectService, sessionStorageService, false);
+  }
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ArchivedProjectsResolveService extends ProjectsResolveService{
+  constructor(projectService: ProjectsService,
+              sessionStorageService: SessionStorageService) {
+    super(projectService, sessionStorageService, true);
+  }
+}

@@ -72,9 +72,20 @@
       </div>
     </div>
   </div>
-  <div class="form-check delete-project-container">
-    <button class="btn btn-danger float-right" (click)="delete()" type="button"
+  <div class="form-check project-buttons-container">
+    <button class="btn btn-danger float-right delete-btn" (click)="delete()" type="button"
             i18n="Delete project|Delete project button@@delete-project">Delete project</button>
+    <button class="btn float-right change-state-btn"
+            [ngClass]="{'btn-warning': !project.archived, 'btn-success': project.archived}"
+            (click)="modifyState()" type="button"
+            i18n="Archive project|Archive project button@@archive-project">
+      <span *ngIf="!project.archived" i18n="Archive project|Archive project button@@archive-project">
+        Archive project
+      </span>
+      <span *ngIf="project.archived" i18n="Activate project|Activate project button@@activate-project">
+        Activate project
+      </span>
+    </button>
     <div class="clearfix"></div>
   </div>
 </div>

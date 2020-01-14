@@ -6,9 +6,6 @@ import lombok.*;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
-public class ProjectDtoWithId {
-    private int id;
-    private String name;
-    private String description;
+public class ProjectStateChange {
     private boolean archived;
 }

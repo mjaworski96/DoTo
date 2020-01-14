@@ -14,6 +14,9 @@
       <li *ngIf="isUserLoggedIn()" class="nav-item nav-link"
           i18n="My projects|My projects redirect@@my-projects-redirect"
           (click)="navigate(['projects'])">My projects</li>
+      <li *ngIf="isUserLoggedIn()" class="nav-item nav-link"
+           i18n="Archived projects|Archived projects redirect@@archived-redirect"
+           (click)="navigate(['archived-projects'])">Archived projects</li>
       <li *ngIf="isUserLoggedIn()" class="nav-item nav-link" (click)="navigate(['account'])"
           i18n="My Account|My account redirect@my-account-redirect">My account</li>
       <li *ngIf="isAdmin()" class="nav-item nav-link" (click)="navigate(['users'])"
