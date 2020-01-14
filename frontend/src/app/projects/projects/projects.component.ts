@@ -17,6 +17,7 @@ export class ProjectsComponent implements OnInit {
   destroyed = new Subject<any>();
   projectsPage: Page<ProjectWithId>;
   pageSize = GlobalVariables.projectsPageSize;
+  archived: boolean;
 
   constructor(private route: ActivatedRoute,
               private projectService: ProjectsService,
@@ -25,6 +26,7 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit() {
     this.projectsPage = this.route.snapshot.data.projects;
+    this.archived = this.route.snapshot.data.archived;
     this.reloadPageIfRouted();
   }
   reloadPageIfRouted() {
@@ -37,7 +39,7 @@ export class ProjectsComponent implements OnInit {
   }
   updatePage(pageNumber: any): void {
     this.projectService.get(
-      this.sessionStorageService.getUsername(),
+      this.sessionStorageService.getUsername(), this.archived,
       pageNumber - 1, this.pageSize
     ).toPromise()
       .then(page => this.projectsPage = page);
