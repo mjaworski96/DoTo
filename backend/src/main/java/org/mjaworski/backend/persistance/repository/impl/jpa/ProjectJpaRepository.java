@@ -9,9 +9,15 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface ProjectJpaRepository extends JpaRepository<Project, Integer> {
-    @Query("SELECT p FROM Project p JOIN p.owner o WHERE LOWER(o.username) = LOWER(:username) ORDER BY p.id")
-    List<Project> get(@Param("username") String username, Pageable pageable);
+    @Query("SELECT p FROM Project p JOIN p.owner o " +
+            "WHERE LOWER(o.username) = LOWER(:username) " +
+            "AND p.archived = :archived " +
+            "ORDER BY p.id")
+    List<Project> get(@Param("username") String username,
+                      @Param("archived") boolean archived,
+                      Pageable pageable);
 
-    @Query("SELECT COUNT(p) FROM Project p JOIN p.owner o WHERE LOWER(o.username) = LOWER(:username)")
+    @Query("SELECT COUNT(p) FROM Project p JOIN p.owner o " +
+            "WHERE LOWER(o.username) = LOWER(:username)")
     int getCount(String username);
 }

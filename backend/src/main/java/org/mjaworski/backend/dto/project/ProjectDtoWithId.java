@@ -10,4 +10,5 @@ public class ProjectDtoWithId {
     private int id;
     private String name;
     private String description;
+    private boolean archived;
 }

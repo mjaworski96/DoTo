@@ -50,10 +50,10 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Page<ProjectDtoWithId> getForUser(String username, Pageable pageable, String token) throws ForbiddenException, UserNotFoundException {
+    public Page<ProjectDtoWithId> getForUser(String username, boolean archived, Pageable pageable, String token) throws ForbiddenException, UserNotFoundException {
         checkUser(username, token);
         getUser(username);
-        List<Project> projects = projectRepository.get(username, pageable);
+        List<Project> projects = projectRepository.get(username, archived, pageable);
         List<ProjectDtoWithId> projectsDto = ProjectConverter.getProjectDtoWithIdList(projects);
         int count = projectRepository.getCount(username);
         return new PageImpl<>(projectsDto, pageable, count);
