@@ -1,8 +1,14 @@
 import { Injectable } from '@angular/core';
-import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
+import {
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
+  HttpResponse
+} from '@angular/common/http';
 import {SessionStorageService} from './shared/services/session-storage.service';
 import {ErrorHandlingService} from './shared/services/error-handling.service';
-import {catchError, map} from 'rxjs/operators';
+import {tap} from 'rxjs/operators';
 import {of} from 'rxjs/internal/observable/of';
 import {Observable} from 'rxjs';
 
@@ -23,13 +29,10 @@ export class Interceptor  implements HttpInterceptor {
       });
     }
     return next.handle(request).pipe(
-      map(result => {
-        this.handleValidResponse(result);
-        return result;
-      }),
-      catchError((error) => {
-        return of(this.handleErrorResponse(error));
-      }) as any);
+      tap(
+        result => this.handleValidResponse(result),
+          error => this.handleErrorResponse(error))
+    );
   }
   handleValidResponse(result: HttpEvent<any>): void {
     if (result instanceof HttpResponse) {
