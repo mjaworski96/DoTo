@@ -109,7 +109,8 @@ public class UserRestController {
             @ApiResponse(code = 500, message = "Unknown error.")
     })
     @GetMapping("/{username}")
-    public ResponseEntity getUserUpdateInfo(
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity getUser(
             @PathVariable("username") String username,
             @ApiParam(hidden = true) @RequestHeader(value = "Authorization", required = false) String authorization) throws Exception {
         return ResponseEntity.ok(userService.getUser(username, authorization));
