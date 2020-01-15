@@ -15,6 +15,10 @@ export class ErrorHandlingService {
 
   handle(error: HttpErrorResponse): void {
     if (error.error !== undefined && error.error !== null) {
+      const duplicate = this.toastr.findDuplicate(error.error.message, false, false);
+      if (duplicate != null) {
+        this.toastr.remove(duplicate.toastId);
+      }
       this.toastr.error(error.error.message, error.error.code, {
         timeOut: 5000,
         closeButton: true
