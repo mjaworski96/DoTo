@@ -33,7 +33,7 @@ public class EmailServiceImpl implements EmailService {
 
     @Override
     public void checkIfEmailIsUnique(int userId, String email) throws EmailNotUniqueException {
-        Optional<User> userOptional = userRepository.getByUsername(email);
+        Optional<User> userOptional = userRepository.getByEmail(email);
         if (userOptional.isPresent() && userOptional.get().getId() != userId) {
             throw new EmailNotUniqueException();
         }
