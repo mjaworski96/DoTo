@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {GlobalVariables} from '../../../../utils/global-variables';
 import {TasksService} from '../../../services/tasks.service';
 import {TaskWithId} from '../../../../models/task';
+import {finalize} from "rxjs/operators";
 
 @Component({
   selector: 'app-add-task',
@@ -21,7 +22,7 @@ export class EditTaskComponent implements OnInit {
   minShortDescriptionLength = GlobalVariables.minTaskShortDescriptionLength;
   maxShortDescriptionLength = GlobalVariables.maxTaskShortDescriptionLength;
   maxFullDescriptionLength = GlobalVariables.maxTaskFullDescriptionLength;
-
+  processing = false;
   @Output()
   newTask = new EventEmitter<TaskWithId>();
 
@@ -59,19 +60,28 @@ export class EditTaskComponent implements OnInit {
     }
   }
   add() {
+    this.processing = true;
     this.tasksService.create(
       this.projectId,
       this.editTaskForm.value
-    ).toPromise().then(result => {
-      this.editTaskForm.reset();
-      this.newTask.emit(result);
+    ).pipe(
+      finalize( () => this.processing = false))
+      .toPromise()
+      .then(result => {
+        console.log('error');
+        console.log(result);
+        this.editTaskForm.reset();
+        this.newTask.emit(result);
     });
   }
   modify() {
+    this.processing = true;
     this.tasksService.update(
       this.task.id,
       this.editTaskForm.value
-    ).toPromise()
+    ).pipe(
+        finalize( () => this.processing = false))
+      .toPromise()
       .then(result => {
         this.newTask.emit(result);
       });

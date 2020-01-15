@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
   maxUsernameLength = 20;
   minPasswordLength = 3;
   maxPasswordLength = 20;
+  processing = false;
 
   constructor(private formBuilder: FormBuilder,
               private authenticationService: AuthenticationService) { }
@@ -42,7 +43,10 @@ export class RegisterComponent implements OnInit {
     } );
   }
   register(): void {
-    this.authenticationService.register(this.registerForm.value);
+    this.processing = true;
+    this.authenticationService.register(this.registerForm.value, this.registerFinalize, this);
   }
-
+  registerFinalize(): void {
+    this.processing = false;
+  }
 }
