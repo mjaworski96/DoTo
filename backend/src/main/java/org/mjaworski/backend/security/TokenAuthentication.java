@@ -8,6 +8,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.mjaworski.backend.converter.UserConverter;
 import org.mjaworski.backend.dto.role.RoleDto;
 import org.mjaworski.backend.dto.user.UserLoginResponseDto;
+import org.mjaworski.backend.exception.forbidden.UserBlockedException;
 import org.mjaworski.backend.exception.unauthorized.UserNotFoundException;
 import org.mjaworski.backend.persistance.entity.Role;
 import org.mjaworski.backend.persistance.entity.User;
@@ -91,7 +92,7 @@ public class TokenAuthentication {
                 .compact();
     }
     Authentication getAuthentication(HttpServletRequest request,
-                                            HttpServletResponse response) throws UserNotFoundException {
+                                     HttpServletResponse response) throws UserNotFoundException {
         String token = request.getHeader(HEADER_STRING);
 
         if (token != null) {
@@ -111,11 +112,16 @@ public class TokenAuthentication {
         }
         return null;
     }
-
+    void checkIfCanAddAuthentication(User user) throws UserBlockedException {
+        if(user.getRoles().isEmpty()) {
+            throw new UserBlockedException();
+        }
+    }
     void addAuthentication(HttpServletResponse res,
-                                   Authentication auth) throws IOException, UserNotFoundException {
+                           Authentication auth) throws IOException, UserNotFoundException, UserBlockedException {
         User user = userRepository.getByUsername(auth.getName())
                 .orElseThrow(UserNotFoundException::new);
+        checkIfCanAddAuthentication(user);
         String JWT = buildToken(user.getUsername(),
                 tokenAuthenticationUtils
                         .getAuthoritiesSeparatedByComa(auth.getAuthorities()));
