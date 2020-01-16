@@ -3,7 +3,7 @@ package org.mjaworski.backend.controller;
 import io.swagger.annotations.*;
 import org.mjaworski.backend.dto.project.ProjectDto;
 import org.mjaworski.backend.dto.project.ProjectDtoWithId;
-import org.mjaworski.backend.dto.project.ProjectStateChange;
+import org.mjaworski.backend.dto.project.ProjectArchivedDto;
 import org.mjaworski.backend.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -86,14 +86,14 @@ public class ProjectsRestController {
             @ApiResponse(code = 404, message = "Project not found."),
             @ApiResponse(code = 500, message = "Unknown error.")
     })
-    @PutMapping("/{id}/state")
+    @PutMapping("/{id}/archived")
     @PreAuthorize("hasRole('USER')")
-    public ResponseEntity updateState(@PathVariable("id") int id,
+    public ResponseEntity updateArchived(@PathVariable("id") int id,
                                  @ApiParam(hidden = true)  @RequestHeader(value = "Authorization", required = false) String authorization,
-                                 @RequestBody ProjectStateChange stateChange)  throws Exception {
+                                 @RequestBody ProjectArchivedDto archived)  throws Exception {
         return ResponseEntity
-                .ok(projectService.modifyState(id,
-                        stateChange,
+                .ok(projectService.modifyArchived(id,
+                        archived,
                         authorization));
     }
 }

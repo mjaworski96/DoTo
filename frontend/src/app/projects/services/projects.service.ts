@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Project, ProjectStateChange, ProjectWithId} from '../../models/project';
+import {Project, ProjectArchived, ProjectWithId} from '../../models/project';
 import {Page} from '../../models/page';
 import {GlobalVariables} from '../../utils/global-variables';
 
@@ -34,8 +34,8 @@ export class ProjectsService {
     return this.http.put<ProjectWithId>(
       `${GlobalVariables.projectsApi}/${projectId}`, project);
   }
-  updateState(projectId: number, newState: ProjectStateChange): Observable<ProjectStateChange> {
-    return this.http.put<ProjectStateChange>(
-      `${GlobalVariables.projectsApi}/${projectId}/state`, newState);
+  updateArchived(projectId: number, archived: ProjectArchived): Observable<ProjectArchived> {
+    return this.http.put<ProjectArchived>(
+      `${GlobalVariables.projectsApi}/${projectId}/${GlobalVariables.archivedApiPostfix}`, archived);
   }
 }

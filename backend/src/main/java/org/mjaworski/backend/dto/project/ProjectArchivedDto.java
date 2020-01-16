@@ -6,6 +6,6 @@ import lombok.*;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
-public class ProjectStateChange {
+public class ProjectArchivedDto {
     private boolean archived;
 }

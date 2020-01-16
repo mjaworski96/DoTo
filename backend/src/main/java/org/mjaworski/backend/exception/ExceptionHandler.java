@@ -1,6 +1,6 @@
 package org.mjaworski.backend.exception;
 
-import org.mjaworski.backend.dto.ApiError;
+import org.mjaworski.backend.dto.ApiErrorDto;
 import org.mjaworski.backend.exception.internal_server_error.InternalServerErrorException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +14,7 @@ public abstract class ExceptionHandler {
             logger.warn("Handled exception", exception);
             return ResponseEntity
                     .status(((LocalizedException) exception).getMessageCode())
-                    .body(ApiError.builder()
+                    .body(ApiErrorDto.builder()
                         .code(((LocalizedException) exception).getMessageCode())
                         .message(exception.getLocalizedMessage())
                         .build());
@@ -22,7 +22,7 @@ public abstract class ExceptionHandler {
             logger.error("Fatal error", exception);
             return ResponseEntity
                     .status(500)
-                    .body(ApiError.builder()
+                    .body(ApiErrorDto.builder()
                         .code(500)
                         .message(
                             new InternalServerErrorException().getLocalizedMessage()

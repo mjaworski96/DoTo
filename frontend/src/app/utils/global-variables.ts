@@ -28,4 +28,5 @@ export class GlobalVariables {
   static tasksApiPostfix = 'tasks';
   static stateApiPostfix = 'state';
   static commentsApiPostfix = 'comments';
+  static archivedApiPostfix = 'archived';
 }

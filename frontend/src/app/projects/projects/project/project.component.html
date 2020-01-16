@@ -77,7 +77,7 @@
             i18n="Delete project|Delete project button@@delete-project">Delete project</button>
     <button class="btn float-right change-state-btn"
             [ngClass]="{'btn-warning': !project.archived, 'btn-success': project.archived}"
-            (click)="modifyState()" type="button"
+            (click)="modifyArchived()" type="button"
             i18n="Archive project|Archive project button@@archive-project">
       <span *ngIf="!project.archived" i18n="Archive project|Archive project button@@archive-project">
         Archive project

@@ -8,6 +8,6 @@ export interface Project {
   name: string;
   description: string;
 }
-export interface ProjectStateChange {
+export interface ProjectArchived {
   archived: boolean;
 }
