@@ -1,11 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CommentsService} from '../../../../../services/comments.service';
-import {Comments, CommentWithId} from "../../../../../../models/comment";
-import {TaskWithId} from "../../../../../../models/task";
-import {DeleteProjectDialogComponent} from "../../../../../../dialogs/delete-project-dialog/delete-project-dialog.component";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {ModifyTaskDialogComponent} from "../../../../../../dialogs/modify-task-dialog/modify-task-dialog.component";
-import {ModifyCommentDialogComponent} from "../../../../../../dialogs/modify-comment-dialog/modify-comment-dialog.component";
+import {Comments, CommentWithId} from '../../../../../../models/comment';
+import {DeleteProjectDialogComponent} from '../../../../../../dialogs/delete-project-dialog/delete-project-dialog.component';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {ModifyCommentDialogComponent} from '../../../../../../dialogs/modify-comment-dialog/modify-comment-dialog.component';
 
 @Component({
   selector: 'app-comments-list',
@@ -14,6 +12,7 @@ import {ModifyCommentDialogComponent} from "../../../../../../dialogs/modify-com
 })
 export class CommentsListComponent implements OnInit {
 
+  @Input()
   comments: Comments;
 
   @Input()
@@ -23,15 +22,12 @@ export class CommentsListComponent implements OnInit {
               private modalService: NgbModal) { }
 
   ngOnInit() {
-    this.commentsService.getForTask(this.taskId)
-      .toPromise()
-      .then(result => {
-        this.comments = result;
-      });
   }
+
   addComment(comment: CommentWithId) {
     this.comments.comments.push(comment);
   }
+
   delete(comment: CommentWithId): void {
     const modalRef = this.modalService.open(DeleteProjectDialogComponent);
     modalRef.result.then(res => {

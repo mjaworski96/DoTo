@@ -27,8 +27,8 @@ export class AuthenticationService {
     } else {
       this.router.navigate(['not-found']);
     }
-
   }
+
   login(loginDetails: LoginDetails, finalizeCallback: () => void, controller: LoginComponent): void {
     this.httpClient.post('/api/login', loginDetails, {observe: 'response'})
       .pipe(
@@ -38,6 +38,7 @@ export class AuthenticationService {
       this.handleValidUser(response);
     });
   }
+
   register(registerDetails: RegisterUserDetails, finalizeCallback: () => void, controller: RegisterComponent): void {
     this.httpClient.post('/api/users', registerDetails, {observe: 'response'})
       .pipe(

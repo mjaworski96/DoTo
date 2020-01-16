@@ -4,6 +4,7 @@ import {TasksService} from '../../../services/tasks.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {TaskComponent} from './task/task.component';
 import {Router} from "@angular/router";
+import {CommentsService} from "../../../services/comments.service";
 
 @Component({
   selector: 'app-tasks-list',
@@ -28,7 +29,7 @@ export class TasksListComponent implements OnInit {
 
   constructor(private tasksService: TasksService,
               private modalService: NgbModal,
-              private router: Router) { }
+              private commentsService: CommentsService) { }
 
   ngOnInit() {
   }
@@ -42,9 +43,14 @@ export class TasksListComponent implements OnInit {
       });
   }
   openTask(task: TaskWithId) {
-    const modalRef = this.modalService.open(TaskComponent, {
-      size: 'xl'
-    });
-    modalRef.componentInstance.task = task;
+    this.commentsService.getForTask(task.id)
+      .toPromise()
+      .then(result => {
+        const modalRef = this.modalService.open(TaskComponent, {
+          size: 'xl'
+        });
+        modalRef.componentInstance.task = task;
+        modalRef.componentInstance.comments = result;
+      });
   }
 }
