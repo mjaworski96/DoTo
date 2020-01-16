@@ -20,7 +20,14 @@ export class AuthenticationService {
   handleValidUser(response: HttpResponse <LoggedUser>): void {
     this.sessionStorage.storeSession(response.body,
       response.headers.get('Authorization'));
-    this.router.navigate(['projects']);
+    if (this.sessionStorage.isUser()) {
+      this.router.navigate(['projects']);
+    } else if (this.sessionStorage.isAdmin())  {
+      this.router.navigate(['users']);
+    } else {
+      this.router.navigate(['not-found']);
+    }
+
   }
   login(loginDetails: LoginDetails, finalizeCallback: () => void, controller: LoginComponent): void {
     this.httpClient.post('/api/login', loginDetails, {observe: 'response'})

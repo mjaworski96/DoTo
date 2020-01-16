@@ -45,4 +45,7 @@ export class SessionStorageService {
   isAdmin(): boolean {
     return this.hasRole('ADMIN');
   }
+  isUser(): boolean {
+    return this.hasRole('USER');
+  }
 }
