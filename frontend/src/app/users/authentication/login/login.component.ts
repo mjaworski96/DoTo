@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthenticationService} from '../services/authentication.service';
+import {GlobalVariables} from '../../../utils/global-variables';
 
 @Component({
   selector: 'app-login',
@@ -10,10 +11,10 @@ import {AuthenticationService} from '../services/authentication.service';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  minUsernameLength = 3;
-  maxUsernameLength = 20;
-  minPasswordLength = 3;
-  maxPasswordLength = 20;
+  minUsernameLength = GlobalVariables.minUsernameLength;
+  maxUsernameLength = GlobalVariables.maxUsernameLength;
+  minPasswordLength = GlobalVariables.minUsernameLength;
+  maxPasswordLength = GlobalVariables.maxPasswordLength;
   processing = false;
 
   constructor(private formBuilder: FormBuilder,
