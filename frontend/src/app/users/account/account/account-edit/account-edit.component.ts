@@ -53,6 +53,7 @@ export class AccountEditComponent implements OnInit {
         result.body,
         result.headers.get('Authorization')
       );
+      this.user = result.body;
       this.toastr.success(this.translatedMessage.nativeElement.innerHTML, '', {
         timeOut: 5000,
         closeButton: true
