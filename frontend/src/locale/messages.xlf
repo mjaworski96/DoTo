@@ -20,11 +20,20 @@
         <note priority="1" from="description">My projects redirect</note>
         <note priority="1" from="meaning">My projects</note>
       </trans-unit>
+      <trans-unit id="archived-redirect" datatype="html">
+        <source>Archived projects</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/header/header.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">Archived projects redirect</note>
+        <note priority="1" from="meaning">Archived projects</note>
+      </trans-unit>
       <trans-unit id="36b935d15b80d0f5d6b1c88111b93943cb2f01fb" datatype="html">
         <source>My account</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/header/header.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">21</context>
         </context-group>
         <note priority="1" from="description">My account redirect@my-account-redirect</note>
         <note priority="1" from="meaning">My Account</note>
@@ -33,7 +42,7 @@
         <source>Users</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/header/header.component.html</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="linenumber">23</context>
         </context-group>
         <note priority="1" from="description">Users list@users-list-redirect</note>
         <note priority="1" from="meaning">Users</note>
@@ -42,7 +51,7 @@
         <source>Log in</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/header/header.component.html</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">30</context>
         </context-group>
         <note priority="1" from="description">Log in redirect</note>
         <note priority="1" from="meaning">Log in</note>
@@ -51,7 +60,7 @@
         <source>Register</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/header/header.component.html</context>
-          <context context-type="linenumber">30</context>
+          <context context-type="linenumber">33</context>
         </context-group>
         <note priority="1" from="description">Register redirect</note>
         <note priority="1" from="meaning">Register</note>
@@ -60,7 +69,7 @@
         <source>Logout</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/header/header.component.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">36</context>
         </context-group>
         <note priority="1" from="description">Logout button</note>
         <note priority="1" from="meaning">Logout button</note>
@@ -356,22 +365,22 @@
         <source>Select month</source>
         <context-group purpose="location">
           <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation-select.d.ts</context>
-          <context context-type="linenumber">6</context>
+          <context context-type="linenumber">5</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation-select.d.ts</context>
-          <context context-type="linenumber">7</context>
+          <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ngb.datepicker.select-year" datatype="html">
         <source>Select year</source>
         <context-group purpose="location">
           <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation-select.d.ts</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">13</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation-select.d.ts</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ngb.pagination.first" datatype="html">
@@ -558,12 +567,12 @@
           <context context-type="linenumber">18</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
-          <context context-type="linenumber">5</context>
-        </context-group>
-        <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
           <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
+          <context context-type="linenumber">5</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/account/account/account-edit/account-edit.component.html</context>
@@ -609,15 +618,15 @@
       </trans-unit>
       <trans-unit id="username-required-validation" datatype="html">
         <source>
-            Username is required.
-          </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
-          <context context-type="linenumber">10</context>
-        </context-group>
+          Username is required.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
           <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
+          <context context-type="linenumber">10</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/account/account/account-edit/account-edit.component.html</context>
@@ -628,15 +637,15 @@
       </trans-unit>
       <trans-unit id="username-too-short-validation" datatype="html">
         <source>
-            Username must contain at least <x id="INTERPOLATION" equiv-text="{{minUsernameLength}}"/> characters.
-          </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
-          <context context-type="linenumber">15</context>
-        </context-group>
+          Username must contain at least <x id="INTERPOLATION" equiv-text="{{minUsernameLength}}"/> characters.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
           <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
+          <context context-type="linenumber">15</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/account/account/account-edit/account-edit.component.html</context>
@@ -647,15 +656,15 @@
       </trans-unit>
       <trans-unit id="username-too-long-validation" datatype="html">
         <source>
-            Username must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxUsernameLength}}"/> characters.
-          </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
-          <context context-type="linenumber">20</context>
-        </context-group>
+          Username must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxUsernameLength}}"/> characters.
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
           <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
+          <context context-type="linenumber">20</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/account/account/account-edit/account-edit.component.html</context>
@@ -663,88 +672,6 @@
         </context-group>
         <note priority="1" from="description">Shown when username is too long</note>
         <note priority="1" from="meaning">Username validation</note>
-      </trans-unit>
-      <trans-unit id="password" datatype="html">
-        <source>Password</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
-          <context context-type="linenumber">41</context>
-        </context-group>
-        <note priority="1" from="description">Text in password placeholder</note>
-        <note priority="1" from="meaning">Password placeholder</note>
-      </trans-unit>
-      <trans-unit id="password-required-validation" datatype="html">
-        <source>
-            Password is required.
-          </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
-          <context context-type="linenumber">32</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
-          <context context-type="linenumber">47</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
-          <context context-type="linenumber">32</context>
-        </context-group>
-        <note priority="1" from="description">Shown when password is empty</note>
-        <note priority="1" from="meaning">Password validation</note>
-      </trans-unit>
-      <trans-unit id="password-too-short-validation" datatype="html">
-        <source>
-            Password must contains at least <x id="INTERPOLATION" equiv-text="{{minPasswordLength}}"/> characters.
-          </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
-          <context context-type="linenumber">37</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
-          <context context-type="linenumber">52</context>
-        </context-group>
-        <note priority="1" from="description">Shown when password is too short</note>
-        <note priority="1" from="meaning">Password validation</note>
-      </trans-unit>
-      <trans-unit id="password-too-long-validation" datatype="html">
-        <source>
-            Password must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxPasswordLength}}"/> characters.
-          </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
-          <context context-type="linenumber">42</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
-          <context context-type="linenumber">57</context>
-        </context-group>
-        <note priority="1" from="description">Shown when password is too long</note>
-        <note priority="1" from="meaning">Password validation</note>
-      </trans-unit>
-      <trans-unit id="login" datatype="html">
-        <source>Log in</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
-          <context context-type="linenumber">49</context>
-        </context-group>
-        <note priority="1" from="description"> Text in log in button</note>
-        <note priority="1" from="meaning">Log in button</note>
-      </trans-unit>
-      <trans-unit id="forgotten-password" datatype="html">
-        <source>
-      Forgotten password?
-    </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
-          <context context-type="linenumber">57</context>
-        </context-group>
-        <note priority="1" from="description">Forgotten password</note>
-        <note priority="1" from="meaning">Forgotten password</note>
       </trans-unit>
       <trans-unit id="email-required-validation" datatype="html">
         <source>
@@ -783,6 +710,68 @@
         </context-group>
         <note priority="1" from="description">Shown when email is invalid</note>
         <note priority="1" from="meaning">Email validation</note>
+      </trans-unit>
+      <trans-unit id="password" datatype="html">
+        <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <note priority="1" from="description"> Text in password placeholder</note>
+        <note priority="1" from="meaning">Password placeholder</note>
+      </trans-unit>
+      <trans-unit id="password-required-validation" datatype="html">
+        <source>
+          Password is required.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <note priority="1" from="description">Shown when password is empty</note>
+        <note priority="1" from="meaning">Password validation</note>
+      </trans-unit>
+      <trans-unit id="password-too-short-validation" datatype="html">
+        <source>
+          Password must contains at least <x id="INTERPOLATION" equiv-text="{{minPasswordLength}}"/> characters.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <note priority="1" from="description">Shown when password is too short</note>
+        <note priority="1" from="meaning">Password validation</note>
+      </trans-unit>
+      <trans-unit id="password-too-long-validation" datatype="html">
+        <source>
+          Password must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxPasswordLength}}"/> characters.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/register/register.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+        <note priority="1" from="description">Shown when password is too long</note>
+        <note priority="1" from="meaning">Password validation</note>
       </trans-unit>
       <trans-unit id="confirm-password" datatype="html">
         <source>Confirm password</source>
@@ -827,6 +816,26 @@
         </context-group>
         <note priority="1" from="description"> Text in register button</note>
         <note priority="1" from="meaning">Register button</note>
+      </trans-unit>
+      <trans-unit id="login" datatype="html">
+        <source>Log in</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <note priority="1" from="description"> Text in log in button</note>
+        <note priority="1" from="meaning">Log in button</note>
+      </trans-unit>
+      <trans-unit id="forgotten-password" datatype="html">
+        <source>
+      Forgotten password?
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/authentication/login/login.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+        <note priority="1" from="description">Forgotten password</note>
+        <note priority="1" from="meaning">Forgotten password</note>
       </trans-unit>
       <trans-unit id="reset-password" datatype="html">
         <source>Reset password</source>
@@ -1114,25 +1123,69 @@
         <note priority="1" from="description">Done status</note>
         <note priority="1" from="meaning">Done</note>
       </trans-unit>
+      <trans-unit id="backlog" datatype="html">
+        <source>
+          Backlog
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <note priority="1" from="description">Backlog status</note>
+        <note priority="1" from="meaning">Backlog</note>
+      </trans-unit>
       <trans-unit id="archived" datatype="html">
         <source>
           Archived
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
-          <context context-type="linenumber">48</context>
+          <context context-type="linenumber">59</context>
         </context-group>
         <note priority="1" from="description">Archived status</note>
         <note priority="1" from="meaning">Archived</note>
+      </trans-unit>
+      <trans-unit id="ignored" datatype="html">
+        <source>
+          Ignored
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+        <note priority="1" from="description">Ignored status</note>
+        <note priority="1" from="meaning">Ignored</note>
       </trans-unit>
       <trans-unit id="delete-project" datatype="html">
         <source>Delete project</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
-          <context context-type="linenumber">58</context>
+          <context context-type="linenumber">77</context>
         </context-group>
         <note priority="1" from="description">Delete project button</note>
         <note priority="1" from="meaning">Delete project</note>
+      </trans-unit>
+      <trans-unit id="archive-project" datatype="html">
+        <source>
+        Archive project
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+        <note priority="1" from="description">Archive project button</note>
+        <note priority="1" from="meaning">Archive project</note>
+      </trans-unit>
+      <trans-unit id="activate-project" datatype="html">
+        <source>
+        Activate project
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
+        <note priority="1" from="description">Activate project button</note>
+        <note priority="1" from="meaning">Activate project</note>
       </trans-unit>
       <trans-unit id="delete-task" datatype="html">
         <source>Delete task</source>
@@ -1142,6 +1195,42 @@
         </context-group>
         <note priority="1" from="description">Delete task button</note>
         <note priority="1" from="meaning">Delete task</note>
+      </trans-unit>
+      <trans-unit id="backlog-button" datatype="html">
+        <source>Backlog</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/tasks-list.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">Set project status to backlog</note>
+        <note priority="1" from="meaning">Backlog button</note>
+      </trans-unit>
+      <trans-unit id="archive-button" datatype="html">
+        <source>Archive</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/tasks-list.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <note priority="1" from="description">Set project status to archived</note>
+        <note priority="1" from="meaning">Archive button</note>
+      </trans-unit>
+      <trans-unit id="ignore-button" datatype="html">
+        <source>Ignore</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/tasks-list.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <note priority="1" from="description">Set project status to ignored</note>
+        <note priority="1" from="meaning">Ignore button</note>
+      </trans-unit>
+      <trans-unit id="to-do-button" datatype="html">
+        <source>To do</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/tasks-list.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <note priority="1" from="description">Set project status to todo</note>
+        <note priority="1" from="meaning">To do button</note>
       </trans-unit>
       <trans-unit id="delete-comment" datatype="html">
         <source>Delete comment</source>
