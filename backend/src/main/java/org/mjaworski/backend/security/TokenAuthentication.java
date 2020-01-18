@@ -84,10 +84,12 @@ public class TokenAuthentication {
     }
 
     public String buildToken(String name, String roles) {
+        long currentTime = System.currentTimeMillis();
         return TOKEN_PREFIX + " " + Jwts.builder()
                 .setSubject(name)
                 .claim("roles", roles)
-                .setExpiration(new Date(System.currentTimeMillis() + expirationTime))
+                .setExpiration(new Date(currentTime + expirationTime))
+                .setIssuedAt(new Date(currentTime))
                 .signWith(SignatureAlgorithm.HS512, secret)
                 .compact();
     }
@@ -129,8 +131,8 @@ public class TokenAuthentication {
         buildResponse(res, user, JWT);
     }
     private void refreshToken(HttpServletResponse response, Claims claims) throws UserNotFoundException {
-        Date expiration = claims.getExpiration();
-        if (Math.abs(expiration.getTime() - System.currentTimeMillis()) < refreshAfter) {
+        Date issuedAt = claims.getIssuedAt();
+        if (System.currentTimeMillis() - issuedAt.getTime() > refreshAfter) {
             addAuthentication(response, tokenAuthenticationUtils.getUsername(claims));
         }
     }
