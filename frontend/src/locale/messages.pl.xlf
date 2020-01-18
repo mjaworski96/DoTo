@@ -860,7 +860,7 @@
         </context-group>
         <note priority="1" from="description">Shown after password reset request was sent</note>
         <note priority="1" from="meaning">Reset password sent</note>
-        <target>Jeżeli email jest poprawny, nowe hasło zostało wysłane</target></trans-unit>
+        <target>Jeżeli email jest poprawny, nowe hasło zostało wysłane.</target></trans-unit>
       <trans-unit id="update" datatype="html">
         <source>Update account data</source>
         <context-group purpose="location">

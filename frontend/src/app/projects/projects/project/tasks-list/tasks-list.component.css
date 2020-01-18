@@ -9,7 +9,8 @@
 }
 .state-change-btn-width {
   width: 100%;
-  font-size: 11px;
+  font-size: 12px;
+  padding: 6px;
 }
 .tasks-list-container {
   margin-top: 20px;
