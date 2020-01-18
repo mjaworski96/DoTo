@@ -77,9 +77,9 @@ public class UserRestController {
                 userService.updateUser(username, userUpdateData, authorization);
         response.addHeader(TokenAuthentication.HEADER_STRING,
                 tokenAuthentication.buildToken(
-                        userUpdateData.getUsername(),
+                        user.getUsername(),
                         tokenAuthentication.getAuthoritiesSeparatedByComaFromRoles(
-                                roleService.getUserRoles(username).getRoles())
+                                roleService.getUserRoles(user.getUsername()).getRoles())
 
                 ));
         return ResponseEntity.ok(user);
