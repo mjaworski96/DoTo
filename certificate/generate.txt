@@ -1,0 +1,12 @@
+openssl genrsa -out root.key 4096
+openssl rsa -in root.key -out root.key
+openssl req -sha256 -new -key root.key -out root.csr -subj '/CN=mjaworski96'
+openssl x509 -req -sha256 -days 365 -in root.csr -signkey root.key -out root.crt
+
+openssl genrsa -out doto.key 4096
+openssl rsa -in doto.key -out doto.key
+openssl req -sha256 -new -key doto.key -out doto.csr -subj '/CN=DoTo' -extensions v3_req
+openssl x509 -req -sha256 -days 365 -in doto.csr -CA root.crt -CAkey root.key -CAcreateserial -out doto.crt -extfile conf.txt -extensions v3_req 
+openssl pkcs12 -export -in doto.crt -inkey doto.key -out doto.p12 -name DoTo -password pass:DoTo
+
+rm *.csr
