@@ -7,6 +7,7 @@ import {ErrorHandlingService} from '../../../../shared/services/error-handling.s
 import {SessionStorageService} from '../../../../shared/services/session-storage.service';
 import {HttpResponse} from '@angular/common/http';
 import {ToastrService} from 'ngx-toastr';
+import {GlobalVariables} from "../../../../utils/global-variables";
 
 @Component({
   selector: 'app-account-edit',
@@ -63,10 +64,7 @@ export class AccountEditComponent implements OnInit {
     if (duplicate != null) {
       this.toastr.remove(duplicate.toastId);
     }
-    this.toastr.success(message, '', {
-      timeOut: 5000,
-      closeButton: true
-    });
+    this.toastr.success(message, '', GlobalVariables.toastrConfig);
   }
 
 }

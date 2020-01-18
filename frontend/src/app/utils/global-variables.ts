@@ -1,3 +1,5 @@
+import {IndividualConfig} from 'ngx-toastr';
+
 export class GlobalVariables {
   static minProjectNameLength = 1;
   static maxProjectNameLength = 50;
@@ -29,4 +31,9 @@ export class GlobalVariables {
   static stateApiPostfix = 'state';
   static commentsApiPostfix = 'comments';
   static archivedApiPostfix = 'archived';
+
+  static toastrConfig: Partial<IndividualConfig> = {
+    timeOut: 5000,
+    closeButton: true
+  };
 }
