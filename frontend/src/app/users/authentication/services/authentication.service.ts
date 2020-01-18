@@ -18,7 +18,7 @@ export class AuthenticationService {
               private errorHandlingService: ErrorHandlingService,
               private router: Router) { }
   handleValidUser(response: HttpResponse <User>): void {
-    this.sessionStorage.storeSession(response.body,
+    this.sessionStorage.setSession(response.body,
       response.headers.get('Authorization'));
     if (this.sessionStorage.isUser()) {
       this.router.navigate(['projects']);

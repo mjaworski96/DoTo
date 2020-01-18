@@ -49,7 +49,7 @@ export class AccountEditComponent implements OnInit {
       this.user.username,
       this.userForm.value
     ).toPromise().then((result: HttpResponse <User>) => {
-      this.sessionStorageService.storeSession(
+      this.sessionStorageService.setSession(
         result.body,
         result.headers.get('Authorization')
       );

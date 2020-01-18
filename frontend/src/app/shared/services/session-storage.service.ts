@@ -8,7 +8,7 @@ export class SessionStorageService {
 
   constructor() { }
 
-  storeSession(user: User, token: string): void {
+  setSession(user: User, token: string): void {
     localStorage.setItem('token', token);
     localStorage.setItem('userData', JSON.stringify(user));
   }
@@ -23,9 +23,6 @@ export class SessionStorageService {
   }
   getToken(): string {
     return localStorage.getItem('token');
-  }
-  updateSession(token: string): void {
-    localStorage.setItem('token', token);
   }
   logout(): void {
     localStorage.removeItem('token');

@@ -34,7 +34,8 @@ public class TokenAuthentication {
     private int refreshAfter;
 
     static final String TOKEN_PREFIX = "Bearer";
-    public static final String HEADER_STRING = "Authorization";
+    public static final String HEADER_NAME = "Authorization";
+    public static final String X_USER_HEADER_NAME = "X-User";
 
     private UserRepository userRepository;
     private TokenAuthenticationUtils tokenAuthenticationUtils;
@@ -94,8 +95,8 @@ public class TokenAuthentication {
                 .compact();
     }
     Authentication getAuthentication(HttpServletRequest request,
-                                     HttpServletResponse response) throws UserNotFoundException {
-        String token = request.getHeader(HEADER_STRING);
+                                     HttpServletResponse response) throws UserNotFoundException, IOException {
+        String token = request.getHeader(HEADER_NAME);
 
         if (token != null) {
             Claims claims = Jwts.parser()
@@ -130,14 +131,15 @@ public class TokenAuthentication {
 
         buildResponse(res, user, JWT);
     }
-    private void refreshToken(HttpServletResponse response, Claims claims) throws UserNotFoundException {
+    private void refreshToken(HttpServletResponse response, Claims claims) throws UserNotFoundException, IOException {
         Date issuedAt = claims.getIssuedAt();
         if (System.currentTimeMillis() - issuedAt.getTime() > refreshAfter) {
-            addAuthentication(response, tokenAuthenticationUtils.getUsername(claims));
+            addRefreshedAuthentication(response, tokenAuthenticationUtils.getUsername(claims));
         }
     }
-    private void addAuthentication(HttpServletResponse response,
-                                   String username) throws UserNotFoundException {
+
+    private void addRefreshedAuthentication(HttpServletResponse response,
+                                   String username) throws UserNotFoundException, IOException {
         User user = userRepository.getByUsername(username)
                 .orElseThrow(UserNotFoundException::new);
         String JWT = buildToken(user.getUsername(),
@@ -147,21 +149,22 @@ public class TokenAuthentication {
                         .map(Role::getName)
                         .collect(Collectors.toList())
                 ));
+        UserDto userDetails = UserConverter.getUserDto(user);
+        String accountAsString = new ObjectMapper().writeValueAsString(userDetails);
 
         response.addHeader("Content-type", "application/json;charset=UTF-8");
-        response.addHeader(HEADER_STRING, JWT);
+        response.addHeader(HEADER_NAME, JWT);
+        response.addHeader(X_USER_HEADER_NAME, accountAsString);
     }
+
     private void buildResponse(HttpServletResponse response,
                                       User user,
                                       String token) throws IOException {
-
         UserDto userDetails = UserConverter.getUserDto(user);
-
-        String accountAsString = new ObjectMapper()
-                .writeValueAsString(userDetails);
+        String accountAsString = new ObjectMapper().writeValueAsString(userDetails);
 
         response.addHeader("Content-type", "application/json;charset=UTF-8");
-        response.addHeader(HEADER_STRING, token);
+        response.addHeader(HEADER_NAME, token);
         response.getWriter().write(accountAsString);
         response.getWriter().flush();
         response.getWriter().close();

@@ -45,7 +45,7 @@ public class UserRestController {
             HttpServletResponse response) throws Exception {
         UserDto loginDetails
                 = userService.addUser(userRegisterDetails, "USER");
-        response.addHeader(TokenAuthentication.HEADER_STRING,
+        response.addHeader(TokenAuthentication.HEADER_NAME,
                 tokenAuthentication.buildToken(
                         loginDetails.getUsername(),
                         tokenAuthentication.getAuthoritiesSeparatedByComaFromRoles(
@@ -74,7 +74,7 @@ public class UserRestController {
             HttpServletResponse response) throws Exception {
         UserDto user =
                 userService.updateUser(username, userUpdateData, authorization);
-        response.addHeader(TokenAuthentication.HEADER_STRING,
+        response.addHeader(TokenAuthentication.HEADER_NAME,
                 tokenAuthentication.buildToken(
                         user.getUsername(),
                         tokenAuthentication.getAuthoritiesSeparatedByComaFromRoles(
