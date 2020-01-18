@@ -44,4 +44,4 @@ config:
     characters: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
     length: 6
   task:
-    default_state: backlog
+    default_state: todo
