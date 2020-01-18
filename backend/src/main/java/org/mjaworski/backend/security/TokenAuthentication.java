@@ -7,7 +7,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.mjaworski.backend.converter.UserConverter;
 import org.mjaworski.backend.dto.role.RoleDto;
-import org.mjaworski.backend.dto.user.UserLoginResponseDto;
+import org.mjaworski.backend.dto.user.UserDto;
 import org.mjaworski.backend.exception.forbidden.UserBlockedException;
 import org.mjaworski.backend.exception.unauthorized.UserNotFoundException;
 import org.mjaworski.backend.persistance.entity.Role;
@@ -155,7 +155,7 @@ public class TokenAuthentication {
                                       User user,
                                       String token) throws IOException {
 
-        UserLoginResponseDto userDetails = UserConverter.getUserLoginDetails(user);
+        UserDto userDetails = UserConverter.getUserDto(user);
 
         String accountAsString = new ObjectMapper()
                 .writeValueAsString(userDetails);

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {LoggedUser} from '../../models/user';
+import {User} from '../../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +8,11 @@ export class SessionStorageService {
 
   constructor() { }
 
-  storeSession(user: LoggedUser, token: string): void {
+  storeSession(user: User, token: string): void {
     localStorage.setItem('token', token);
     localStorage.setItem('userData', JSON.stringify(user));
   }
-  getUser(): LoggedUser {
+  getUser(): User {
     return JSON.parse(localStorage.getItem('userData'));
   }
   getUsername(): string {

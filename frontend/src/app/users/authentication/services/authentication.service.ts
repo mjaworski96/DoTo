@@ -3,10 +3,10 @@ import {HttpClient, HttpResponse} from '@angular/common/http';
 import {SessionStorageService} from '../../../shared/services/session-storage.service';
 import {ErrorHandlingService} from '../../../shared/services/error-handling.service';
 import {Router} from '@angular/router';
-import {LoggedUser, LoginDetails, RegisterUserDetails} from "../../../models/user";
-import {finalize} from "rxjs/operators";
-import {LoginComponent} from "../login/login.component";
-import {RegisterComponent} from "../register/register.component";
+import {LoginDetails, RegisterUserDetails, User} from '../../../models/user';
+import {finalize} from 'rxjs/operators';
+import {LoginComponent} from '../login/login.component';
+import {RegisterComponent} from '../register/register.component';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class AuthenticationService {
               private sessionStorage: SessionStorageService,
               private errorHandlingService: ErrorHandlingService,
               private router: Router) { }
-  handleValidUser(response: HttpResponse <LoggedUser>): void {
+  handleValidUser(response: HttpResponse <User>): void {
     this.sessionStorage.storeSession(response.body,
       response.headers.get('Authorization'));
     if (this.sessionStorage.isUser()) {
@@ -34,7 +34,7 @@ export class AuthenticationService {
       .pipe(
         finalize(() => finalizeCallback.call(controller)))
       .toPromise()
-      .then( (response: HttpResponse <LoggedUser>) => {
+      .then( (response: HttpResponse<User>) => {
       this.handleValidUser(response);
     });
   }
@@ -44,7 +44,7 @@ export class AuthenticationService {
       .pipe(
         finalize(() => finalizeCallback.call(controller)))
       .toPromise()
-      .then((response: HttpResponse <LoggedUser>) => {
+      .then((response: HttpResponse<User>) => {
       this.handleValidUser(response);
     });
   }

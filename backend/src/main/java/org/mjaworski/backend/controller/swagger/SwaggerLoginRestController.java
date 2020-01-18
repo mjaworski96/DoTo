@@ -4,8 +4,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.mjaworski.backend.dto.user.UserDto;
 import org.mjaworski.backend.dto.user.UserLoginCredentialsDto;
-import org.mjaworski.backend.dto.user.UserLoginResponseDto;
 import org.springframework.web.bind.annotation.*;
 
 @Api(value = "Authentication",
@@ -19,7 +19,7 @@ public class SwaggerLoginRestController {
      */
 
     @ApiOperation(value = "Login", notes = "Login with the given credentials.",
-                    response = UserLoginResponseDto.class)
+                    response = UserDto.class)
     @ApiResponses({
             @ApiResponse(code = 200, message = "You are logged in."),
             @ApiResponse(code = 401, message = "Credentials invalid."),

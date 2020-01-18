@@ -3,7 +3,6 @@ package org.mjaworski.backend.controller;
 import io.swagger.annotations.*;
 import org.mjaworski.backend.controller.swagger.UsersPage;
 import org.mjaworski.backend.dto.user.UserDto;
-import org.mjaworski.backend.dto.user.UserLoginResponseDto;
 import org.mjaworski.backend.dto.user.UserRegisterDetailsDto;
 import org.mjaworski.backend.dto.user.UserUpdateDataDto;
 import org.mjaworski.backend.security.TokenAuthentication;
@@ -33,7 +32,7 @@ public class UserRestController {
     }
 
     @ApiOperation(value = "Register new user.",
-            response = UserLoginResponseDto.class)
+            response = UserDto.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Not used."),
             @ApiResponse(code = 400, message = "User data not valid."),
@@ -44,7 +43,7 @@ public class UserRestController {
     public ResponseEntity register(
             @RequestBody UserRegisterDetailsDto userRegisterDetails,
             HttpServletResponse response) throws Exception {
-        UserLoginResponseDto loginDetails
+        UserDto loginDetails
                 = userService.addUser(userRegisterDetails, "USER");
         response.addHeader(TokenAuthentication.HEADER_STRING,
                 tokenAuthentication.buildToken(
@@ -56,7 +55,7 @@ public class UserRestController {
             .body(loginDetails);
     }
 
-    @ApiOperation(value = "Updates user", response = UserLoginResponseDto.class)
+    @ApiOperation(value = "Updates user", response = UserDto.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "User data updated."),
             @ApiResponse(code = 400, message = "User data not valid."),
@@ -73,7 +72,7 @@ public class UserRestController {
             @ApiParam(hidden = true) @RequestHeader(value = "Authorization", required = false) String authorization,
             @RequestBody UserUpdateDataDto userUpdateData,
             HttpServletResponse response) throws Exception {
-        UserLoginResponseDto user =
+        UserDto user =
                 userService.updateUser(username, userUpdateData, authorization);
         response.addHeader(TokenAuthentication.HEADER_STRING,
                 tokenAuthentication.buildToken(

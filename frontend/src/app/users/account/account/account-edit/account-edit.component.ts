@@ -1,8 +1,8 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {LoggedUser, User} from '../../../../models/user';
+import {User} from '../../../../models/user';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../services/user.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {ErrorHandlingService} from '../../../../shared/services/error-handling.service';
 import {SessionStorageService} from '../../../../shared/services/session-storage.service';
 import {HttpResponse} from '@angular/common/http';
@@ -48,7 +48,7 @@ export class AccountEditComponent implements OnInit {
     this.userService.updateAccount(
       this.user.username,
       this.userForm.value
-    ).toPromise().then((result: HttpResponse <LoggedUser>) => {
+    ).toPromise().then((result: HttpResponse <User>) => {
       this.sessionStorageService.storeSession(
         result.body,
         result.headers.get('Authorization')

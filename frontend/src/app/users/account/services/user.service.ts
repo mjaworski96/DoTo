@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpResponse} from '@angular/common/http';
-import {LoggedUser, User, UserUpdateData} from '../../../models/user';
+import {User, UserUpdateData} from '../../../models/user';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -16,8 +16,8 @@ export class UserService {
       this.usersUrl + `/${username}`
     );
   }
-  updateAccount(username: string, updateData: UserUpdateData): Observable<HttpResponse<LoggedUser>> {
-    return this.httpClient.put<LoggedUser>(
+  updateAccount(username: string, updateData: UserUpdateData): Observable<HttpResponse<User>> {
+    return this.httpClient.put<User>(
       `${this.usersUrl}/${username}`,
       updateData,
       {observe: 'response'}
