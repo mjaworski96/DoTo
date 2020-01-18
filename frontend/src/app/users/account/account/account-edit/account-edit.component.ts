@@ -54,10 +54,18 @@ export class AccountEditComponent implements OnInit {
         result.headers.get('Authorization')
       );
       this.user = result.body;
-      this.toastr.success(this.translatedMessage.nativeElement.innerHTML, '', {
-        timeOut: 5000,
-        closeButton: true
-      });
+      this.showSuccessMessage();
+    });
+  }
+  showSuccessMessage() {
+    const message =  this.translatedMessage.nativeElement.innerHTML;
+    const duplicate = this.toastr.findDuplicate(message, false, false);
+    if (duplicate != null) {
+      this.toastr.remove(duplicate.toastId);
+    }
+    this.toastr.success(message, '', {
+      timeOut: 5000,
+      closeButton: true
     });
   }
 
