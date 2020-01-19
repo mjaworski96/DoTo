@@ -46,7 +46,6 @@ export class UsersComponent implements OnInit {
         ]
       }
     ).toPromise().then(result => {
-      console.log(result);
       user.roles = result.roles;
     });
   }

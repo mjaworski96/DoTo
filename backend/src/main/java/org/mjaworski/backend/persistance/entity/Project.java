@@ -1,5 +1,6 @@
 package org.mjaworski.backend.persistance.entity;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -29,6 +30,9 @@ public class Project {
 
     @Size(max = MAX_DESCRIPTION_LENGTH)
     private String description;
+
+    @ColumnDefault("false")
+    private boolean archived;
 
     @ManyToOne
     private User owner;

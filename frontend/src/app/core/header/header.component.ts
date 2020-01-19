@@ -27,4 +27,7 @@ export class HeaderComponent implements OnInit {
   isAdmin(): boolean {
     return this.sessionStorage.isAdmin();
   }
+  isUser(): boolean {
+    return this.sessionStorage.isUser();
+  }
 }

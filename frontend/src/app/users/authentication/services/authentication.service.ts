@@ -3,7 +3,10 @@ import {HttpClient, HttpResponse} from '@angular/common/http';
 import {SessionStorageService} from '../../../shared/services/session-storage.service';
 import {ErrorHandlingService} from '../../../shared/services/error-handling.service';
 import {Router} from '@angular/router';
-import {LoggedUser, LoginDetails, RegisterUserDetails} from "../../../models/user";
+import {LoginDetails, RegisterUserDetails, User} from '../../../models/user';
+import {finalize} from 'rxjs/operators';
+import {LoginComponent} from '../login/login.component';
+import {RegisterComponent} from '../register/register.component';
 
 @Injectable({
   providedIn: 'root'
@@ -14,20 +17,34 @@ export class AuthenticationService {
               private sessionStorage: SessionStorageService,
               private errorHandlingService: ErrorHandlingService,
               private router: Router) { }
-  handleValidUser(response: HttpResponse <LoggedUser>): void {
-    this.sessionStorage.storeSession(response.body,
+  handleValidUser(response: HttpResponse <User>): void {
+    this.sessionStorage.setSession(response.body,
       response.headers.get('Authorization'));
-    this.router.navigate(['projects']);
+    if (this.sessionStorage.isUser()) {
+      this.router.navigate(['projects']);
+    } else if (this.sessionStorage.isAdmin())  {
+      this.router.navigate(['users']);
+    } else {
+      this.router.navigate(['not-found']);
+    }
   }
-  login(loginDetails: LoginDetails): void {
+
+  login(loginDetails: LoginDetails, finalizeCallback: () => void, controller: LoginComponent): void {
     this.httpClient.post('/api/login', loginDetails, {observe: 'response'})
-      .toPromise().then( (response: HttpResponse <LoggedUser>) => {
+      .pipe(
+        finalize(() => finalizeCallback.call(controller)))
+      .toPromise()
+      .then( (response: HttpResponse<User>) => {
       this.handleValidUser(response);
     });
   }
-  register(registerDetails: RegisterUserDetails): void {
+
+  register(registerDetails: RegisterUserDetails, finalizeCallback: () => void, controller: RegisterComponent): void {
     this.httpClient.post('/api/users', registerDetails, {observe: 'response'})
-      .toPromise().then( (response: HttpResponse <LoggedUser>) => {
+      .pipe(
+        finalize(() => finalizeCallback.call(controller)))
+      .toPromise()
+      .then((response: HttpResponse<User>) => {
       this.handleValidUser(response);
     });
   }

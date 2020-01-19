@@ -21,13 +21,13 @@ import java.io.IOException;
 
 public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
 
-    private TokenAuthentication tokenAuthenticationUtils;
+    private TokenAuthentication tokenAuthentication;
 
     public JWTLoginFilter(String url, AuthenticationManager authManager,
                           ApplicationContext ctx) {
         super(new AntPathRequestMatcher(url));
         setAuthenticationManager(authManager);
-        tokenAuthenticationUtils = ctx.getBean(TokenAuthentication.class);
+        tokenAuthentication = ctx.getBean(TokenAuthentication.class);
     }
 
     @Override
@@ -59,8 +59,7 @@ public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
             Authentication auth) throws IOException {
 
         try {
-            tokenAuthenticationUtils
-                    .addAuthentication(res, auth);
+            tokenAuthentication.addAuthentication(res, auth);
         } catch (Exception e) {
             ResponseEntity handledException = ExceptionHandler.handle(e);
             HttpUtils.buildResponse(res, new ObjectMapper()

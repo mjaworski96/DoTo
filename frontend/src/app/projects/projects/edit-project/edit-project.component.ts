@@ -5,6 +5,7 @@ import {SessionStorageService} from '../../../shared/services/session-storage.se
 import {ProjectsService} from '../../services/projects.service';
 import {Router} from '@angular/router';
 import {ProjectWithId} from "../../../models/project";
+import {finalize} from "rxjs/operators";
 
 @Component({
   selector: 'app-add-project',
@@ -23,6 +24,7 @@ export class EditProjectComponent implements OnInit {
   minNameLength = GlobalVariables.minProjectNameLength;
   maxNameLength = GlobalVariables.maxProjectNameLength;
   maxDescriptionLength = GlobalVariables.maxProjectDescriptionLength;
+  processing = false;
 
   constructor(private formBuilder: FormBuilder,
               private sessionStorageService: SessionStorageService,
@@ -59,21 +61,27 @@ export class EditProjectComponent implements OnInit {
     }
   }
   add() {
+    this.processing = true;
     const username = this.sessionStorageService.getUsername();
     this.projectsService.create(
       username,
       this.editProjectForm.value
-    ).toPromise()
+    ).pipe(
+        finalize( () => this.processing = false))
+      .toPromise()
       .then(result => {
         this.editProjectForm.reset();
         this.router.navigate(['projects', result.id]);
       });
   }
   modify() {
+    this.processing = true;
     this.projectsService.update(
       this.project.id,
       this.editProjectForm.value
-    ).toPromise()
+    ).pipe(
+        finalize( () => this.processing = false))
+      .toPromise()
       .then(result => {
         this.newProject.emit(result);
       });

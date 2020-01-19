@@ -2,7 +2,6 @@ package org.mjaworski.backend.service.impl;
 
 import org.mjaworski.backend.converter.UserConverter;
 import org.mjaworski.backend.dto.user.UserDto;
-import org.mjaworski.backend.dto.user.UserLoginResponseDto;
 import org.mjaworski.backend.dto.user.UserRegisterDetailsDto;
 import org.mjaworski.backend.dto.user.UserUpdateDataDto;
 import org.mjaworski.backend.exception.bad_request.invalid.user.InvalidEmailException;
@@ -68,7 +67,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserLoginResponseDto addUser(UserRegisterDetailsDto userRegisterData, String... roles) throws RoleNotFoundException, InvalidUserException, DataNotUniqueException {
+    public UserDto addUser(UserRegisterDetailsDto userRegisterData, String... roles) throws RoleNotFoundException, InvalidUserException, DataNotUniqueException {
         validate(userRegisterData);
 
         List<Role> rolesFromDb = roleService.getRoles(roles);
@@ -79,10 +78,10 @@ public class UserServiceImpl implements UserService {
 
         userRepository.save(user);
         emailService.sendRegisterEmail(user.getEmail(), user.getUsername());
-        return UserConverter.getUserLoginDetails(user);
+        return UserConverter.getUserDto(user);
     }
     @Override
-    public UserLoginResponseDto updateUser(String username, UserUpdateDataDto userUpdateData, String authorizationToken) throws UserNotFoundException, ForbiddenException, InvalidUserException, DataNotUniqueException {
+    public UserDto updateUser(String username, UserUpdateDataDto userUpdateData, String authorizationToken) throws UserNotFoundException, ForbiddenException, InvalidUserException, DataNotUniqueException {
         canPerformOperation(username, authorizationToken);
         User currentUser = userRepository.getByUsername(username)
                 .orElseThrow(UserNotFoundException::new);
@@ -92,7 +91,7 @@ public class UserServiceImpl implements UserService {
         UserConverter.rewrite(currentUser, userUpdateData);
 
         userRepository.save(currentUser);
-        return UserConverter.getUserLoginDetails(currentUser);
+        return UserConverter.getUserDto(currentUser);
     }
     @Override
     public void deleteUser(String username, String authorizationToken) throws ForbiddenException {

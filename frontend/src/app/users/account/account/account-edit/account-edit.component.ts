@@ -1,12 +1,13 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {LoggedUser, User} from '../../../../models/user';
+import {User} from '../../../../models/user';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../services/user.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {ErrorHandlingService} from '../../../../shared/services/error-handling.service';
 import {SessionStorageService} from '../../../../shared/services/session-storage.service';
 import {HttpResponse} from '@angular/common/http';
 import {ToastrService} from 'ngx-toastr';
+import {GlobalVariables} from "../../../../utils/global-variables";
 
 @Component({
   selector: 'app-account-edit',
@@ -48,16 +49,22 @@ export class AccountEditComponent implements OnInit {
     this.userService.updateAccount(
       this.user.username,
       this.userForm.value
-    ).toPromise().then((result: HttpResponse <LoggedUser>) => {
-      this.sessionStorageService.storeSession(
+    ).toPromise().then((result: HttpResponse <User>) => {
+      this.sessionStorageService.setSession(
         result.body,
         result.headers.get('Authorization')
       );
-      this.toastr.success(this.translatedMessage.nativeElement.innerHTML, '', {
-        timeOut: 5000,
-        closeButton: true
-      });
+      this.user = result.body;
+      this.showSuccessMessage();
     });
+  }
+  showSuccessMessage() {
+    const message =  this.translatedMessage.nativeElement.innerHTML;
+    const duplicate = this.toastr.findDuplicate(message, false, false);
+    if (duplicate != null) {
+      this.toastr.remove(duplicate.toastId);
+    }
+    this.toastr.success(message, '', GlobalVariables.toastrConfig);
   }
 
 }

@@ -2,7 +2,7 @@ package org.mjaworski.backend.utils.localization;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.mjaworski.backend.dto.ApiError;
+import org.mjaworski.backend.dto.ApiErrorDto;
 
 public class LocalizedMessage extends LocalizedResource {
 
@@ -28,7 +28,7 @@ public class LocalizedMessage extends LocalizedResource {
     private String buildJsonString(int code, String errorMessage) {
         try {
             return new ObjectMapper()
-                    .writeValueAsString(ApiError
+                    .writeValueAsString(ApiErrorDto
                             .builder()
                             .code(code)
                             .message(errorMessage)

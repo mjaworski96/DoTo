@@ -3,6 +3,7 @@ package org.mjaworski.backend.service.impl;
 import org.mjaworski.backend.converter.ProjectConverter;
 import org.mjaworski.backend.dto.project.ProjectDto;
 import org.mjaworski.backend.dto.project.ProjectDtoWithId;
+import org.mjaworski.backend.dto.project.ProjectArchivedDto;
 import org.mjaworski.backend.exception.bad_request.invalid.project.InvalidProjectDescriptionException;
 import org.mjaworski.backend.exception.bad_request.invalid.project.InvalidProjectNameException;
 import org.mjaworski.backend.exception.forbidden.ForbiddenException;
@@ -50,10 +51,10 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Page<ProjectDtoWithId> getForUser(String username, Pageable pageable, String token) throws ForbiddenException, UserNotFoundException {
+    public Page<ProjectDtoWithId> getForUser(String username, boolean archived, Pageable pageable, String token) throws ForbiddenException, UserNotFoundException {
         checkUser(username, token);
         getUser(username);
-        List<Project> projects = projectRepository.get(username, pageable);
+        List<Project> projects = projectRepository.get(username, archived, pageable);
         List<ProjectDtoWithId> projectsDto = ProjectConverter.getProjectDtoWithIdList(projects);
         int count = projectRepository.getCount(username);
         return new PageImpl<>(projectsDto, pageable, count);
@@ -90,6 +91,17 @@ public class ProjectServiceImpl implements ProjectService {
         } catch (EmptyResultDataAccessException e) {
             logger.warn("Project ({}) already deleted", projectId);
         }
+    }
+
+    @Override
+    public ProjectArchivedDto modifyArchived(int projectId, ProjectArchivedDto archived, String token) throws UserNotFoundException, ForbiddenException, ProjectNotFoundException {
+        Project project = getProject(projectId);
+        checkUser(project.getOwner().getUsername(), token);
+        project.setArchived(archived.isArchived());
+        projectRepository.save(project);
+        return ProjectArchivedDto.builder()
+                .archived(project.isArchived())
+                .build();
     }
 
     private User getUser(String username) throws UserNotFoundException {

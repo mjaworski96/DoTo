@@ -12,10 +12,20 @@
   text-align: center;
   font-weight: bold;
 }
-.delete-project-container {
+.project-buttons-container {
   margin-top: 100px;
   margin-bottom: 50px;
 }
 .modify-project-container {
   margin-bottom: 20px;
+}
+.state-separator {
+  padding: 20px 0;
+}
+.delete-btn {
+  margin-left: 20px;
+  width: 200px;
+}
+.change-state-btn {
+  width: 200px;
 }

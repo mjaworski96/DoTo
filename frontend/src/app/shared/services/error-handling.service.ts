@@ -3,6 +3,7 @@ import {HttpErrorResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {SessionStorageService} from './session-storage.service';
 import {ToastrService} from 'ngx-toastr';
+import {GlobalVariables} from "../../utils/global-variables";
 
 @Injectable({
   providedIn: 'root'
@@ -15,17 +16,16 @@ export class ErrorHandlingService {
 
   handle(error: HttpErrorResponse): void {
     if (error.error !== undefined && error.error !== null) {
-      this.toastr.error(error.error.message, error.error.code, {
-        timeOut: 5000,
-        closeButton: true
-      });
+      const duplicate = this.toastr.findDuplicate(error.error.message, false, false);
+      if (duplicate != null) {
+        this.toastr.remove(duplicate.toastId);
+      }
+      this.toastr.error(error.error.message, error.error.code, GlobalVariables.toastrConfig);
     }
     if (error.error.code === 404 ||  error.error.code === 504) {
       this.handle404and504();
     } else if (error.error.code === 401) {
       this.handle401();
-    } else {
-      window.scrollTo(0, 0);
     }
   }
   handle401(): void {

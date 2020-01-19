@@ -1,3 +1,12 @@
+server:
+  ssl:
+    enabled: true
+    key-store-type: PKCS12
+    key-store: ../certificate/doto.p12
+    key-store-password: DoTo
+    key-alias: DoTo
+security:
+  require-ssl: true
 spring:
   mail:
     host: smtp.gmail.com
@@ -28,9 +37,11 @@ spring:
 config:
   security:
     jwt:
-      secret: "DoTo-SecretKey"
+      secret: DoTo-SecretKey
       expiration-time: 6_000_000
       refresh-after: 600_000
   password-reset:
     characters: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
     length: 6
+  task:
+    default_state: todo

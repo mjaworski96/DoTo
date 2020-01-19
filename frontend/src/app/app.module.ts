@@ -15,6 +15,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {DialogsModule} from './dialogs/dialogs.module';
 import { MainPageComponent } from './main-page/main-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {NgxSpinnerModule} from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ReactiveFormsModule,
     ToastrModule.forRoot(),
     NgbModule,
-    DialogsModule
+    DialogsModule,
+    NgxSpinnerModule
   ],
   providers: [
     {

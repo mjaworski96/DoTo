@@ -20,6 +20,15 @@
         <note priority="1" from="description">My projects redirect</note>
         <note priority="1" from="meaning">My projects</note>
         <target>Moje projekty</target></trans-unit>
+      <trans-unit id="archived-redirect" datatype="html">
+        <source>Archived projects</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/header/header.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">Archived projects redirect</note>
+        <note priority="1" from="meaning">Archived projects</note>
+      <target>Archiwum projektów</target></trans-unit>
       <trans-unit id="36b935d15b80d0f5d6b1c88111b93943cb2f01fb" datatype="html">
         <source>My account</source>
         <context-group purpose="location">
@@ -851,7 +860,7 @@
         </context-group>
         <note priority="1" from="description">Shown after password reset request was sent</note>
         <note priority="1" from="meaning">Reset password sent</note>
-        <target>Jeżeli email jest poprawny, nowe hasło zostało wysłane</target></trans-unit>
+        <target>Jeżeli email jest poprawny, nowe hasło zostało wysłane.</target></trans-unit>
       <trans-unit id="update" datatype="html">
         <source>Update account data</source>
         <context-group purpose="location">
@@ -1118,6 +1127,17 @@
         <note priority="1" from="description">Done status</note>
         <note priority="1" from="meaning">Done</note>
         <target>Zrobione</target></trans-unit>
+      <trans-unit id="backlog" datatype="html">
+        <source>
+          Backlog
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <note priority="1" from="description">Backlog status</note>
+        <note priority="1" from="meaning">Backlog</note>
+      <target>Oczekujące</target></trans-unit>
       <trans-unit id="archived" datatype="html">
         <source>
           Archived
@@ -1129,6 +1149,17 @@
         <note priority="1" from="description">Archived status</note>
         <note priority="1" from="meaning">Archived</note>
         <target>Zarchwizowane</target></trans-unit>
+      <trans-unit id="ignored" datatype="html">
+        <source>
+          Ignored
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+        <note priority="1" from="description">Ignored status</note>
+        <note priority="1" from="meaning">Ignored</note>
+      <target>Zignorowane</target></trans-unit>
       <trans-unit id="delete-project" datatype="html">
         <source>Delete project</source>
         <context-group purpose="location">
@@ -1138,6 +1169,28 @@
         <note priority="1" from="description">Delete project button</note>
         <note priority="1" from="meaning">Delete project</note>
         <target>Skasuj projekt</target></trans-unit>
+      <trans-unit id="archive-project" datatype="html">
+        <source>
+          Archive project
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+        <note priority="1" from="description">Archive project button</note>
+        <note priority="1" from="meaning">Archive project</note>
+      <target>Archiwizuj projekt</target></trans-unit>
+      <trans-unit id="activate-project" datatype="html">
+        <source>
+          Activate project
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
+        <note priority="1" from="description">Activate project button</note>
+        <note priority="1" from="meaning">Activate project</note>
+      <target>Aktywuj projekt</target></trans-unit>
       <trans-unit id="delete-task" datatype="html">
         <source>Delete task</source>
         <context-group purpose="location">
@@ -1156,6 +1209,42 @@
         <note priority="1" from="description">Delete comment button</note>
         <note priority="1" from="meaning">Delete comment</note>
         <target>Skasuj komentarz</target></trans-unit>
+      <trans-unit id="backlog-button" datatype="html">
+        <source>Backlog</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/tasks-list.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">Set project status to backlog</note>
+        <note priority="1" from="meaning">Backlog button</note>
+      <target>Oczekujące</target></trans-unit>
+      <trans-unit id="archive-button" datatype="html">
+        <source>Archive</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/tasks-list.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <note priority="1" from="description">Set project status to archived</note>
+        <note priority="1" from="meaning">Archive button</note>
+      <target>Archiwizuj</target></trans-unit>
+      <trans-unit id="ignore-button" datatype="html">
+        <source>Ignore</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/tasks-list.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <note priority="1" from="description">Set project status to ignored</note>
+        <note priority="1" from="meaning">Ignore button</note>
+      <target>Ignoruj</target></trans-unit>
+      <trans-unit id="to-do-button" datatype="html">
+        <source>To do</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/tasks-list.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <note priority="1" from="description">Set project status to todo</note>
+        <note priority="1" from="meaning">To do button</note>
+      <target>Do zrobienia</target></trans-unit>
       <trans-unit id="no-comments" datatype="html">
         <source>
           No comments.

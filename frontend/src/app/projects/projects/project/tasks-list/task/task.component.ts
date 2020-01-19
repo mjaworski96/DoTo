@@ -5,6 +5,7 @@ import {DeleteProjectDialogComponent} from '../../../../../dialogs/delete-projec
 import {TasksService} from '../../../../services/tasks.service';
 import {Router} from '@angular/router';
 import {ModifyTaskDialogComponent} from '../../../../../dialogs/modify-task-dialog/modify-task-dialog.component';
+import {Comments} from '../../../../../models/comment';
 
 @Component({
   selector: 'app-task',
@@ -14,6 +15,8 @@ import {ModifyTaskDialogComponent} from '../../../../../dialogs/modify-task-dial
 export class TaskComponent implements OnInit {
   @Input()
   task: TaskWithId;
+  @Input()
+  comments: Comments;
 
   constructor(private activeModal: NgbActiveModal,
               private modalService: NgbModal,

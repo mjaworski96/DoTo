@@ -5,6 +5,7 @@ import {SessionStorageService} from '../../../../../../../shared/services/sessio
 import {Router} from '@angular/router';
 import {CommentsService} from '../../../../../../services/comments.service';
 import {CommentWithId} from '../../../../../../../models/comment';
+import {finalize} from "rxjs/operators";
 
 @Component({
   selector: 'app-add-comment',
@@ -26,11 +27,11 @@ export class EditCommentComponent implements OnInit {
 
   minContentLength = GlobalVariables.minCommentContentLength;
   maxContentLength = GlobalVariables.maxCommentContentLength;
+  processing = false;
 
   constructor(private formBuilder: FormBuilder,
               private sessionStorageService: SessionStorageService,
-              private commentsService: CommentsService,
-              private router: Router) { }
+              private commentsService: CommentsService) { }
 
   ngOnInit() {
     this.buildForm();
@@ -58,20 +59,26 @@ export class EditCommentComponent implements OnInit {
     }
   }
   add() {
+    this.processing = true;
     this.commentsService.create(
       this.taskId,
       this.editCommentForm.value
-    ).toPromise()
+    ).pipe(
+      finalize( () => this.processing = false))
+      .toPromise()
       .then(result => {
         this.editCommentForm.reset();
         this.newComment.emit(result);
       });
   }
   modify() {
+    this.processing = true;
     this.commentsService.update(
       this.comment.id,
       this.editCommentForm.value
-    ).toPromise()
+    ).pipe(
+      finalize( () => this.processing = false))
+      .toPromise()
       .then(result => {
         this.newComment.emit(result);
       });
