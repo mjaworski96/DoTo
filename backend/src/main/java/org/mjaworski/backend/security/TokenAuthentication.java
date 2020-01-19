@@ -132,8 +132,7 @@ public class TokenAuthentication {
         buildResponse(res, user, JWT);
     }
     private void refreshToken(HttpServletResponse response, Claims claims) throws UserNotFoundException, IOException {
-        Date issuedAt = claims.getIssuedAt();
-        if (System.currentTimeMillis() - issuedAt.getTime() > refreshAfter) {
+        if (System.currentTimeMillis() - claims.getIssuedAt().getTime() > refreshAfter) {
             addRefreshedAuthentication(response, tokenAuthenticationUtils.getUsername(claims));
         }
     }
