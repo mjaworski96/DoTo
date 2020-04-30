@@ -22,7 +22,7 @@
     "@angular/router": "^8.2.14",
     "@ng-bootstrap/ng-bootstrap": "^5.1.5",
     "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ng-bootstrap": "^1.6.3",
     "ngx-spinner": "^8.1.0",
     "ngx-toastr": "^10.2.0",
