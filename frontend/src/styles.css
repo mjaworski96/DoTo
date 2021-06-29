@@ -16,3 +16,9 @@ hr {
   white-space: pre-line;
   word-wrap: break-word;
 }
+.project-button {
+  width: 20%;
+}
+.nested-button {
+  width: 40%;
+}

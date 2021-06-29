@@ -33,7 +33,7 @@
         </span>
     </div>
     <div class="form-check">
-      <button class="btn btn-primary float-right" [disabled]="editTaskForm.invalid || processing" type="submit"
+      <button class="btn btn-primary float-right project-button" [disabled]="editTaskForm.invalid || processing" type="submit"
               (click)="edit()">
         <span *ngIf="!task" i18n="Add task button|Text in add task button@@add-task">
           Add task

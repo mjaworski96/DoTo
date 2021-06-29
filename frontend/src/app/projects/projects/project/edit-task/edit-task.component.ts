@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {GlobalVariables} from '../../../../utils/global-variables';
 import {TasksService} from '../../../services/tasks.service';
 import {TaskWithId} from '../../../../models/task';
-import {finalize} from "rxjs/operators";
+import {finalize} from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-task',
