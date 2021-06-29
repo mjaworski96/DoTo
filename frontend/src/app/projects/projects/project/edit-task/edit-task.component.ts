@@ -68,8 +68,6 @@ export class EditTaskComponent implements OnInit {
       finalize( () => this.processing = false))
       .toPromise()
       .then(result => {
-        console.log('error');
-        console.log(result);
         this.editTaskForm.reset();
         this.newTask.emit(result);
     });
