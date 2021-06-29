@@ -56,7 +56,7 @@ public class ProjectServiceImpl implements ProjectService {
         getUser(username);
         List<Project> projects = projectRepository.get(username, archived, pageable);
         List<ProjectDtoWithId> projectsDto = ProjectConverter.getProjectDtoWithIdList(projects);
-        int count = projectRepository.getCount(username);
+        int count = projectRepository.getCount(username, archived);
         return new PageImpl<>(projectsDto, pageable, count);
     }
 

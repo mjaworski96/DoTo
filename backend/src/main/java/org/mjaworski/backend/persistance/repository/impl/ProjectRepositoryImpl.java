@@ -28,8 +28,8 @@ public class ProjectRepositoryImpl implements ProjectRepository {
     }
 
     @Override
-    public int getCount(String username) {
-        return projectJpaRepository.getCount(username);
+    public int getCount(String username, boolean archived) {
+        return projectJpaRepository.getCount(username, archived);
     }
 
     @Override

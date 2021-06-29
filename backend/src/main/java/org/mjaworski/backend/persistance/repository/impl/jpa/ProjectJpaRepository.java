@@ -18,6 +18,8 @@ public interface ProjectJpaRepository extends JpaRepository<Project, Integer> {
                       Pageable pageable);
 
     @Query("SELECT COUNT(p) FROM Project p JOIN p.owner o " +
-            "WHERE LOWER(o.username) = LOWER(:username)")
-    int getCount(String username);
+            "WHERE LOWER(o.username) = LOWER(:username)" +
+            "AND p.archived = :archived")
+    int getCount(@Param("username") String username,
+                 @Param("archived") boolean archived);
 }
