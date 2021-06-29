@@ -3,7 +3,7 @@ import {HttpErrorResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {SessionStorageService} from './session-storage.service';
 import {ToastrService} from 'ngx-toastr';
-import {GlobalVariables} from "../../utils/global-variables";
+import {GlobalVariables} from '../../utils/global-variables';
 
 @Injectable({
   providedIn: 'root'
