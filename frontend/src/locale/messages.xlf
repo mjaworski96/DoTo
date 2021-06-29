@@ -29,22 +29,22 @@
         <note priority="1" from="description">Archived projects redirect</note>
         <note priority="1" from="meaning">Archived projects</note>
       </trans-unit>
-      <trans-unit id="36b935d15b80d0f5d6b1c88111b93943cb2f01fb" datatype="html">
+      <trans-unit id="my-account-redirect" datatype="html">
         <source>My account</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/header/header.component.html</context>
           <context context-type="linenumber">21</context>
         </context-group>
-        <note priority="1" from="description">My account redirect@my-account-redirect</note>
+        <note priority="1" from="description">My account redirect</note>
         <note priority="1" from="meaning">My Account</note>
       </trans-unit>
-      <trans-unit id="141c3b897e12c516909e87d9e479ea4fc428b6d1" datatype="html">
+      <trans-unit id="users-list-redirect" datatype="html">
         <source>Users</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/header/header.component.html</context>
           <context context-type="linenumber">23</context>
         </context-group>
-        <note priority="1" from="description">Users list@users-list-redirect</note>
+        <note priority="1" from="description">Users list</note>
         <note priority="1" from="meaning">Users</note>
       </trans-unit>
       <trans-unit id="log-in-redirect" datatype="html">
@@ -852,7 +852,7 @@
       </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/authentication/login/reset-password/reset-password.component.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">32</context>
         </context-group>
         <note priority="1" from="description">Shown after password reset request was sent</note>
         <note priority="1" from="meaning">Reset password sent</note>
