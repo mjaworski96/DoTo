@@ -6,7 +6,7 @@ import {TaskWithId} from '../../../../models/task';
 import {finalize} from 'rxjs/operators';
 
 @Component({
-  selector: 'app-add-task',
+  selector: 'app-edit-task',
   templateUrl: './edit-task.component.html',
   styleUrls: ['./edit-task.component.css']
 })
