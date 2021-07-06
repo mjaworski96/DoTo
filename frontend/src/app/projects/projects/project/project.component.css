@@ -29,3 +29,7 @@
 .change-state-btn {
   width: 200px;
 }
+.tasks-column {
+  max-height: 1000px; 
+  overflow-x: auto;
+}

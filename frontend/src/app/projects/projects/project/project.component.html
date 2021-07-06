@@ -25,7 +25,6 @@
           To do
         </div>
         <hr>
-        <app-tasks-list [tasks]="filter('todo')" [projectId]="project.id" [nextState]="'inprogress'"></app-tasks-list>
       </div>
       <div class="col-md-4">
         <hr>
@@ -33,7 +32,6 @@
           In progress
         </div>
         <hr>
-        <app-tasks-list [tasks]="filter('inprogress')" [projectId]="project.id" [prevState]="'todo'" [nextState]="'done'"></app-tasks-list>
       </div>
       <div class="col-md-4">
         <hr>
@@ -41,6 +39,16 @@
           Done
         </div>
         <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 tasks-column">
+        <app-tasks-list [tasks]="filter('todo')" [projectId]="project.id" [nextState]="'inprogress'"></app-tasks-list>
+      </div>
+      <div class="col-md-4 tasks-column">
+        <app-tasks-list [tasks]="filter('inprogress')" [projectId]="project.id" [prevState]="'todo'" [nextState]="'done'"></app-tasks-list>
+      </div>
+      <div class="col-md-4 tasks-column">
         <app-tasks-list [tasks]="filter('done')" [projectId]="project.id" [prevState]="'inprogress'"></app-tasks-list>
       </div>
     </div>
@@ -52,7 +60,6 @@
           Backlog
         </div>
         <hr>
-        <app-tasks-list [tasks]="filter('backlog')" [currentState]="'backlog'" [projectId]="project.id"></app-tasks-list>
       </div>
       <div class="col-md-4">
         <hr>
@@ -60,7 +67,6 @@
           Archived
         </div>
         <hr>
-        <app-tasks-list [tasks]="filter('archived')" [currentState]="'archived'" [projectId]="project.id"></app-tasks-list>
       </div>
       <div class="col-md-4">
         <hr>
@@ -68,6 +74,16 @@
           Ignored
         </div>
         <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 tasks-column">
+        <app-tasks-list [tasks]="filter('backlog')" [currentState]="'backlog'" [projectId]="project.id"></app-tasks-list>
+      </div>
+      <div class="col-md-4 tasks-column">
+        <app-tasks-list [tasks]="filter('archived')" [currentState]="'archived'" [projectId]="project.id"></app-tasks-list>
+      </div>
+      <div class="col-md-4 tasks-column">
         <app-tasks-list [tasks]="filter('ignored')" [currentState]="'ignored'" [projectId]="project.id"></app-tasks-list>
       </div>
     </div>
