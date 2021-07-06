@@ -22,6 +22,8 @@ export class EditTaskComponent implements OnInit {
   minShortDescriptionLength = GlobalVariables.minTaskShortDescriptionLength;
   maxShortDescriptionLength = GlobalVariables.maxTaskShortDescriptionLength;
   maxFullDescriptionLength = GlobalVariables.maxTaskFullDescriptionLength;
+  textAreaRows = GlobalVariables.textAreaRows;
+  
   processing = false;
   @Output()
   newTask = new EventEmitter<TaskWithId>();

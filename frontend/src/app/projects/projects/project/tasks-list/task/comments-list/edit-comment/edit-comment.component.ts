@@ -27,6 +27,8 @@ export class EditCommentComponent implements OnInit {
 
   minContentLength = GlobalVariables.minCommentContentLength;
   maxContentLength = GlobalVariables.maxCommentContentLength;
+  textAreaRows = GlobalVariables.textAreaRows;
+  
   processing = false;
 
   constructor(private formBuilder: FormBuilder,

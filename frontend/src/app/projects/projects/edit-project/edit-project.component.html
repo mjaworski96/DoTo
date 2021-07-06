@@ -22,8 +22,8 @@
         </span>
     </div>
     <div class="form-group">
-      <input class="form-control" formControlName="description" placeholder="Description"
-             i18n-placeholder="Description placeholder|Text in description placeholder@@description">
+      <textarea  class="form-control" formControlName="description" placeholder="Description" [rows]="textAreaRows"
+             i18n-placeholder="Description placeholder|Text in description placeholder@@description"></textarea>
       <span *ngIf="editProjectForm.get('description').touched">
           <span class="badge badge-danger float-left"
                 i18n="Description validation|Shown when description is too long@@description-too-long-validation"

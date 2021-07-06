@@ -24,6 +24,8 @@ export class EditProjectComponent implements OnInit {
   minNameLength = GlobalVariables.minProjectNameLength;
   maxNameLength = GlobalVariables.maxProjectNameLength;
   maxDescriptionLength = GlobalVariables.maxProjectDescriptionLength;
+  textAreaRows = GlobalVariables.textAreaRows;
+  
   processing = false;
 
   constructor(private formBuilder: FormBuilder,

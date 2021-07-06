@@ -1,8 +1,8 @@
 <div>
   <form [formGroup]="editCommentForm">
     <div class="form-group">
-      <input class="form-control" formControlName="content" placeholder="Comment"
-             i18n-placeholder="Comment placeholder|Text in comment placeholder@@comment">
+      <textarea class="form-control" formControlName="content" placeholder="Comment" [rows]="textAreaRows"
+             i18n-placeholder="Comment placeholder|Text in comment placeholder@@comment"></textarea>
       <span *ngIf="editCommentForm.get('content').touched">
           <span class="badge badge-danger float-left"
                 i18n="Comment validation|Shown when comment is empty@@comment-required-validation"
