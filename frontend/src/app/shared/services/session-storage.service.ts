@@ -15,8 +15,8 @@ export class SessionStorageService {
   getUser(): User {
     return JSON.parse(localStorage.getItem('userData'));
   }
-  getUsername(): string {
-    return this.getUser().username;
+  getUserId(): number {
+    return this.getUser().id;
   }
   isUserLoggedIn(): boolean {
     return this.getUser() !== null;

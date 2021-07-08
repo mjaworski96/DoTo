@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.websocket.server.PathParam;
 
 @RestController
-@RequestMapping("/api/users/{username}/projects")
+@RequestMapping("/api/users/{id}/projects")
 @Api(value = "User projects management",
         produces = "application/json")
 public class UserProjectsRestController {
@@ -41,13 +41,13 @@ public class UserProjectsRestController {
     })
     @GetMapping()
     @PreAuthorize("hasRole('USER')")
-    public ResponseEntity get(@PathVariable("username") String username,
+    public ResponseEntity get(@PathVariable("id") int userId,
                               @ApiParam() @RequestParam(value = "archived", required = false, defaultValue = "false") boolean archived,
                               @ApiParam(hidden = true) @RequestHeader(value = "Authorization", required = false) String authorization,
                               @ApiParam() @RequestParam(value = "page", required = false) int page,
                               @ApiParam() @RequestParam(value = "size", required = false) int size) throws Exception {
 
-        return ResponseEntity.ok(projectService.getForUser(username,
+        return ResponseEntity.ok(projectService.getForUser(userId,
                 archived,
                 PageRequest.of(page, size),
                 authorization));
@@ -67,9 +67,9 @@ public class UserProjectsRestController {
     @PostMapping()
     @PreAuthorize("hasRole('USER')")
     public ResponseEntity createProject(
-            @PathVariable("username") String username,
+            @PathVariable("id") int userId,
             @ApiParam(hidden = true) @RequestHeader(value = "Authorization", required = false) String authorization,
             @RequestBody ProjectDto projectDto) throws Exception {
-        return ResponseEntity.status(201).body(projectService.add(username, projectDto, authorization));
+        return ResponseEntity.status(201).body(projectService.add(userId, projectDto, authorization));
     }
 }

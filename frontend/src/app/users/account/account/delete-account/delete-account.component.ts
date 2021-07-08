@@ -26,7 +26,7 @@ export class DeleteAccountComponent implements OnInit {
     modalRef.result.then(res => {
       if (res === true) {
         this.userService.deleteAccount(
-          this.sessionStorageService.getUsername()
+          this.sessionStorageService.getUserId()
         ).toPromise().then(result => {
           this.sessionStorageService.logout();
           this.router.navigate(['/']);

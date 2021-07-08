@@ -100,7 +100,7 @@ public class CommentServiceImpl implements CommentService {
                 .orElseThrow(CommentNotFoundException::new);
     }
     private void checkOwner(Task task, String token) throws ForbiddenException {
-        if(!tokenAuthentication.checkUser(task.getProject().getOwner().getUsername(), token))
+        if(!tokenAuthentication.checkUser(task.getProject().getOwner().getId(), token))
             throw new ForbiddenException();
     }
 

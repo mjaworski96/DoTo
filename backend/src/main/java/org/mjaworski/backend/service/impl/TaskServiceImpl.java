@@ -133,7 +133,7 @@ public class TaskServiceImpl implements TaskService {
     }
 
     private void checkOwner(Project project, String token) throws ForbiddenException {
-        if(!tokenAuthentication.checkUser(project.getOwner().getUsername(), token))
+        if(!tokenAuthentication.checkUser(project.getOwner().getId(), token))
             throw new ForbiddenException();
     }
 

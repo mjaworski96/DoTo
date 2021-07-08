@@ -14,8 +14,8 @@ export class ProjectsResolveService implements Resolve<Page<ProjectWithId>> {
               private archived: boolean) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Page<ProjectWithId>> | Promise<Page<ProjectWithId>> | Page<ProjectWithId> {
-    const username = this.sessionStorageService.getUsername();
-    return this.projectService.get(username, this.archived, 0, GlobalVariables.projectsPageSize)
+    const userId = this.sessionStorageService.getUserId();
+    return this.projectService.get(userId, this.archived, 0, GlobalVariables.projectsPageSize)
       .toPromise()
       .then(result => {
         return result;

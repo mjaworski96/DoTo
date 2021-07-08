@@ -11,6 +11,6 @@ import java.util.List;
 public interface RoleService {
     Role getRole(String name) throws RoleNotFoundException;
     List<Role> getRoles(String... roles) throws RoleNotFoundException;
-    RolesDto getUserRoles(String username) throws UserNotFoundException;
-    RolesDto updateRoles(String username, RolesChangesDto roles) throws UserNotFoundException, RoleNotFoundException;
+    RolesDto getUserRoles(int userId) throws UserNotFoundException;
+    RolesDto updateRoles(int userId, RolesChangesDto roles) throws UserNotFoundException, RoleNotFoundException;
 }

@@ -57,8 +57,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void canPerformOperation(String username, String authorizationToken) throws ForbiddenException {
-        if (!tokenAuthentication.checkUser(username, authorizationToken)) {
+    public void canPerformOperation(int userId, String authorizationToken) throws ForbiddenException {
+        if (!tokenAuthentication.checkUser(userId, authorizationToken)) {
             throw new ForbiddenException();
         }
     }
@@ -81,9 +81,9 @@ public class UserServiceImpl implements UserService {
         return UserConverter.getUserDto(user);
     }
     @Override
-    public UserDto updateUser(String username, UserUpdateDataDto userUpdateData, String authorizationToken) throws UserNotFoundException, ForbiddenException, InvalidUserException, DataNotUniqueException {
-        canPerformOperation(username, authorizationToken);
-        User currentUser = userRepository.getByUsername(username)
+    public UserDto updateUser(int userId, UserUpdateDataDto userUpdateData, String authorizationToken) throws UserNotFoundException, ForbiddenException, InvalidUserException, DataNotUniqueException {
+        canPerformOperation(userId, authorizationToken);
+        User currentUser = userRepository.getById(userId)
                 .orElseThrow(UserNotFoundException::new);
 
         validate(userUpdateData, currentUser);
@@ -94,9 +94,9 @@ public class UserServiceImpl implements UserService {
         return UserConverter.getUserDto(currentUser);
     }
     @Override
-    public void deleteUser(String username, String authorizationToken) throws ForbiddenException {
-        canPerformOperation(username, authorizationToken);
-        Optional<User> userOptional = userRepository.getByUsername(username);
+    public void deleteUser(int userId, String authorizationToken) throws ForbiddenException {
+        canPerformOperation(userId, authorizationToken);
+        Optional<User> userOptional = userRepository.getById(userId);
         if (userOptional.isPresent()) {
             try {
                 userRepository.delete(userOptional.get());
@@ -106,9 +106,9 @@ public class UserServiceImpl implements UserService {
         }
     }
     @Override
-    public UserDto getUser(String username, String authorizationToken) throws UserNotFoundException, ForbiddenException {
-        User user = userRepository.getByUsername(username).orElseThrow(UserNotFoundException::new);
-        isOwnerOrAdmin(username, authorizationToken);
+    public UserDto getUser(int userId, String authorizationToken) throws UserNotFoundException, ForbiddenException {
+        User user = userRepository.getById(userId).orElseThrow(UserNotFoundException::new);
+        isOwnerOrAdmin(userId, authorizationToken);
         return UserConverter.getUserDto(user);
     }
 
@@ -121,8 +121,8 @@ public class UserServiceImpl implements UserService {
                 userRepository.getCount());
     }
 
-    private void isOwnerOrAdmin(String username, String authorizationToken) throws ForbiddenException {
-        if (!tokenAuthentication.checkUser(username, authorizationToken) &&
+    private void isOwnerOrAdmin(int userId, String authorizationToken) throws ForbiddenException {
+        if (!tokenAuthentication.checkUser(userId, authorizationToken) &&
             !tokenAuthentication.isAdmin(authorizationToken)) {
             throw new ForbiddenException();
         }

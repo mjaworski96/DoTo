@@ -11,21 +11,21 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getUser(username: string): Observable<User> {
+  getUser(userId: number): Observable<User> {
     return this.httpClient.get<User>(
-      this.usersUrl + `/${username}`
+      `${this.usersUrl}/${userId}`
     );
   }
-  updateAccount(username: string, updateData: UserUpdateData): Observable<HttpResponse<User>> {
+  updateAccount(userId: number, updateData: UserUpdateData): Observable<HttpResponse<User>> {
     return this.httpClient.put<User>(
-      `${this.usersUrl}/${username}`,
+      `${this.usersUrl}/${userId}`,
       updateData,
       {observe: 'response'}
     );
   }
-  deleteAccount(username: string): Observable<any> {
+  deleteAccount(userId: number): Observable<any> {
     return this.httpClient.delete(
-      `${this.usersUrl}/${username}`
+      `${this.usersUrl}/${userId}`
     );
   }
 

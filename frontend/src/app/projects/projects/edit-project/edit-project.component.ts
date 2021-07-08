@@ -64,9 +64,9 @@ export class EditProjectComponent implements OnInit {
   }
   add() {
     this.processing = true;
-    const username = this.sessionStorageService.getUsername();
+    const userId = this.sessionStorageService.getUserId();
     this.projectsService.create(
-      username,
+      userId,
       this.editProjectForm.value
     ).pipe(
         finalize( () => this.processing = false))

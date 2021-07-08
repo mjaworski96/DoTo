@@ -47,7 +47,7 @@ export class PasswordChangeComponent implements OnInit {
   }
   changePassword(): void {
     this.passwordChangeService.changePassword(
-      this.sessionStorageService.getUser().username,
+      this.sessionStorageService.getUserId(),
       this.passwordChangeForm.value
     ).toPromise().then((result) => {
       if (result !== undefined) {

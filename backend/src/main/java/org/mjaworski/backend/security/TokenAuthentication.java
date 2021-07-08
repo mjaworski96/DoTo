@@ -51,11 +51,11 @@ public class TokenAuthentication {
         tokenAuthenticationUtils = new TokenAuthenticationUtils(secret);
     }
 
-    public boolean checkUser(String username, String token) {
+    public boolean checkUser(int userId, String token) {
         if (token == null) {
             return false;
         }
-        return tokenAuthenticationUtils.getUsername(token).equalsIgnoreCase(username);
+        return tokenAuthenticationUtils.getId(token) == userId;
     }
 
     public String getAuthoritiesSeparatedByComaFromRoles(List<RoleDto> roles) {
@@ -65,12 +65,7 @@ public class TokenAuthentication {
                 .collect(Collectors.toList()));
     }
 
-    public String getUsernameFromToken(String token) {
-        if (token == null) {
-            return null;
-        }
-        return tokenAuthenticationUtils.getUsername(token);
-    }
+
     public boolean isAdmin(String token) {
         Claims claims = tokenAuthenticationUtils.getClaims(token);
         List<GrantedAuthority> grantedAuthorities = getAuthorities(claims);
@@ -84,10 +79,10 @@ public class TokenAuthentication {
         );
     }
 
-    public String buildToken(String name, String roles) {
+    public String buildToken(int userId, String roles) {
         long currentTime = System.currentTimeMillis();
         return TOKEN_PREFIX + " " + Jwts.builder()
-                .setSubject(name)
+                .setSubject(String.valueOf(userId))
                 .claim("roles", roles)
                 .setExpiration(new Date(currentTime + expirationTime))
                 .setIssuedAt(new Date(currentTime))
@@ -104,14 +99,11 @@ public class TokenAuthentication {
                     .parseClaimsJws(token.replace(TOKEN_PREFIX, ""))
                     .getBody();
 
-            String user = tokenAuthenticationUtils.getUsername(claims);
-            if (user != null) {
-                refreshToken(response, claims);
-                List<GrantedAuthority> grantedAuthorities = getAuthorities(claims);
-                return new UsernamePasswordAuthenticationToken(user, null, grantedAuthorities);
-            } else {
-                return null;
-            }
+            int userId = tokenAuthenticationUtils.getId(claims);
+            refreshToken(response, claims);
+            List<GrantedAuthority> grantedAuthorities = getAuthorities(claims);
+            return new UsernamePasswordAuthenticationToken(userId, null, grantedAuthorities);
+
         }
         return null;
     }
@@ -125,7 +117,7 @@ public class TokenAuthentication {
         User user = userRepository.getByUsername(auth.getName())
                 .orElseThrow(UserNotFoundException::new);
         checkIfCanAddAuthentication(user);
-        String JWT = buildToken(user.getUsername(),
+        String JWT = buildToken(user.getId(),
                 tokenAuthenticationUtils
                         .getAuthoritiesSeparatedByComa(auth.getAuthorities()));
 
@@ -133,15 +125,15 @@ public class TokenAuthentication {
     }
     private void refreshToken(HttpServletResponse response, Claims claims) throws UserNotFoundException, IOException {
         if (System.currentTimeMillis() - claims.getIssuedAt().getTime() > refreshAfter) {
-            addRefreshedAuthentication(response, tokenAuthenticationUtils.getUsername(claims));
+            addRefreshedAuthentication(response, tokenAuthenticationUtils.getId(claims));
         }
     }
 
     private void addRefreshedAuthentication(HttpServletResponse response,
-                                   String username) throws UserNotFoundException, IOException {
-        User user = userRepository.getByUsername(username)
+                                   int userId) throws UserNotFoundException, IOException {
+        User user = userRepository.getById(userId)
                 .orElseThrow(UserNotFoundException::new);
-        String JWT = buildToken(user.getUsername(),
+        String JWT = buildToken(user.getId(),
                 tokenAuthenticationUtils.getAuthoritiesSeparatedByComa(
                         user.getRoles()
                         .stream()

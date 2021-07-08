@@ -51,20 +51,20 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Page<ProjectDtoWithId> getForUser(String username, boolean archived, Pageable pageable, String token) throws ForbiddenException, UserNotFoundException {
-        checkUser(username, token);
-        getUser(username);
-        List<Project> projects = projectRepository.get(username, archived, pageable);
+    public Page<ProjectDtoWithId> getForUser(int userId, boolean archived, Pageable pageable, String token) throws ForbiddenException, UserNotFoundException {
+        checkUser(userId, token);
+        getUser(userId);
+        List<Project> projects = projectRepository.get(userId, archived, pageable);
         List<ProjectDtoWithId> projectsDto = ProjectConverter.getProjectDtoWithIdList(projects);
-        int count = projectRepository.getCount(username, archived);
+        int count = projectRepository.getCount(userId, archived);
         return new PageImpl<>(projectsDto, pageable, count);
     }
 
     @Override
-    public ProjectDtoWithId add(String username, ProjectDto projectDto, String token) throws UserNotFoundException, ForbiddenException, InvalidProjectNameException, InvalidProjectDescriptionException {
-        checkUser(username, token);
+    public ProjectDtoWithId add(int userId, ProjectDto projectDto, String token) throws UserNotFoundException, ForbiddenException, InvalidProjectNameException, InvalidProjectDescriptionException {
+        checkUser(userId, token);
         validate(projectDto);
-        User user = getUser(username);
+        User user = getUser(userId);
         Project project = ProjectConverter.getProject(projectDto);
         project.setOwner(user);
         projectRepository.save(project);
@@ -75,7 +75,7 @@ public class ProjectServiceImpl implements ProjectService {
     public ProjectDtoWithId modify(int projectId, ProjectDto projectDto, String token) throws UserNotFoundException, ForbiddenException, ProjectNotFoundException, InvalidProjectNameException, InvalidProjectDescriptionException {
         validate(projectDto);
         Project project = getProject(projectId);
-        checkUser(project.getOwner().getUsername(), token);
+        checkUser(project.getOwner().getId(), token);
         ProjectConverter.rewrite(project, projectDto);
         projectRepository.save(project);
         return ProjectConverter.getProjectDtoWithId(project);
@@ -96,7 +96,7 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public ProjectArchivedDto modifyArchived(int projectId, ProjectArchivedDto archived, String token) throws UserNotFoundException, ForbiddenException, ProjectNotFoundException {
         Project project = getProject(projectId);
-        checkUser(project.getOwner().getUsername(), token);
+        checkUser(project.getOwner().getId(), token);
         project.setArchived(archived.isArchived());
         projectRepository.save(project);
         return ProjectArchivedDto.builder()
@@ -104,8 +104,8 @@ public class ProjectServiceImpl implements ProjectService {
                 .build();
     }
 
-    private User getUser(String username) throws UserNotFoundException {
-        return userRepository.getByUsername(username)
+    private User getUser(int userId) throws UserNotFoundException {
+        return userRepository.getById(userId)
                 .orElseThrow(UserNotFoundException::new);
     }
 
@@ -114,13 +114,13 @@ public class ProjectServiceImpl implements ProjectService {
                 .orElseThrow(ProjectNotFoundException::new);
     }
 
-    private void checkUser(String username, String token) throws ForbiddenException {
-        if(!tokenAuthentication.checkUser(username, token))
+    private void checkUser(int userId, String token) throws ForbiddenException {
+        if(!tokenAuthentication.checkUser(userId, token))
             throw new ForbiddenException();
     }
 
     private void checkUser(Project project, String token) throws ForbiddenException {
-        checkUser(project.getOwner().getUsername(), token);
+        checkUser(project.getOwner().getId(), token);
     }
 
     private void validate(ProjectDto projectDto) throws InvalidProjectNameException, InvalidProjectDescriptionException {

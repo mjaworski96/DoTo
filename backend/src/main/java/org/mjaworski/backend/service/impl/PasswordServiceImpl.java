@@ -43,8 +43,8 @@ public class PasswordServiceImpl implements PasswordService {
         return environment.getProperty("config.password-reset.characters");
     }
     @Override
-    public void changePassword(String username, PasswordChangeDto passwords, String token) throws UserNotFoundException, WrongOldPasswordException, InvalidPasswordException {
-        User user = userRepository.getByUsername(username)
+    public void changePassword(int userId, PasswordChangeDto passwords, String token) throws UserNotFoundException, WrongOldPasswordException, InvalidPasswordException {
+        User user = userRepository.getById(userId)
                 .orElseThrow(UserNotFoundException::new);
         if (passwordEncoder.matches(passwords.getOldPassword(), user.getPassword())) {
             validatePassword(passwords.getNewPassword());

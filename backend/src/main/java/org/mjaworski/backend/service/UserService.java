@@ -11,10 +11,10 @@ import org.mjaworski.backend.exception.not_found.UserNotFoundException;
 import org.springframework.data.domain.Page;
 
 public interface UserService {
-    void canPerformOperation(String username, String authorizationToken) throws ForbiddenException;
+    void canPerformOperation(int userId, String authorizationToken) throws ForbiddenException;
     UserDto addUser(UserRegisterDetailsDto userRegisterData, String... roles) throws RoleNotFoundException, InvalidUserException, DataNotUniqueException;
-    UserDto updateUser(String username, UserUpdateDataDto userRegisterDetails, String authorizationToken) throws ForbiddenException, UserNotFoundException, InvalidUserException, DataNotUniqueException;
-    void deleteUser(String username, String authorizationToken) throws ForbiddenException;
-    UserDto getUser(String username, String authorizationToken) throws UserNotFoundException, ForbiddenException;
+    UserDto updateUser(int userId, UserUpdateDataDto userRegisterDetails, String authorizationToken) throws ForbiddenException, UserNotFoundException, InvalidUserException, DataNotUniqueException;
+    void deleteUser(int userId, String authorizationToken) throws ForbiddenException;
+    UserDto getUser(int userId, String authorizationToken) throws UserNotFoundException, ForbiddenException;
     Page<UserDto> getUsers(int page, int pageSize);
 }

@@ -12,18 +12,18 @@ export class ProjectsService {
 
   constructor(private http: HttpClient) { }
 
-  get(username: string, archived: boolean, page: number, size: number): Observable<Page<ProjectWithId>> {
+  get(userId: number, archived: boolean, page: number, size: number): Observable<Page<ProjectWithId>> {
     return this.http.get<Page<ProjectWithId>>(
-      `${GlobalVariables.usersApi}/${username}/${GlobalVariables.projectApiPostfix}?archived=${archived}&page=${page}&size=${size}`);
+      `${GlobalVariables.usersApi}/${userId}/${GlobalVariables.projectApiPostfix}?archived=${archived}&page=${page}&size=${size}`);
   }
   getOne(id: number): Observable<ProjectWithId> {
     return this.http.get<ProjectWithId>(
       `${GlobalVariables.projectsApi}/${id}`
     );
   }
-  create(username: string, project: Project): Observable<ProjectWithId> {
+  create(userId: number, project: Project): Observable<ProjectWithId> {
     return this.http.post<ProjectWithId>(
-      `${GlobalVariables.usersApi}/${username}/${GlobalVariables.projectApiPostfix}`, project);
+      `${GlobalVariables.usersApi}/${userId}/${GlobalVariables.projectApiPostfix}`, project);
   }
   delete(id: number): Observable<any> {
     return this.http.delete<any>(

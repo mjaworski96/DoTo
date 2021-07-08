@@ -15,12 +15,12 @@ export class UserResolveService implements Resolve<User> {
               private router: Router) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<User> | Promise<User> | User {
-    const username = this.sessionStorageService.getUser().username;
-    if (username === undefined || username === null) {
+    const userId = this.sessionStorageService.getUserId()
+    if (!userId) {
       this.router.navigate(['not-found']);
       return null;
     }
-    return this.userService.getUser(username)
+    return this.userService.getUser(userId)
       .toPromise()
       .then(result => {
         return result;

@@ -39,7 +39,7 @@ export class ProjectsComponent implements OnInit {
   }
   updatePage(pageNumber: any): void {
     this.projectService.get(
-      this.sessionStorageService.getUsername(), this.archived,
+      this.sessionStorageService.getUserId(), this.archived,
       pageNumber - 1, this.pageSize
     ).toPromise()
       .then(page => this.projectsPage = page);

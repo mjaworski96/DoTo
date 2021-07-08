@@ -23,13 +23,13 @@ public class ProjectRepositoryImpl implements ProjectRepository {
     }
 
     @Override
-    public List<Project> get(String username, boolean archived, Pageable pageable) {
-        return projectJpaRepository.get(username, archived, pageable);
+    public List<Project> get(int userId, boolean archived, Pageable pageable) {
+        return projectJpaRepository.get(userId, archived, pageable);
     }
 
     @Override
-    public int getCount(String username, boolean archived) {
-        return projectJpaRepository.getCount(username, archived);
+    public int getCount(int userId, boolean archived) {
+        return projectJpaRepository.getCount(userId, archived);
     }
 
     @Override
