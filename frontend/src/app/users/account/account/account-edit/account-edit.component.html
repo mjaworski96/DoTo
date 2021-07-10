@@ -1,7 +1,7 @@
 <div class="user-details-edit-wrapper full-width-form">
   <form [formGroup]="userForm" class="material-form">
     <div class="form-group">
-        <input class="form-control" formControlName="username" placeholder="Username"
+        <input class="form-control" formControlName="username" placeholder="Username" autocomplete="username"
                i18n-placeholder="Username placeholder| Text in username placeholder@@username">
       <span *ngIf="userForm.get('username').touched">
         <span class="badge badge-danger float-left"
@@ -22,7 +22,7 @@
       </span>
     </div>
     <div class="form-group">
-      <input class="form-control" email formControlName="email" placeholder="Email"
+      <input class="form-control" email formControlName="email" placeholder="Email" autocomplete="email"
              i18n-placeholder="Email placeholder| Text in email placeholder@@email">
       <span *ngIf="userForm.get('email').touched">
         <span class="badge badge-danger float-left"

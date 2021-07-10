@@ -1,7 +1,7 @@
 <div class="registration-form">
   <form [formGroup]="registerForm" >
     <div class="form-group">
-      <input class="form-control" formControlName="username" placeholder="Username"
+      <input class="form-control" formControlName="username" placeholder="Username" autocomplete="username"
              i18n-placeholder="Username placeholder| Text in username placeholder@@username">
       <span *ngIf="registerForm.get('username').touched">
         <span class="badge badge-danger float-left"
@@ -22,7 +22,7 @@
       </span>
     </div>
     <div class="form-group">
-      <input class="form-control" email formControlName="email" placeholder="Email"
+      <input class="form-control" email formControlName="email" placeholder="Email" autocomplete="email"
              i18n-placeholder="Email placeholder| Text in email placeholder@@email">
       <span *ngIf="registerForm.get('email').touched">
         <span class="badge badge-danger float-left"
@@ -38,7 +38,7 @@
       </span>
     </div>
     <div class="form-group">
-      <input class="form-control" formControlName="password" type="password" placeholder="Password"
+      <input class="form-control" formControlName="password" type="password" placeholder="Password" autocomplete="new-password"
              i18n-placeholder="Password placeholder| Text in password placeholder@@password">
 
       <span *ngIf="registerForm.get('password').touched">
@@ -61,7 +61,7 @@
     </div>
     <div class="form-group">
       <input class="form-control" formControlName="confirmPassword" type="password"
-             placeholder="Confirm password"
+             placeholder="Confirm password" autocomplete="new-password"
              i18n-placeholder="Confirm password placeholder| Text in confirm password placeholder@@confirm-password">
     <span *ngIf="registerForm.get('confirmPassword').touched">
       <span class="badge badge-danger float-left"

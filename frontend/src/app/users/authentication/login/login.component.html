@@ -2,7 +2,7 @@
   <div>
     <form [formGroup]="loginForm" >
       <div class="form-group">
-        <input class="form-control" formControlName="username" placeholder="Username"
+        <input class="form-control" formControlName="username" placeholder="Username" autocomplete="username"
                i18n-placeholder="Username placeholder|Text in username placeholder@@username">
         <span *ngIf="loginForm.get('username').touched">
           <span class="badge badge-danger float-left"
@@ -23,7 +23,7 @@
         </span>
       </div>
       <div class="form-group">
-        <input class="form-control" formControlName="password" type="password" placeholder="Password"
+        <input class="form-control" formControlName="password" type="password" placeholder="Password" autocomplete="current-password"
                i18n-placeholder="Password placeholder|Text in password placeholder@@password">
 
         <span *ngIf="loginForm.get('password').touched">
