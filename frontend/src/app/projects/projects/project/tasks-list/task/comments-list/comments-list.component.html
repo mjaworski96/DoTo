@@ -3,9 +3,9 @@
     <div *ngFor="let comment of comments.comments" class="comment break-long-word">
       {{comment.content}}
       <div class="form-check buttons-container float-right">
-        <button class="btn btn-primary nested-button" (click)="modify(comment)" type="button"
+        <button class="btn btn-primary nested-button-width" (click)="modify(comment)" type="button"
                 i18n="Modify comment|Modify comment button@@modify-comment">Modify comment</button>
-        <button class="btn btn-danger delete-comment-btn nested-button" (click)="delete(comment)" type="button"
+        <button class="btn btn-danger delete-comment-btn nested-button-width" (click)="delete(comment)" type="button"
                 i18n="Delete comment|Delete comment button@@delete-comment">Delete comment</button>
       </div>
       <div class="clearfix"></div>

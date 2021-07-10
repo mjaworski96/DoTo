@@ -16,9 +16,9 @@ hr {
   white-space: pre-line;
   word-wrap: break-word;
 }
-.project-button {
+.default-button-width {
   width: 20%;
 }
-.nested-button {
+.nested-button-width {
   width: 40%;
 }

@@ -33,7 +33,7 @@
         </span>
     </div>
     <div class="form-check">
-      <button class="btn btn-primary float-right project-button" [disabled]="editProjectForm.invalid || processing" type="submit"
+      <button class="btn btn-primary float-right default-button-width" [disabled]="editProjectForm.invalid || processing" type="submit"
               (click)="edit()">
         <span *ngIf="!project" i18n="Add project button|Text in add project button@@add-project">
           Add project

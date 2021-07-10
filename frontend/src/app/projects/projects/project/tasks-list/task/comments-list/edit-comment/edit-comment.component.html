@@ -22,7 +22,7 @@
         </span>
     </div>
     <div class="form-check">
-      <button class="btn btn-primary float-right project-button" [disabled]="editCommentForm.invalid || processing" type="submit"
+      <button class="btn btn-primary float-right default-button-width" [disabled]="editCommentForm.invalid || processing" type="submit"
               (click)="edit()">
         <span *ngIf="!comment" i18n="Add comment button|Text in add comment button@@add-comment">
           Add comment
