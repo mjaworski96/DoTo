@@ -551,6 +551,15 @@
           <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="app-title" datatype="html">
+        <source>DoTo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">App title</note>
+        <note priority="1" from="meaning">App title</note>
+      </trans-unit>
       <trans-unit id="main-page" datatype="html">
         <source>DoTo - Your ToDo application</source>
         <context-group purpose="location">
@@ -1107,7 +1116,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="linenumber">31</context>
         </context-group>
         <note priority="1" from="description">In progress status</note>
         <note priority="1" from="meaning">In progress</note>
@@ -1118,7 +1127,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">38</context>
         </context-group>
         <note priority="1" from="description">Done status</note>
         <note priority="1" from="meaning">Done</note>
@@ -1129,7 +1138,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
-          <context context-type="linenumber">51</context>
+          <context context-type="linenumber">59</context>
         </context-group>
         <note priority="1" from="description">Backlog status</note>
         <note priority="1" from="meaning">Backlog</note>
@@ -1140,7 +1149,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">66</context>
         </context-group>
         <note priority="1" from="description">Archived status</note>
         <note priority="1" from="meaning">Archived</note>
@@ -1151,7 +1160,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
-          <context context-type="linenumber">67</context>
+          <context context-type="linenumber">73</context>
         </context-group>
         <note priority="1" from="description">Ignored status</note>
         <note priority="1" from="meaning">Ignored</note>
@@ -1160,7 +1169,7 @@
         <source>Delete project</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
-          <context context-type="linenumber">77</context>
+          <context context-type="linenumber">93</context>
         </context-group>
         <note priority="1" from="description">Delete project button</note>
         <note priority="1" from="meaning">Delete project</note>
@@ -1171,7 +1180,7 @@
       </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
-          <context context-type="linenumber">81</context>
+          <context context-type="linenumber">97</context>
         </context-group>
         <note priority="1" from="description">Archive project button</note>
         <note priority="1" from="meaning">Archive project</note>
@@ -1182,7 +1191,7 @@
       </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
-          <context context-type="linenumber">84</context>
+          <context context-type="linenumber">100</context>
         </context-group>
         <note priority="1" from="description">Activate project button</note>
         <note priority="1" from="meaning">Activate project</note>
