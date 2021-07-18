@@ -1,6 +1,7 @@
 package org.mjaworski.backend.service.impl;
 
 import org.mjaworski.backend.converter.LabelConverter;
+import org.mjaworski.backend.dto.IdDto;
 import org.mjaworski.backend.dto.label.LabelDto;
 import org.mjaworski.backend.dto.label.LabelDtoWithId;
 import org.mjaworski.backend.dto.label.LabelDtoWithIdList;
@@ -21,6 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -78,6 +80,19 @@ public class LabelServiceImpl implements LabelService {
             logger.warn("Label ({}) already deleted", id);
         }
     }
+
+    @Override
+    public List<Label> getAll(List<IdDto> ids) throws LabelNotFoundException {
+        List<Label> result = new ArrayList<>(ids.size());
+
+        for (IdDto id : ids) {
+            result.add(labelRepository.get(id.getId())
+                .orElseThrow(LabelNotFoundException::new));
+        }
+
+        return result;
+    }
+
     private Project getProject(int id) throws ProjectNotFoundException {
         return projectRepository.get(id)
                 .orElseThrow(ProjectNotFoundException::new);

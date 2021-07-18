@@ -9,9 +9,11 @@ import org.mjaworski.backend.exception.bad_request.invalid.task.InvalidTaskFullD
 import org.mjaworski.backend.exception.bad_request.invalid.task.InvalidProjectShortDescriptionException;
 import org.mjaworski.backend.exception.bad_request.invalid.task.InvalidTaskException;
 import org.mjaworski.backend.exception.forbidden.ForbiddenException;
+import org.mjaworski.backend.exception.not_found.LabelNotFoundException;
 import org.mjaworski.backend.exception.not_found.ProjectNotFoundException;
 import org.mjaworski.backend.exception.not_found.StateNotFoundException;
 import org.mjaworski.backend.exception.not_found.TaskNotFoundException;
+import org.mjaworski.backend.persistance.entity.Label;
 import org.mjaworski.backend.persistance.entity.Project;
 import org.mjaworski.backend.persistance.entity.State;
 import org.mjaworski.backend.persistance.entity.Task;
@@ -19,6 +21,7 @@ import org.mjaworski.backend.persistance.repository.ProjectRepository;
 import org.mjaworski.backend.persistance.repository.StateRepository;
 import org.mjaworski.backend.persistance.repository.TaskRepository;
 import org.mjaworski.backend.security.TokenAuthentication;
+import org.mjaworski.backend.service.LabelService;
 import org.mjaworski.backend.service.TaskService;
 import org.mjaworski.backend.utils.ValidationUtils;
 import org.slf4j.Logger;
@@ -28,6 +31,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,6 +42,7 @@ public class TaskServiceImpl implements TaskService {
     private TaskRepository taskRepository;
     private ProjectRepository projectRepository;
     private StateRepository stateRepository;
+    private LabelService labelService;
     private TokenAuthentication tokenAuthentication;
     private String newTaskDefaultState;
 
@@ -45,11 +50,13 @@ public class TaskServiceImpl implements TaskService {
     public TaskServiceImpl(TaskRepository taskRepository,
                            ProjectRepository projectRepository,
                            StateRepository stateRepository,
+                           LabelService labelService,
                            TokenAuthentication tokenAuthentication,
                            Environment environment) {
         this.taskRepository = taskRepository;
         this.projectRepository = projectRepository;
         this.stateRepository = stateRepository;
+        this.labelService = labelService;
         this.tokenAuthentication = tokenAuthentication;
         this.newTaskDefaultState = environment.getProperty("config.task.default_state");
     }
@@ -72,23 +79,27 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public TaskDtoWithId add(int projectId, TaskDto taskDto, String token) throws ProjectNotFoundException, ForbiddenException, InvalidTaskException {
+    public TaskDtoWithId add(int projectId, TaskDto taskDto, String token) throws ProjectNotFoundException, ForbiddenException, InvalidTaskException, LabelNotFoundException {
         validate(taskDto);
         Project project = getProject(projectId);
         checkOwner(project, token);
         Task task = TaskConverter.getTask(taskDto);
         task.setProject(project);
         task.setState(stateRepository.get(newTaskDefaultState).get());
+        List<Label> labels = labelService.getAll(taskDto.getLabels());
+        task.setLabels(new HashSet<>(labels));
         taskRepository.save(task);
         return TaskConverter.getTaskDtoWithId(task);
     }
 
     @Override
-    public TaskDtoWithId modify(int taskId, TaskDto taskDto, String token) throws TaskNotFoundException, ForbiddenException, InvalidTaskException {
+    public TaskDtoWithId modify(int taskId, TaskDto taskDto, String token) throws TaskNotFoundException, ForbiddenException, InvalidTaskException, LabelNotFoundException {
         validate(taskDto);
         Task task = getTask(taskId);
         checkOwner(task, token);
         TaskConverter.rewrite(task, taskDto);
+        List<Label> labels = labelService.getAll(taskDto.getLabels());
+        task.setLabels(new HashSet<>(labels));
         taskRepository.save(task);
         return TaskConverter.getTaskDtoWithId(task);
     }
