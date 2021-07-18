@@ -5,6 +5,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Set;
 
+import jdk.nashorn.internal.ir.Labels;
 import lombok.*;
 
 @Builder
@@ -43,5 +44,11 @@ public class Task {
 
     @ManyToOne
     private State state;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "labels_tasks",
+            joinColumns = @JoinColumn(name = "task_id"),
+            inverseJoinColumns = @JoinColumn(name = "label_id"))
+    private Set<Label> labels;
 
 }

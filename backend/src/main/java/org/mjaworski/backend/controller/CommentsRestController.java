@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/comments")
-@Api(value = "Tasks management",
+@Api(value = "Comments management",
         produces = "application/json")
 public class CommentsRestController {
     private CommentService commentService;
