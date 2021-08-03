@@ -16,7 +16,10 @@ import { EditCommentComponent } from './projects/project/tasks-list/task/comment
 import {ModifyProjectDialogComponent} from '../dialogs/modify-project-dialog/modify-project-dialog.component';
 import {ModifyTaskDialogComponent} from '../dialogs/modify-task-dialog/modify-task-dialog.component';
 import {ModifyCommentDialogComponent} from '../dialogs/modify-comment-dialog/modify-comment-dialog.component';
-
+import { LabelListComponent } from './projects/project/label-list/label-list.component';
+import { EditLabelComponent } from './projects/project/label-list/edit-label/edit-label.component';
+import { ModifyLabelDialogComponent } from '../dialogs/modify-label-dialog/modify-label-dialog.component';
+import { DeleteLabelDialogComponent } from '../dialogs/delete-label-dialog/delete-label-dialog.component';
 
 
 @NgModule({
@@ -28,7 +31,9 @@ import {ModifyCommentDialogComponent} from '../dialogs/modify-comment-dialog/mod
     EditTaskComponent,
     TaskComponent,
     CommentsListComponent,
-    EditCommentComponent
+    EditCommentComponent,
+    LabelListComponent,
+    EditLabelComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +44,8 @@ import {ModifyCommentDialogComponent} from '../dialogs/modify-comment-dialog/mod
   exports: [
     EditProjectComponent,
     EditTaskComponent,
-    EditCommentComponent
+    EditCommentComponent,
+    EditLabelComponent
   ],
   entryComponents: [
     DeleteProjectDialogComponent,
@@ -47,7 +53,10 @@ import {ModifyCommentDialogComponent} from '../dialogs/modify-comment-dialog/mod
     DeleteTaskDialogComponent,
     ModifyProjectDialogComponent,
     ModifyTaskDialogComponent,
-    ModifyCommentDialogComponent
+    ModifyCommentDialogComponent,
+    LabelListComponent,
+    ModifyLabelDialogComponent,
+    DeleteLabelDialogComponent
   ]
 })
 export class ProjectsModule { }

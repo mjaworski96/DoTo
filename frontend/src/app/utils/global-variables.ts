@@ -18,6 +18,8 @@ export class GlobalVariables {
   static minPasswordLength = 3;
   static maxPasswordLength = 20;
 
+  static maxLabelNameLength = 50;
+
   static usersPageSize = 10;
   static projectsPageSize = 15;
 
@@ -27,12 +29,15 @@ export class GlobalVariables {
   static projectsApi = '/api/projects';
   static tasksApi = '/api/tasks';
   static commentsApi = '/api/comments';
+  static labelsApi = '/api/labels'
+
 
   static projectApiPostfix = 'projects';
   static tasksApiPostfix = 'tasks';
   static stateApiPostfix = 'state';
   static commentsApiPostfix = 'comments';
   static archivedApiPostfix = 'archived';
+  static labelApiPostfix = 'labels'
 
   static toastrConfig: Partial<IndividualConfig> = {
     timeOut: 5000,

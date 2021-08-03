@@ -13,6 +13,11 @@
             i18n="Modify project|Modify project button@@modify-project">Modify project</button>
     <div class="clearfix"></div>
   </div>
+  <div class="form-check how-labels-container">
+    <button class="btn btn-primary float-right default-button-width" (click)="showLabels()" type="button"
+            i18n="Show labels|Show labels button@@show-labels">Show labels</button>
+    <div class="clearfix"></div>
+  </div>
   <hr>
   <div class="add-task">
     <app-edit-task [projectId]="project.id" (newTask)="addTask($event)"></app-edit-task>

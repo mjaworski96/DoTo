@@ -2,13 +2,12 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {GlobalVariables} from '../../../../../../../utils/global-variables';
 import {SessionStorageService} from '../../../../../../../shared/services/session-storage.service';
-import {Router} from '@angular/router';
 import {CommentsService} from '../../../../../../services/comments.service';
 import {CommentWithId} from '../../../../../../../models/comment';
 import {finalize} from "rxjs/operators";
 
 @Component({
-  selector: 'app-add-comment',
+  selector: 'app-edit-comment',
   templateUrl: './edit-comment.component.html',
   styleUrls: ['./edit-comment.component.css']
 })
@@ -54,7 +53,7 @@ export class EditCommentComponent implements OnInit {
     }
   }
   edit() {
-    if (this.comment  === undefined) {
+    if (this.comment === undefined) {
       this.add();
     } else {
       this.modify();
@@ -66,7 +65,7 @@ export class EditCommentComponent implements OnInit {
       this.taskId,
       this.editCommentForm.value
     ).pipe(
-      finalize( () => this.processing = false))
+      finalize(() => this.processing = false))
       .toPromise()
       .then(result => {
         this.editCommentForm.reset();

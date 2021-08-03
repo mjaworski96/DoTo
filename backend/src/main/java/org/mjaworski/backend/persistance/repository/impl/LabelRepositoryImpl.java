@@ -23,7 +23,7 @@ public class LabelRepositoryImpl implements LabelRepository {
 
     @Override
     public List<Label> getAll(int projectId) {
-        return labelJpaRepository.findAllByProjectId(projectId);
+        return labelJpaRepository.findAllByProjectIdOrderByIdAsc(projectId);
     }
 
     @Override

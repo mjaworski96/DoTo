@@ -11,6 +11,7 @@ hr {
 }
 .dialog-container {
   padding: 20px 30px;
+  color: red
 }
 .break-long-word {
   white-space: pre-line;

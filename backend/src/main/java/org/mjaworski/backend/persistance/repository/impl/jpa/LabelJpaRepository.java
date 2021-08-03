@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface LabelJpaRepository extends JpaRepository<Label, Integer> {
 
-    List<Label> findAllByProjectId(int projectId);
+    List<Label> findAllByProjectIdOrderByIdAsc(int projectId);
 
 }

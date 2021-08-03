@@ -8,6 +8,8 @@ import {ProjectsService} from '../../services/projects.service';
 import {filter, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {ModifyProjectDialogComponent} from '../../../dialogs/modify-project-dialog/modify-project-dialog.component';
+import { LabelWithIdList } from 'src/app/models/label';
+import { LabelListComponent } from './label-list/label-list.component';
 
 @Component({
   selector: 'app-project',
@@ -17,6 +19,7 @@ import {ModifyProjectDialogComponent} from '../../../dialogs/modify-project-dial
 export class ProjectComponent implements OnInit {
   project: ProjectWithId;
   tasks: Tasks;
+  labels: LabelWithIdList;
   destroyed = new Subject<any>();
 
   constructor(private route: ActivatedRoute,
@@ -27,6 +30,7 @@ export class ProjectComponent implements OnInit {
   ngOnInit() {
     this.project = this.route.snapshot.data.project;
     this.tasks = this.route.snapshot.data.tasks;
+    this.labels = this.route.snapshot.data.labels;
     this.reloadPageIfRouted();
   }
   reloadPageIfRouted() {
@@ -81,5 +85,12 @@ export class ProjectComponent implements OnInit {
       .then(newState => {
         this.project.archived = newState.archived;
       });
+  }
+  showLabels() {
+    const modalRef = this.modalService.open(LabelListComponent, {
+      size: 'xl'
+    });
+    modalRef.componentInstance.labels = this.labels;
+    modalRef.componentInstance.projectId = this.project.id;
   }
 }

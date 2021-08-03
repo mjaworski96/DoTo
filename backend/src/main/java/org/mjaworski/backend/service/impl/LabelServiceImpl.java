@@ -83,8 +83,10 @@ public class LabelServiceImpl implements LabelService {
 
     @Override
     public List<Label> getAll(List<IdDto> ids) throws LabelNotFoundException {
+        if (ids == null) {
+            return new ArrayList<>();
+        }
         List<Label> result = new ArrayList<>(ids.size());
-
         for (IdDto id : ids) {
             result.add(labelRepository.get(id.getId())
                 .orElseThrow(LabelNotFoundException::new));

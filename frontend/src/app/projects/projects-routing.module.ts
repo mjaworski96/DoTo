@@ -6,6 +6,7 @@ import {ArchivedProjectsResolveService, NotArchivedProjectsResolveService} from 
 import {ProjectComponent} from './projects/project/project.component';
 import {ProjectResolveService} from './services/project-resolve.service';
 import {TasksResolveService} from './services/tasks-resolve.service';
+import { LabelsResolveService } from './services/labels-resolve.service';
 
 const PROJECTS_ROUTES: Route[] = [
   {
@@ -37,7 +38,8 @@ const PROJECTS_ROUTES: Route[] = [
     component: ProjectComponent as any,
     resolve: {
       project: ProjectResolveService,
-      tasks: TasksResolveService
+      tasks: TasksResolveService,
+      labels: LabelsResolveService
     },
     canActivate: [LoggedUserGuard],
     runGuardsAndResolvers: 'always'

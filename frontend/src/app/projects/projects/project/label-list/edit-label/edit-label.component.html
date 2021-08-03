@@ -1,0 +1,33 @@
+<div>
+    <form [formGroup]="editLabelForm">
+      <div class="form-group">
+        <input class="form-control" formControlName="name" placeholder="Name"
+               i18n-placeholder="Name|name@@name">
+        <span *ngIf="editLabelForm.get('name').touched">
+            <span class="badge badge-danger float-left"
+                  i18n="Name validation|Shown when name is empty@@name-required-validation"
+                  *ngIf="editLabelForm.get('name').hasError('required')">
+                Name is required.
+            </span>
+            <span class="badge badge-danger float-left"
+                  i18n="Name validation|Shown when name is too long@@name-too-long-validation"
+                  *ngIf="editLabelForm.get('name').hasError('maxlength')">
+                Name must contain a maximum of {{maxLabelNameLength}} characters.
+            </span>
+          </span>
+      </div>
+      <div class="form-check">
+        <button class="btn btn-primary float-right default-button-width" [disabled]="editLabelForm.invalid || processing" type="submit"
+                (click)="edit()">
+          <span *ngIf="!label" i18n="Add label button|Text in add label button@@add-label">
+            Add label
+          </span>
+          <span *ngIf="label" i18n="Modify label button|Text in modify label button@@modify-label">
+            Modify label
+          </span>
+        </button>
+        <div class="clearfix"></div>
+      </div>
+    </form>
+</div>
+  

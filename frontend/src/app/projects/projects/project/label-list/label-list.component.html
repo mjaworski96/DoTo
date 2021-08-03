@@ -1,0 +1,33 @@
+<div class="labels-list-container">
+    <div>
+        <table class="table table-striped table-light table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <td i18n="Name placeholder|Text in name placeholder@@name">Name</td>
+                    <td i18n="Edit|Edit@@edit">Edit</td>
+                    <td i18n="Delete|Delete@@delete">Delete</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let label of labels.labels">
+                    <td>{{label.name}}</td>
+                    <td>
+                        <button i18n="Edit|Edit@@edit"
+                                class="btn btn-primary full-width"
+                                (click)="modify(label)">Edit</button>
+                    </td>
+                    <td>
+                        <button i18n="Delete|Delete@@delete"
+                                class="btn btn-danger full-width"
+                                (click)="delete(label)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <div class="add-label">
+            <app-edit-label [projectId]="projectId" (newLabel)="addLabel($event)"></app-edit-label>
+        </div>
+    </div>
+</div>
