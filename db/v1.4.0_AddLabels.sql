@@ -29,9 +29,9 @@ CREATE TABLE labels_tasks (
     task_id INTEGER NOT NULL
 );
 
-ALTER TABLE label_tasks 
+ALTER TABLE labels_tasks 
 	ADD CONSTRAINT label_tasks_pkey PRIMARY KEY (label_id, task_id);
-ALTER TABLE label_tasks 
-	ADD CONSTRAINT fk_label_tasks_labels FOREIGN KEY (label_id) REFERENCES labels(id);
-ALTER TABLE label_tasks 
-	ADD CONSTRAINT fk_label_tasks_tasks FOREIGN KEY (task_id) REFERENCES tasks(id);
+ALTER TABLE labels_tasks 
+	ADD CONSTRAINT fk_labels_tasks_labels FOREIGN KEY (label_id) REFERENCES labels(id) ON DELETE CASCADE;
+ALTER TABLE labels_tasks 
+	ADD CONSTRAINT fk_labels_tasks_tasks FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE;
