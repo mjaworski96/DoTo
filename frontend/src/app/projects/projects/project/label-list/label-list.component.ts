@@ -16,6 +16,8 @@ export class LabelListComponent implements OnInit {
   @Input() projectId: number;
   @Output()
   deleteLabel = new EventEmitter<number>();
+  @Output()
+  editLabel = new EventEmitter<LabelWithId>();
 
   constructor(private labelsService: LabelsService,
               private modalService: NgbModal) { }
@@ -34,6 +36,7 @@ export class LabelListComponent implements OnInit {
     modalRef.result.then(modifiedLabel => {
       if (modifiedLabel !== undefined) {
         label.name = modifiedLabel.name;
+        this.editLabel.emit(label);
       }
     }).catch(error => {
       // prevent error in console

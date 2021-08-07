@@ -8,7 +8,7 @@ import {ProjectsService} from '../../services/projects.service';
 import {filter, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {ModifyProjectDialogComponent} from '../../../dialogs/modify-project-dialog/modify-project-dialog.component';
-import { LabelWithIdList } from 'src/app/models/label';
+import { LabelWithId, LabelWithIdList } from 'src/app/models/label';
 import { LabelListComponent } from './label-list/label-list.component';
 
 @Component({
@@ -94,11 +94,22 @@ export class ProjectComponent implements OnInit {
     modalRef.componentInstance.projectId = this.project.id;
     modalRef.componentInstance.deleteLabel.subscribe((id) => {
       this.onDeleteLabel(id);
-    })
+    });
+    modalRef.componentInstance.editLabel.subscribe((id) => {
+      this.onEditLabel(id);
+    });
   }
   onDeleteLabel(id: number) {
     this.tasks.tasks.forEach(task => {
       task.labels = task.labels.filter(x => x.id !== id)
+    })
+  }
+  onEditLabel(label: LabelWithId) {
+    this.tasks.tasks.forEach(task => {
+      const updatedLabel = task.labels.find(x => x.id === label.id);
+      if (updatedLabel) {
+        updatedLabel.name = label.name;
+      }
     })
   }
 }
