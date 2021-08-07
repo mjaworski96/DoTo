@@ -1,3 +1,4 @@
+import { LabelWithId } from './label';
 import {Id} from './shared';
 
 export interface TaskWithId {
@@ -6,6 +7,7 @@ export interface TaskWithId {
   fullDescription: string;
   state: State;
   project: Id;
+  labels: LabelWithId[]
 }
 export interface State {
   name: string;

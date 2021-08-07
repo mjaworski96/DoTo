@@ -8,7 +8,7 @@
                   (click)="updateState(task, prevState)"><</button>
         </div>
         <div class="col-md-8 task-short-description break-long-word" (click)="openTask(task)">
-          {{task.shortDescription}}
+          {{getTaskName(task)}}
         </div>
         <div class="col-md-2">
           <button *ngIf="nextState"

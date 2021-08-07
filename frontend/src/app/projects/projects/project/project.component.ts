@@ -19,7 +19,7 @@ import { LabelListComponent } from './label-list/label-list.component';
 export class ProjectComponent implements OnInit {
   project: ProjectWithId;
   tasks: Tasks;
-  labels: LabelWithIdList;
+  projectLabels: LabelWithIdList;
   destroyed = new Subject<any>();
 
   constructor(private route: ActivatedRoute,
@@ -30,7 +30,7 @@ export class ProjectComponent implements OnInit {
   ngOnInit() {
     this.project = this.route.snapshot.data.project;
     this.tasks = this.route.snapshot.data.tasks;
-    this.labels = this.route.snapshot.data.labels;
+    this.projectLabels = this.route.snapshot.data.labels;
     this.reloadPageIfRouted();
   }
   reloadPageIfRouted() {
@@ -90,7 +90,7 @@ export class ProjectComponent implements OnInit {
     const modalRef = this.modalService.open(LabelListComponent, {
       size: 'xl'
     });
-    modalRef.componentInstance.labels = this.labels;
+    modalRef.componentInstance.labels = this.projectLabels;
     modalRef.componentInstance.projectId = this.project.id;
   }
 }

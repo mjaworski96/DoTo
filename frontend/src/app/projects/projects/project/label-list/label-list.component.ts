@@ -21,7 +21,7 @@ export class LabelListComponent implements OnInit {
   ngOnInit() {
   }
   addLabel(label: LabelWithId) {
-    this.labels.labels.push(label);
+    this.labels.labels = [...this.labels.labels, label]
   }
   modify(label: LabelWithId) {
     const modalRef = this.modalService.open(ModifyLabelDialogComponent, {
@@ -47,7 +47,7 @@ export class LabelListComponent implements OnInit {
           this.labelsService.getAll(this.projectId)
             .toPromise()
             .then(labels => {
-              this.labels = labels;
+              this.labels.labels = labels.labels;
             });
         });
       }

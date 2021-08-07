@@ -1,9 +1,11 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {GlobalVariables} from '../../../../utils/global-variables';
 import {TasksService} from '../../../services/tasks.service';
 import {TaskWithId} from '../../../../models/task';
 import {finalize} from 'rxjs/operators';
+import { LabelWithIdList } from 'src/app/models/label';
+import { LabelsComponent } from './labels/labels.component';
 
 @Component({
   selector: 'app-edit-task',
@@ -17,6 +19,12 @@ export class EditTaskComponent implements OnInit {
   @Input()
   task: TaskWithId;
 
+  @Input()
+  projectLabels: LabelWithIdList;
+
+  @ViewChild('labelsEdit', {static: true})
+  labelsEditControl: LabelsComponent;
+
   editTaskForm: FormGroup;
 
   minShortDescriptionLength = GlobalVariables.minTaskShortDescriptionLength;
@@ -25,6 +33,7 @@ export class EditTaskComponent implements OnInit {
   textAreaRows = GlobalVariables.textAreaRows;
   
   processing = false;
+  
   @Output()
   newTask = new EventEmitter<TaskWithId>();
 
@@ -43,7 +52,7 @@ export class EditTaskComponent implements OnInit {
       ]],
       fullDescription: ['', [
         Validators.maxLength(this.maxFullDescriptionLength)
-      ]],
+      ]]
     });
     this.setValuesForModification();
   }
@@ -65,12 +74,12 @@ export class EditTaskComponent implements OnInit {
     this.processing = true;
     this.tasksService.create(
       this.projectId,
-      this.editTaskForm.value
+      this.getFormValue()
     ).pipe(
       finalize( () => this.processing = false))
       .toPromise()
       .then(result => {
-        this.editTaskForm.reset();
+        this.resetForm();
         this.newTask.emit(result);
     });
   }
@@ -78,7 +87,7 @@ export class EditTaskComponent implements OnInit {
     this.processing = true;
     this.tasksService.update(
       this.task.id,
-      this.editTaskForm.value
+      this.getFormValue()
     ).pipe(
         finalize( () => this.processing = false))
       .toPromise()
@@ -86,5 +95,26 @@ export class EditTaskComponent implements OnInit {
         this.newTask.emit(result);
       });
   }
-
+  getFormValue() {
+    const value = this.editTaskForm.value;
+    value.labels = value.labels
+      .filter(x => x.selected)
+      .map(x => {
+        return {
+          id: x.id,
+          name: x.name
+        };
+      });
+    return value; 
+  }
+  resetForm() {
+    this.editTaskForm.reset();
+    this.labelsEditControl.createLabelsArray();
+  }
+  getCurrentlySelectedLabels() {
+    if (!this.task) {
+      return null;
+    }
+    return this.task.labels;
+  }
 }

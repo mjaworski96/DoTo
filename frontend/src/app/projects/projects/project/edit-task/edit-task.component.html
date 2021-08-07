@@ -1,5 +1,9 @@
 <div>
   <form [formGroup]="editTaskForm">
+    <app-labels #labelsEdit
+                [availableLabels]="projectLabels"
+                [parentForm]="editTaskForm"
+                [currentlySelected]="getCurrentlySelectedLabels()"></app-labels>
     <div class="form-group">
       <input class="form-control" formControlName="shortDescription" placeholder="Short description"
              i18n-placeholder="Short description placeholder|Text in short description placeholder@@short-description">

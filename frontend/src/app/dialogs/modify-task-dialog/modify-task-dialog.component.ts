@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import { LabelWithId } from 'src/app/models/label';
 import {TaskWithId} from '../../models/task';
 
 @Component({
@@ -11,6 +12,8 @@ export class ModifyTaskDialogComponent implements OnInit {
 
   @Input()
   task: TaskWithId;
+  @Input()
+  projectLabels: LabelWithId[];
 
   constructor(private activeModal: NgbActiveModal) { }
 

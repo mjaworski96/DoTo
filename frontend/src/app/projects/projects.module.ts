@@ -20,6 +20,7 @@ import { LabelListComponent } from './projects/project/label-list/label-list.com
 import { EditLabelComponent } from './projects/project/label-list/edit-label/edit-label.component';
 import { ModifyLabelDialogComponent } from '../dialogs/modify-label-dialog/modify-label-dialog.component';
 import { DeleteLabelDialogComponent } from '../dialogs/delete-label-dialog/delete-label-dialog.component';
+import { LabelsComponent } from './projects/project/edit-task/labels/labels.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { DeleteLabelDialogComponent } from '../dialogs/delete-label-dialog/delet
     CommentsListComponent,
     EditCommentComponent,
     LabelListComponent,
-    EditLabelComponent
+    EditLabelComponent,
+    LabelsComponent
   ],
   imports: [
     CommonModule,
