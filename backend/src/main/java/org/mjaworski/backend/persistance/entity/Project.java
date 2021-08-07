@@ -43,4 +43,9 @@ public class Project {
             orphanRemoval = true)
     @OrderBy("id")
     private Set<Task> tasks;
+
+    @OneToMany(fetch = FetchType.LAZY,
+            cascade = CascadeType.REMOVE,
+            mappedBy = "project")
+    private Set<Label> Labels;
 }

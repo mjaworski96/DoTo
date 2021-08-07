@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DeleteLabelDialogComponent } from 'src/app/dialogs/delete-label-dialog/delete-label-dialog.component';
 import { ModifyLabelDialogComponent } from 'src/app/dialogs/modify-label-dialog/modify-label-dialog.component';
@@ -14,6 +14,8 @@ export class LabelListComponent implements OnInit {
 
   @Input() labels: LabelWithIdList;
   @Input() projectId: number;
+  @Output()
+  deleteLabel = new EventEmitter<number>();
 
   constructor(private labelsService: LabelsService,
               private modalService: NgbModal) { }
@@ -48,6 +50,7 @@ export class LabelListComponent implements OnInit {
             .toPromise()
             .then(labels => {
               this.labels.labels = labels.labels;
+              this.deleteLabel.emit(label.id);
             });
         });
       }

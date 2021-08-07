@@ -92,5 +92,13 @@ export class ProjectComponent implements OnInit {
     });
     modalRef.componentInstance.labels = this.projectLabels;
     modalRef.componentInstance.projectId = this.project.id;
+    modalRef.componentInstance.deleteLabel.subscribe((id) => {
+      this.onDeleteLabel(id);
+    })
+  }
+  onDeleteLabel(id: number) {
+    this.tasks.tasks.forEach(task => {
+      task.labels = task.labels.filter(x => x.id !== id)
+    })
   }
 }
