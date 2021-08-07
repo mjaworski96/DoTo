@@ -49,6 +49,7 @@ public class Task {
     @JoinTable(name = "labels_tasks",
             joinColumns = @JoinColumn(name = "task_id"),
             inverseJoinColumns = @JoinColumn(name = "label_id"))
+    @OrderBy("id")
     private Set<Label> labels;
 
 }
