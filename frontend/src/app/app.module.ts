@@ -16,12 +16,17 @@ import {DialogsModule} from './dialogs/dialogs.module';
 import { MainPageComponent } from './main-page/main-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import { ActiveTasksComponent } from './main-page/active-tasks/active-tasks.component';
+import { ActiveTasksListComponent } from './main-page/active-tasks/active-tasks-list/active-tasks-list.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ActiveTasksComponent,
+    ActiveTasksListComponent
   ],
   imports: [
     BrowserModule,

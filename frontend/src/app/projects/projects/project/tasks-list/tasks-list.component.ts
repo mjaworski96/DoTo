@@ -5,6 +5,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {TaskComponent} from './task/task.component';
 import {CommentsService} from "../../../services/comments.service";
 import { LabelWithId } from 'src/app/models/label';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tasks-list',
@@ -32,11 +33,21 @@ export class TasksListComponent implements OnInit {
 
   constructor(private tasksService: TasksService,
               private modalService: NgbModal,
-              private commentsService: CommentsService) { }
+              private commentsService: CommentsService,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.openTaskFromRoute();
   }
-
+  openTaskFromRoute() {
+    const task = +this.route.snapshot.queryParams.task;
+    if (task) {
+      const taskFromList = this.tasks.find(x => x.id === task);
+      if (taskFromList) {
+        this.openTask(taskFromList);
+      }
+    }
+  }
   updateState(task: TaskWithId, state: string) {
     this.tasksService.updateState(task, {
       name: state

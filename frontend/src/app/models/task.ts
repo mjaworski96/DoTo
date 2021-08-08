@@ -1,4 +1,5 @@
 import { LabelWithId } from './label';
+import { ProjectWithId } from './project';
 import {Id} from './shared';
 
 export interface TaskWithId {
@@ -18,4 +19,15 @@ export interface Tasks {
 export interface Task {
   shortDescription: string;
   fullDescription: string;
+}
+export interface ActiveTask {
+  id: number;
+  shortDescription: string;
+  fullDescription: string;
+  project: ProjectWithId;
+  labels: LabelWithId[]
+}
+export interface ActiveTaskList {
+  toDo: ActiveTask[];
+  inProgress: ActiveTask[];
 }

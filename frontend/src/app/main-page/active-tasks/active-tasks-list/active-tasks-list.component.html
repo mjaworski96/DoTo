@@ -1,0 +1,10 @@
+<div>
+    <div class="task" *ngFor="let task of tasks" (click)="navigateToTask(task)">
+        <div class="task-name">
+            {{task.project.name}} - {{task.shortDescription}}
+        </div>
+        <div class="full-description">
+            {{task.fullDescription}}
+        </div>
+    </div>
+</div>

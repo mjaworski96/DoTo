@@ -19,7 +19,8 @@ public class State {
     public static final int MIN_NAME_LENGTH = 1;
     public static final int MAX_NAME_LENGTH = 50;
 
-    public static final String STATE_IN_PROGRESS = "todo";
+    public static final String STATE_IN_PROGRESS = "inprogress";
+    public static final String STATE_TO_DO = "todo";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

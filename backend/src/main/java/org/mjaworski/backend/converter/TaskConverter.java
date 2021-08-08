@@ -2,6 +2,7 @@ package org.mjaworski.backend.converter;
 
 import org.mjaworski.backend.dto.task.TaskDto;
 import org.mjaworski.backend.dto.task.TaskDtoWithId;
+import org.mjaworski.backend.dto.task.ActiveTaskDto;
 import org.mjaworski.backend.persistance.entity.Task;
 
 import java.util.ArrayList;
@@ -24,5 +25,15 @@ public abstract class TaskConverter extends BaseConverter {
     }
     public static void rewrite(Task destination, TaskDto source) {
         mapper.map(source, destination);
+    }
+    public static ActiveTaskDto getToDoTaskDto(Task task) {
+        return mapper.map(task, ActiveTaskDto.class);
+    }
+    public static List<ActiveTaskDto> getToDoTaskDtoList(List<Task> tasks) {
+        List<ActiveTaskDto> result = new ArrayList<>(tasks.size());
+
+        tasks.forEach(item -> result.add(getToDoTaskDto(item)));
+
+        return result;
     }
 }

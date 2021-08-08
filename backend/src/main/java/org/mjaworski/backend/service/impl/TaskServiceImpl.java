@@ -1,10 +1,7 @@
 package org.mjaworski.backend.service.impl;
 
 import org.mjaworski.backend.converter.TaskConverter;
-import org.mjaworski.backend.dto.task.StateDto;
-import org.mjaworski.backend.dto.task.TaskDto;
-import org.mjaworski.backend.dto.task.TaskDtoWithId;
-import org.mjaworski.backend.dto.task.TaskDtoWithIdList;
+import org.mjaworski.backend.dto.task.*;
 import org.mjaworski.backend.exception.bad_request.invalid.task.InvalidTaskFullDescriptionException;
 import org.mjaworski.backend.exception.bad_request.invalid.task.InvalidProjectShortDescriptionException;
 import org.mjaworski.backend.exception.bad_request.invalid.task.InvalidTaskException;
@@ -79,6 +76,18 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
+    public ActiveTaskDtoList getAllToDo(int userId, String token) throws ForbiddenException {
+        checkOwner(userId, token);
+        List<Task> toDoTasks = taskRepository.getAllToDo(userId);
+        List<Task> inProgressTasks = taskRepository.getAllInProgress(userId);
+
+        return ActiveTaskDtoList.builder()
+                .toDo(TaskConverter.getToDoTaskDtoList(inProgressTasks))
+                .inProgress(TaskConverter.getToDoTaskDtoList(toDoTasks))
+                .build();
+    }
+
+    @Override
     public TaskDtoWithId add(int projectId, TaskDto taskDto, String token) throws ProjectNotFoundException, ForbiddenException, InvalidTaskException, LabelNotFoundException {
         validate(taskDto);
         Project project = getProject(projectId);
@@ -144,14 +153,16 @@ public class TaskServiceImpl implements TaskService {
     }
 
     private void checkOwner(Project project, String token) throws ForbiddenException {
-        if(!tokenAuthentication.checkUser(project.getOwner().getId(), token))
-            throw new ForbiddenException();
+        checkOwner(project.getOwner().getId(), token);
     }
 
     private void checkOwner(Task task, String token) throws ForbiddenException {
         checkOwner(task.getProject(), token);
     }
-
+    private void checkOwner(int userId, String token) throws ForbiddenException {
+        if(!tokenAuthentication.checkUser(userId, token))
+            throw new ForbiddenException();
+    }
     private void validate(TaskDto taskDto) throws InvalidProjectShortDescriptionException, InvalidTaskFullDescriptionException {
         validateShortDescription(taskDto);
         validateFullDescription(taskDto);

@@ -2,8 +2,11 @@
   width: 80%;
   margin: 0 auto;
   text-align: center;
-  font-size: 64px;
 }
 .app-logo {
   margin-top: 50px;
+}
+.active-tasks {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
