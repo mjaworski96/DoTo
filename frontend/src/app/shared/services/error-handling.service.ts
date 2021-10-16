@@ -20,11 +20,13 @@ export class ErrorHandlingService {
       if (duplicate != null) {
         this.toastr.remove(duplicate.toastId);
       }
-      this.toastr.error(error.error.message, error.error.code, GlobalVariables.toastrConfig);
+      if (error.error.message) {
+        this.toastr.error(error.error.message, '', GlobalVariables.toastrConfig);
+      }   
     }
-    if (error.error.code === 404 ||  error.error.code === 504) {
+    if (error.status === 404 ||  error.status === 504) {
       this.handle404and504();
-    } else if (error.error.code === 401) {
+    } else if (error.status === 401) {
       this.handle401();
     }
   }

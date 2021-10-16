@@ -35,7 +35,7 @@ export class Interceptor  implements HttpInterceptor {
       finalize(() => this.loadingService.end()),
       tap(
         result => this.handleValidResponse(result),
-          error => this.errorHandlingService.handle(error))
+        error => this.errorHandlingService.handle(error))
     );
   }
   handleValidResponse(result: HttpEvent<any>): void {
