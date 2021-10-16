@@ -30,7 +30,6 @@ export class EditCommentComponent implements OnInit {
   processing = false;
 
   constructor(private formBuilder: FormBuilder,
-              private sessionStorageService: SessionStorageService,
               private commentsService: CommentsService) { }
 
   ngOnInit() {

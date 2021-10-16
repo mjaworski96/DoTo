@@ -1,8 +1,8 @@
 <div class="login-form">
   <div>
-    <form [formGroup]="loginForm" >
+    <form [formGroup]="loginForm" autocomplete="on">
       <div class="form-group">
-        <input class="form-control" formControlName="username" placeholder="Username" autocomplete="username"
+        <input class="form-control" formControlName="username" placeholder="Username" name="username"
                i18n-placeholder="Username placeholder|Text in username placeholder@@username">
         <span *ngIf="loginForm.get('username').touched">
           <span class="badge badge-danger float-left"
