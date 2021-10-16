@@ -24,7 +24,6 @@ export class EditCommentComponent implements OnInit {
 
   editCommentForm: FormGroup;
 
-  minContentLength = GlobalVariables.minCommentContentLength;
   maxContentLength = GlobalVariables.maxCommentContentLength;
   textAreaRows = GlobalVariables.textAreaRows;
   
@@ -41,7 +40,6 @@ export class EditCommentComponent implements OnInit {
     this.editCommentForm = this.formBuilder.group({
       content: ['', [
         Validators.required,
-        Validators.minLength(this.minContentLength),
         Validators.maxLength(this.maxContentLength)
       ]]
     });

@@ -21,7 +21,6 @@ export class EditProjectComponent implements OnInit {
 
   editProjectForm: FormGroup;
 
-  minNameLength = GlobalVariables.minProjectNameLength;
   maxNameLength = GlobalVariables.maxProjectNameLength;
   maxDescriptionLength = GlobalVariables.maxProjectDescriptionLength;
   textAreaRows = GlobalVariables.textAreaRows;
@@ -40,7 +39,6 @@ export class EditProjectComponent implements OnInit {
     this.editProjectForm = this.formBuilder.group({
       name: ['', [
         Validators.required,
-        Validators.minLength(this.minNameLength),
         Validators.maxLength(this.maxNameLength)
       ]],
       description: ['', [

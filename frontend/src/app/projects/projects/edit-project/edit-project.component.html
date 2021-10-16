@@ -10,11 +10,6 @@
             Name is required.
           </span>
           <span class="badge badge-danger float-left"
-                i18n="Name validation|Shown when name is too short@@name-too-short-validation"
-                *ngIf="editProjectForm.get('name').hasError('minlength')">
-           Name must contain at least {{minNameLength}} characters.
-          </span>
-          <span class="badge badge-danger float-left"
                 i18n="Name validation|Shown when name is too long@@name-too-long-validation"
                 *ngIf="editProjectForm.get('name').hasError('maxlength')">
             Name must contain a maximum of {{maxNameLength}} characters.

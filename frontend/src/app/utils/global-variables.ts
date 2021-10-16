@@ -1,15 +1,12 @@
 import {IndividualConfig} from 'ngx-toastr';
 
 export class GlobalVariables {
-  static minProjectNameLength = 1;
   static maxProjectNameLength = 50;
   static maxProjectDescriptionLength = 300;
 
-  static minTaskShortDescriptionLength = 1;
   static maxTaskShortDescriptionLength = 100;
   static maxTaskFullDescriptionLength = 1000;
 
-  static minCommentContentLength = 1;
   static maxCommentContentLength = 500;
 
   static minUsernameLength = 3;

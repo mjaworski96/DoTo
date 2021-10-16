@@ -27,7 +27,6 @@ export class EditTaskComponent implements OnInit {
 
   editTaskForm: FormGroup;
 
-  minShortDescriptionLength = GlobalVariables.minTaskShortDescriptionLength;
   maxShortDescriptionLength = GlobalVariables.maxTaskShortDescriptionLength;
   maxFullDescriptionLength = GlobalVariables.maxTaskFullDescriptionLength;
   textAreaRows = GlobalVariables.textAreaRows;
@@ -47,7 +46,6 @@ export class EditTaskComponent implements OnInit {
     this.editTaskForm = this.formBuilder.group({
       shortDescription: ['', [
         Validators.required,
-        Validators.minLength(this.minShortDescriptionLength),
         Validators.maxLength(this.maxShortDescriptionLength)
       ]],
       fullDescription: ['', [
