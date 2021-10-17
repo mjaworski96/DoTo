@@ -20,9 +20,13 @@ export class LabelListComponent implements OnInit {
   editLabel = new EventEmitter<LabelWithId>();
 
   constructor(private labelsService: LabelsService,
-              private modalService: NgbModal) { }
+              private modalService: NgbModal,
+              private activeModal: NgbActiveModal) { }
 
   ngOnInit() {
+  }
+  dismiss() {
+    this.activeModal.dismiss();
   }
   addLabel(label: LabelWithId) {
     this.labels.labels = [...this.labels.labels, label]

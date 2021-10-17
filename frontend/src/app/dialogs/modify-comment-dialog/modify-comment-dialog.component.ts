@@ -20,4 +20,8 @@ export class ModifyCommentDialogComponent implements OnInit {
   closeWindow(comment: CommentWithId) {
     this.activeModal.close(comment);
   }
+  
+  dismiss() {
+    this.activeModal.dismiss();
+  }
 }

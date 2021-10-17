@@ -23,4 +23,8 @@ export class ModifyTaskDialogComponent implements OnInit {
   closeWindow(task: TaskWithId) {
     this.activeModal.close(task);
   }
+  
+  dismiss() {
+    this.activeModal.dismiss();
+  }
 }

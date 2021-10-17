@@ -20,5 +20,8 @@ export class ModifyLabelDialogComponent implements OnInit {
   closeWindow(label: LabelWithId) {
     this.activeModal.close(label);
   }
-
+  
+  dismiss() {
+    this.activeModal.dismiss();
+  }
 }

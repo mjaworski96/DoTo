@@ -70,4 +70,8 @@ export class TaskComponent implements OnInit {
     
     return `${labels}${this.task.shortDescription}`;
   }
+
+  dismiss() {
+    this.activeModal.dismiss();
+  }
 }

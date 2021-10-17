@@ -64,7 +64,7 @@
         
         <note priority="1" from="description">Text in name placeholder</note>
         <note priority="1" from="meaning">Name placeholder</note>
-        <target>Nazwa</target><context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context><context context-type="linenumber">4</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/project/label-list/edit-label/edit-label.component.html</context><context context-type="linenumber">4</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/project/label-list/label-list.component.html</context><context context-type="linenumber">6</context></context-group></trans-unit>
+        <target>Nazwa</target><context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context><context context-type="linenumber">4</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/project/label-list/edit-label/edit-label.component.html</context><context context-type="linenumber">4</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/project/label-list/label-list.component.html</context><context context-type="linenumber">13</context></context-group></trans-unit>
       <trans-unit id="name-required-validation" datatype="html">
         <source>
           Name is required.
@@ -113,7 +113,7 @@
         
         <note priority="1" from="description">Text in modify project button</note>
         <note priority="1" from="meaning">Modify project button</note>
-        <target>Modyfikuj projekt</target><context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context><context context-type="linenumber">36</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context><context context-type="linenumber">13</context></context-group></trans-unit>
+        <target>Modyfikuj projekt</target><context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context><context context-type="linenumber">36</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/dialogs/modify-project-dialog/modify-project-dialog.component.html</context><context context-type="linenumber">3</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context><context context-type="linenumber">13</context></context-group></trans-unit>
       <trans-unit id="short-description" datatype="html">
         <source>Short description</source>
         
@@ -167,7 +167,7 @@
         
         <note priority="1" from="description">Text in modify task button</note>
         <note priority="1" from="meaning">Modify task button</note>
-        <target>Modyfikuj zadanie</target><context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context><context context-type="linenumber">40</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/task.component.html</context><context context-type="linenumber">13</context></context-group></trans-unit>
+        <target>Modyfikuj zadanie</target><context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context><context context-type="linenumber">40</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/dialogs/modify-task-dialog/modify-task-dialog.component.html</context><context context-type="linenumber">3</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/task.component.html</context><context context-type="linenumber">16</context></context-group></trans-unit>
       <trans-unit id="comment" datatype="html">
         <source>Comment</source>
         <context-group purpose="location">
@@ -213,7 +213,7 @@
         
         <note priority="1" from="description">Text in modify comment button</note>
         <note priority="1" from="meaning">Modify comment button</note>
-        <target>Modyfikuj komentarz</target><context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/comments-list/edit-comment/edit-comment.component.html</context><context context-type="linenumber">25</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/comments-list/comments-list.component.html</context><context context-type="linenumber">7</context></context-group></trans-unit>
+        <target>Modyfikuj komentarz</target><context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/comments-list/edit-comment/edit-comment.component.html</context><context context-type="linenumber">25</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/dialogs/modify-comment-dialog/modify-comment-dialog.component.html</context><context context-type="linenumber">3</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/comments-list/comments-list.component.html</context><context context-type="linenumber">7</context></context-group></trans-unit>
       <trans-unit id="ngb.alert.close" datatype="html">
         <source>Close</source>
         <context-group purpose="location">
@@ -452,13 +452,10 @@
           </source><target state="new">
             Modyfikuj etykietę
           </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/projects/projects/project/label-list/edit-label/edit-label.component.html</context>
-          <context context-type="linenumber">25</context>
-        </context-group>
+        
         <note priority="1" from="description">Text in modify label button</note>
         <note priority="1" from="meaning">Modify label button</note>
-      </trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/project/label-list/edit-label/edit-label.component.html</context><context context-type="linenumber">25</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/dialogs/modify-label-dialog/modify-label-dialog.component.html</context><context context-type="linenumber">3</context></context-group></trans-unit>
         <trans-unit id="app-title" datatype="html">
         <source>DoTo</source>
         <context-group purpose="location">
@@ -930,31 +927,27 @@
         </context-group>
         <note priority="1" from="description">Delete label dialog button text</note>
         <note priority="1" from="meaning">Delete label dialog title</note>
+      </trans-unit><trans-unit id="labels" datatype="html">
+        <source>Labels</source><target state="new">Etykiety</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/label-list/label-list.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Labels dialog title</note>
+        <note priority="1" from="meaning">Labels dialog</note>
       </trans-unit><trans-unit id="edit" datatype="html">
         <source>Edit</source><target state="new">Edytuj</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/projects/projects/project/label-list/label-list.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/projects/projects/project/label-list/label-list.component.html</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
+        
+        
         <note priority="1" from="description">Edit</note>
         <note priority="1" from="meaning">Edit</note>
-      </trans-unit><trans-unit id="delete" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/project/label-list/label-list.component.html</context><context context-type="linenumber">14</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/project/label-list/label-list.component.html</context><context context-type="linenumber">24</context></context-group></trans-unit><trans-unit id="delete" datatype="html">
         <source>Delete</source><target state="new">Skasuj</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/projects/projects/project/label-list/label-list.component.html</context>
-          <context context-type="linenumber">8</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/projects/projects/project/label-list/label-list.component.html</context>
-          <context context-type="linenumber">22</context>
-        </context-group>
+        
+        
         <note priority="1" from="description">Delete</note>
         <note priority="1" from="meaning">Delete</note>
-      </trans-unit><trans-unit id="show-labels" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/project/label-list/label-list.component.html</context><context context-type="linenumber">15</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/project/label-list/label-list.component.html</context><context context-type="linenumber">29</context></context-group></trans-unit><trans-unit id="show-labels" datatype="html">
         <source>Show labels</source><target state="new">Pokaż etykiety</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
@@ -1035,13 +1028,10 @@
       <target>Aktywuj projekt</target><context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context><context context-type="linenumber">111</context></context-group></trans-unit>
       <trans-unit id="delete-task" datatype="html">
         <source>Delete task</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/task.component.html</context>
-          <context context-type="linenumber">16</context>
-        </context-group>
+        
         <note priority="1" from="description">Delete task button</note>
         <note priority="1" from="meaning">Delete task</note>
-        <target>Skasuj zadanie</target></trans-unit>
+        <target>Skasuj zadanie</target><context-group purpose="location"><context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/task.component.html</context><context context-type="linenumber">19</context></context-group></trans-unit>
       <trans-unit id="delete-comment" datatype="html">
         <source>Delete comment</source>
         <context-group purpose="location">

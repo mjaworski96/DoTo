@@ -1,3 +1,10 @@
+<div class="modal-header">
+  <h4 i18n="Modify project button|Text in modify project button@@modify-project"     
+    class="modal-title">Modify project</h4>
+  <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 <div class="dialog-container">
   <app-add-project [project]="project" (newProject)="closeWindow($event)"></app-add-project>
 </div>

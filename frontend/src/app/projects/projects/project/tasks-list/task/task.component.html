@@ -2,6 +2,9 @@
   <div class="task-description-container">
     <div class="task-short-description">
       {{this.getTaskName()}}
+      <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
     <hr>
     <div class="break-long-word">

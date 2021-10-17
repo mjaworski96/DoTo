@@ -95,8 +95,8 @@ export class ProjectComponent implements OnInit {
     modalRef.componentInstance.deleteLabel.subscribe((id) => {
       this.onDeleteLabel(id);
     });
-    modalRef.componentInstance.editLabel.subscribe((id) => {
-      this.onEditLabel(id);
+    modalRef.componentInstance.editLabel.subscribe((label) => {
+      this.onEditLabel(label);
     });
   }
   onDeleteLabel(id: number) {
