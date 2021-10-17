@@ -29,7 +29,7 @@ export class SessionStorageService {
     localStorage.removeItem('userData');
   }
   hasRole(role: string): boolean {
-    if (!this.isUserLoggedIn()) {
+    if (!this.isUserLoggedIn() || !this.getUser().roles) {
       return false;
     }
     for (let i = 0; i < this.getUser().roles.length; i++) {

@@ -28,7 +28,6 @@ export class ActiveTasksComponent implements OnInit {
       filter((event: RouterEvent) => event instanceof NavigationEnd),
       takeUntil(this.destroyed))
       .subscribe(res => {
-        debugger;
         this.tasks = this.route.snapshot.data.activeTasks; 
       });
   }
