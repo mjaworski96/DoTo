@@ -47,5 +47,6 @@ public class Project {
     @OneToMany(fetch = FetchType.LAZY,
             cascade = CascadeType.REMOVE,
             mappedBy = "project")
+    @OrderBy("id")
     private Set<Label> Labels;
 }
