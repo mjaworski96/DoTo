@@ -74,7 +74,7 @@ export class EditTaskComponent implements OnInit {
       this.projectId,
       this.getFormValue()
     ).pipe(
-      finalize( () => this.processing = false))
+      finalize(() => this.processing = false))
       .toPromise()
       .then(result => {
         this.resetForm();

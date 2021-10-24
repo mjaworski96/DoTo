@@ -4,7 +4,7 @@
         <div formArrayName="labels" class="row" >
             <div class="col-md-3" *ngFor="let label of labelsForm.controls; let i=index">
                 <div class="form-group" formGroupName="{{i}}" >
-                    <input type="checkbox"formControlName="selected" id="label-checkbox">
+                    <input type="checkbox" formControlName="selected">
                     <label class="label-name" for="label-checkbox">{{labelsForm.value[i].name}}</label>
                 </div>                   
             </div>

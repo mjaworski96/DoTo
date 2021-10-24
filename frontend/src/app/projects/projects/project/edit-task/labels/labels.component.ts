@@ -21,6 +21,7 @@ export class LabelsComponent implements OnInit, OnChanges {
   parentForm: FormGroup;
 
   constructor() { }
+
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.availableLabels) {
       this.parentForm.removeControl('labels');
@@ -31,10 +32,14 @@ export class LabelsComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.createLabelsArray();
   }
+  
   createLabelsArray() {
+    if (this.parentForm.contains('labels')) {
+      this.parentForm.removeControl('labels');
+    }
     this.labelsForm = new FormArray([]);
     this.parentForm.addControl('labels', this.labelsForm);
-    
+
     this.availableLabels
     .forEach(item => {
       this.labelsForm.push(
@@ -46,6 +51,7 @@ export class LabelsComponent implements OnInit, OnChanges {
       );
     })
   }
+
   isSelected(id: number): boolean {
     if (!this.currentlySelected) {
       return false;
