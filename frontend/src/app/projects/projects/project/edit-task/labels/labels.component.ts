@@ -24,7 +24,6 @@ export class LabelsComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.availableLabels) {
-      this.parentForm.removeControl('labels');
       this.createLabelsArray();
     }
   }

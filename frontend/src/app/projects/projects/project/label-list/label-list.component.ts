@@ -40,6 +40,7 @@ export class LabelListComponent implements OnInit {
     modalRef.result.then(modifiedLabel => {
       if (modifiedLabel !== undefined) {
         label.name = modifiedLabel.name;
+        this.labels.labels = [...this.labels.labels];
         this.editLabel.emit(label);
       }
     }).catch(error => {
