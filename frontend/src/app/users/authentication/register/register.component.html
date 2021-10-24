@@ -1,6 +1,22 @@
 <div class="registration-form">
   <form [formGroup]="registerForm" autocomplete="on">
     <div class="form-group">
+      <input class="form-control" email formControlName="email" placeholder="Email" name="email"
+             i18n-placeholder="Email placeholder| Text in email placeholder@@email">
+      <span *ngIf="registerForm.get('email').touched">
+        <span class="badge badge-danger float-left"
+              i18n="Email validation|Shown when email is empty@@email-required-validation"
+              *ngIf="registerForm.get('email').hasError('required')">
+          Email is required.
+        </span>
+        <span class="badge badge-danger float-left"
+              i18n="Email validation|Shown when email is invalid@@email-validation"
+              *ngIf="registerForm.get('email').hasError('email')">
+          Enter valid email address.
+        </span>
+      </span>
+    </div>
+    <div class="form-group">
       <input class="form-control" formControlName="username" placeholder="Username" name="username"
              i18n-placeholder="Username placeholder| Text in username placeholder@@username">
       <span *ngIf="registerForm.get('username').touched">
@@ -18,22 +34,6 @@
               i18n="Username validation|Shown when username is too long@@username-too-long-validation"
               *ngIf="registerForm.get('username').hasError('maxlength')">
           Username must contain a maximum of {{maxUsernameLength}} characters.
-        </span>
-      </span>
-    </div>
-    <div class="form-group">
-      <input class="form-control" email formControlName="email" placeholder="Email" name="email"
-             i18n-placeholder="Email placeholder| Text in email placeholder@@email">
-      <span *ngIf="registerForm.get('email').touched">
-        <span class="badge badge-danger float-left"
-              i18n="Email validation|Shown when email is empty@@email-required-validation"
-              *ngIf="registerForm.get('email').hasError('required')">
-          Email is required.
-        </span>
-        <span class="badge badge-danger float-left"
-              i18n="Email validation|Shown when email is invalid@@email-validation"
-              *ngIf="registerForm.get('email').hasError('email')">
-          Enter valid email address.
         </span>
       </span>
     </div>
