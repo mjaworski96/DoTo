@@ -18,6 +18,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import { ActiveTasksComponent } from './main-page/active-tasks/active-tasks.component';
 import { ActiveTasksListComponent } from './main-page/active-tasks/active-tasks-list/active-tasks-list.component';
+import { ActiveTasksFromProjectListComponent } from './main-page/active-tasks/active-tasks-list/active-tasks-from-project-list/active-tasks-from-project-list.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ActiveTasksListComponent } from './main-page/active-tasks/active-tasks-
     MainPageComponent,
     NotFoundComponent,
     ActiveTasksComponent,
-    ActiveTasksListComponent
+    ActiveTasksListComponent,
+    ActiveTasksFromProjectListComponent
   ],
   imports: [
     BrowserModule,
