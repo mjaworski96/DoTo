@@ -1,0 +1,31 @@
+.task,
+.project {
+    min-height: 50px;
+    border: 1px solid var(--project-border);
+    border-radius: 3px;
+    margin-bottom: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+hr {
+    margin: 30px 0;
+}
+
+.task-name {
+    font-weight: bold;
+}
+
+.full-description {
+    text-align: left;
+}
+
+.project-name {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.tasks-list-hidden {
+    max-height: 0;
+    overflow: hidden;
+}

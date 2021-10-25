@@ -1,0 +1,20 @@
+<div>
+    <div class="project">
+        <div class="project-name" (click)="expanded = !expanded">
+            <h3>
+                {{project.name}}
+            </h3>
+        </div>
+        <div [ngClass]="{'tasks-list-hidden': !expanded}">
+            <div class="task" *ngFor="let task of tasks" (click)="navigateToTask(task)">
+                <div class="task-name">
+                    {{task.shortDescription}}
+                </div>
+                <div class="full-description">
+                    {{task.fullDescription}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>

@@ -1,10 +1,6 @@
 <div>
-    <div class="task" *ngFor="let task of tasks" (click)="navigateToTask(task)">
-        <div class="task-name">
-            {{task.project.name}} - {{task.shortDescription}}
-        </div>
-        <div class="full-description">
-            {{task.fullDescription}}
-        </div>
+    <div *ngFor="let project of getProjects()">
+        <app-active-tasks-from-project-list [project]="project" [tasks]="getTasksForProject(project)">
+        </app-active-tasks-from-project-list>
     </div>
 </div>
