@@ -9,13 +9,18 @@
     </div>
   </div>
   <div class="form-check modify-project-container">
-    <button class="btn btn-primary float-right" (click)="modify()" type="button"
+    <button class="btn btn-primary float-right default-button-width" (click)="modify()" type="button"
             i18n="Modify project|Modify project button@@modify-project">Modify project</button>
+    <div class="clearfix"></div>
+  </div>
+  <div class="form-check how-labels-container">
+    <button class="btn btn-primary float-right default-button-width" (click)="showLabels()" type="button"
+            i18n="Show labels|Show labels button@@show-labels">Show labels</button>
     <div class="clearfix"></div>
   </div>
   <hr>
   <div class="add-task">
-    <app-add-task [projectId]="project.id" (newTask)="addTask($event)"></app-add-task>
+    <app-edit-task [projectLabels]="projectLabels.labels" [projectId]="project.id" (newTask)="addTask($event)"></app-edit-task>
   </div>
   <div>
     <div class="row">
@@ -25,7 +30,6 @@
           To do
         </div>
         <hr>
-        <app-tasks-list [tasks]="filter('todo')" [projectId]="project.id" [nextState]="'inprogress'"></app-tasks-list>
       </div>
       <div class="col-md-4">
         <hr>
@@ -33,7 +37,6 @@
           In progress
         </div>
         <hr>
-        <app-tasks-list [tasks]="filter('inprogress')" [projectId]="project.id" [prevState]="'todo'" [nextState]="'done'"></app-tasks-list>
       </div>
       <div class="col-md-4">
         <hr>
@@ -41,7 +44,20 @@
           Done
         </div>
         <hr>
-        <app-tasks-list [tasks]="filter('done')" [projectId]="project.id" [prevState]="'inprogress'"></app-tasks-list>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 tasks-column">
+        <app-tasks-list [tasks]="filter('todo')"[projectId]="project.id" 
+          [nextState]="'inprogress'" [projectLabels]="projectLabels.labels"></app-tasks-list>
+      </div>
+      <div class="col-md-4 tasks-column">
+        <app-tasks-list [tasks]="filter('inprogress')" [projectId]="project.id"
+          [prevState]="'todo'" [nextState]="'done'"  [projectLabels]="projectLabels.labels"></app-tasks-list>
+      </div>
+      <div class="col-md-4 tasks-column">
+        <app-tasks-list [tasks]="filter('done')" [projectId]="project.id"
+          [prevState]="'inprogress'"  [projectLabels]="projectLabels.labels"></app-tasks-list>
       </div>
     </div>
     <div class="state-separator"></div>
@@ -52,7 +68,6 @@
           Backlog
         </div>
         <hr>
-        <app-tasks-list [tasks]="filter('backlog')" [currentState]="'backlog'" [projectId]="project.id"></app-tasks-list>
       </div>
       <div class="col-md-4">
         <hr>
@@ -60,7 +75,6 @@
           Archived
         </div>
         <hr>
-        <app-tasks-list [tasks]="filter('archived')" [currentState]="'archived'" [projectId]="project.id"></app-tasks-list>
       </div>
       <div class="col-md-4">
         <hr>
@@ -68,7 +82,20 @@
           Ignored
         </div>
         <hr>
-        <app-tasks-list [tasks]="filter('ignored')" [currentState]="'ignored'" [projectId]="project.id"></app-tasks-list>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 tasks-column">
+        <app-tasks-list [tasks]="filter('backlog')" [currentState]="'backlog'"
+          [projectId]="project.id"  [projectLabels]="projectLabels.labels"></app-tasks-list>
+      </div>
+      <div class="col-md-4 tasks-column">
+        <app-tasks-list [tasks]="filter('archived')" [currentState]="'archived'"
+        [projectId]="project.id"  [projectLabels]="projectLabels.labels"></app-tasks-list>
+      </div>
+      <div class="col-md-4 tasks-column">
+        <app-tasks-list [tasks]="filter('ignored')" [currentState]="'ignored'"
+        [projectId]="project.id" [projectLabels]="projectLabels.labels"></app-tasks-list>
       </div>
     </div>
   </div>

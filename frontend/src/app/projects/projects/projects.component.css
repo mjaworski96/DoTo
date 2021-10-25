@@ -1,7 +1,3 @@
-.projects-container {
-  width: 80%;
-  margin: 0 auto;
-}
 .pagination-container {
   margin-bottom: 10px;
 }
@@ -12,7 +8,7 @@
   border: 1px solid var(--project-border);
   padding: 10px;
   border-radius: 5px;
-  height: 200px;
+  height: 220px;
   overflow: hidden;
   cursor: pointer;
 }

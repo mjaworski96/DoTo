@@ -15,10 +15,10 @@ export class UsersService {
   get(page: number, size: number) {
     return this.httpClient.get<Page<User>>(`${this.usersUrl}?page=${page}&size=${size}`);
   }
-  changeRole(username: string, changes: RolesChanges): Observable<Roles> {
+  changeRole(userId: number, changes: RolesChanges): Observable<Roles> {
     return this.httpClient
       .patch<Roles>(
-        `${this.usersUrl}/${username}/${this.rolesPostfix}`,
+        `${this.usersUrl}/${userId}/${this.rolesPostfix}`,
         changes
       );
   }

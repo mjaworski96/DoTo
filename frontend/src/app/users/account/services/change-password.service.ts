@@ -10,9 +10,9 @@ export class ChangePasswordService {
 
   constructor(private httpClient: HttpClient) { }
 
-  changePassword(username: string, passwordChange: PasswordChange): Observable<any> {
+  changePassword(userId: number, passwordChange: PasswordChange): Observable<any> {
     return this.httpClient.post(
-      `/api/users/${username}/password`,
+      `/api/users/${userId}/password`,
       passwordChange
     );
   }

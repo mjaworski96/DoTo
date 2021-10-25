@@ -75,12 +75,12 @@ public class ProjectsRestController {
         projectService.delete(id, authorization);
         return ResponseEntity.noContent().build();
     }
-    @ApiOperation(value = "Update project with given id.",
+    @ApiOperation(value = "Update archived status for project with given id.",
             response = ProjectDtoWithId.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Not used."),
-            @ApiResponse(code = 204, message = "Project updated."),
-            @ApiResponse(code = 400, message = "Project data not valid."),
+            @ApiResponse(code = 204, message = "Project archived status updated."),
+            @ApiResponse(code = 400, message = "Project archived status not valid."),
             @ApiResponse(code = 401, message = "You are unauthorized"),
             @ApiResponse(code = 403, message = "You have no permissions to do it. You can edit only own projects"),
             @ApiResponse(code = 404, message = "Project not found."),

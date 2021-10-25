@@ -47,7 +47,7 @@ export class AccountEditComponent implements OnInit {
   }
   update(): void {
     this.userService.updateAccount(
-      this.user.username,
+      this.sessionStorageService.getUserId(),
       this.userForm.value
     ).toPromise().then((result: HttpResponse <User>) => {
       this.sessionStorageService.setSession(

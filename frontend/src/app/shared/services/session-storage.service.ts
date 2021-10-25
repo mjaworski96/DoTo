@@ -15,8 +15,8 @@ export class SessionStorageService {
   getUser(): User {
     return JSON.parse(localStorage.getItem('userData'));
   }
-  getUsername(): string {
-    return this.getUser().username;
+  getUserId(): number {
+    return this.getUser().id;
   }
   isUserLoggedIn(): boolean {
     return this.getUser() !== null;
@@ -29,7 +29,7 @@ export class SessionStorageService {
     localStorage.removeItem('userData');
   }
   hasRole(role: string): boolean {
-    if (!this.isUserLoggedIn()) {
+    if (!this.isUserLoggedIn() || !this.getUser().roles) {
       return false;
     }
     for (let i = 0; i < this.getUser().roles.length; i++) {

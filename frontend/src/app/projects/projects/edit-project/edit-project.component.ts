@@ -21,9 +21,10 @@ export class EditProjectComponent implements OnInit {
 
   editProjectForm: FormGroup;
 
-  minNameLength = GlobalVariables.minProjectNameLength;
   maxNameLength = GlobalVariables.maxProjectNameLength;
   maxDescriptionLength = GlobalVariables.maxProjectDescriptionLength;
+  textAreaRows = GlobalVariables.textAreaRows;
+  
   processing = false;
 
   constructor(private formBuilder: FormBuilder,
@@ -38,7 +39,6 @@ export class EditProjectComponent implements OnInit {
     this.editProjectForm = this.formBuilder.group({
       name: ['', [
         Validators.required,
-        Validators.minLength(this.minNameLength),
         Validators.maxLength(this.maxNameLength)
       ]],
       description: ['', [
@@ -62,9 +62,9 @@ export class EditProjectComponent implements OnInit {
   }
   add() {
     this.processing = true;
-    const username = this.sessionStorageService.getUsername();
+    const userId = this.sessionStorageService.getUserId();
     this.projectsService.create(
-      username,
+      userId,
       this.editProjectForm.value
     ).pipe(
         finalize( () => this.processing = false))

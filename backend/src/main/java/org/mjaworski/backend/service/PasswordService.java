@@ -7,7 +7,7 @@ import org.mjaworski.backend.exception.forbidden.WrongOldPasswordException;
 import org.mjaworski.backend.exception.not_found.UserNotFoundException;
 
 public interface PasswordService {
-    void changePassword(String username, PasswordChangeDto passwords, String token) throws UserNotFoundException, WrongOldPasswordException, InvalidPasswordException;
+    void changePassword(int userId, PasswordChangeDto passwords, String token) throws UserNotFoundException, WrongOldPasswordException, InvalidPasswordException;
     void validatePassword(String password) throws InvalidPasswordException;
     String encode(String password);
     void resetPassword(ResetPasswordDto resetPassword);

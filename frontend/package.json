@@ -8,7 +8,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "extract-i18n": "ng xi18n frontend --i18n-format xlf --output-path src/locale --i18n-locale en && ng run frontend:xliffmerge"
   },
   "private": true,
   "dependencies": {
@@ -21,8 +22,9 @@
     "@angular/platform-browser-dynamic": "^8.2.14",
     "@angular/router": "^8.2.14",
     "@ng-bootstrap/ng-bootstrap": "^5.1.5",
-    "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1",
+    "@ngx-i18nsupport/tooling": "^8.0.3",
+    "bootstrap": "^4.6.0",
+    "jquery": "^3.6.0",
     "ng-bootstrap": "^1.6.3",
     "ngx-spinner": "^8.1.0",
     "ngx-toastr": "^10.2.0",
@@ -35,6 +37,7 @@
     "@angular/cli": "^8.3.23",
     "@angular/compiler-cli": "^8.2.14",
     "@angular/language-service": "^8.2.14",
+    "@ngx-i18nsupport/ngx-i18nsupport": "^1.1.6",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "^2.0.8",
     "@types/node": "~8.9.4",

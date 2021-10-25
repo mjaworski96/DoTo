@@ -47,7 +47,7 @@ public class UserRestController {
                 = userService.addUser(userRegisterDetails, "USER");
         response.addHeader(TokenAuthentication.HEADER_NAME,
                 tokenAuthentication.buildToken(
-                        loginDetails.getUsername(),
+                        loginDetails.getId(),
                         tokenAuthentication.getAuthoritiesSeparatedByComaFromRoles(
                                 loginDetails.getRoles())
                 ));
@@ -65,20 +65,20 @@ public class UserRestController {
             @ApiResponse(code = 409, message = "User data not unique."),
             @ApiResponse(code = 500, message = "Unknown error.")
     })
-    @PutMapping("/{username}")
+    @PutMapping("/{id}")
     @PreAuthorize("hasRole('USER')")
     public ResponseEntity update(
-            @PathVariable("username") String username,
+            @PathVariable("id") int userId,
             @ApiParam(hidden = true) @RequestHeader(value = "Authorization", required = false) String authorization,
             @RequestBody UserUpdateDataDto userUpdateData,
             HttpServletResponse response) throws Exception {
         UserDto user =
-                userService.updateUser(username, userUpdateData, authorization);
+                userService.updateUser(userId, userUpdateData, authorization);
         response.addHeader(TokenAuthentication.HEADER_NAME,
                 tokenAuthentication.buildToken(
-                        user.getUsername(),
+                        user.getId(),
                         tokenAuthentication.getAuthoritiesSeparatedByComaFromRoles(
-                                roleService.getUserRoles(user.getUsername()).getRoles())
+                                roleService.getUserRoles(user.getId()).getRoles())
 
                 ));
         return ResponseEntity.ok(user);
@@ -107,12 +107,12 @@ public class UserRestController {
             @ApiResponse(code = 404, message = "User not found."),
             @ApiResponse(code = 500, message = "Unknown error.")
     })
-    @GetMapping("/{username}")
+    @GetMapping("/{id}")
     @PreAuthorize("hasRole('USER')")
     public ResponseEntity getUser(
-            @PathVariable("username") String username,
+            @PathVariable("id") int userId,
             @ApiParam(hidden = true) @RequestHeader(value = "Authorization", required = false) String authorization) throws Exception {
-        return ResponseEntity.ok(userService.getUser(username, authorization));
+        return ResponseEntity.ok(userService.getUser(userId, authorization));
     }
     @ApiOperation(value = "Deletes user")
     @ApiResponses(value = {
@@ -122,13 +122,13 @@ public class UserRestController {
             @ApiResponse(code = 403, message = "You haven't permissions."),
             @ApiResponse(code = 500, message = "Unknown error.")
     })
-    @DeleteMapping("/{username}")
+    @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('USER')")
     public ResponseEntity deleteUser(
-            @PathVariable("username") String username,
+            @PathVariable("id") int userId,
             @ApiParam(hidden = true) @RequestHeader(value = "Authorization", required = false) String authorization)
             throws Exception {
-        userService.deleteUser(username, authorization);
+        userService.deleteUser(userId, authorization);
         return ResponseEntity.noContent().build();
     }
 }

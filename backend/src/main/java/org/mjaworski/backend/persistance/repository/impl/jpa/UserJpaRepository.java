@@ -18,4 +18,6 @@ public interface UserJpaRepository extends JpaRepository<User, Integer> {
     int getCount();
 
     Optional<User> findByEmailIgnoreCase(String email);
+
+    Optional<User> findById(int id);
 }

@@ -13,7 +13,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/users/{username}/roles")
+@RequestMapping("/api/users/{id}/roles")
 @Api(value = "User roles management",
         produces = "application/json")
 public class UsersRolesRestController {
@@ -36,8 +36,8 @@ public class UsersRolesRestController {
     @PatchMapping()
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity updateRoles(
-            @PathVariable("username") String username,
+            @PathVariable("id") int userId,
             @RequestBody RolesChangesDto roles) throws Exception {
-        return ResponseEntity.ok(roleService.updateRoles(username, roles));
+        return ResponseEntity.ok(roleService.updateRoles(userId, roles));
     }
 }

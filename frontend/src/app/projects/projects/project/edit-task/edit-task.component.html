@@ -1,5 +1,9 @@
 <div>
   <form [formGroup]="editTaskForm">
+    <app-labels #labelsEdit
+                [availableLabels]="projectLabels"
+                [parentForm]="editTaskForm"
+                [currentlySelected]="getCurrentlySelectedLabels()"></app-labels>
     <div class="form-group">
       <input class="form-control" formControlName="shortDescription" placeholder="Short description"
              i18n-placeholder="Short description placeholder|Text in short description placeholder@@short-description">
@@ -10,11 +14,6 @@
             Short description is required.
           </span>
           <span class="badge badge-danger float-left"
-                i18n="Short description validation|Shown when short description is too short@@short-description-too-short-validation"
-                *ngIf="editTaskForm.get('shortDescription').hasError('minlength')">
-           Short description must contain at least {{minShortDescriptionLength}} characters.
-          </span>
-          <span class="badge badge-danger float-left"
                 i18n="Short description validation|Shown when short description is too long@@short-description-too-long-validation"
                 *ngIf="editTaskForm.get('shortDescription').hasError('maxlength')">
             Short description must contain a maximum of {{maxShortDescriptionLength}} characters.
@@ -22,8 +21,8 @@
         </span>
     </div>
     <div class="form-group">
-      <input class="form-control" formControlName="fullDescription" placeholder="Full description"
-             i18n-placeholder="Full description placeholder|Text in full description placeholder@@full-description">
+      <textarea class="form-control" formControlName="fullDescription" placeholder="Full description" [rows]="textAreaRows"
+             i18n-placeholder="Full description placeholder|Text in full description placeholder@@full-description"></textarea>
       <span *ngIf="editTaskForm.get('fullDescription').touched">
           <span class="badge badge-danger float-left"
                 i18n="Full description validation|Shown when description is too long@@full-description-too-long-validation"
@@ -33,7 +32,7 @@
         </span>
     </div>
     <div class="form-check">
-      <button class="btn btn-primary float-right" [disabled]="editTaskForm.invalid || processing" type="submit"
+      <button class="btn btn-primary float-right default-button-width" [disabled]="editTaskForm.invalid || processing" type="submit"
               (click)="edit()">
         <span *ngIf="!task" i18n="Add task button|Text in add task button@@add-task">
           Add task

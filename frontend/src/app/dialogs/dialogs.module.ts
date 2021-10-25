@@ -8,6 +8,8 @@ import { ModifyProjectDialogComponent } from './modify-project-dialog/modify-pro
 import {ProjectsModule} from '../projects/projects.module';
 import { ModifyTaskDialogComponent } from './modify-task-dialog/modify-task-dialog.component';
 import { ModifyCommentDialogComponent } from './modify-comment-dialog/modify-comment-dialog.component';
+import { DeleteLabelDialogComponent } from './delete-label-dialog/delete-label-dialog.component';
+import { ModifyLabelDialogComponent } from './modify-label-dialog/modify-label-dialog.component';
 
 
 
@@ -19,7 +21,9 @@ import { ModifyCommentDialogComponent } from './modify-comment-dialog/modify-com
     DeleteCommentDialogComponent,
     ModifyProjectDialogComponent,
     ModifyTaskDialogComponent,
-    ModifyCommentDialogComponent
+    ModifyCommentDialogComponent,
+    DeleteLabelDialogComponent,
+    ModifyLabelDialogComponent
   ],
   imports: [
     CommonModule,

@@ -16,7 +16,8 @@
   margin-top: 100px;
   margin-bottom: 50px;
 }
-.modify-project-container {
+.modify-project-container,
+.show-labels-container {
   margin-bottom: 20px;
 }
 .state-separator {
@@ -28,4 +29,8 @@
 }
 .change-state-btn {
   width: 200px;
+}
+.tasks-column {
+  max-height: 1000px; 
+  overflow-x: auto;
 }

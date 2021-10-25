@@ -16,7 +16,12 @@ export class ModifyProjectDialogComponent implements OnInit {
 
   ngOnInit() {
   }
+
   closeWindow(project: ProjectWithId) {
     this.activeModal.close(project);
+  }
+
+  dismiss() {
+    this.activeModal.dismiss();
   }
 }

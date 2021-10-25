@@ -38,8 +38,8 @@ public class RoleServiceImpl implements RoleService {
         return role;
     }
     @Override
-    public RolesDto getUserRoles(String username) throws UserNotFoundException {
-        User user = userRepository.getByUsername(username)
+    public RolesDto getUserRoles(int userId) throws UserNotFoundException {
+        User user = userRepository.getById(userId)
                 .orElseThrow(UserNotFoundException::new);
         return RoleConverter.getRolesDto(user.getRoles());
     }
@@ -54,8 +54,8 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public RolesDto updateRoles(String username, RolesChangesDto roles) throws UserNotFoundException, RoleNotFoundException {
-        User user = userRepository.getByUsername(username)
+    public RolesDto updateRoles(int userId, RolesChangesDto roles) throws UserNotFoundException, RoleNotFoundException {
+        User user = userRepository.getById(userId)
                 .orElseThrow(UserNotFoundException::new);
         for (int i = 0; i < roles.getRoles().size(); i++) {
             RoleChangeDto role = roles.getRoles().get(i);

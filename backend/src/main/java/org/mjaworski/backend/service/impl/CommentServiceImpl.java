@@ -51,7 +51,7 @@ public class CommentServiceImpl implements CommentService {
     public CommentDtoWithIdList getAll(int taskId, String token) throws ForbiddenException, TaskNotFoundException {
         Task task = getTask(taskId);
         checkOwner(task, token);
-        List<CommentDtoWithId> comments = CommentConverter.getTaskDtoWithIdList(task.getComments());
+        List<CommentDtoWithId> comments = CommentConverter.getCommentDtoWithIdList(task.getComments());
         return CommentDtoWithIdList.builder()
                 .comments(comments)
                 .build();
@@ -62,7 +62,7 @@ public class CommentServiceImpl implements CommentService {
         validate(commentDto);
         Task task = getTask(taskId);
         checkOwner(task, token);
-        Comment comment = CommentConverter.getTask(commentDto);
+        Comment comment = CommentConverter.getComment(commentDto);
         comment.setTask(task);
         commentRepository.save(comment);
         return CommentConverter.getCommentDtoWithId(comment);
@@ -100,7 +100,7 @@ public class CommentServiceImpl implements CommentService {
                 .orElseThrow(CommentNotFoundException::new);
     }
     private void checkOwner(Task task, String token) throws ForbiddenException {
-        if(!tokenAuthentication.checkUser(task.getProject().getOwner().getUsername(), token))
+        if(!tokenAuthentication.checkUser(task.getProject().getOwner().getId(), token))
             throw new ForbiddenException();
     }
 

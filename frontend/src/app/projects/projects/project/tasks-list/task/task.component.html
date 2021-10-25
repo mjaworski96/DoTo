@@ -1,19 +1,23 @@
 <div class="dialog-container">
   <div class="task-description-container">
     <div class="task-short-description">
-      {{task.shortDescription}}
+      {{this.getTaskName()}}
+      <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
     <hr>
-    <div>
+    <div class="break-long-word">
       {{task.fullDescription}}
     </div>
   </div>
   <div class="form-check float-right buttons-container">
-    <button class="btn btn-primary" (click)="modify()" type="button"
+    <button class="btn btn-primary nested-button-width float-left" (click)="modify()" type="button"
             i18n="Modify task|Modify task button@@modify-task">Modify task</button>
 
-    <button class="btn btn-danger delete-task-btn" (click)="delete()" type="button"
+    <button class="btn btn-danger delete-task-btn nested-button-width float-left" (click)="delete()" type="button"
             i18n="Delete task|Delete task button@@delete-task">Delete task</button>
+    <div class="clearfix"></div>
   </div>
   <div class="clearfix"></div>
   <div>

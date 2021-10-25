@@ -29,29 +29,20 @@
         <note priority="1" from="description">Archived projects redirect</note>
         <note priority="1" from="meaning">Archived projects</note>
       </trans-unit>
-      <trans-unit id="36b935d15b80d0f5d6b1c88111b93943cb2f01fb" datatype="html">
-        <source>My account</source>
+      <trans-unit id="users-list-redirect" datatype="html">
+        <source>Users</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/header/header.component.html</context>
           <context context-type="linenumber">21</context>
         </context-group>
-        <note priority="1" from="description">My account redirect@my-account-redirect</note>
-        <note priority="1" from="meaning">My Account</note>
-      </trans-unit>
-      <trans-unit id="141c3b897e12c516909e87d9e479ea4fc428b6d1" datatype="html">
-        <source>Users</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/header/header.component.html</context>
-          <context context-type="linenumber">23</context>
-        </context-group>
-        <note priority="1" from="description">Users list@users-list-redirect</note>
+        <note priority="1" from="description">Users list</note>
         <note priority="1" from="meaning">Users</note>
       </trans-unit>
       <trans-unit id="log-in-redirect" datatype="html">
         <source>Log in</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/header/header.component.html</context>
-          <context context-type="linenumber">30</context>
+          <context context-type="linenumber">28</context>
         </context-group>
         <note priority="1" from="description">Log in redirect</note>
         <note priority="1" from="meaning">Log in</note>
@@ -60,10 +51,19 @@
         <source>Register</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/header/header.component.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">31</context>
         </context-group>
         <note priority="1" from="description">Register redirect</note>
         <note priority="1" from="meaning">Register</note>
+      </trans-unit>
+      <trans-unit id="my-account-redirect" datatype="html">
+        <source>My account</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/header/header.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <note priority="1" from="description">My account redirect</note>
+        <note priority="1" from="meaning">My Account</note>
       </trans-unit>
       <trans-unit id="logout-button" datatype="html">
         <source>Logout</source>
@@ -80,6 +80,14 @@
           <context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context>
           <context context-type="linenumber">4</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/label-list/edit-label/edit-label.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/label-list/label-list.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
         <note priority="1" from="description">Text in name placeholder</note>
         <note priority="1" from="meaning">Name placeholder</note>
       </trans-unit>
@@ -91,18 +99,11 @@
           <context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
-        <note priority="1" from="description">Shown when name is empty</note>
-        <note priority="1" from="meaning">Name validation</note>
-      </trans-unit>
-      <trans-unit id="name-too-short-validation" datatype="html">
-        <source>
-           Name must contain at least <x id="INTERPOLATION" equiv-text="{{minNameLength}}"/> characters.
-          </source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="sourcefile">src/app/projects/projects/project/label-list/edit-label/edit-label.component.html</context>
+          <context context-type="linenumber">9</context>
         </context-group>
-        <note priority="1" from="description">Shown when name is too short</note>
+        <note priority="1" from="description">Shown when name is empty</note>
         <note priority="1" from="meaning">Name validation</note>
       </trans-unit>
       <trans-unit id="name-too-long-validation" datatype="html">
@@ -111,7 +112,11 @@
           </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/label-list/edit-label/edit-label.component.html</context>
+          <context context-type="linenumber">14</context>
         </context-group>
         <note priority="1" from="description">Shown when name is too long</note>
         <note priority="1" from="meaning">Name validation</note>
@@ -120,7 +125,7 @@
         <source>Description</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">20</context>
         </context-group>
         <note priority="1" from="description">Text in description placeholder</note>
         <note priority="1" from="meaning">Description placeholder</note>
@@ -131,7 +136,7 @@
           </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context>
-          <context context-type="linenumber">30</context>
+          <context context-type="linenumber">25</context>
         </context-group>
         <note priority="1" from="description">Shown when description is too long</note>
         <note priority="1" from="meaning">Description validation</note>
@@ -142,7 +147,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">33</context>
         </context-group>
         <note priority="1" from="description">Text in add project button</note>
         <note priority="1" from="meaning">Add project button</note>
@@ -153,7 +158,11 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/edit-project/edit-project.component.html</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/modify-project-dialog/modify-project-dialog.component.html</context>
+          <context context-type="linenumber">3</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
@@ -166,7 +175,7 @@
         <source>Short description</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context>
-          <context context-type="linenumber">4</context>
+          <context context-type="linenumber">8</context>
         </context-group>
         <note priority="1" from="description">Text in short description placeholder</note>
         <note priority="1" from="meaning">Short description placeholder</note>
@@ -177,20 +186,9 @@
           </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context>
-          <context context-type="linenumber">9</context>
+          <context context-type="linenumber">13</context>
         </context-group>
         <note priority="1" from="description">Shown when short description is empty</note>
-        <note priority="1" from="meaning">Short description validation</note>
-      </trans-unit>
-      <trans-unit id="short-description-too-short-validation" datatype="html">
-        <source>
-           Short description must contain at least <x id="INTERPOLATION" equiv-text="{{minShortDescriptionLength}}"/> characters.
-          </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context>
-          <context context-type="linenumber">14</context>
-        </context-group>
-        <note priority="1" from="description">Shown when short description is too short</note>
         <note priority="1" from="meaning">Short description validation</note>
       </trans-unit>
       <trans-unit id="short-description-too-long-validation" datatype="html">
@@ -199,7 +197,7 @@
           </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">18</context>
         </context-group>
         <note priority="1" from="description">Shown when short description is too long</note>
         <note priority="1" from="meaning">Short description validation</note>
@@ -208,7 +206,7 @@
         <source>Full description</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">24</context>
         </context-group>
         <note priority="1" from="description">Text in full description placeholder</note>
         <note priority="1" from="meaning">Full description placeholder</note>
@@ -219,7 +217,7 @@
           </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context>
-          <context context-type="linenumber">30</context>
+          <context context-type="linenumber">29</context>
         </context-group>
         <note priority="1" from="description">Shown when description is too long</note>
         <note priority="1" from="meaning">Full description validation</note>
@@ -230,7 +228,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">37</context>
         </context-group>
         <note priority="1" from="description">Text in add task button</note>
         <note priority="1" from="meaning">Add task button</note>
@@ -241,11 +239,15 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/edit-task/edit-task.component.html</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/modify-task-dialog/modify-task-dialog.component.html</context>
+          <context context-type="linenumber">3</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/task.component.html</context>
-          <context context-type="linenumber">13</context>
+          <context context-type="linenumber">16</context>
         </context-group>
         <note priority="1" from="description">Text in modify task button</note>
         <note priority="1" from="meaning">Modify task button</note>
@@ -270,24 +272,13 @@
         <note priority="1" from="description">Shown when comment is empty</note>
         <note priority="1" from="meaning">Comment validation</note>
       </trans-unit>
-      <trans-unit id="comment-too-short-validation" datatype="html">
-        <source>
-           Comment must contain at least <x id="INTERPOLATION" equiv-text="{{minContentLength}}"/> characters.
-          </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/comments-list/edit-comment/edit-comment.component.html</context>
-          <context context-type="linenumber">14</context>
-        </context-group>
-        <note priority="1" from="description">Shown when comment is too short</note>
-        <note priority="1" from="meaning">Comment validation</note>
-      </trans-unit>
       <trans-unit id="comment-too-long-validation" datatype="html">
         <source>
             Comment must contain a maximum of <x id="INTERPOLATION" equiv-text="{{maxContentLength}}"/> characters.
           </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/comments-list/edit-comment/edit-comment.component.html</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">14</context>
         </context-group>
         <note priority="1" from="description">Shown when comment is too long</note>
         <note priority="1" from="meaning">Comment validation</note>
@@ -298,7 +289,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/comments-list/edit-comment/edit-comment.component.html</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">22</context>
         </context-group>
         <note priority="1" from="description">Text in add comment button</note>
         <note priority="1" from="meaning">Add comment button</note>
@@ -309,7 +300,11 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/comments-list/edit-comment/edit-comment.component.html</context>
-          <context context-type="linenumber">30</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/modify-comment-dialog/modify-comment-dialog.component.html</context>
+          <context context-type="linenumber">3</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/comments-list/comments-list.component.html</context>
@@ -551,6 +546,41 @@
           <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="add-label" datatype="html">
+        <source>
+            Add label
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/label-list/edit-label/edit-label.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <note priority="1" from="description">Text in add label button</note>
+        <note priority="1" from="meaning">Add label button</note>
+      </trans-unit>
+      <trans-unit id="modify-label" datatype="html">
+        <source>
+            Modify label
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/label-list/edit-label/edit-label.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/modify-label-dialog/modify-label-dialog.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Text in modify label button</note>
+        <note priority="1" from="meaning">Modify label button</note>
+      </trans-unit>
+      <trans-unit id="app-title" datatype="html">
+        <source>DoTo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">App title</note>
+        <note priority="1" from="meaning">App title</note>
+      </trans-unit>
       <trans-unit id="main-page" datatype="html">
         <source>DoTo - Your ToDo application</source>
         <context-group purpose="location">
@@ -559,6 +589,41 @@
         </context-group>
         <note priority="1" from="description">Main page text</note>
         <note priority="1" from="meaning">Main page</note>
+      </trans-unit>
+      <trans-unit id="current-tasks" datatype="html">
+        <source>Current tasks</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main-page/active-tasks/active-tasks.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description">Current tasks</note>
+        <note priority="1" from="meaning">Current tasks</note>
+      </trans-unit>
+      <trans-unit id="inprogress" datatype="html">
+        <source>In progress</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main-page/active-tasks/active-tasks.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <note priority="1" from="description">In progress status</note>
+        <note priority="1" from="meaning">In progress</note>
+      </trans-unit>
+      <trans-unit id="todo" datatype="html">
+        <source>To do</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main-page/active-tasks/active-tasks.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <note priority="1" from="description">To do status</note>
+        <note priority="1" from="meaning">To do</note>
       </trans-unit>
       <trans-unit id="username" datatype="html">
         <source>Username</source>
@@ -738,7 +803,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="linenumber">33</context>
         </context-group>
         <note priority="1" from="description">Shown when password is empty</note>
         <note priority="1" from="meaning">Password validation</note>
@@ -803,7 +868,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">61</context>
         </context-group>
         <note priority="1" from="description">Shown when passwords do not match</note>
         <note priority="1" from="meaning">Confirm password validation</note>
@@ -852,7 +917,7 @@
       </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/authentication/login/reset-password/reset-password.component.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">32</context>
         </context-group>
         <note priority="1" from="description">Shown after password reset request was sent</note>
         <note priority="1" from="meaning">Reset password sent</note>
@@ -879,7 +944,7 @@
         <source>Old password</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
-          <context context-type="linenumber">4</context>
+          <context context-type="linenumber">5</context>
         </context-group>
         <note priority="1" from="description">Text in old password placeholder</note>
         <note priority="1" from="meaning">Old password placeholder</note>
@@ -890,7 +955,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
-          <context context-type="linenumber">10</context>
+          <context context-type="linenumber">11</context>
         </context-group>
         <note priority="1" from="description">Shown when password is empty</note>
         <note priority="1" from="meaning">Password validation</note>
@@ -901,7 +966,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">16</context>
         </context-group>
         <note priority="1" from="description">Shown when password is too short</note>
         <note priority="1" from="meaning">Password validation</note>
@@ -912,7 +977,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="linenumber">21</context>
         </context-group>
         <note priority="1" from="description">Shown when password is too long</note>
         <note priority="1" from="meaning">Password validation</note>
@@ -921,7 +986,7 @@
         <source>New password</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
-          <context context-type="linenumber">26</context>
+          <context context-type="linenumber">27</context>
         </context-group>
         <note priority="1" from="description">Text in new password placeholder</note>
         <note priority="1" from="meaning">New password placeholder</note>
@@ -932,7 +997,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">38</context>
         </context-group>
         <note priority="1" from="description">Shown when password is too short</note>
         <note priority="1" from="meaning">Password validation</note>
@@ -943,7 +1008,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
-          <context context-type="linenumber">42</context>
+          <context context-type="linenumber">43</context>
         </context-group>
         <note priority="1" from="description">Shown when password is too long</note>
         <note priority="1" from="meaning">Password validation</note>
@@ -952,7 +1017,7 @@
         <source>Confirm new password</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
-          <context context-type="linenumber">49</context>
+          <context context-type="linenumber">50</context>
         </context-group>
         <note priority="1" from="description">Text in confirm new password placeholder</note>
         <note priority="1" from="meaning">Confirm new password placeholder</note>
@@ -963,7 +1028,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
-          <context context-type="linenumber">55</context>
+          <context context-type="linenumber">56</context>
         </context-group>
         <note priority="1" from="description">Shown when new password is empty</note>
         <note priority="1" from="meaning">Confirm new password validation</note>
@@ -973,7 +1038,7 @@
         Change password</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
-          <context context-type="linenumber">69</context>
+          <context context-type="linenumber">70</context>
         </context-group>
         <note priority="1" from="description"> Text in change password button</note>
         <note priority="1" from="meaning">Change password button</note>
@@ -982,7 +1047,7 @@
         <source>Password changed</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/account/account/password-change/password-change.component.html</context>
-          <context context-type="linenumber">76</context>
+          <context context-type="linenumber">77</context>
         </context-group>
         <note priority="1" from="description">Password changed message</note>
         <note priority="1" from="meaning">Password changed</note>
@@ -1009,6 +1074,10 @@
           <context context-type="linenumber">9</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/delete-label-dialog/delete-label-dialog.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/dialogs/delete-task-dialog/delete-task-dialog.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
@@ -1030,6 +1099,10 @@
           <context context-type="linenumber">14</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/delete-label-dialog/delete-label-dialog.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/dialogs/delete-task-dialog/delete-task-dialog.component.html</context>
           <context context-type="linenumber">14</context>
         </context-group>
@@ -1048,6 +1121,10 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/dialogs/delete-project-dialog/delete-project-dialog.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialogs/delete-label-dialog/delete-label-dialog.component.html</context>
           <context context-type="linenumber">16</context>
         </context-group>
         <context-group purpose="location">
@@ -1090,27 +1167,58 @@
         <note priority="1" from="description">Delete project dialog button text</note>
         <note priority="1" from="meaning">Delete project dialog title</note>
       </trans-unit>
-      <trans-unit id="todo" datatype="html">
-        <source>
-          To do
-        </source>
+      <trans-unit id="delete-label-dialog-title" datatype="html">
+        <source>Delete label</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
+          <context context-type="sourcefile">src/app/dialogs/delete-label-dialog/delete-label-dialog.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Delete label dialog button text</note>
+        <note priority="1" from="meaning">Delete label dialog title</note>
+      </trans-unit>
+      <trans-unit id="labels" datatype="html">
+        <source>Labels</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/label-list/label-list.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Labels dialog title</note>
+        <note priority="1" from="meaning">Labels dialog</note>
+      </trans-unit>
+      <trans-unit id="edit" datatype="html">
+        <source>Edit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/label-list/label-list.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/label-list/label-list.component.html</context>
           <context context-type="linenumber">24</context>
         </context-group>
-        <note priority="1" from="description">To do status</note>
-        <note priority="1" from="meaning">To do</note>
+        <note priority="1" from="description">Edit</note>
+        <note priority="1" from="meaning">Edit</note>
       </trans-unit>
-      <trans-unit id="inprogress" datatype="html">
-        <source>
-          In progress
-        </source>
+      <trans-unit id="delete" datatype="html">
+        <source>Delete</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/label-list/label-list.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/projects/projects/project/label-list/label-list.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <note priority="1" from="description">Delete</note>
+        <note priority="1" from="meaning">Delete</note>
+      </trans-unit>
+      <trans-unit id="show-labels" datatype="html">
+        <source>Show labels</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="linenumber">18</context>
         </context-group>
-        <note priority="1" from="description">In progress status</note>
-        <note priority="1" from="meaning">In progress</note>
+        <note priority="1" from="description">Show labels button</note>
+        <note priority="1" from="meaning">Show labels</note>
       </trans-unit>
       <trans-unit id="done" datatype="html">
         <source>
@@ -1118,7 +1226,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">43</context>
         </context-group>
         <note priority="1" from="description">Done status</note>
         <note priority="1" from="meaning">Done</note>
@@ -1129,7 +1237,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
-          <context context-type="linenumber">51</context>
+          <context context-type="linenumber">67</context>
         </context-group>
         <note priority="1" from="description">Backlog status</note>
         <note priority="1" from="meaning">Backlog</note>
@@ -1140,7 +1248,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">74</context>
         </context-group>
         <note priority="1" from="description">Archived status</note>
         <note priority="1" from="meaning">Archived</note>
@@ -1151,7 +1259,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
-          <context context-type="linenumber">67</context>
+          <context context-type="linenumber">81</context>
         </context-group>
         <note priority="1" from="description">Ignored status</note>
         <note priority="1" from="meaning">Ignored</note>
@@ -1160,7 +1268,7 @@
         <source>Delete project</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
-          <context context-type="linenumber">77</context>
+          <context context-type="linenumber">104</context>
         </context-group>
         <note priority="1" from="description">Delete project button</note>
         <note priority="1" from="meaning">Delete project</note>
@@ -1171,7 +1279,7 @@
       </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
-          <context context-type="linenumber">81</context>
+          <context context-type="linenumber">108</context>
         </context-group>
         <note priority="1" from="description">Archive project button</note>
         <note priority="1" from="meaning">Archive project</note>
@@ -1182,7 +1290,7 @@
       </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/project.component.html</context>
-          <context context-type="linenumber">84</context>
+          <context context-type="linenumber">111</context>
         </context-group>
         <note priority="1" from="description">Activate project button</note>
         <note priority="1" from="meaning">Activate project</note>
@@ -1191,7 +1299,7 @@
         <source>Delete task</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/projects/projects/project/tasks-list/task/task.component.html</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">19</context>
         </context-group>
         <note priority="1" from="description">Delete task button</note>
         <note priority="1" from="meaning">Delete task</note>

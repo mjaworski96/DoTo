@@ -7,4 +7,12 @@
     <configuration>
         <date-format>MM/dd/yyyy HH:mm</date-format>
     </configuration>
+    <mapping>
+        <class-a>org.mjaworski.backend.persistance.entity.Task</class-a>
+        <class-b>org.mjaworski.backend.dto.task.TaskDto</class-b>
+        <field-exclude>
+            <a>labels</a>
+            <b>labels</b>
+        </field-exclude>
+    </mapping>
 </mappings>

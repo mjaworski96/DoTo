@@ -9,7 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/users/{username}/password")
+@RequestMapping("/api/users/{id}/password")
 @Api(value = "User password management",
         produces = "application/json")
 public class UsersPasswordRestController {
@@ -32,11 +32,11 @@ public class UsersPasswordRestController {
     @PostMapping()
     @PreAuthorize("hasRole('USER')")
     public ResponseEntity resetPassword(
-            @PathVariable("username") String username,
+            @PathVariable("id") int userId,
             @RequestBody PasswordChangeDto passwordChange,
             @ApiParam(hidden = true) @RequestHeader(value = "Authorization", required = false) String authorization)
             throws Exception {
-        passwordService.changePassword(username, passwordChange, authorization);
+        passwordService.changePassword(userId, passwordChange, authorization);
         return ResponseEntity.noContent().build();
     }
 }

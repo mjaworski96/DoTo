@@ -1,4 +1,4 @@
-<div class="tasks-list-container">
+<div>
   <div *ngFor="let task of tasks;">
     <div class="task-wrapper">
       <div class="row">
@@ -7,10 +7,10 @@
                   class="btn btn-primary state-change-btn-height"
                   (click)="updateState(task, prevState)"><</button>
         </div>
-        <div class="col-md-8 task-short-description break-long-word" (click)="openTask(task)">
-          {{task.shortDescription}}
+        <div class="col-md-8 task-short-description break-long-word" title="{{task.fullDescription}}" (click)="openTask(task)">
+          {{getTaskName(task)}}
         </div>
-        <div class="col-md-2" >
+        <div class="col-md-2">
           <button *ngIf="nextState"
                   class="btn btn-primary float-right state-change-btn-height"
                   (click)="updateState(task, nextState)">></button>
@@ -25,13 +25,13 @@
                   (click)="updateState(task, 'backlog')">Backlog</button>
         </div>
         <div class="col-md-4">
-          <button *ngIf="!currentState || currentState != 'archived'  else todoButton"
+          <button *ngIf="!currentState || currentState != 'archived' else todoButton"
                   class="btn btn-secondary state-change-btn-width"
                   i18n="Archive button|Set project status to archived@@archive-button"
                   (click)="updateState(task, 'archived')">Archive</button>
         </div>
         <div class="col-md-4">
-          <button *ngIf="!currentState || currentState != 'ignored'  else todoButton"
+          <button *ngIf="!currentState || currentState != 'ignored' else todoButton"
                   class="btn btn-warning state-change-btn-width"
                   i18n="Ignore button|Set project status to ignored@@ignore-button"
                   (click)="updateState(task, 'ignored')">Ignore</button>

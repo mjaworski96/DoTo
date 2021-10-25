@@ -1,10 +1,11 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {TaskWithId} from '../../../../models/task';
 import {TasksService} from '../../../services/tasks.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {TaskComponent} from './task/task.component';
-import {Router} from "@angular/router";
 import {CommentsService} from "../../../services/comments.service";
+import { LabelWithId } from 'src/app/models/label';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tasks-list',
@@ -27,13 +28,26 @@ export class TasksListComponent implements OnInit {
   @Input()
   projectId: number;
 
+  @Input()
+  projectLabels: LabelWithId[];
+
   constructor(private tasksService: TasksService,
               private modalService: NgbModal,
-              private commentsService: CommentsService) { }
+              private commentsService: CommentsService,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.openTaskFromRoute();
   }
-
+  openTaskFromRoute() {
+    const task = +this.route.snapshot.queryParams.task;
+    if (task) {
+      const taskFromList = this.tasks.find(x => x.id === task);
+      if (taskFromList) {
+        this.openTask(taskFromList);
+      }
+    }
+  }
   updateState(task: TaskWithId, state: string) {
     this.tasksService.updateState(task, {
       name: state
@@ -51,6 +65,16 @@ export class TasksListComponent implements OnInit {
         });
         modalRef.componentInstance.task = task;
         modalRef.componentInstance.comments = result;
+        modalRef.componentInstance.projectLabels = this.projectLabels;
       });
+  }
+  getTaskName(task) {
+    let labels = '';
+    task.labels
+      .forEach(x => {
+        labels = `${labels}[${x.name}]`;
+      });
+    
+    return `${labels}${task.shortDescription}`;
   }
 }

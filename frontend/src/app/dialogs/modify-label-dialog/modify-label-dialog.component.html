@@ -1,0 +1,10 @@
+<div class="modal-header">
+    <h4 i18n="Modify label button|Text in modify label button@@modify-label"     
+      class="modal-title">Modify label</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="dialog-container">
+    <app-edit-label [label]="label" (newLabel)="closeWindow($event)"></app-edit-label>
+</div>

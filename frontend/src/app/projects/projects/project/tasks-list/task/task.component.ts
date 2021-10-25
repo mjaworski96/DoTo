@@ -6,6 +6,7 @@ import {TasksService} from '../../../../services/tasks.service';
 import {Router} from '@angular/router';
 import {ModifyTaskDialogComponent} from '../../../../../dialogs/modify-task-dialog/modify-task-dialog.component';
 import {Comments} from '../../../../../models/comment';
+import { LabelWithId } from 'src/app/models/label';
 
 @Component({
   selector: 'app-task',
@@ -17,7 +18,9 @@ export class TaskComponent implements OnInit {
   task: TaskWithId;
   @Input()
   comments: Comments;
-
+  @Input()
+  projectLabels: LabelWithId[];
+  
   constructor(private activeModal: NgbActiveModal,
               private modalService: NgbModal,
               private tasksService: TasksService,
@@ -47,13 +50,28 @@ export class TaskComponent implements OnInit {
       size: 'xl'
     });
     modalRef.componentInstance.task = this.task;
+    modalRef.componentInstance.projectLabels = this.projectLabels;
     modalRef.result.then(modifiedTask => {
       if (modifiedTask !== undefined) {
         this.task.shortDescription = modifiedTask.shortDescription;
         this.task.fullDescription = modifiedTask.fullDescription;
+        this.task.labels = modifiedTask.labels;
       }
     }).catch(error => {
       // prevent error in console
     });
+  }
+  getTaskName() {
+    let labels = '';
+    this.task.labels
+      .forEach(x => {
+        labels = `${labels}[${x.name}]`;
+      });
+    
+    return `${labels}${this.task.shortDescription}`;
+  }
+
+  dismiss() {
+    this.activeModal.dismiss();
   }
 }

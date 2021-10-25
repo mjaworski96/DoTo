@@ -20,11 +20,11 @@ class TokenAuthenticationUtils {
                 .parseClaimsJws(token.replace(TokenAuthentication.TOKEN_PREFIX, ""))
                 .getBody();
     }
-    String getUsername(Claims claims) {
-        return claims.getSubject();
+    int getId(Claims claims) {
+        return Integer.parseInt(claims.getSubject());
     }
-    String getUsername(String token) {
-        return getUsername(getClaims(token));
+    int getId(String token) {
+        return getId(getClaims(token));
     }
     String getAuthoritiesSeparatedByComa(Collection<? extends GrantedAuthority> grantedAuthorities) {
         String notSeparated = grantedAuthorities.toString();

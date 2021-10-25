@@ -37,7 +37,7 @@ export class UsersComponent implements OnInit {
       operation = 'add';
     }
     this.usersService.changeRole(
-      user.username, {
+      user.id, {
         roles: [
           {
             roleName,

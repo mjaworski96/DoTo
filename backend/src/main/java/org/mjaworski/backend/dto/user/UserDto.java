@@ -10,6 +10,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 public class UserDto {
+    private int id;
     private String username;
     private String email;
     private List<RoleDto> roles;

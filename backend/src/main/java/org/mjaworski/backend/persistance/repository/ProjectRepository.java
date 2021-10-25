@@ -8,8 +8,8 @@ import java.util.Optional;
 
 public interface ProjectRepository {
     Optional<Project> get(int id);
-    List<Project> get(String username, boolean archived, Pageable pageable);
-    int getCount(String username);
+    List<Project> get(int userId, boolean archived, Pageable pageable);
+    int getCount(int userId, boolean archived);
     void save(Project project);
     void delete(Project project);
 }

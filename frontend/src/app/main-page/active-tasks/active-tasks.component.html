@@ -1,0 +1,11 @@
+<div *ngIf="tasks">
+    <h1 class="title" i18n="Current tasks|Current tasks@@current-tasks">Current tasks</h1>
+    <div>
+        <h2 class="state-name" i18n="In progress|In progress status@@inprogress">In progress</h2>
+        <app-active-tasks-list [tasks]="tasks.inProgress"></app-active-tasks-list>
+    </div>
+    <div>
+        <h2 class="state-name" i18n="To do|To do status@@todo">To do</h2>
+        <app-active-tasks-list [tasks]="tasks.inProgress"></app-active-tasks-list>
+    </div>
+</div>
