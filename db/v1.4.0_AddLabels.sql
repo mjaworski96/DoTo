@@ -1,4 +1,4 @@
---TABLE roles
+--TABLE labels
 CREATE TABLE labels (
     id INTEGER NOT NULL,
     name CHARACTER VARYING(50) NOT NULL,
