@@ -82,8 +82,8 @@ public class TaskServiceImpl implements TaskService {
         List<Task> inProgressTasks = taskRepository.getAllInProgress(userId);
 
         return ActiveTaskDtoList.builder()
-                .toDo(TaskConverter.getToDoTaskDtoList(inProgressTasks))
-                .inProgress(TaskConverter.getToDoTaskDtoList(toDoTasks))
+                .toDo(TaskConverter.getToDoTaskDtoList(toDoTasks))
+                .inProgress(TaskConverter.getToDoTaskDtoList(inProgressTasks))
                 .build();
     }
 
